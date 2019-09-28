@@ -2,6 +2,7 @@
 尊敬的开发者朋友，欢迎您使用ADCDN广告sdk平台。通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
 # 2.兼容和版本号
 iOS9.0及以上，版本号：1.0.0。
+注：ADCDN.framework是真机包，请在真机下做测试。
 # 3.ADCDN_SDK的接入流程
 ## 3.1 添加sdk到工程
 接入环境：Xcode 可以复制ADCDN_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。
