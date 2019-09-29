@@ -7,6 +7,7 @@ iOS9.0及以上，版本号：1.0.0。
 ## 3.1 添加sdk到工程
 接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。
 (1)Xcode11最新版本需要在 项目->General->Frameworks,Libraries,and Embedded Content->点击➕，添加 ADCDN.framework->选择右边的Embed & Sign
+(如图)[https://github.com/pengshuangta/images/blob/master/ADCDN01.png]
 ## 3.2 权限申请
 ### 3.2.1 SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 App Store 审核被拒：
 ```
