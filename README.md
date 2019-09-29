@@ -5,7 +5,8 @@ iOS9.0及以上，版本号：1.0.0。
 注：ADCDN.framework是真机包，请在真机下做测试。
 # 3.ADCDN_SDK的接入流程
 ## 3.1 添加sdk到工程
-接入环境：Xcode 可以复制ADCDN_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。
+接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。
+(1)Xcode11最新版本需要在 项目->General->Frameworks,Libraries,and Embedded Content->点击➕，添加 ADCDN.framework->选择右边的Embed & Sign
 ## 3.2 权限申请
 ### 3.2.1 SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 App Store 审核被拒：
 ```
@@ -23,7 +24,7 @@ Privacy - Location Usage Description
          <true/>
     </dict>
 ```
-## 3.3 配置其他广告平台依赖库
+## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.8.10版本。
 ```
 platform :ios, '9.0'
 target '你的项目名' do
@@ -31,7 +32,7 @@ pod 'GDTMobSDK', '~> 4.8.10'
 pod 'Bytedance-UnionAD', '~> 1.9.8.5'
 end
 ```
-## 3.4 sdk初始化配置
+## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
 提示：appid请联系商务获取，并在AppDelegate的didFinishLaunchingWithOptions方法中进行SDK初始化
 ```
 // 初始化ADCDN_SDK的appid
