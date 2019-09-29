@@ -1,0 +1,22 @@
+PODS:
+  - Bytedance-UnionAD (1.9.8.5)
+  - GDTMobSDK (4.8.10):
+    - GDTMobSDK/GDTMobSDK (= 4.8.10)
+  - GDTMobSDK/GDTMobSDK (4.8.10)
+
+DEPENDENCIES:
+  - Bytedance-UnionAD (~> 1.9.8.5)
+  - GDTMobSDK (~> 4.8.10)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Bytedance-UnionAD
+    - GDTMobSDK
+
+SPEC CHECKSUMS:
+  Bytedance-UnionAD: a977fe9f56cd0832ea2e0c88ed9944f560e52935
+  GDTMobSDK: 8076424c26984f9e3e79bb74beab354f00d630c5
+
+PODFILE CHECKSUM: eb3b55f864f774c19d7263bc9decdcba72cfb139
+
+COCOAPODS: 1.6.1
