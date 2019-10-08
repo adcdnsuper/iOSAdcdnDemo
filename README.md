@@ -50,7 +50,7 @@ manage.wFrame = frame;
 manage.delegate = self;
 [manage loadSplashAd];
 ```
-### 4.1.2 设置开屏广告示例代码
+### 4.1.2 设置开屏广告代理方法
 ```
 /**
  *  开屏广告成功展示
@@ -89,3 +89,18 @@ manage.delegate = self;
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告关闭回调");
 }
 ```
+### 4.1.3 支持开屏广告底部自定义logo
+```
+//设置开屏底部自定义LogoView，展示半屏开屏广告
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
+    UIImageView *logo = [[UIImageView alloc]initWithFrame:bottomView.frame];
+    CGRect logoFrame = logo.frame;
+    logoFrame.size.width = bottomView.frame.size.width * 0.5;
+    logoFrame.size.height = bottomView.frame.size.height * 0.5;
+    logo.frame = logoFrame;
+    logo.image = [UIImage imageNamed:@"LOGO"];
+    [bottomView addSubview:logo];
+    logo.center = bottomView.center;
+    bottomView.backgroundColor = [UIColor whiteColor];
+    manage.bottomView = bottomView;
+    ```
