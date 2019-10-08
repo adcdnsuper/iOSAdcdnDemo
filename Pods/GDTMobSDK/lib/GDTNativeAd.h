@@ -17,6 +17,8 @@ extern NSString* const GDTNativeAdDataKeyImgUrl;
 extern NSString* const GDTNativeAdDataKeyAppRating;
 extern NSString* const GDTNativeAdDataKeyAppPrice;
 extern NSString* const GDTNativeAdDataKeyImgList;
+extern NSString* const GDTNativeAdDataKeyImgWidth;
+extern NSString* const GDTNativeAdDataKeyImgHeight;
 
 @interface GDTNativeAdData : NSObject
 
@@ -31,6 +33,8 @@ extern NSString* const GDTNativeAdDataKeyImgList;
  *          5. GDTNativeAdDataKeyAppRating  应用类广告的星级
  *          6. GDTNativeAdDataKeyAppPrice   应用类广告的价格
  *          7. GDTNativeAdDataKeyImgList    三小图广告的图片集合
+ *          8. GDTNativeAdDataKeyImgWidth   素材宽度
+ *          9. GDTNativeAdDataKeyImgHeight  素材高度
  */
 @property (nonatomic, retain, readonly) NSDictionary *properties;
 /*
@@ -45,6 +49,20 @@ extern NSString* const GDTNativeAdDataKeyImgList;
  *  获取该原生广告是否为三小图广告，当为三小图广告时，可以通过GDTNativeAdDataKeyImgList获取三张图片资源供渲染
  */
 - (BOOL)isThreeImgsAd;
+
+/**
+ 返回广告的eCPM，单位：分
+ 
+ @return 成功返回一个大于等于0的值，-1表示无权限或后台出现异常
+ */
+- (NSInteger)eCPM;
+
+/**
+ 返回广告的eCPM等级
+ 
+ @return 成功返回一个包含数字的string，@""或nil表示无权限或后台异常
+ */
+- (NSString *)eCPMLevel;
 
 @end
 

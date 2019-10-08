@@ -2,12 +2,15 @@
 //  BUFullscreenVideoAd.h
 //  BUAdSDK
 //
-//  Created by 李盛 on 2018/8/3.
 //  Copyright © 2018年 bytedance. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "BUAdSlot.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 @class BUFullscreenVideoAd;
 
 @protocol BUFullscreenVideoAdDelegate <NSObject>
@@ -15,60 +18,55 @@
 @optional
 
 /**
- 视频广告物料加载成功
+ This method is called when video ad material loaded successfully.
  */
 - (void)fullscreenVideoMaterialMetaAdDidLoad:(BUFullscreenVideoAd *)fullscreenVideoAd;
 
 /**
- 视频广告视频素材缓存成功
+ This method is called when video ad materia failed to load.
+ @param error : the reason of error
+ */
+- (void)fullscreenVideoAd:(BUFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error;
+
+/**
+ This method is called when video cached successfully.
  */
 - (void)fullscreenVideoAdVideoDataDidLoad:(BUFullscreenVideoAd *)fullscreenVideoAd;
 
 /**
- 广告位即将展示
+ This method is called when video ad slot will be showing.
  */
 - (void)fullscreenVideoAdWillVisible:(BUFullscreenVideoAd *)fullscreenVideoAd;
 
 /**
- 广告位已经展示
+ This method is called when video ad slot has been shown.
  */
 - (void)fullscreenVideoAdDidVisible:(BUFullscreenVideoAd *)fullscreenVideoAd;
 
 /**
- 视频广告即将关闭
- */
-- (void)fullscreenVideoAdWillClose:(BUFullscreenVideoAd *)fullscreenVideoAd;
-
-/**
- 视频广告关闭
- */
-- (void)fullscreenVideoAdDidClose:(BUFullscreenVideoAd *)fullscreenVideoAd;
-
-/**
- 视频广告点击
+ This method is called when video ad is clicked.
  */
 - (void)fullscreenVideoAdDidClick:(BUFullscreenVideoAd *)fullscreenVideoAd;
 
 /**
- 视频广告素材加载失败
- 
- @param fullscreenVideoAd 当前视频对象
- @param error 错误对象
+ This method is called when video ad is about to close.
  */
-- (void)fullscreenVideoAd:(BUFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *)error;
+- (void)fullscreenVideoAdWillClose:(BUFullscreenVideoAd *)fullscreenVideoAd;
 
 /**
- 视频广告播放完成或发生错误
- 
- @param fullscreenVideoAd 当前视频对象
- @param error 错误对象
+ This method is called when video ad is closed.
  */
-- (void)fullscreenVideoAdDidPlayFinish:(BUFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *)error;
+- (void)fullscreenVideoAdDidClose:(BUFullscreenVideoAd *)fullscreenVideoAd;
+
 
 /**
- 视频广告播放点击跳过
+ This method is called when video ad play completed or an error occurred.
+ @param error : the reason of error
+ */
+- (void)fullscreenVideoAdDidPlayFinish:(BUFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error;
 
- @param fullscreenVideoAd 当前视频对象
+/**
+ This method is called when the user clicked skip button.
  */
 - (void)fullscreenVideoAdDidClickSkip:(BUFullscreenVideoAd *)fullscreenVideoAd;
 
@@ -80,24 +78,32 @@
 @property (nonatomic, getter=isAdValid, readonly) BOOL adValid;
 
 /**
- 初始化 BUFullscreenVideoAd
- 
- @param slotID 代码位ID
+ Initializes video ad with slot id.
+ @param slotID : the unique identifier of video ad.
  @return BUFullscreenVideoAd
  */
 - (instancetype)initWithSlotID:(NSString *)slotID;
 
 /**
- 加载数据
+ Load video ad datas.
  */
 - (void)loadAdData;
 
 /**
- 展示视频广告
-
- @param rootViewController 展示视频的根视图
- @return 是否成功展示
+ Display video ad.
+ @param rootViewController : root view controller for displaying ad.
+ @return : whether it is successfully displayed.
  */
 - (BOOL)showAdFromRootViewController:(UIViewController *)rootViewController;
 
+/**
+ Display video ad.
+ @param rootViewController : root view controller for displaying ad.
+ @param sceneDescirbe : optional. Identifies a custom description of the presentation scenario.
+ @return : whether it is successfully displayed.
+ */
+- (BOOL)showAdFromRootViewController:(UIViewController *)rootViewController ritSceneDescribe:(NSString *_Nullable)sceneDescirbe;
+
 @end
+
+NS_ASSUME_NONNULL_END

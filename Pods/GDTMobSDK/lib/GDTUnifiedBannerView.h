@@ -11,11 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class GDTUnifiedBannerView;
-/**
- *  广点通推荐尺寸
- */
-#define GDT_UNIFIED_BANNER_AD_SUGGEST_SIZE_375x60    CGSizeMake(375, 60)
-
 
 @protocol GDTUnifiedBannerViewDelegate <NSObject>
 @optional
@@ -79,6 +74,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, weak) id<GDTUnifiedBannerViewDelegate> delegate;
 
+/**
+ *  Banner展现和轮播时的动画效果开关，默认打开
+ */
+@property (nonatomic) BOOL animated;
+
+/**
+ *  广告刷新间隔，范围 [30, 120] 秒，默认值 30 秒。设 0 则不刷新。 [可选]
+ */
+@property (nonatomic) int autoSwitchInterval;
 /**
  *  构造方法
  *  详解：appId - 媒体 ID

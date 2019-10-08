@@ -22,6 +22,11 @@
 - (void)splashAdSuccessPresentScreen:(GDTSplashAd *)splashAd;
 
 /**
+ *  开屏广告素材加载成功
+ */
+- (void)splashAdDidLoad:(GDTSplashAd *)splashAd;
+
+/**
  *  开屏广告展示失败
  */
 - (void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error;
@@ -111,6 +116,13 @@
 @property (nonatomic, assign) CGPoint skipButtonCenter;
 
 /**
+ 返回广告平台名称
+ 
+ @return 当使用流量分配功能时，用于区分广告平台；未使用时为空字符串
+ */
+- (NSString *)adNetworkName;
+
+/**
  *  构造方法
  *  详解：appId - 媒体 ID
  *       placementId - 广告位 ID
@@ -145,7 +157,12 @@
  */
 - (void)loadAdAndShowInWindow:(UIWindow *)window withBottomView:(UIView *)bottomView skipView:(UIView *)skipView;
 
-#pragma mark - DEPRECATED
-- (instancetype)initWithAppkey:(NSString *)appkey placementId:(NSString *)placementId GDT_DEPRECATED_MSG_ATTRIBUTE("use initWithAppId:placementId: instead.");
+/**
+ 预加载闪屏广告接口
+ 
+ @param appId 媒体ID
+ @param placementId 广告位ID
+ */
++ (void)preloadSplashOrderWithAppId:(NSString *)appId placementId:(NSString *)placementId;
 
 @end

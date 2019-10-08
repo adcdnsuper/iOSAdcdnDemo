@@ -39,6 +39,12 @@ typedef NS_ENUM(NSUInteger, GDTMediaPlayerStatus) {
     GDTMediaPlayerStatusError = 5,           // 播放出错
 };
 
+typedef enum GDTSDKLoginType {
+    GDTSDKLoginTypeUnknow = 0,
+    GDTSDKLoginTypeWeiXin = 1,    //微信账号
+    GDTSDKLoginTypeQQ = 2,        //QQ账号
+} GDTSDKLoginType;
+
 static inline BOOL isIPhoneXSeries() {
     if (@available(iOS 11.0, *)) {
         UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
