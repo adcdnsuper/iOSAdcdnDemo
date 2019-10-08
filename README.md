@@ -25,12 +25,12 @@ Privacy - Location Usage Description
          <true/>
     </dict>
 ```
-## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.8.10版本。
+## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.10.13版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods。
 ```
 platform :ios, '9.0'
 target '你的项目名' do
-pod 'GDTMobSDK', '~> 4.8.10'
-pod 'Bytedance-UnionAD', '~> 1.9.8.5'
+pod 'GDTMobSDK', '~> 4.10.13'
+pod 'Bytedance-UnionAD', '~> 2.4.6.7'
 end
 ```
 ## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
@@ -50,7 +50,7 @@ manage.wFrame = frame;
 manage.delegate = self;
 [manage loadSplashAd];
 ```
-### 4.1.2 设置开屏广告示例代码
+### 4.1.2 设置开屏广告代理方法
 ```
 /**
  *  开屏广告成功展示
@@ -89,3 +89,18 @@ manage.delegate = self;
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告关闭回调");
 }
 ```
+### 4.1.3 支持开屏广告底部自定义logo
+```
+//设置开屏底部自定义LogoView，展示半屏开屏广告
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
+    UIImageView *logo = [[UIImageView alloc]initWithFrame:bottomView.frame];
+    CGRect logoFrame = logo.frame;
+    logoFrame.size.width = bottomView.frame.size.width * 0.5;
+    logoFrame.size.height = bottomView.frame.size.height * 0.5;
+    logo.frame = logoFrame;
+    logo.image = [UIImage imageNamed:@"LOGO"];
+    [bottomView addSubview:logo];
+    logo.center = bottomView.center;
+    bottomView.backgroundColor = [UIColor whiteColor];
+    manage.bottomView = bottomView;
+    ```
