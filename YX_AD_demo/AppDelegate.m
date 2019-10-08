@@ -34,7 +34,7 @@
     manage.delegate = self;
     
     //设置开屏底部自定义LogoView，展示半屏开屏广告
-    
+    /*
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
     UIImageView *logo = [[UIImageView alloc]initWithFrame:bottomView.frame];
     CGRect logoFrame = logo.frame;
@@ -46,7 +46,7 @@
     logo.center = bottomView.center;
     bottomView.backgroundColor = [UIColor whiteColor];
     manage.bottomView = bottomView;
-    
+    */
     
     [manage loadSplashAd];
 
