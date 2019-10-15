@@ -34,21 +34,25 @@ pod 'Bytedance-UnionAD', '~> 2.4.6.7'
 end
 ```
 ## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
-提示：appid请联系商务获取，并在AppDelegate的didFinishLaunchingWithOptions方法中进行SDK初始化
+提示：appId、plcId请到ADCDN开发者平台获取
 ```
-// 初始化ADCDN_SDK的appid
-[ADCDN_ConfigManager shareManagerWithAppID:KappId];
+ // 初始化开屏广告
+    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId];
+    manage.window = self.window;
+    CGRect frame = [UIScreen mainScreen].bounds;
+    manage.wFrame = frame;
+    manage.delegate = self;
 ```
 # 4.sdk广告业务功能
 ## 4.1 开屏广告
 ### 4.1.1 设置开屏广告示例代码
 ```
-CGRect frame = [UIScreen mainScreen].bounds;
-ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManager];
-manage.window = self.window;
-manage.wFrame = frame;
-manage.delegate = self;
-[manage loadSplashAd];
+ // 初始化开屏广告
+    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId];
+    manage.window = self.window;
+    CGRect frame = [UIScreen mainScreen].bounds;
+    manage.wFrame = frame;
+    manage.delegate = self;
 ```
 ### 4.1.2 设置开屏广告代理方法
 ```
@@ -103,4 +107,36 @@ manage.delegate = self;
     logo.center = bottomView.center;
     bottomView.backgroundColor = [UIColor whiteColor];
     manage.bottomView = bottomView;
-    ```
+```
+## 4.2 横幅广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.2.1 设置横幅广告示例代码
+```
+ADCDN_BannerAdManager *banner = [ADCDN_BannerAdManager shareManagerWithAppId:KappId plcId:KplcId];
+banner.customView = view;// banner加载的位置
+banner.interval = 29;// 大于等于30循环
+banner.rootViewController = self;
+banner.delegate = self;
+[banner loadNativeAd];
+```
+### 4.2.2 设置横幅广告代理方法示例代码，设置代理<ADCDN_BannerAdManagerDelegate>
+```
+/**
+ *  ADCDN_BannerAdManagerDelegate 代理协议方法
+ */
+/// 加载成功
+- (void)ADCDN_BannerAdDidLoad:(ADCDN_BannerAdManager *)nativeAd {
+    NSLog(@"加载成功-----%s",__FUNCTION__);
+}
+/// 加载失败
+- (void)ADCDN_BannerAd:(ADCDN_BannerAdManager *)nativeAd didFailWithError:(NSError *_Nullable)error {
+    NSLog(@"加载失败-----%s",__FUNCTION__);
+}
+/// 点击广告时
+- (void)ADCDN_BannerAdDidClick:(ADCDN_BannerAdManager *)nativeAd {
+    NSLog(@"点击广告时-----%s",__FUNCTION__);
+}
+/// 曝光回调
+- (void)ADCDN_BannerAdDidBecomeVisible:(ADCDN_BannerAdManager *)nativeAd {
+    NSLog(@"曝光回调-----%s",__FUNCTION__);
+}
+```
