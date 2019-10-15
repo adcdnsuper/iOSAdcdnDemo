@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 @class ADCDN_SplashAdManager;
 
+/**
+ *  代理协议方法
+ */
 @protocol ADCDN_SplashAdManagerDelegate <NSObject>
 @optional
 /**
@@ -40,8 +43,9 @@
 
 
 @interface ADCDN_SplashAdManager : NSObject
-
+/** keyWindow */
 @property (nonatomic, strong)UIWindow * _Nullable window;
+/** 开屏也的大小，全屏 */
 @property (nonatomic, assign)CGRect wFrame;
 /**
 *  广告发起请求并展示在Window中, 同时在屏幕底部设置应用自身的Logo页面或是自定义View
@@ -50,15 +54,22 @@
 * bottomView 自定义底部View，可以在此View中设置应用Logo
 */
 @property (nonatomic, strong)UIView * _Nullable bottomView;
-
+/** 代理对象 */
 @property (nonatomic, weak) id <ADCDN_SplashAdManagerDelegate> _Nullable delegate;
 /**
  *  提供单例类方法
+ *  详解：appId - 媒体 ID
+ *       plcId - 广告位 ID
  */
-+(instancetype _Nullable)shareManager;
++(instancetype _Nullable)shareManagerWithAppId:(NSString *_Nullable)appId plcId:(NSString *_Nullable)plcId;
 /**
  *  加载开屏广告
  */
 -(void)loadSplashAd;
+/**
+ *  获取ADCDN的版本
+ */
+
+-(NSString *_Nullable)getSDKVersion;
 @end
 

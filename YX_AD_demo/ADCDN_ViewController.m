@@ -7,8 +7,15 @@
 //
 
 #import "ADCDN_ViewController.h"
-
-@interface ADCDN_ViewController ()
+#import "ADCDN_SplashViewController.h"
+#import "ADCDN_BannerViewController.h"
+#define ScreenW self.view.frame.size.width
+#define ScreenH self.view.frame.size.height
+@interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
+/** tableView */
+@property (nonatomic,strong) UITableView *menuTB;
+/** titleArr */
+@property(copy,nonatomic)NSArray *menuTitleArr;
 
 @end
 
@@ -18,16 +25,74 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"ADCDN_demo";
+    
+    [self menuTB];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UITableView *)menuTB{
+    if (!_menuTB) {
+        _menuTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - [self getStatusBarHeight] - [self getNavigationBarHeight]) style:UITableViewStylePlain];
+        _menuTB.delegate = self;
+        _menuTB.dataSource = self;
+        _menuTB.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:_menuTB];
+    }
+    return _menuTB;
 }
-*/
+-(NSArray *)menuTitleArr{
+    if (!_menuTitleArr) {
+        /**
+         *  插屏广告放最后
+         */
+        _menuTitleArr = @[@"横幅广告",@"开屏广告",];
+    }
+    return _menuTitleArr;
+}
+/**
+ *  获取状态栏高度
+ */
+-(CGFloat)getStatusBarHeight{
+    return [[UIApplication sharedApplication] statusBarFrame].size.height;
+}
+/**
+ *  获取导航栏高度
+ */
+-(CGFloat)getNavigationBarHeight{
+    return self.navigationController.navigationBar.frame.size.height;
+}
+/**
+ *  UITableViewDelegate,UITableViewDataSource
+ */
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.menuTitleArr.count;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.menuTitleArr[indexPath.row]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //@"横幅广告",@"开屏广告",@"插屏广告",@"原生模板广告",@"原生模板纯图广告",@"开屏广告",@"激励视频广告"
+    
+    // 横幅广告 代码里面的 banner
+    if (indexPath.row == 0) {
+        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+        ADCDN_BannerViewController *vc = [ADCDN_BannerViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    // 开屏广告
+    if (indexPath.row == 1) {
+        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+        ADCDN_SplashViewController *vc = [ADCDN_SplashViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+}
 
 @end

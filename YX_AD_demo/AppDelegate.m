@@ -9,8 +9,10 @@
 #import "AppDelegate.h"
 #import "ADCDN_ViewController.h"
 #import "ADCDN_NavigationController.h"
-#define KappId @"1030013"
 #import <ADCDN/ADCDN.h>
+
+#define KappId @"1030013"
+#define KplcId @"1010021"
 @interface AppDelegate ()<ADCDN_SplashAdManagerDelegate>
 @end
 
@@ -26,10 +28,9 @@
     [self.window makeKeyAndVisible];
     
     // 初始化ADCDN_SDK的appid
-    [ADCDN_ConfigManager shareManagerWithAppID:KappId];
-    CGRect frame = [UIScreen mainScreen].bounds;
-    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManager];
+    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId];
     manage.window = self.window;
+    CGRect frame = [UIScreen mainScreen].bounds;
     manage.wFrame = frame;
     manage.delegate = self;
     

@@ -16,5 +16,9 @@ FOUNDATION_EXPORT const unsigned char ADCDNVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ADCDN/PublicHeader.h>
 
-#import <ADCDN/ADCDN_ConfigManager.h>
 #import <ADCDN/ADCDN_SplashAdManager.h>
+#import <ADCDN/ADCDN_BannerAdManager.h>
+#import <ADCDN/ADCDN_Image.h>
+#import <ADCDN/ADCDN_MaterialMeta.h>
+#import <ADCDN/ADCDN_NativeAdManager.h>
+

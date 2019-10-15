@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1330A140234C84EE0057B934 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1330A13E234C847C0057B934 /* ADCDN.framework */; };
-		1330A141234C84EE0057B934 /* ADCDN.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1330A13E234C847C0057B934 /* ADCDN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		132C040B2355A4FD003BD553 /* ADCDN_SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132C04082355A4FC003BD553 /* ADCDN_SplashViewController.m */; };
+		132C040C2355A4FD003BD553 /* ADCDN_BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132C040A2355A4FD003BD553 /* ADCDN_BannerViewController.m */; };
+		132C040F2355A5EA003BD553 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132C040D2355A55E003BD553 /* ADCDN.framework */; };
+		132C04102355A5EA003BD553 /* ADCDN.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 132C040D2355A55E003BD553 /* ADCDN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		134CA4C42340484E0070BB9A /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 134CA4C32340484E0070BB9A /* ADCDN_NavigationController.m */; };
 		134CA4C7234048A70070BB9A /* ADCDN_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 134CA4C6234048A70070BB9A /* ADCDN_ViewController.m */; };
 		13B0CE6F233C5FCD008AD2F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */; };
@@ -21,13 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		134CA4BC2340402B0070BB9A /* Embed Frameworks */ = {
+		13F3268A234DBC1A0020ACBA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1330A141234C84EE0057B934 /* ADCDN.framework in Embed Frameworks */,
+				132C04102355A5EA003BD553 /* ADCDN.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,7 +37,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1330A13E234C847C0057B934 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		132C04072355A4FC003BD553 /* ADCDN_BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_BannerViewController.h; sourceTree = "<group>"; };
+		132C04082355A4FC003BD553 /* ADCDN_SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_SplashViewController.m; sourceTree = "<group>"; };
+		132C04092355A4FC003BD553 /* ADCDN_SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SplashViewController.h; sourceTree = "<group>"; };
+		132C040A2355A4FD003BD553 /* ADCDN_BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_BannerViewController.m; sourceTree = "<group>"; };
+		132C040D2355A55E003BD553 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		134CA4C22340484E0070BB9A /* ADCDN_NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADCDN_NavigationController.h; sourceTree = "<group>"; };
 		134CA4C32340484E0070BB9A /* ADCDN_NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NavigationController.m; sourceTree = "<group>"; };
 		134CA4C5234048A70070BB9A /* ADCDN_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADCDN_ViewController.h; sourceTree = "<group>"; };
@@ -60,17 +66,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				1330A140234C84EE0057B934 /* ADCDN.framework in Frameworks */,
+				132C040F2355A5EA003BD553 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		132C04062355A4EF003BD553 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				132C04092355A4FC003BD553 /* ADCDN_SplashViewController.h */,
+				132C04082355A4FC003BD553 /* ADCDN_SplashViewController.m */,
+				132C04072355A4FC003BD553 /* ADCDN_BannerViewController.h */,
+				132C040A2355A4FD003BD553 /* ADCDN_BannerViewController.m */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				1330A13E234C847C0057B934 /* ADCDN.framework */,
+				132C040D2355A55E003BD553 /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
@@ -103,6 +120,7 @@
 				134CA4C6234048A70070BB9A /* ADCDN_ViewController.m */,
 				134CA4C22340484E0070BB9A /* ADCDN_NavigationController.h */,
 				134CA4C32340484E0070BB9A /* ADCDN_NavigationController.m */,
+				132C04062355A4EF003BD553 /* Menu */,
 				13B0CE73233C5FCD008AD2F9 /* Main.storyboard */,
 				13B0CE79233C5FD0008AD2F9 /* Assets.xcassets */,
 				13B0CE7B233C5FD0008AD2F9 /* LaunchScreen.storyboard */,
@@ -142,7 +160,7 @@
 				13B0CE67233C5FCD008AD2F9 /* Frameworks */,
 				13B0CE68233C5FCD008AD2F9 /* Resources */,
 				38A046F07FD0BD8309CF47CA /* [CP] Copy Pods Resources */,
-				134CA4BC2340402B0070BB9A /* Embed Frameworks */,
+				13F3268A234DBC1A0020ACBA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132C040C2355A4FD003BD553 /* ADCDN_BannerViewController.m in Sources */,
 				13B0CE78233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld in Sources */,
 				134CA4C7234048A70070BB9A /* ADCDN_ViewController.m in Sources */,
+				132C040B2355A4FD003BD553 /* ADCDN_SplashViewController.m in Sources */,
 				13B0CE80233C5FD0008AD2F9 /* main.m in Sources */,
 				134CA4C42340484E0070BB9A /* ADCDN_NavigationController.m in Sources */,
 				13B0CE6F233C5FCD008AD2F9 /* AppDelegate.m in Sources */,
@@ -406,7 +426,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/YX_AD_demo",
 					"$(PROJECT_DIR)/YX_AD_demo/ADCDN_SDK",
+					"$(PROJECT_DIR)",
 				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				INFOPLIST_FILE = YX_AD_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -433,6 +455,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/YX_AD_demo",
 					"$(PROJECT_DIR)/YX_AD_demo/ADCDN_SDK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = YX_AD_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
