@@ -9,6 +9,7 @@
 #import "ADCDN_ViewController.h"
 #import "ADCDN_SplashViewController.h"
 #import "ADCDN_BannerViewController.h"
+#import "ADCDN_RewardVideoViewController.h"
 #define ScreenW self.view.frame.size.width
 #define ScreenH self.view.frame.size.height
 @interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -44,7 +45,7 @@
         /**
          *  插屏广告放最后
          */
-        _menuTitleArr = @[@"横幅广告",@"开屏广告",];
+        _menuTitleArr = @[@"横幅广告",@"开屏广告",@"激励视频广告"];
     }
     return _menuTitleArr;
 }
@@ -90,6 +91,12 @@
     if (indexPath.row == 1) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_SplashViewController *vc = [ADCDN_SplashViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    // 激励视频广告
+    if (indexPath.row == 2) {
+        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+        ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

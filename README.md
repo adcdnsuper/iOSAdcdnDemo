@@ -140,3 +140,39 @@ banner.delegate = self;
     NSLog(@"曝光回调-----%s",__FUNCTION__);
 }
 ```
+## 4.2 激励视频广告广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.2.1 设置激励视频广告示例代码
+```
+ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:KplcId];
+manager.rootViewController = self;
+manager.delegate = self;
+[manager loadAd];
+```
+### 4.2.2 设置激励视频广告代理方法示例代码，设置代理<ADCDN_RewardVideoAdManagerDelegate>
+```
+#pragma mark - ADCDN_RewardVideoAdManagerDelegate
+/**
+ *  加载成功
+ */
+- (void)ADCDN_RewardVideoAdDidLoad:(ADCDN_RewardVideoAdManager *)InterstitialAd{
+    NSLog(@"激励视频加载成功");
+}
+/**
+ *  加载失败
+ */
+- (void)ADCDN_RewardVideoAd:(ADCDN_RewardVideoAdManager *)InterstitialAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"激励视频加载失败");
+}
+/**
+ *  点击广告
+ */
+- (void)ADCDN_RewardVideoAdDidClick:(ADCDN_RewardVideoAdManager *)InterstitialAd{
+    NSLog(@"激励视频点击");
+}
+/**
+ *  曝光回调
+ */
+- (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)InterstitialAd{
+    NSLog(@"激励视频曝光");
+}
+```
