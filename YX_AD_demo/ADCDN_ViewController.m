@@ -11,6 +11,7 @@
 #import "ADCDN_BannerViewController.h"
 #import "ADCDN_RewardVideoViewController.h"
 #import "ADCDN_InterstitialViewController.h"
+#import "ADCDN_NativeExpressViewController.h"
 #define ScreenW self.view.frame.size.width
 #define ScreenH self.view.frame.size.height
 @interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -46,7 +47,7 @@
         /**
          *  插屏广告放最后
          */
-        _menuTitleArr = @[@"横幅广告",@"开屏广告",@"激励视频广告",@"插屏广告"];
+        _menuTitleArr = @[@"横幅广告",@"开屏广告",@"激励视频广告",@"插屏广告",@"原生纯图模板"];
     }
     return _menuTitleArr;
 }
@@ -106,7 +107,12 @@
         ADCDN_InterstitialViewController *vc = [ADCDN_InterstitialViewController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
+    // 原生纯图广告
+    if (indexPath.row == 4) {
+        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+        ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end
