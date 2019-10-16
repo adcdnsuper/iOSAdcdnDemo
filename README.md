@@ -140,7 +140,7 @@ banner.delegate = self;
     NSLog(@"曝光回调-----%s",__FUNCTION__);
 }
 ```
-## 4.3 激励视频广告广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+## 4.3 激励视频广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
 ### 4.3.1 设置激励视频广告示例代码
 ```
 ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:KplcId];
@@ -174,5 +174,41 @@ manager.delegate = self;
  */
 - (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)InterstitialAd{
     NSLog(@"激励视频曝光");
+}
+```
+## 4.4 插屏广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.4.1 设置插屏广告示例代码
+```
+ADCDN_InterstitialAdManager *manager = [ADCDN_InterstitialAdManager shareManagerWithAppId:KappId plcId:KplcId];
+manager.rootViewController = self;
+manager.delegate = self;
+[manager loadAd];
+```
+### 4.4.2 设置插屏广告代理方法示例代码，设置代理<ADCDN_InterstitialAdManagerDelegate>
+```
+#pragma mark - ADCDN_InterstitialAdManagerDelegate
+/**
+ *  加载成功
+ */
+- (void)ADCDN_InterstitialAdDidLoad:(ADCDN_InterstitialAdManager *)InterstitialAd{
+    NSLog(@"插屏加载成功");
+}
+/**
+ *  加载失败
+ */
+- (void)ADCDN_InterstitialAd:(ADCDN_InterstitialAdManager *)InterstitialAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"插屏加载失败");
+}
+/**
+ *  点击广告
+ */
+- (void)ADCDN_InterstitialAdDidClick:(ADCDN_InterstitialAdManager *)InterstitialAd{
+    NSLog(@"插屏点击广告");
+}
+/**
+ *  曝光回调
+ */
+- (void)ADCDN_InterstitialAdDidBecomeVisible:(ADCDN_InterstitialAdManager *)InterstitialAd{
+    NSLog(@"插屏曝光回调");
 }
 ```
