@@ -144,6 +144,15 @@ banner.delegate = self;
 ### 4.3.1 设置激励视频广告示例代码
 ```
 ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:KplcId];
+/*
+//需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
+ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
+rewardVideoAdModel.userId = @"123";//用户id
+rewardVideoAdModel.rewardName = @"rewardName";//奖励名称
+rewardVideoAdModel.rewardAmount = 1;//奖励数量
+rewardVideoAdModel.extra = @"extra";// 额外可扩展参数，如无需要则为空
+manager.rewardVideoAdModel = rewardVideoAdModel;
+*/
 manager.rootViewController = self;
 manager.delegate = self;
 [manager loadAd];
@@ -154,28 +163,56 @@ manager.delegate = self;
 /**
  *  加载成功
  */
-- (void)ADCDN_RewardVideoAdDidLoad:(ADCDN_RewardVideoAdManager *)InterstitialAd{
+- (void)ADCDN_RewardVideoAdDidLoad:(ADCDN_RewardVideoAdManager *)rewardVideoAd{
     NSLog(@"激励视频加载成功");
 }
 /**
  *  加载失败
  */
-- (void)ADCDN_RewardVideoAd:(ADCDN_RewardVideoAdManager *)InterstitialAd didFailWithError:(NSError *_Nullable)error{
+- (void)ADCDN_RewardVideoAd:(ADCDN_RewardVideoAdManager *)rewardVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"激励视频加载失败");
 }
 /**
  *  点击广告
  */
-- (void)ADCDN_RewardVideoAdDidClick:(ADCDN_RewardVideoAdManager *)InterstitialAd{
+- (void)ADCDN_RewardVideoAdDidClick:(ADCDN_RewardVideoAdManager *)rewardVideoAd{
     NSLog(@"激励视频点击");
 }
 /**
  *  曝光回调
  */
-- (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)InterstitialAd{
+- (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)rewardVideoAd{
     NSLog(@"激励视频曝光");
 }
+/**
+ 服务器核实回调成功
+ Server verification which is requested asynchronously is succeeded.
+ @param verify :return YES when return value is 2000.
+ */
+- (void)ADCDN_RewardVideoAdServerRewardDidSucceed:(ADCDN_RewardVideoAdManager *)rewardedVideoAd verify:(BOOL)verify{
+    NSLog(@"服务器核实回调成功");
+    // 如果用户需要获取userId等信息
+    NSString *userId = rewardedVideoAd.rewardVideoAdModel.userId;
+    NSString *rewardName = rewardedVideoAd.rewardVideoAdModel.rewardName;
+    NSLog(@"用户id:%@,奖品名:%@",userId,rewardName);
+}
+
+/**
+ 服务器核实回调失败
+ Server verification which is requested asynchronously is failed.
+ Return value is not 2000.
+ */
+- (void)ADCDN_RewardVideoAdServerRewardDidFail:(ADCDN_RewardVideoAdManager *)rewardedVideoAd{
+    NSLog(@"服务器核实回调失败");
+}
 ```
+### 4.3.3 注：服务器到服务器的回调
+| 字段定义        | 字段名称 |  字段类型  | 备注 |
+| --------       | -----   | ----     |---- |
+| user_id        | $1      |string    |调用SDK透传，应用对用户的唯一标识 |
+| reward_amount  | $1      |int       |媒体平台配置或调用SDK传入|
+| reward_name    | $1      |string    |媒体平台配置或调用SDK传入|
+| extra          | Extra   |string    |调用SDK传入并透传，如无需要则为空|
 ## 4.4 插屏广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
 ### 4.4.1 设置插屏广告示例代码
 ```
