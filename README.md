@@ -185,6 +185,18 @@ manager.delegate = self;
     NSLog(@"激励视频曝光");
 }
 /**
+ *  视频播放完成
+ */
+- (void)ADCDN_RewardVideoAdDidPlayFinish:(ADCDN_RewardVideoAdManager *)rewardedVideoAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"视频播放完成");
+}
+/**
+ * 播放完成点击关闭
+ */
+- (void)ADCDN_RewardVideoAdDidClose:(ADCDN_RewardVideoAdManager *)rewardedVideoAd{
+    NSLog(@"视频播放完成，点击关闭");
+}
+/**
  服务器核实回调成功
  Server verification which is requested asynchronously is succeeded.
  @param verify :return YES when return value is 2000.
