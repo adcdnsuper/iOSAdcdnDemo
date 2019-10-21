@@ -12,8 +12,8 @@
 		132C040C2355A4FD003BD553 /* ADCDN_BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132C040A2355A4FD003BD553 /* ADCDN_BannerViewController.m */; };
 		134CA4C42340484E0070BB9A /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 134CA4C32340484E0070BB9A /* ADCDN_NavigationController.m */; };
 		134CA4C7234048A70070BB9A /* ADCDN_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 134CA4C6234048A70070BB9A /* ADCDN_ViewController.m */; };
-		135A22DE235D853000E3BFA6 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135A22DC235D84B400E3BFA6 /* ADCDN.framework */; };
-		135A22DF235D853000E3BFA6 /* ADCDN.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 135A22DC235D84B400E3BFA6 /* ADCDN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		135A22E8235DB78800E3BFA6 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135A22E6235DB78500E3BFA6 /* ADCDN.framework */; };
+		135A22E9235DB78800E3BFA6 /* ADCDN.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 135A22E6235DB78500E3BFA6 /* ADCDN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1392F5C123571ED10018CD16 /* ADCDN_InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1392F5C023571ED10018CD16 /* ADCDN_InterstitialViewController.m */; };
 		1392F5C823573ED60018CD16 /* ADCDN_NativeExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1392F5C723573ED60018CD16 /* ADCDN_NativeExpressViewController.m */; };
 		13B0CE6F233C5FCD008AD2F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */; };
@@ -32,7 +32,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				135A22DF235D853000E3BFA6 /* ADCDN.framework in Embed Frameworks */,
+				135A22E9235DB78800E3BFA6 /* ADCDN.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,7 +50,7 @@
 		134CA4C32340484E0070BB9A /* ADCDN_NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NavigationController.m; sourceTree = "<group>"; };
 		134CA4C5234048A70070BB9A /* ADCDN_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADCDN_ViewController.h; sourceTree = "<group>"; };
 		134CA4C6234048A70070BB9A /* ADCDN_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADCDN_ViewController.m; sourceTree = "<group>"; };
-		135A22DC235D84B400E3BFA6 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		135A22E6235DB78500E3BFA6 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		1392F5BF23571ED10018CD16 /* ADCDN_InterstitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADCDN_InterstitialViewController.h; sourceTree = "<group>"; };
 		1392F5C023571ED10018CD16 /* ADCDN_InterstitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADCDN_InterstitialViewController.m; sourceTree = "<group>"; };
 		1392F5C623573ED60018CD16 /* ADCDN_NativeExpressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeExpressViewController.h; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				135A22DE235D853000E3BFA6 /* ADCDN.framework in Frameworks */,
+				135A22E8235DB78800E3BFA6 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +102,7 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				135A22DC235D84B400E3BFA6 /* ADCDN.framework */,
+				135A22E6235DB78500E3BFA6 /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";

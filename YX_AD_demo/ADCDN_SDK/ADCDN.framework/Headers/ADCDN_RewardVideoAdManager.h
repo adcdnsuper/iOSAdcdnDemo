@@ -34,6 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)rewardVideoAd;
 /**
+ *  视频播放完成
+ */
+- (void)ADCDN_RewardVideoAdDidPlayFinish:(ADCDN_RewardVideoAdManager *)rewardedVideoAd didFailWithError:(NSError *_Nullable)error;
+/**
+ * 播放完成点击关闭
+ */
+- (void)ADCDN_RewardVideoAdDidClose:(ADCDN_RewardVideoAdManager *)rewardedVideoAd;
+/**
  服务器核实回调成功
  Server verification which is requested asynchronously is succeeded.
  @param verify :return YES when return value is 2000.
@@ -55,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_RewardVideoAdManagerDelegate> delegate;
 // 如果需要：服务器到服务器回调，则需要传递此数据模型
-@property (nonatomic,strong,nullable) ADCDN_RewardVideoAdModel *rewardVideoAdModel;
+@property (nonatomic,strong,nonnull) ADCDN_RewardVideoAdModel *rewardVideoAdModel;
 /**
  *  提供单例类方法
  *  详解：appId - 媒体 ID

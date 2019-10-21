@@ -28,15 +28,13 @@
 #pragma mark - loadAd
 -(void)loadAd{
      ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:KplcId];
-       /*
        //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
        ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
-       rewardVideoAdModel.userId = @"123";//用户id
-       rewardVideoAdModel.rewardName = @"rewardName";//奖励名称
-       rewardVideoAdModel.rewardAmount = 1;//奖励数量
-       rewardVideoAdModel.extra = @"extra";// 额外可扩展参数，如无需要则为空
+       rewardVideoAdModel.userId = @"12345";//用户id
+       rewardVideoAdModel.rewardName = @"iPhone X";//奖励名称
+       rewardVideoAdModel.rewardAmount = 6;//奖励数量
+       rewardVideoAdModel.extra = @"扩展参数";// 额外可扩展参数，如无需要则为空
        manager.rewardVideoAdModel = rewardVideoAdModel;
-        */
        manager.rootViewController = self;
        manager.delegate = self;
        [manager loadAd];
@@ -65,6 +63,18 @@
  */
 - (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)rewardVideoAd{
     NSLog(@"激励视频曝光");
+}
+/**
+ *  视频播放完成
+ */
+- (void)ADCDN_RewardVideoAdDidPlayFinish:(ADCDN_RewardVideoAdManager *)rewardedVideoAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"视频播放完成");
+}
+/**
+ * 播放完成点击关闭
+ */
+- (void)ADCDN_RewardVideoAdDidClose:(ADCDN_RewardVideoAdManager *)rewardedVideoAd{
+    NSLog(@"视频播放完成，点击关闭");
 }
 /**
  服务器核实回调成功

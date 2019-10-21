@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+
 
 @interface ADCDN_RewardVideoAdModel : NSObject
 /**
@@ -31,4 +31,4 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *extra;
 @end
 
-NS_ASSUME_NONNULL_END
+
