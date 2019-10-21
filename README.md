@@ -209,10 +209,10 @@ manager.delegate = self;
 ### 4.3.3 注：服务器到服务器的回调
 | 字段定义        | 字段名称 |  字段类型  | 备注 |
 | --------       | -----   | ----     |---- |
-| user_id        | $1      |string    |调用SDK透传，应用对用户的唯一标识 |
-| reward_amount  | $1      |int       |媒体平台配置或调用SDK传入|
-| reward_name    | $1      |string    |媒体平台配置或调用SDK传入|
-| extra          | Extra   |string    |调用SDK传入并透传，如无需要则为空|
+| user_id        | 用户id       |string    |调用SDK透传，应用对用户的唯一标识 |
+| reward_amount  | 奖励数量      |int       |媒体平台配置或调用SDK传入|
+| reward_name    | 奖励名称      |string    |媒体平台配置或调用SDK传入|
+| extra          | Extra        |string    |调用SDK传入并透传，如无需要则为空|
 ## 4.4 插屏广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
 ### 4.4.1 设置插屏广告示例代码
 ```
