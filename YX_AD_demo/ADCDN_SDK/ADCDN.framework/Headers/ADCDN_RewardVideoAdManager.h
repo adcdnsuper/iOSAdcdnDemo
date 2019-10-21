@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ADCDN_RewardVideoAdModel.h"
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,27 +20,42 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  加载成功
  */
-- (void)ADCDN_RewardVideoAdDidLoad:(ADCDN_RewardVideoAdManager *)InterstitialAd;
+- (void)ADCDN_RewardVideoAdDidLoad:(ADCDN_RewardVideoAdManager *)rewardVideoAd;
 /**
  *  加载失败
  */
-- (void)ADCDN_RewardVideoAd:(ADCDN_RewardVideoAdManager *)InterstitialAd didFailWithError:(NSError *_Nullable)error;
+- (void)ADCDN_RewardVideoAd:(ADCDN_RewardVideoAdManager *)rewardVideoAd didFailWithError:(NSError *_Nullable)error;
 /**
  *  点击广告
  */
-- (void)ADCDN_RewardVideoAdDidClick:(ADCDN_RewardVideoAdManager *)InterstitialAd;
+- (void)ADCDN_RewardVideoAdDidClick:(ADCDN_RewardVideoAdManager *)rewardVideoAd;
 /**
  *  曝光回调
  */
-- (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)InterstitialAd;
+- (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)rewardVideoAd;
+/**
+ 服务器核实回调成功
+ Server verification which is requested asynchronously is succeeded.
+ @param verify :return YES when return value is 2000.
+ */
+- (void)ADCDN_RewardVideoAdServerRewardDidSucceed:(ADCDN_RewardVideoAdManager *)rewardedVideoAd verify:(BOOL)verify;
+
+/**
+ 服务器核实回调失败
+ Server verification which is requested asynchronously is failed.
+ Return value is not 2000.
+ */
+- (void)ADCDN_RewardVideoAdServerRewardDidFail:(ADCDN_RewardVideoAdManager *)rewardedVideoAd;
 
 @end
 
 @interface ADCDN_RewardVideoAdManager : NSObject
-/// 控制器
+// 控制器
 @property (nonatomic, strong)UIViewController *rootViewController;
-/// 代理对象
+// 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_RewardVideoAdManagerDelegate> delegate;
+// 如果需要：服务器到服务器回调，则需要传递此数据模型
+@property (nonatomic,strong,nullable) ADCDN_RewardVideoAdModel *rewardVideoAdModel;
 /**
  *  提供单例类方法
  *  详解：appId - 媒体 ID

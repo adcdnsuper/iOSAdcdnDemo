@@ -18,11 +18,9 @@ FOUNDATION_EXPORT const unsigned char ADCDNVersionString[];
 
 #import <ADCDN/ADCDN_SplashAdManager.h>
 #import <ADCDN/ADCDN_BannerAdManager.h>
-#import <ADCDN/ADCDN_Image.h>
-#import <ADCDN/ADCDN_MaterialMeta.h>
-#import <ADCDN/ADCDN_NativeAdManager.h>
 #import <ADCDN/ADCDN_InterstitialAdManager.h>
 #import <ADCDN/ADCDN_RewardVideoAdManager.h>
-
+#import <ADCDN/ADCDN_NativeExpressAdManager.h>
+#import <ADCDN/ADCDN_RewardVideoAdModel.h>
 
 

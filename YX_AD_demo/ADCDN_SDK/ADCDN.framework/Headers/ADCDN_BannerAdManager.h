@@ -20,19 +20,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  加载成功
  */
-- (void)ADCDN_BannerAdDidLoad:(ADCDN_BannerAdManager *)nativeAd;
+- (void)ADCDN_BannerAdDidLoad:(ADCDN_BannerAdManager *)bannerAd;
 /**
  *  加载失败
  */
-- (void)ADCDN_BannerAd:(ADCDN_BannerAdManager *)nativeAd didFailWithError:(NSError *_Nullable)error;
+- (void)ADCDN_BannerAd:(ADCDN_BannerAdManager *)bannerAd didFailWithError:(NSError *_Nullable)error;
 /**
  *  点击广告
  */
-- (void)ADCDN_BannerAdDidClick:(ADCDN_BannerAdManager *)nativeAd;
+- (void)ADCDN_BannerAdDidClick:(ADCDN_BannerAdManager *)bannerAd;
 /**
  *  曝光回调
  */
-- (void)ADCDN_BannerAdDidBecomeVisible:(ADCDN_BannerAdManager *)nativeAd;
+- (void)ADCDN_BannerAdDidBecomeVisible:(ADCDN_BannerAdManager *)bannerAd;
 
 @end
 
