@@ -9,7 +9,7 @@
 #import "ADCDN_InterstitialViewController.h"
 #import <ADCDN/ADCDN.h>
 #define KappId @"1030013"
-#define KplcId @"1010101"
+#define KplcId @"1010094"
 @interface ADCDN_InterstitialViewController ()<ADCDN_InterstitialAdManagerDelegate>
 
 @end
