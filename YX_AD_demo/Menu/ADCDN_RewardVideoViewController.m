@@ -29,12 +29,14 @@
 -(void)loadAd{
      ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:KplcId];
        //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
+    /*
        ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
-       rewardVideoAdModel.userId = @"12345";//用户id
+       rewardVideoAdModel.userId = @"12345678";//用户id
        rewardVideoAdModel.rewardName = @"iPhone X";//奖励名称
        rewardVideoAdModel.rewardAmount = 6;//奖励数量
        rewardVideoAdModel.extra = @"扩展参数";// 额外可扩展参数，如无需要则为空
        manager.rewardVideoAdModel = rewardVideoAdModel;
+     */
        manager.rootViewController = self;
        manager.delegate = self;
        [manager loadAd];
