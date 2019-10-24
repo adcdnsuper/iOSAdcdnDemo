@@ -8,8 +8,11 @@
 
 #import "ADCDN_BannerViewController.h"
 #import <ADCDN/ADCDN.h>
-#define KappId @"1030013"
-#define KplcId @"1010023"
+//#define KappId @"1030013"
+//#define KplcId @"1010023"
+
+#define KappId @"1030078"
+#define KplcId @"1010155"
 @interface ADCDN_BannerViewController ()<ADCDN_BannerAdManagerDelegate>
 
 @end

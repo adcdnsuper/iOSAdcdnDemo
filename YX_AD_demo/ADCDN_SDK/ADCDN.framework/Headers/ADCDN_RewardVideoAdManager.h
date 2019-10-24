@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_RewardVideoAdManagerDelegate> delegate;
 // 如果需要：服务器到服务器回调，则需要传递此数据模型
-@property (nonatomic,strong,nonnull) ADCDN_RewardVideoAdModel *rewardVideoAdModel;
+@property (nonatomic,strong) ADCDN_RewardVideoAdModel *rewardVideoAdModel;
 /**
  *  提供单例类方法
  *  详解：appId - 媒体 ID
