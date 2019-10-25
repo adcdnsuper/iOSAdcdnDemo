@@ -1,8 +1,8 @@
 //
 //  ADCDN_NativeExpressViewController.h
-//  YX_AD_demo
+//  ADCDN_APP
 //
-//  Created by 彭双塔 on 2019/10/16.
+//  Created by 彭双塔 on 2019/10/17.
 //  Copyright © 2019 pst. All rights reserved.
 //
 
@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ADCDN_NativeExpressViewController : UIViewController
-
+/** plcId 广告位Id */
+@property (nonatomic,copy) NSString *plcId;
+/** adSize */
+@property (nonatomic,assign) CGSize adSize;
 @end
 
 NS_ASSUME_NONNULL_END

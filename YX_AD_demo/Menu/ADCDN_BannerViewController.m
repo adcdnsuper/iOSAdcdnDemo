@@ -32,7 +32,7 @@
     
     ADCDN_BannerAdManager *banner = [ADCDN_BannerAdManager shareManagerWithAppId:KappId plcId:KplcId];
     banner.customView = view;// banner加载的位置
-    banner.interval = 29;// 大于等于30循环
+    banner.interval = 29;// 大于30循环
     banner.rootViewController = self;
     banner.delegate = self;
     [banner loadNativeAd];
@@ -67,19 +67,19 @@
  *  ADCDN_BannerAdManagerDelegate 代理协议方法
  */
 /// 加载成功
-- (void)ADCDN_BannerAdDidLoad:(ADCDN_BannerAdManager *)nativeAd {
+- (void)ADCDN_BannerAdDidLoad:(ADCDN_BannerAdManager *)bannerAd {
     NSLog(@"加载成功-----%s",__FUNCTION__);
 }
 /// 加载失败
-- (void)ADCDN_BannerAd:(ADCDN_BannerAdManager *)nativeAd didFailWithError:(NSError *_Nullable)error {
+- (void)ADCDN_BannerAd:(ADCDN_BannerAdManager *)bannerAd didFailWithError:(NSError *_Nullable)error {
     NSLog(@"加载失败-----%s",__FUNCTION__);
 }
 /// 点击广告时
-- (void)ADCDN_BannerAdDidClick:(ADCDN_BannerAdManager *)nativeAd {
+- (void)ADCDN_BannerAdDidClick:(ADCDN_BannerAdManager *)bannerAd {
     NSLog(@"点击广告时-----%s",__FUNCTION__);
 }
 /// 曝光回调
-- (void)ADCDN_BannerAdDidBecomeVisible:(ADCDN_BannerAdManager *)nativeAd {
+- (void)ADCDN_BannerAdDidBecomeVisible:(ADCDN_BannerAdManager *)bannerAd {
     NSLog(@"曝光回调-----%s",__FUNCTION__);
 }
 

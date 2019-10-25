@@ -1,8 +1,8 @@
 //
-//  ADCDN_InterstitialViewController.h
+//  ADCDN_NativeViewController.h
 //  ADCDN_APP
 //
-//  Created by 彭双塔 on 2019/10/15.
+//  Created by 彭双塔 on 2019/10/18.
 //  Copyright © 2019 pst. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ADCDN_InterstitialViewController : UIViewController
+@interface ADCDN_NativeViewController : UIViewController
 
 @end
 

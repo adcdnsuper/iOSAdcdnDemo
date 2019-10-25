@@ -1,8 +1,8 @@
 //
 //  ADCDN_InterstitialViewController.m
-//  YX_AD_demo
+//  ADCDN_APP
 //
-//  Created by 彭双塔 on 2019/10/16.
+//  Created by 彭双塔 on 2019/10/15.
 //  Copyright © 2019 pst. All rights reserved.
 //
 
@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.navigationItem.title = @"插屏广告";
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -57,5 +57,4 @@
 - (void)ADCDN_InterstitialAdDidBecomeVisible:(ADCDN_InterstitialAdManager *)InterstitialAd{
     NSLog(@"插屏曝光回调");
 }
-
 @end

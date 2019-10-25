@@ -1,35 +1,32 @@
 //
-//  ADCDN_ViewController.m
+//  ADCDN_UnRewardViewController.m
 //  ADCDN_APP
 //
-//  Created by 彭双塔 on 2019/9/28.
+//  Created by 彭双塔 on 2019/10/18.
 //  Copyright © 2019 pst. All rights reserved.
 //
 
-#import "ADCDN_ViewController.h"
-#import "ADCDN_SplashViewController.h"
-#import "ADCDN_BannerViewController.h"
-#import "ADCDN_InterstitialViewController.h"
-#import "ADCDN_VideoViewController.h"
-#import "ADCDN_NativeViewController.h"
+#import "ADCDN_UnRewardViewController.h"
+#import "ADCDN_UnRewardFullscreenVideoViewController.h"
 
 #define ScreenW self.view.frame.size.width
 #define ScreenH self.view.frame.size.height
-@interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@interface ADCDN_UnRewardViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
 @property (nonatomic,strong) UITableView *menuTB;
 /** titleArr */
 @property(copy,nonatomic)NSArray *menuTitleArr;
+
 @end
 
-@implementation ADCDN_ViewController
+@implementation ADCDN_UnRewardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"ADCDN_demo";
+    self.navigationItem.title = @"非激励视频";
     
     [self menuTB];
 }
@@ -48,7 +45,7 @@
         /**
          *  插屏广告放最后
          */
-        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"视频广告"];
+        _menuTitleArr = @[@"横屏",@"竖屏",];
     }
     return _menuTitleArr;
 }
@@ -81,37 +78,20 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    // 开屏广告
+    // 横屏
     if (indexPath.row == 0) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        ADCDN_SplashViewController *vc = [ADCDN_SplashViewController new];
+        ADCDN_UnRewardFullscreenVideoViewController *vc = [ADCDN_UnRewardFullscreenVideoViewController new];
+        vc.plcId = @"1010167";
         [self.navigationController pushViewController:vc animated:YES];
     }
-    // 原生广告
+    // 竖屏
     if (indexPath.row == 1) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        ADCDN_NativeViewController *vc = [ADCDN_NativeViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    // 横幅广告
-    if (indexPath.row == 2) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        ADCDN_BannerViewController *vc = [ADCDN_BannerViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    // 插屏广告
-    if (indexPath.row == 3) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        ADCDN_InterstitialViewController *vc = [ADCDN_InterstitialViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    }
-    // 视频广告
-    if (indexPath.row == 4) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        ADCDN_VideoViewController *vc = [ADCDN_VideoViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
+      NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+      ADCDN_UnRewardFullscreenVideoViewController *vc = [ADCDN_UnRewardFullscreenVideoViewController new];
+        vc.plcId = @"1010168";
+      [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
 @end

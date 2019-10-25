@@ -1,15 +1,16 @@
 //
 //  ADCDN_RewardVideoViewController.m
-//  YX_AD_demo
+//  ADCDN_APP
 //
-//  Created by 彭双塔 on 2019/10/16.
+//  Created by 彭双塔 on 2019/10/15.
 //  Copyright © 2019 pst. All rights reserved.
 //
 
 #import "ADCDN_RewardVideoViewController.h"
 #import <ADCDN/ADCDN.h>
 #define KappId @"1030013"
-#define KplcId @"1010101"
+
+
 @interface ADCDN_RewardVideoViewController ()<ADCDN_RewardVideoAdManagerDelegate>
 
 @end
@@ -27,21 +28,18 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-     ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:KplcId];
-       //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
-    /*
-       ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
-       rewardVideoAdModel.userId = @"12345678";//用户id
-       rewardVideoAdModel.rewardName = @"iPhone X";//奖励名称
-       rewardVideoAdModel.rewardAmount = 6;//奖励数量
-       rewardVideoAdModel.extra = @"扩展参数";// 额外可扩展参数，如无需要则为空
-       manager.rewardVideoAdModel = rewardVideoAdModel;
-     */
-       manager.rootViewController = self;
-       manager.delegate = self;
-       [manager loadAd];
+    ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:self.plcId];
+    //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
+    ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
+    rewardVideoAdModel.userId = @"123";
+    rewardVideoAdModel.rewardName = @"rewardName";
+    rewardVideoAdModel.rewardAmount = 1;
+    rewardVideoAdModel.extra = @"extra";
+    manager.rewardVideoAdModel = rewardVideoAdModel;
+    manager.rootViewController = self;
+    manager.delegate = self;
+    [manager loadAd];
 }
-#pragma mark - ADCDN_RewardVideoAdManagerDelegate
 /**
  *  加载成功
  */
