@@ -108,8 +108,96 @@ end
     bottomView.backgroundColor = [UIColor whiteColor];
     manage.bottomView = bottomView;
 ```
-## 4.2 横幅广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.2.1 设置横幅广告示例代码
+## 4.2 原生广告（三小图、纯图片、左图右文、左文右图、文字浮层、上下图文、上文下浮层，注：不同类型的广告样式在与不同的广告位id），在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.2.1 原生广告（三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）示例代码
+```
+ADCDN_NativeExpressAdManager *manager = [ADCDN_NativeExpressAdManager shareManagerWithAppId:KappId plcId:self.plcId];
+manager.rootViewController = self;
+manager.delegate = self;
+manager.adCount = 3;
+// 广告视图View的尺寸
+manager.adSize = CGSizeMake(ScreenW, ScreenW);
+[manager loadAd];
+```
+### 4.2.2 设置原生广告（三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）代理方法示例代码，设置代理<ADCDN_NativeExpressAdManagerDelegate>
+```
+/**
+ *  加载成功
+ */
+- (void)ADCDN_NativeExpressAdSuccessToLoad:(ADCDN_NativeExpressAdManager *)nativeExpressAd views:(NSArray<__kindof UIView *> *)views{
+    self.expressAdViews = [NSMutableArray arrayWithArray:views];
+    NSLog(@"原生纯图加载成功");
+    [self.adTableView reloadData];
+}
+/**
+ *  加载失败
+ */
+- (void)ADCDN_NativeExpressAd:(ADCDN_NativeExpressAdManager *)nativeExpressAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"原生纯图加载失败");
+}
+/**
+ *  渲染广告成功
+ */
+- (void)ADCDN_NativeExpressAdRenderSuccess:(UIView *)nativeExpressAdView{
+    NSLog(@"原生纯图渲染成功");
+    [self.adTableView reloadData];
+}
+/**
+ *  渲染广告失败
+ */
+- (void)ADCDN_NativeExpressAdRenderFail:(UIView *)nativeExpressAdView error:(NSError *_Nullable)error{
+    NSLog(@"原生纯图渲染失败");
+}
+/**
+ *  点击广告
+ */
+- (void)ADCDN_NativeExpressAdDidClick:(UIView *)nativeExpressAdView{
+    NSLog(@"原生纯图点击");
+}
+/**
+ *  曝光回调
+ */
+- (void)ADCDN_NativeExpressAdDidBecomeVisible:(UIView *)nativeExpressAdView{
+    NSLog(@"原生纯图曝光");
+}
+```
+### 4.2.3 原生广告（纯图片）示例代码
+```
+ADCDN_NativeCustomAdManager *nativeCustomAd = [ADCDN_NativeCustomAdManager shareManagerWithAppId:kAppId plcId:kPlcId];
+nativeCustomAd.adView = self.adView;
+nativeCustomAd.rootViewController = self;
+nativeCustomAd.delegate = self;
+[nativeCustomAd loadAd];
+```
+### 4.2.4 设置原生广告（纯图片）广告代理方法示例代码，设置代理<ADCDN_NativeCustomAdManagerDelegate>
+```
+/**
+ *  拉取广告成功
+ */
+- (void)ADCDN_NativeCustomAdSuccessToLoad:(ADCDN_NativeCustomAdManager *)nativeExpressAd views:(UIView *)view{
+    NSLog(@"拉取广告成功");
+}
+/**
+ *  拉取广告失败
+ */
+- (void)ADCDN_NativeCustomAd:(ADCDN_NativeCustomAdManager *)nativeExpressAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"拉取广告失败");
+}
+/**
+ *  点击广告
+ */
+- (void)ADCDN_NativeCustomAdDidClick:(UIView *)nativeExpressAdView{
+     NSLog(@"点击广告");
+}
+/**
+ *  曝光回调
+ */
+- (void)ADCDN_NativeCustomAdDidBecomeVisible:(UIView *)nativeExpressAdView{
+     NSLog(@"曝光回调");
+}
+```
+## 4.3 横幅广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.3.1 设置横幅广告示例代码
 ```
 ADCDN_BannerAdManager *banner = [ADCDN_BannerAdManager shareManagerWithAppId:KappId plcId:KplcId];
 banner.customView = view;// banner加载的位置
@@ -118,7 +206,7 @@ banner.rootViewController = self;
 banner.delegate = self;
 [banner loadNativeAd];
 ```
-### 4.2.2 设置横幅广告代理方法示例代码，设置代理<ADCDN_BannerAdManagerDelegate>
+### 4.3.2 设置横幅广告代理方法示例代码，设置代理<ADCDN_BannerAdManagerDelegate>
 ```
 /**
  *  ADCDN_BannerAdManagerDelegate 代理协议方法
@@ -140,8 +228,44 @@ banner.delegate = self;
     NSLog(@"曝光回调-----%s",__FUNCTION__);
 }
 ```
-## 4.3 激励视频广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.3.1 设置激励视频广告示例代码
+## 4.4 插屏广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.4.1 设置插屏广告示例代码
+```
+ADCDN_InterstitialAdManager *manager = [ADCDN_InterstitialAdManager shareManagerWithAppId:KappId plcId:KplcId];
+manager.rootViewController = self;
+manager.delegate = self;
+[manager loadAd];
+```
+### 4.4.2 设置插屏广告代理方法示例代码，设置代理<ADCDN_InterstitialAdManagerDelegate>
+```
+#pragma mark - ADCDN_InterstitialAdManagerDelegate
+/**
+ *  加载成功
+ */
+- (void)ADCDN_InterstitialAdDidLoad:(ADCDN_InterstitialAdManager *)InterstitialAd{
+    NSLog(@"插屏加载成功");
+}
+/**
+ *  加载失败
+ */
+- (void)ADCDN_InterstitialAd:(ADCDN_InterstitialAdManager *)InterstitialAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"插屏加载失败");
+}
+/**
+ *  点击广告
+ */
+- (void)ADCDN_InterstitialAdDidClick:(ADCDN_InterstitialAdManager *)InterstitialAd{
+    NSLog(@"插屏点击广告");
+}
+/**
+ *  曝光回调
+ */
+- (void)ADCDN_InterstitialAdDidBecomeVisible:(ADCDN_InterstitialAdManager *)InterstitialAd{
+    NSLog(@"插屏曝光回调");
+}
+```
+## 4.5 视频广告（激励视频、非激励视频），在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.5.1 设置激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码
 ```
 ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:KplcId];
 /*
@@ -157,7 +281,7 @@ manager.rootViewController = self;
 manager.delegate = self;
 [manager loadAd];
 ```
-### 4.3.2 设置激励视频广告代理方法示例代码，设置代理<ADCDN_RewardVideoAdManagerDelegate>
+### 4.5.2 设置激励视频广告代理方法示例代码，设置代理<ADCDN_RewardVideoAdManagerDelegate>
 ```
 #pragma mark - ADCDN_RewardVideoAdManagerDelegate
 /**
@@ -218,7 +342,7 @@ manager.delegate = self;
     NSLog(@"服务器核实回调失败");
 }
 ```
-### 4.3.3 注：服务器到服务器的回调(可选)
+### 4.5.3 注：服务器到服务器的回调(可选)
 服务器到服务器回调让您判定是否提供奖励给观看广告的用户。当用户成功看完广告时，您可以在ADCDN平台配置从ADCDN服务器到您自己的服务器的回调链接，以通知您用户完成了操作。
 
 回调方式说明
@@ -253,39 +377,64 @@ appSecurityKey: 您在ADCDN媒体平台新建奖励视频代码位获取到的�
 {
     "isValid": true
 }
-## 4.4 插屏广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.4.1 设置插屏广告示例代码
+
+### 4.5.4 设置非激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码
 ```
-ADCDN_InterstitialAdManager *manager = [ADCDN_InterstitialAdManager shareManagerWithAppId:KappId plcId:KplcId];
+ADCDN_FullscreenVideoAdManager *manager = [ADCDN_FullscreenVideoAdManager shareManagerWithAppId:kAppId plcId:self.plcId];
 manager.rootViewController = self;
 manager.delegate = self;
 [manager loadAd];
 ```
-### 4.4.2 设置插屏广告代理方法示例代码，设置代理<ADCDN_InterstitialAdManagerDelegate>
+### 4.5.2 设置非激励视频广告代理方法示例代码，设置代理<ADCDN_FullscreenVideoAdManagerDelegate>
 ```
-#pragma mark - ADCDN_InterstitialAdManagerDelegate
+#pragma mark ADCDN_FullscreenVideoAdManagerDelegate
 /**
  *  加载成功
  */
-- (void)ADCDN_InterstitialAdDidLoad:(ADCDN_InterstitialAdManager *)InterstitialAd{
-    NSLog(@"插屏加载成功");
+- (void)ADCDN_FullscreenVideoAdDidLoad:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+    NSLog(@"加载成功");
 }
 /**
  *  加载失败
  */
-- (void)ADCDN_InterstitialAd:(ADCDN_InterstitialAdManager *)InterstitialAd didFailWithError:(NSError *_Nullable)error{
-    NSLog(@"插屏加载失败");
+- (void)ADCDN_FullscreenVideoAd:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"加载失败");
+}
+/**
+ * 视频广告缓存成功
+ */
+- (void)ADCDN_FullscreenVideoAdVideoDataDidLoad:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+    NSLog(@"视频广告缓存成功");
 }
 /**
  *  点击广告
  */
-- (void)ADCDN_InterstitialAdDidClick:(ADCDN_InterstitialAdManager *)InterstitialAd{
-    NSLog(@"插屏点击广告");
+- (void)ADCDN_FullscreenVideoAdDidClick:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+    NSLog(@"点击广告");
 }
 /**
  *  曝光回调
  */
-- (void)ADCDN_InterstitialAdDidBecomeVisible:(ADCDN_InterstitialAdManager *)InterstitialAd{
-    NSLog(@"插屏曝光回调");
+- (void)ADCDN_FullscreenVideoAdDidBecomeVisible:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+    NSLog(@"曝光回调");
+}
+/**
+ *  视频播放完成
+ */
+- (void)ADCDN_FullscreenVideoAdDidPlayFinish:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"视频播放完成");
+}
+/**
+ * 播放完成点击关闭
+ */
+- (void)ADCDN_FullscreenVideoAdDidClose:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+    NSLog(@"播放完成点击关闭");
+}
+/**
+ * 视频广告点击跳过
+ This method is called when the user clicked skip button.
+ */
+- (void)ADCDN_FullscreenVideoAdDidClickSkip:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+    NSLog(@"视频广告点击跳过");
 }
 ```
