@@ -8,48 +8,46 @@
 
 #import "ADCDN_BannerViewController.h"
 #import <ADCDN/ADCDN.h>
-//#define KappId @"1030013"
-//#define KplcId @"1010023"
+#define KappId @"1030013"
+#define KplcId @"1010179"
 
-#define KappId @"1030078"
-#define KplcId @"1010155"
+#define ScreenW self.view.frame.size.width
+#define ScreenH self.view.frame.size.height
+
 @interface ADCDN_BannerViewController ()<ADCDN_BannerAdManagerDelegate>
-
+/** 广告view */
+@property (nonatomic,strong) UIView *adView;
 @end
 
 @implementation ADCDN_BannerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    
     self.navigationItem.title = @"横幅广告";
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    CGRect screenRect = [UIScreen mainScreen].bounds;
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, [self getStatusBarHeight] + [self getNavigationBarHeight], screenRect.size.width, screenRect.size.height)];
-    view.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:view];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
+    self.navigationItem.rightBarButtonItem = button;
     
+}
+/**
+ *  广告视频图懒加载
+ */
+-(UIView *)adView{
+    if (!_adView) {
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100,ScreenW , ScreenW/600*90)];
+        [self.view addSubview:_adView];
+    }
+    return _adView;
+}
+- (void)loadAd {
     ADCDN_BannerAdManager *banner = [ADCDN_BannerAdManager shareManagerWithAppId:KappId plcId:KplcId];
-    banner.customView = view;// banner加载的位置
+    banner.customView = self.adView;// banner加载的位置
     banner.interval = 29;// 大于30循环
     banner.rootViewController = self;
     banner.delegate = self;
     [banner loadNativeAd];
-    
-    
-    
-    
-    //refresh Button
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    UIButton *_refreshbutton = [[UIButton alloc] initWithFrame:CGRectMake(size.width/2 - 150/2, size.height *0.8, 150, 50)];
-    [_refreshbutton setTitle:@"刷新广告" forState:UIControlStateNormal];
-    [_refreshbutton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_refreshbutton addTarget:self action:@selector(refreshBanner) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_refreshbutton];
-}
-- (void)refreshBanner {
-    [[ADCDN_BannerAdManager shareManagerWithAppId:KappId plcId:KplcId] loadNativeAd];
 }
 /**
  *  获取状态栏高度

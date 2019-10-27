@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <ADCDN/ADCDN.h>
 #import "ADCDN_ViewController.h"
 #import "ADCDN_NavigationController.h"
-#import <ADCDN/ADCDN.h>
 
 #define KappId @"1030013"
 #define KplcId @"1010021"

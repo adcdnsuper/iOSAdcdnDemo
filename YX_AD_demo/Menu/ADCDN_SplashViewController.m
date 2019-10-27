@@ -18,17 +18,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"开屏广告";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    CGRect frame = [UIScreen mainScreen].bounds;
-       ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId];
-       manage.wFrame = frame;
-       manage.window = [UIApplication sharedApplication].keyWindow;
-       manage.delegate = self;
-       [manage loadSplashAd];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
+    self.navigationItem.rightBarButtonItem = button;
+    
 }
-
+#pragma mark - loadAd
+-(void)loadAd{
+    CGRect frame = [UIScreen mainScreen].bounds;
+    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId];
+    manage.wFrame = frame;
+    manage.window = [UIApplication sharedApplication].keyWindow;
+    manage.delegate = self;
+    [manage loadSplashAd];
+}
 /**
  *  ADCDN_SplashAdManagerDelegate 代理协议方法
  */
