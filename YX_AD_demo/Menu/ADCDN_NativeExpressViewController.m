@@ -54,9 +54,10 @@
     ADCDN_NativeExpressAdManager *manager = [ADCDN_NativeExpressAdManager shareManagerWithAppId:KappId plcId:self.plcId];
     manager.rootViewController = self;
     manager.delegate = self;
+    // 最多只运行一次性加载3个
     manager.adCount = 3;
     // 广告视图View的尺寸
-    manager.adSize = CGSizeMake(ScreenW, ScreenW);
+    manager.adSize = self.adSize;
     [manager loadAd];
 }
 #pragma mark - ADCDN_NativeExpressAdManagerDelegate
@@ -133,7 +134,7 @@
         cell.accessibilityIdentifier = @"nativeTemp_ad";
     } else {
         cell = [self.adTableView dequeueReusableCellWithIdentifier:@"splitnativeexpresscell" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor clearColor];
+        cell.backgroundColor = [UIColor grayColor];
     }
     return cell;
 }

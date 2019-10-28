@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ADCDN_NativeExpressViewController : UIViewController
 /** plcId 广告位Id */
 @property (nonatomic,copy) NSString *plcId;
-/** adSize */
+/** adView 建议的尺寸 */
 @property (nonatomic,assign) CGSize adSize;
 @end
 
