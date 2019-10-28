@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1326C6022366C0F4002FD1AC /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1326C6002366C0D2002FD1AC /* ADCDN.framework */; };
-		1326C6032366C0F4002FD1AC /* ADCDN.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1326C6002366C0D2002FD1AC /* ADCDN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		131AE6BB2367129E00F259C1 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131AE6B92367129800F259C1 /* ADCDN.framework */; };
+		131AE6BC2367129E00F259C1 /* ADCDN.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 131AE6B92367129800F259C1 /* ADCDN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		138138442365CFC5005ADBF1 /* ADCDN_NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138138382365CFC2005ADBF1 /* ADCDN_NativeViewController.m */; };
 		138138452365CFC5005ADBF1 /* ADCDN_UnRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1381383B2365CFC3005ADBF1 /* ADCDN_UnRewardViewController.m */; };
 		138138462365CFC5005ADBF1 /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1381383F2365CFC4005ADBF1 /* ADCDN_NavigationController.m */; };
@@ -38,7 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1326C6032366C0F4002FD1AC /* ADCDN.framework in Embed Frameworks */,
+				131AE6BC2367129E00F259C1 /* ADCDN.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,7 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1326C6002366C0D2002FD1AC /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		131AE6B92367129800F259C1 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		138138382365CFC2005ADBF1 /* ADCDN_NativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NativeViewController.m; sourceTree = "<group>"; };
 		138138392365CFC2005ADBF1 /* ADCDN_NativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeViewController.h; sourceTree = "<group>"; };
 		1381383A2365CFC3005ADBF1 /* ADCDN_NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NavigationController.h; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				1326C6022366C0F4002FD1AC /* ADCDN.framework in Frameworks */,
+				131AE6BB2367129E00F259C1 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				1326C6002366C0D2002FD1AC /* ADCDN.framework */,
+				131AE6B92367129800F259C1 /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
@@ -204,8 +204,8 @@
 				13B0CE66233C5FCD008AD2F9 /* Sources */,
 				13B0CE67233C5FCD008AD2F9 /* Frameworks */,
 				13B0CE68233C5FCD008AD2F9 /* Resources */,
-				38A046F07FD0BD8309CF47CA /* [CP] Copy Pods Resources */,
 				1326C5FF2366C048002FD1AC /* Embed Frameworks */,
+				531D91C75D93864BE4B7E6F2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,7 +263,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		38A046F07FD0BD8309CF47CA /* [CP] Copy Pods Resources */ = {
+		531D91C75D93864BE4B7E6F2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

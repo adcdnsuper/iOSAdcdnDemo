@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "GDTSplashAd.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate,GDTSplashAdDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
-@property (strong, nonatomic) GDTSplashAd *splash;
 - (void)saveContext;
 
 
