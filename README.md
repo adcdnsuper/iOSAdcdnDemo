@@ -36,7 +36,15 @@ Privacy - Location Usage Description
          <true/>
     </dict>
 ```
-## 3.3 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
+## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.10.13版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods。
+```
+platform :ios, '9.0'
+target '你的项目名' do
+pod 'GDTMobSDK', '~> 4.10.13'
+pod 'Bytedance-UnionAD', '~> 2.4.6.7'
+end
+```
+## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
 提示：appId、plcId请到ADCDN开发者平台获取
 ```
  // 初始化开屏广告
