@@ -24,5 +24,8 @@ FOUNDATION_EXPORT const unsigned char ADCDNVersionString[];
 #import <ADCDN/ADCDN_RewardVideoAdModel.h>
 #import <ADCDN/ADCDN_NativeCustomAdManager.h>
 #import <ADCDN/ADCDN_FullscreenVideoAdManager.h>
+#import <ADCDN/ADCDN_NativeCustomRenderModel.h>
+#import <ADCDN/ADCDN_NativeCustomRenderAdManager.h>
+#import <ADCDN/ADCDN_NativeCustomRenderImage.h>
 
 

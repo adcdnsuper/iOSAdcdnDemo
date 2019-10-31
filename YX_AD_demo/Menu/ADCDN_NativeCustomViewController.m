@@ -15,6 +15,7 @@
 #define kAppId @"1030013"
 #define kPlcId @"1010163"
 
+
 @interface ADCDN_NativeCustomViewController ()<ADCDN_NativeCustomAdManagerDelegate>
 /** 广告view */
 @property (nonatomic,strong) UIView *adView;

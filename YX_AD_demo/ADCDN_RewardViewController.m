@@ -82,6 +82,7 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
         vc.plcId = @"1010171";
+        vc.navigationItem.title = @"激励视频-横屏";
         [self.navigationController pushViewController:vc animated:YES];
     }
     // 竖屏
@@ -89,6 +90,7 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
         vc.plcId = @"1010101";
+        vc.navigationItem.title = @"激励视频-竖屏";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -44,7 +44,8 @@
         _adTableView.dataSource = self;
         _adTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         [_adTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"nativeexpresscell"];
-        [_adTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"splitnativeexpresscell"];
+        [_adTableView registerClass:[UITableViewCell class]
+             forCellReuseIdentifier:@"splitnativeexpresscell"];
         [self.view addSubview:_adTableView];
     }
     return _adTableView;
@@ -54,7 +55,7 @@
     ADCDN_NativeExpressAdManager *manager = [ADCDN_NativeExpressAdManager shareManagerWithAppId:KappId plcId:self.plcId];
     manager.rootViewController = self;
     manager.delegate = self;
-    // 最多只运行一次性加载3个
+    // 最多运行一次性拉去3张
     manager.adCount = 3;
     // 广告视图View的尺寸
     manager.adSize = self.adSize;

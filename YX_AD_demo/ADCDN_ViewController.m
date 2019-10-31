@@ -12,6 +12,7 @@
 #import "ADCDN_InterstitialViewController.h"
 #import "ADCDN_VideoViewController.h"
 #import "ADCDN_NativeViewController.h"
+#import "ADCDN_NativeRenderViewController.h"
 
 #define ScreenW self.view.frame.size.width
 #define ScreenH self.view.frame.size.height
@@ -48,7 +49,7 @@
         /**
          *  插屏广告放最后
          */
-        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"视频广告"];
+        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"视频广告",@"原生自渲染广告"];
     }
     return _menuTitleArr;
 }
@@ -111,6 +112,12 @@
     if (indexPath.row == 4) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_VideoViewController *vc = [ADCDN_VideoViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    // 原生自渲染
+    if (indexPath.row == 5) {
+        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+        ADCDN_NativeRenderViewController *vc = [ADCDN_NativeRenderViewController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

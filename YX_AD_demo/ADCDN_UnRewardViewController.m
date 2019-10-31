@@ -82,6 +82,7 @@
     if (indexPath.row == 0) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_UnRewardFullscreenVideoViewController *vc = [ADCDN_UnRewardFullscreenVideoViewController new];
+        vc.navigationItem.title = @"非激励视频-横屏";
         vc.plcId = @"1010167";
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -90,6 +91,7 @@
       NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
       ADCDN_UnRewardFullscreenVideoViewController *vc = [ADCDN_UnRewardFullscreenVideoViewController new];
         vc.plcId = @"1010168";
+        vc.navigationItem.title = @"非激励视频-竖屏";
       [self.navigationController pushViewController:vc animated:YES];
     }
 }
