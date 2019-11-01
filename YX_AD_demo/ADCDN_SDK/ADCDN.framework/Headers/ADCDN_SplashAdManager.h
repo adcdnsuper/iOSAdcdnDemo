@@ -66,10 +66,5 @@
  *  加载开屏广告
  */
 -(void)loadSplashAd;
-/**
- *  获取ADCDN的版本
- */
-
--(NSString *_Nullable)getSDKVersion;
 @end
 

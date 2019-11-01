@@ -27,6 +27,9 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
+    // 初始化配置(必须)
+    [ADCDN_ConfigManager shareManagerWithAppId:KappId];
+    
     // 初始化ADCDN_SDK的appid
     ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId];
     manage.window = self.window;
