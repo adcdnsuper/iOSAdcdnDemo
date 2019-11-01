@@ -10,6 +10,7 @@ ADCDN广告sdk支持如下广告功能:
 | 横幅广告        | 横幅广告         |
 | 插屏广告        | 插屏广告         |
 | 视频广告        | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
+| 原生自渲染广告   | 大图、组图、单图、视频         |
 
 # 2.兼容和版本号
 iOS9.0及以上，版本号：1.0.0。
@@ -44,18 +45,14 @@ pod 'GDTMobSDK', '~> 4.10.13'
 pod 'Bytedance-UnionAD', '~> 2.4.6.7'
 end
 ```
-## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
+## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在app程序的启动函数didFinishLaunchingWithOptions中初始化sdk
 提示：appId、plcId请到ADCDN开发者平台获取
 ```
- // 初始化开屏广告
-    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId];
-    manage.window = self.window;
-    CGRect frame = [UIScreen mainScreen].bounds;
-    manage.wFrame = frame;
-    manage.delegate = self;
+ // 初始化配置(必须)
+    [ADCDN_ConfigManager shareManagerWithAppId:KappId];
 ```
 # 4.sdk广告业务功能
-## 4.1 开屏广告
+## 4.1 开屏广告，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
 ### 4.1.1 设置开屏广告示例代码
 ```
  // 初始化开屏广告
@@ -447,5 +444,72 @@ manager.delegate = self;
  */
 - (void)ADCDN_FullscreenVideoAdDidClickSkip:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
     NSLog(@"视频广告点击跳过");
+}
+```
+## 4.6 原生自渲染广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.6.1 设置原生自渲染示例代码
+```
+// 原生自渲染
+ADCDN_NativeCustomRenderAdManager *nativeCustomAd = [ADCDN_NativeCustomRenderAdManager shareManagerWithAppId:kAppId plcId:self.plcId];
+nativeCustomAd.rootViewController = self;
+nativeCustomAd.delegate = self;
+nativeCustomAd.customView = self.customView;
+[nativeCustomAd loadAd];
+```
+### 4.6.2 设置原生自渲染广告代理方法示例代码，设置代理<ADCDN_NativeCustomRenderAdManagerDelegate>
+```
+#pragma mark - ADCDN_NativeCustomRenderAdManagerDelegate
+
+/**
+ *  拉取广告成功
+ */
+- (void)ADCDN_NativeCustomRenderAdSuccessToLoad:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd withAdDataModel:(ADCDN_NativeCustomRenderModel *)adDataModel{
+    NSLog(@"拉取广告成功");
+    // 渲染视图
+//    [self buildupCustomView:adDataModel];
+    
+    // 大图
+    if (adDataModel.imageMode == ADCDNFeedADModeLargeImage) {
+        [self setUILargeModel:adDataModel];
+    }
+    // 组图
+    if (adDataModel.imageMode == ADCDNFeedADModeGroupImage) {
+        [self setUIGroupModel:adDataModel];
+    }
+    // 单图
+    if (adDataModel.imageMode == ADCDNFeedADModeSmallImage) {
+        [self setUISmallModel:adDataModel];
+    }
+    // 视频
+    if (adDataModel.imageMode == ADCDNFeedVideoAdModeImage) {
+        [self setUIVideoModel:adDataModel];
+        
+    }
+    /**
+     *   测试自渲染信息
+     */
+    NSLog(@"广告标题：%@",adDataModel.adTitle);
+    NSLog(@"广告副标题：%@",adDataModel.adDesc);
+    NSLog(@"广告来源：%@",adDataModel.source);
+    NSLog(@"广告icon：%@",adDataModel.adIcon);
+    NSLog(@"广告图：%@",[adDataModel.adImageAry firstObject].imageURL);
+}
+/**
+ *  拉取广告失败
+ */
+- (void)ADCDN_NativeCustomRenderAd:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"拉取广告失败");
+}
+/**
+ *  点击广告
+ */
+- (void)ADCDN_NativeCustomRenderAdDidClick:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd{
+    NSLog(@"点击广告");
+}
+/**
+ *  曝光回调
+ */
+- (void)ADCDN_NativeCustomRenderAdDidBecomeVisible:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd{
+    NSLog(@"曝光回调");
 }
 ```
