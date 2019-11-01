@@ -393,7 +393,7 @@ manager.rootViewController = self;
 manager.delegate = self;
 [manager loadAd];
 ```
-### 4.5.2 设置非激励视频广告代理方法示例代码，设置代理<ADCDN_FullscreenVideoAdManagerDelegate>
+### 4.5.5 设置非激励视频广告代理方法示例代码，设置代理<ADCDN_FullscreenVideoAdManagerDelegate>
 ```
 #pragma mark ADCDN_FullscreenVideoAdManagerDelegate
 /**
