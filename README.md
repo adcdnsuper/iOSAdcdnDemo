@@ -61,6 +61,7 @@ end
     CGRect frame = [UIScreen mainScreen].bounds;
     manage.wFrame = frame;
     manage.delegate = self;
+    [manage loadSplashAd];
 ```
 ### 4.1.2 设置开屏广告代理方法
 ```
