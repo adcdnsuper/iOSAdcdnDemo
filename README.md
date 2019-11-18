@@ -18,8 +18,6 @@ iOS9.0及以上，版本号：1.0.0。
 # 3.ADCDN_SDK的接入流程
 ## 3.1 添加sdk到工程
 接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。
-(1)如图：Xcode11最新版本需要在 项目->General->Frameworks,Libraries,and Embedded Content->点击➕，添加 ADCDN.framework->选择右边的Embed & Sign
-![如图](https://github.com/pengshuangta/images/blob/master/ADCDN01.png)
 ## 3.2 权限申请
 ### 3.2.1 SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 App Store 审核被拒：
 ```
@@ -41,8 +39,8 @@ Privacy - Location Usage Description
 ```
 platform :ios, '9.0'
 target '你的项目名' do
-pod 'GDTMobSDK', '~> 4.10.13'
-pod 'Bytedance-UnionAD', '~> 2.4.6.7'
+pod 'GDTMobSDK', '~> 4.10.19'
+pod 'Bytedance-UnionAD', '~> 2.5.1.5'
 end
 ```
 ## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在app程序的启动函数didFinishLaunchingWithOptions中初始化sdk
@@ -88,12 +86,6 @@ end
  */
 - (void)ADCDN_SplashAdClicked:(ADCDN_SplashAdManager *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告点击回调");
-}
-/**
- *  开屏广告将要关闭回调
- */
-- (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManager *_Nullable)splashAd {
-    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭回调");
 }
 /**
  *  开屏广告关闭回调
