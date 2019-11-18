@@ -81,12 +81,6 @@
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告点击回调");
 }
 /**
- *  开屏广告将要关闭回调
- */
-- (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManager *_Nullable)splashAd {
-    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭回调");
-}
-/**
  *  开屏广告关闭回调
  */
 - (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd {

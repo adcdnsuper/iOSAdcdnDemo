@@ -21,6 +21,7 @@
 - (NSInteger)priority;
 - (NSString *)eCPMLevel;
 - (void)cancelLoad;
+- (NSInteger)mediationPrice;
 
 @end
 

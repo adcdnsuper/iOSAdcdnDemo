@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDTSDKDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -86,6 +87,31 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)unifiedInterstitialAdDidDismissFullScreenModal:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
 
+/**
+ * 插屏2.0视频广告 player 播放状态更新回调
+ */
+- (void)unifiedInterstitialAd:(GDTUnifiedInterstitialAd *)unifiedInterstitial playerStatusChanged:(GDTMediaPlayerStatus)status;
+
+/**
+ * 插屏2.0视频广告详情页 WillPresent 回调
+ */
+- (void)unifiedInterstitialAdViewWillPresentVideoVC:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
+
+/**
+ * 插屏2.0视频广告详情页 DidPresent 回调
+ */
+- (void)unifiedInterstitialAdViewDidPresentVideoVC:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
+
+/**
+ * 插屏2.0视频广告详情页 WillDismiss 回调
+ */
+- (void)unifiedInterstitialAdViewWillDismissVideoVC:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
+
+/**
+ * 插屏2.0视频广告详情页 DidDismiss 回调
+ */
+- (void)unifiedInterstitialAdViewDidDismissVideoVC:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
+
 @end
 
 @interface GDTUnifiedInterstitialAd : NSObject
@@ -134,6 +160,37 @@ NS_ASSUME_NONNULL_BEGIN
  @return 成功返回一个包含数字的string，@""或nil表示无权限或后台异常
  */
 - (NSString *)eCPMLevel;
+
+/**
+ *  非 WiFi 网络，是否自动播放。默认 NO。loadAd 前设置。
+ */
+
+@property (nonatomic, assign) BOOL videoAutoPlayOnWWAN;
+
+/**
+ *  自动播放时，是否静音。默认 YES。loadAd 前设置。
+ */
+@property (nonatomic, assign) BOOL videoMuted;
+
+/**
+ 请求视频的时长上限，有效值范围为[5,60]。
+ */
+@property (nonatomic) NSInteger maxVideoDuration;
+
+/**
+ * 是否是视频插屏2.0广告
+ */
+@property (nonatomic, assign, readonly) BOOL isVideoAd;
+
+/**
+ * 视频插屏2.0广告时长，单位 ms
+ */
+- (CGFloat)videoDuration;
+
+/**
+ * 视频插屏广告已播放时长，单位 ms
+ */
+- (CGFloat)videoPlayTime;
 
 /**
  返回广告平台名称

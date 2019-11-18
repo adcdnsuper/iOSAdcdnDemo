@@ -23,8 +23,7 @@
 		130DF0AE236ADF89008FDB1B /* ADCDN_InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 130DF0A1236ADF88008FDB1B /* ADCDN_InterstitialViewController.m */; };
 		130DF0AF236ADF89008FDB1B /* ADCDN_NativeCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 130DF0A2236ADF88008FDB1B /* ADCDN_NativeCustomViewController.m */; };
 		130DF0B0236ADF89008FDB1B /* ADCDN_StringStyleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 130DF0A4236ADF88008FDB1B /* ADCDN_StringStyleTool.m */; };
-		135ABA46236C22E400E04C90 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135ABA44236C22DA00E04C90 /* ADCDN.framework */; };
-		135ABA47236C22E400E04C90 /* ADCDN.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 135ABA44236C22DA00E04C90 /* ADCDN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		13212A7D23829BBA00B3FE27 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13212A7C23829BBA00B3FE27 /* ADCDN.framework */; };
 		13B0CE6F233C5FCD008AD2F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */; };
 		13B0CE75233C5FCD008AD2F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B0CE73233C5FCD008AD2F9 /* Main.storyboard */; };
 		13B0CE78233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE76233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld */; };
@@ -41,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				135ABA47236C22E400E04C90 /* ADCDN.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,7 +79,7 @@
 		130DF0A4236ADF88008FDB1B /* ADCDN_StringStyleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_StringStyleTool.m; sourceTree = "<group>"; };
 		130DF0A5236ADF88008FDB1B /* ADCDN_StringStyleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_StringStyleTool.h; sourceTree = "<group>"; };
 		130DF0A6236ADF88008FDB1B /* ADCDN_UnRewardFullscreenVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_UnRewardFullscreenVideoViewController.h; sourceTree = "<group>"; };
-		135ABA44236C22DA00E04C90 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		13212A7C23829BBA00B3FE27 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B0CE6A233C5FCD008AD2F9 /* YX_AD_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YX_AD_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B0CE6D233C5FCD008AD2F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -102,7 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				135ABA46236C22E400E04C90 /* ADCDN.framework in Frameworks */,
+				13212A7D23829BBA00B3FE27 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +143,7 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				135ABA44236C22DA00E04C90 /* ADCDN.framework */,
+				13212A7C23829BBA00B3FE27 /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";

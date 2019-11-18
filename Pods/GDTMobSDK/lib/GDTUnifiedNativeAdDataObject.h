@@ -86,13 +86,20 @@
  */
 @property (nonatomic, readonly) NSString *eCPMLevel;
 
-/*
+/**
  广告对应的CTA文案，自定义CTA视图时建议使用此字段
  广告对应的callToAction文案，比如“立即预约”或“电话咨询”, 自定义callToAction视图时建议使用此字段
 
  该字段在部分广告类型中可能为空
  */
 @property (nonatomic, readonly) NSString *callToAction;
+
+/**
+返回广告是否可以跳过，用于做前贴片场景
+
+@return YES 表示可跳过、NO 表示不可跳过
+*/
+@property (nonatomic, readonly) BOOL skippable;
 
 /**
  视频广告播放配置
@@ -106,5 +113,12 @@
  @return YES or NO
  */
 - (BOOL)equalsAdData:(GDTUnifiedNativeAdDataObject *)dataObject;
+
+/**
+ 可选方法，请根据场景酌情上报，用于提高广告预估准确性，提高 ecpm。
+ 使用场景：当广告为视频广告，且开发者自行渲染视频广告封面图，开发者点击封面进入下一页才展示视频广告容器时，其他场景无需使用。
+ 上报时机：开发者自行渲染的视频广告封面图展示给用户时。
+*/
+- (void)videoCoverExpose;
 
 @end
