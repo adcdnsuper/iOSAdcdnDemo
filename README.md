@@ -43,7 +43,7 @@ pod 'GDTMobSDK', '~> 4.10.19'
 pod 'Bytedance-UnionAD', '~> 2.5.1.5'
 end
 ```
-[https://github.com/pengshuangta/ADCDN_manual/blob/master/README.md](不使用pod方式，使用手动方式拖入其他广告平台依赖库，请点击)
+[不使用pod方式，使用手动方式拖入其他广告平台依赖库，请点击](https://github.com/pengshuangta/ADCDN_manual/blob/master/README.md)
 ## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在app程序的启动函数didFinishLaunchingWithOptions中初始化sdk
 提示：appId、plcId请到ADCDN开发者平台获取
 ```
