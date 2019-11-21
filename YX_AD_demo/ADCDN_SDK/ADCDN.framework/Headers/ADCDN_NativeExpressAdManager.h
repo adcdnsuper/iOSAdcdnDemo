@@ -40,7 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  曝光回调
  */
 - (void)ADCDN_NativeExpressAdDidBecomeVisible:(UIView *)nativeExpressAdView;
-
+/**
+ *  关闭广告回调
+ */
+- (void)ADCDN_NativeExpressAdDidClose:(UIView *)nativeExpressAdView;
 @end
 
 @interface ADCDN_NativeExpressAdManager : NSObject

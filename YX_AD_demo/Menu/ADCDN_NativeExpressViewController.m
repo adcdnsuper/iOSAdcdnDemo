@@ -101,6 +101,17 @@
 - (void)ADCDN_NativeExpressAdDidBecomeVisible:(UIView *)nativeExpressAdView{
     NSLog(@"原生纯图曝光");
 }
+/**
+ *  关闭广告回调
+ */
+- (void)ADCDN_NativeExpressAdDidClose:(UIView *)nativeExpressAdView{
+    NSLog(@"原生广告关闭回调");
+    
+    if (nativeExpressAdView) {
+        [self.expressAdViews removeObject:nativeExpressAdView];
+        [self.adTableView reloadData];
+    }
+}
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
