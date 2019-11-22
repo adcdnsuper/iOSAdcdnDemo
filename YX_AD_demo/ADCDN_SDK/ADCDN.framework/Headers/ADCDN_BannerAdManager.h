@@ -33,7 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  曝光回调
  */
 - (void)ADCDN_BannerAdDidBecomeVisible:(ADCDN_BannerAdManager *)bannerAd;
-
+/**
+ *  关闭回调
+ */
+- (void)ADCDN_BannerAdDidClose:(ADCDN_BannerAdManager *)bannerAd;
 @end
 
 @interface ADCDN_BannerAdManager : NSObject

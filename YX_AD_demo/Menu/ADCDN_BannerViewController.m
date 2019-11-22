@@ -80,6 +80,9 @@
 - (void)ADCDN_BannerAdDidBecomeVisible:(ADCDN_BannerAdManager *)bannerAd {
     NSLog(@"曝光回调-----%s",__FUNCTION__);
 }
-
+/// 关闭广告
+-(void)ADCDN_BannerAdDidClose:(ADCDN_BannerAdManager *)bannerAd{
+    NSLog(@"关闭回调-----%s",__FUNCTION__);
+}
 
 @end

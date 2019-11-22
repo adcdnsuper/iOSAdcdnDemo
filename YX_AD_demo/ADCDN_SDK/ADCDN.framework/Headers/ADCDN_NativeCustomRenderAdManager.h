@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)ADCDN_NativeCustomRenderAdDidBecomeVisible:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd;
 
+
 @end
 
 @interface ADCDN_NativeCustomRenderAdManager : NSObject

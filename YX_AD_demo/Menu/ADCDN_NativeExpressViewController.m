@@ -19,7 +19,8 @@
 @property (nonatomic,strong) UITableView *adTableView;
 /** 拉取的广告数组 */
 @property (nonatomic, strong) NSMutableArray *expressAdViews;
-
+/* ADCDN_NativeExpressAdManager */
+@property (nonatomic,strong) ADCDN_NativeExpressAdManager *manager;
 @end
 
 @implementation ADCDN_NativeExpressViewController
@@ -37,6 +38,14 @@
     
     [self adTableView];
 }
+#pragma mark - 广告数组
+-(NSMutableArray *)expressAdViews{
+    if (!_expressAdViews) {
+        _expressAdViews = [NSMutableArray array];
+    }
+    return _expressAdViews;
+}
+#pragma mark - Tableview
 -(UITableView *)adTableView{
     if (!_adTableView) {
         _adTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH) style:UITableViewStylePlain];
@@ -52,22 +61,30 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_NativeExpressAdManager *manager = [ADCDN_NativeExpressAdManager shareManagerWithAppId:KappId plcId:self.plcId];
-    manager.rootViewController = self;
-    manager.delegate = self;
+    _manager = [ADCDN_NativeExpressAdManager shareManagerWithAppId:KappId plcId:self.plcId];
+    _manager.rootViewController = self;
+    _manager.delegate = self;
     // 最多运行一次性拉去3张
-    manager.adCount = 3;
+    _manager.adCount = 3;
     // 广告视图View的尺寸
-    manager.adSize = self.adSize;
-    [manager loadAd];
+    _manager.adSize = self.adSize;
+    [_manager loadAd];
 }
 #pragma mark - ADCDN_NativeExpressAdManagerDelegate
 /**
  *  加载成功
  */
 - (void)ADCDN_NativeExpressAdSuccessToLoad:(ADCDN_NativeExpressAdManager *)nativeExpressAd views:(NSArray<__kindof UIView *> *)views{
-    self.expressAdViews = [NSMutableArray arrayWithArray:views];
-    NSLog(@"原生纯图加载成功");
+    
+    [self.expressAdViews removeAllObjects];
+    __weak typeof(self) weakSelf = self;
+    if (views.count) {
+        [self.expressAdViews addObjectsFromArray:views];
+        [views enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            UIView *expressView = (UIView *)obj;
+            [weakSelf.manager render:expressView];
+        }];
+    }
     [self.adTableView reloadData];
 }
 /**
