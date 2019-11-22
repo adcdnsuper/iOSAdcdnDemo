@@ -11,11 +11,6 @@
 
 #import "Tool/ADCDN_StringStyleTool.h"
 
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
-
-#define kAppId @"1030013"
-#define kPlcId @"1010163"
 
 static CGFloat const margin = 15;
 static UIEdgeInsets const padding = {10, 15, 10, 15};
@@ -278,7 +273,7 @@ static UIEdgeInsets const padding = {10, 15, 10, 15};
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_NativeCustomRenderAdManager *nativeCustomAd = [ADCDN_NativeCustomRenderAdManager shareManagerWithAppId:kAppId plcId:self.plcId];
+    ADCDN_NativeCustomRenderAdManager *nativeCustomAd = [ADCDN_NativeCustomRenderAdManager shareManagerWithAppId:KappId plcId:self.plcId];
    nativeCustomAd.rootViewController = self;
    nativeCustomAd.delegate = self;
     nativeCustomAd.customView = self.customView;

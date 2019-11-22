@@ -9,8 +9,6 @@
 #import "ADCDN_NativeRenderViewController.h"
 #import "ADCDN_NativeCustomRenderViewController.h"
 
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
 
 @interface ADCDN_NativeRenderViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
@@ -82,28 +80,28 @@
     ADCDN_NativeCustomRenderViewController *vc = [ADCDN_NativeCustomRenderViewController new];
     if (indexPath.row == 0) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        vc.plcId = @"1010207";
+        vc.plcId = KplcId_RenderBigImg;
         vc.navigationItem.title = @"大图";
         [self.navigationController pushViewController:vc animated:YES];
     }
     // 组图
     if (indexPath.row == 1) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        vc.plcId = @"1010212";
+        vc.plcId = KplcId_RenderGroupImg;
         vc.navigationItem.title = @"组图";
         [self.navigationController pushViewController:vc animated:YES];
     }
     // 单图
     if (indexPath.row == 2) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        vc.plcId = @"1010209";
+        vc.plcId = KplcId_RenderSingleImg;
         vc.navigationItem.title = @"单图";
         [self.navigationController pushViewController:vc animated:YES];
     }
     // 视频
     if (indexPath.row == 3) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        vc.plcId = @"1010211";
+        vc.plcId = KplcId_RenderVideo;
         vc.navigationItem.title = @"视频";
         [self.navigationController pushViewController:vc animated:YES];
     }

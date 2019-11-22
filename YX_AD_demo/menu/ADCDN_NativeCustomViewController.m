@@ -9,11 +9,6 @@
 #import "ADCDN_NativeCustomViewController.h"
 #import <ADCDN/ADCDN.h>
 
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
-
-#define kAppId @"1030013"
-#define kPlcId @"1010163"
 
 
 @interface ADCDN_NativeCustomViewController ()<ADCDN_NativeCustomAdManagerDelegate>
@@ -47,7 +42,7 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_NativeCustomAdManager *nativeCustomAd = [ADCDN_NativeCustomAdManager shareManagerWithAppId:kAppId plcId:kPlcId];
+    ADCDN_NativeCustomAdManager *nativeCustomAd = [ADCDN_NativeCustomAdManager shareManagerWithAppId:KappId plcId:KplcId_Img];
     nativeCustomAd.adView = self.adView;
     nativeCustomAd.rootViewController = self;
     nativeCustomAd.delegate = self;

@@ -8,11 +8,6 @@
 
 #import "ADCDN_NativeExpressViewController.h"
 #import <ADCDN/ADCDN.h>
-#define KappId @"1030013"
-
-
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
 
 @interface ADCDN_NativeExpressViewController ()<ADCDN_NativeExpressAdManagerDelegate,UITableViewDelegate,UITableViewDataSource>
 /** 广告列表 */

@@ -9,10 +9,6 @@
 #import "ADCDN_UnRewardFullscreenVideoViewController.h"
 #import <ADCDN/ADCDN.h>
 
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
-
-#define kAppId @"1030013"
 
 @interface ADCDN_UnRewardFullscreenVideoViewController ()<ADCDN_FullscreenVideoAdManagerDelegate>
 /** 每一次请求数据需用新的BUFullscreenVideoAd对象 */
@@ -35,7 +31,7 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_FullscreenVideoAdManager *manager = [ADCDN_FullscreenVideoAdManager shareManagerWithAppId:kAppId plcId:self.plcId];
+    ADCDN_FullscreenVideoAdManager *manager = [ADCDN_FullscreenVideoAdManager shareManagerWithAppId:KappId plcId:self.plcId];
     manager.rootViewController = self;
     manager.delegate = self;
     [manager loadAd];

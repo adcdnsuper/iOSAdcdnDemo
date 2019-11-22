@@ -14,8 +14,6 @@
 #import "ADCDN_NativeViewController.h"
 #import "ADCDN_NativeRenderViewController.h"
 
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
 @interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
 @property (nonatomic,strong) UITableView *menuTB;

@@ -9,8 +9,7 @@
 #import "ADCDN_UnRewardViewController.h"
 #import "ADCDN_UnRewardFullscreenVideoViewController.h"
 
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
+
 
 @interface ADCDN_UnRewardViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
@@ -83,14 +82,14 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_UnRewardFullscreenVideoViewController *vc = [ADCDN_UnRewardFullscreenVideoViewController new];
         vc.navigationItem.title = @"非激励视频-横屏";
-        vc.plcId = @"1010167";
+        vc.plcId = KplcId_VideoHorizon;
         [self.navigationController pushViewController:vc animated:YES];
     }
     // 竖屏
     if (indexPath.row == 1) {
       NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
       ADCDN_UnRewardFullscreenVideoViewController *vc = [ADCDN_UnRewardFullscreenVideoViewController new];
-        vc.plcId = @"1010168";
+        vc.plcId = KplcId_VideoVertical;
         vc.navigationItem.title = @"非激励视频-竖屏";
       [self.navigationController pushViewController:vc animated:YES];
     }

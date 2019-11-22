@@ -8,7 +8,6 @@
 
 #import "ADCDN_RewardVideoViewController.h"
 #import <ADCDN/ADCDN.h>
-#define KappId @"1030013"
 
 
 @interface ADCDN_RewardVideoViewController ()<ADCDN_RewardVideoAdManagerDelegate>

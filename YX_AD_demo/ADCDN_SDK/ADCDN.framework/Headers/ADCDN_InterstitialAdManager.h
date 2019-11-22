@@ -32,7 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  曝光回调
  */
 - (void)ADCDN_InterstitialAdDidBecomeVisible:(ADCDN_InterstitialAdManager *)InterstitialAd;
-
+/**
+ *  关闭广告回调
+ */
+- (void)ADCDN_InterstitialAdDidClose:(ADCDN_InterstitialAdManager *)InterstitialAd;
 @end
 
 @interface ADCDN_InterstitialAdManager : NSObject

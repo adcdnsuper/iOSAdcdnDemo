@@ -8,8 +8,6 @@
 
 #import "ADCDN_BannerViewController.h"
 #import <ADCDN/ADCDN.h>
-#define KappId @"1030013"
-#define KplcId @"1010179"
 
 #define ScreenW self.view.frame.size.width
 #define ScreenH self.view.frame.size.height
@@ -42,7 +40,7 @@
     return _adView;
 }
 - (void)loadAd {
-    ADCDN_BannerAdManager *banner = [ADCDN_BannerAdManager shareManagerWithAppId:KappId plcId:KplcId];
+    ADCDN_BannerAdManager *banner = [ADCDN_BannerAdManager shareManagerWithAppId:KappId plcId:KplcId_Banner];
     banner.customView = self.adView;// banner加载的位置
     banner.interval = 29;// 大于30循环
     banner.rootViewController = self;

@@ -8,8 +8,7 @@
 
 #import "ADCDN_RewardViewController.h"
 #import "ADCDN_RewardVideoViewController.h"
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
+
 @interface ADCDN_RewardViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
 @property (nonatomic,strong) UITableView *menuTB;
@@ -81,7 +80,7 @@
     if (indexPath.row == 0) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
-        vc.plcId = @"1010171";
+        vc.plcId = KplcId_RewardVideoHorizon;
         vc.navigationItem.title = @"激励视频-横屏";
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -89,7 +88,7 @@
     if (indexPath.row == 1) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
-        vc.plcId = @"1010101";
+        vc.plcId = KplcId_RewardVideoVertical;
         vc.navigationItem.title = @"激励视频-竖屏";
         [self.navigationController pushViewController:vc animated:YES];
     }

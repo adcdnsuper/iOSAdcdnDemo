@@ -8,8 +8,7 @@
 
 #import "ADCDN_InterstitialViewController.h"
 #import <ADCDN/ADCDN.h>
-#define KappId @"1030013"
-#define KplcId @"1010094"
+
 @interface ADCDN_InterstitialViewController ()<ADCDN_InterstitialAdManagerDelegate>
 
 @end
@@ -27,7 +26,7 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_InterstitialAdManager *manager = [ADCDN_InterstitialAdManager shareManagerWithAppId:KappId plcId:KplcId];
+    ADCDN_InterstitialAdManager *manager = [ADCDN_InterstitialAdManager shareManagerWithAppId:KappId plcId:KplcId_Interstitial];
     manager.rootViewController = self;
     manager.delegate = self;
     [manager loadAd];
@@ -56,5 +55,11 @@
  */
 - (void)ADCDN_InterstitialAdDidBecomeVisible:(ADCDN_InterstitialAdManager *)InterstitialAd{
     NSLog(@"插屏曝光回调");
+}
+/**
+ *  关闭广告回调
+ */
+- (void)ADCDN_InterstitialAdDidClose:(ADCDN_InterstitialAdManager *)InterstitialAd{
+    NSLog(@"插屏广告关闭回调");
 }
 @end

@@ -9,8 +9,7 @@
 #import "ADCDN_VideoViewController.h"
 #import "ADCDN_RewardViewController.h"
 #import "ADCDN_UnRewardViewController.h"
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
+
 @interface ADCDN_VideoViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
 @property (nonatomic,strong) UITableView *menuTB;

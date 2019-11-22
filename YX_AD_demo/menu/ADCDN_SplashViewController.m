@@ -8,8 +8,7 @@
 
 #import "ADCDN_SplashViewController.h"
 #import <ADCDN/ADCDN.h>
-#define KappId @"1030013"
-#define KplcId @"1010021"
+
 @interface ADCDN_SplashViewController ()<ADCDN_SplashAdManagerDelegate>
 
 @end
@@ -29,7 +28,7 @@
 #pragma mark - loadAd
 -(void)loadAd{
     CGRect frame = [UIScreen mainScreen].bounds;
-    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId];
+    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId_Splash];
     manage.wFrame = frame;
     manage.window = [UIApplication sharedApplication].keyWindow;
     manage.delegate = self;

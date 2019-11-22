@@ -12,9 +12,6 @@
 #import "ADCDN_NativeCustomViewController.h"
 
 
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
-
 @interface ADCDN_NativeViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
 @property (nonatomic,strong) UITableView *menuTB;
@@ -86,7 +83,7 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
         vc.navigationItem.title = @"三小图";
-        vc.plcId = @"1010144";
+        vc.plcId = KplcId_ThreeSmallImg;
         vc.adSize = CGSizeMake(ScreenW, ScreenW *(110/256));
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -102,7 +99,7 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
         vc.navigationItem.title = @"左图右文";
-        vc.plcId = @"1010142";
+        vc.plcId = KplcId_LeftImg;
         vc.adSize = CGSizeMake(ScreenW, ScreenW *(85/256));
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -111,7 +108,7 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
         vc.navigationItem.title = @"左文右图";
-        vc.plcId = @"1010143";
+        vc.plcId = KplcId_RightImg;
         vc.adSize = CGSizeMake(ScreenW, ScreenW *(85/256));
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -120,7 +117,7 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
         vc.navigationItem.title = @"文字浮层";
-        vc.plcId = @"1010140";
+        vc.plcId = KplcId_Text;
         vc.adSize = CGSizeMake(ScreenW, ScreenW *(150/256));
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -129,7 +126,7 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
         vc.navigationItem.title = @"上图下文";
-        vc.plcId = @"1010145";
+        vc.plcId = KplcId_TopImg;
         vc.adSize = CGSizeMake(ScreenW, ScreenW *(205/256));
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -138,7 +135,7 @@
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
         vc.navigationItem.title = @"上文下浮层";
-        vc.plcId = @"1010141";
+        vc.plcId = KplcId_TopText;
         vc.adSize = CGSizeMake(ScreenW, ScreenW *(175/256));
         [self.navigationController pushViewController:vc animated:YES];
     }
