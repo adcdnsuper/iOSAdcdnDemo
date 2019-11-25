@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		135E4A0A2387E718008D3E44 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135E4A092387E718008D3E44 /* ADCDN.framework */; };
+		131AB21A238B6EB6000476A3 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131AB219238B6EB6000476A3 /* ADCDN.framework */; };
 		135E4A1B2387E787008D3E44 /* ADCDN_NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135E4A0B2387E785008D3E44 /* ADCDN_NativeViewController.m */; };
 		135E4A1C2387E787008D3E44 /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135E4A0F2387E785008D3E44 /* ADCDN_NavigationController.m */; };
 		135E4A1D2387E787008D3E44 /* ADCDN_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135E4A102387E785008D3E44 /* ADCDN_ViewController.m */; };
@@ -47,7 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		135E4A092387E718008D3E44 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		131AB219238B6EB6000476A3 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		135E4A0B2387E785008D3E44 /* ADCDN_NativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NativeViewController.m; sourceTree = "<group>"; };
 		135E4A0C2387E785008D3E44 /* ADCDN_SDKKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SDKKey.h; sourceTree = "<group>"; };
 		135E4A0D2387E785008D3E44 /* ADCDN_NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NavigationController.h; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				135E4A0A2387E718008D3E44 /* ADCDN.framework in Frameworks */,
+				131AB21A238B6EB6000476A3 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +112,7 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				135E4A092387E718008D3E44 /* ADCDN.framework */,
+				131AB219238B6EB6000476A3 /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
