@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ADCDN_NativeExpressAdManager : NSObject
 // 控制器
-@property (nonatomic, strong)UIViewController *rootViewController;
+@property (nonatomic, weak)UIViewController *rootViewController;
 // 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_NativeExpressAdManagerDelegate> delegate;
 // 广告尺寸大小，建议尺寸：1280 * 720

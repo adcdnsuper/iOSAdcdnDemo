@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ADCDN_RewardVideoAdManager : NSObject
 // 控制器
-@property (nonatomic, strong)UIViewController *rootViewController;
+@property (nonatomic, weak)UIViewController *rootViewController;
 // 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_RewardVideoAdManagerDelegate> delegate;
 // 如果需要：服务器到服务器回调，则需要传递此数据模型

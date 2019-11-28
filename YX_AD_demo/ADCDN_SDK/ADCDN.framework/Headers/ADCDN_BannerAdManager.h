@@ -41,9 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ADCDN_BannerAdManager : NSObject
 /// 加载广告位视图 （必传）
-@property (nonatomic, strong) UIView *customView;
+@property (nonatomic, weak) UIView *customView;
 /// 控制器
-@property (nonatomic, strong)UIViewController *rootViewController;
+@property (nonatomic, weak)UIViewController *rootViewController;
 /// 是否轮循 大于 30 为轮循  默认为不轮循
 @property (nonatomic, assign) NSInteger interval;
 /// 代理对象

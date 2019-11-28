@@ -20,7 +20,6 @@ typedef NS_ENUM(NSInteger, ADCDNFeedADMode) {
 };
 
 @interface ADCDN_NativeCustomRenderModel : NSObject
-
 /** 广告标题 */
 @property (nonatomic,copy) NSString *adTitle;
 /** 广告副标题 */
@@ -35,6 +34,11 @@ typedef NS_ENUM(NSInteger, ADCDNFeedADMode) {
 @property (nonatomic, assign) ADCDNFeedADMode imageMode;
 // ad source.
 @property (nonatomic, copy) NSString *source;
+
+/** ad */
+@property (nonatomic,strong) NSObject *ad;
+/** relatedView */
+@property (nonatomic,strong) NSObject *relatedView;
 
 @end
 

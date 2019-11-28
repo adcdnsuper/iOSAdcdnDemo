@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 代理对象 */
 @property (nonatomic, weak, nullable) id<ADCDN_FullscreenVideoAdManagerDelegate>delegate;
 /** 控制器(必传) */
-@property (nonatomic, strong) UIViewController * rootViewController;
+@property (nonatomic, weak) UIViewController * rootViewController;
 /**
  *  提供单例类方法
  *  详解：appId - 媒体 ID

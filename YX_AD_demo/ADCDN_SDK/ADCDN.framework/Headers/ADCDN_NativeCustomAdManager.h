@@ -38,11 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ADCDN_NativeCustomAdManager : NSObject
 // 控制器(必传) 
-@property (nonatomic, strong)UIViewController *rootViewController;
+@property (nonatomic, weak)UIViewController *rootViewController;
 // 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_NativeCustomAdManagerDelegate> delegate;
 /** 广告view(必传) */
-@property (nonatomic, strong) UIView * adView;
+@property (nonatomic, weak) UIView * adView;
 /**
  *  提供单例类方法
  *  详解：appId - 媒体 ID

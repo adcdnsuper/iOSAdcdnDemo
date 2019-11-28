@@ -19,9 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @protocol ADCDN_NativeCustomRenderAdManagerDelegate <NSObject>
 /**
- *  拉取广告成功
- */
-- (void)ADCDN_NativeCustomRenderAdSuccessToLoad:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd withAdDataModel:(ADCDN_NativeCustomRenderModel *)adDataModel;
+* 拉取广告成功
+*/
+-(void)ADCDN_NativeCustomRenderAdSuccessToLoad:(ADCDN_NativeCustomRenderAdManager *)adsManager nativeAds:(NSArray<ADCDN_NativeCustomRenderModel *> *)nativeAdDataArray;
 /**
  *  拉取广告失败
  */
@@ -42,9 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 代理对象 */
 @property (nonatomic, weak, nullable) id<ADCDN_NativeCustomRenderAdManagerDelegate>delegate;
 /** 控制器(必传) */
-@property (nonatomic, strong) UIViewController * rootViewController;
-/** 自定义控件的父视图(必传) ，否则曝光回调不走，影响计费*/
-@property (nonatomic, strong) UIView * customView;
+@property (nonatomic, weak) UIViewController * rootViewController;
+/* The maximum is 3 */
+@property (nonatomic,assign) NSInteger adCount;
 /**
  *  提供单例类方法
  *  详解：appId - 媒体 ID
@@ -56,6 +56,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  加载广告
  */
 -(void)loadAd;
+/**
+ * 注册视图否则不会曝光
+ */
+
+- (void)registerContainer:(__kindof UIView *)containerView
+       withClickableViews:(ADCDN_NativeCustomRenderModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

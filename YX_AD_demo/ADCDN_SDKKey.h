@@ -61,8 +61,7 @@
 
 
 /** 屏幕宽高 */
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
-
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
 
 #endif /* ADCDN_SDKKey_h */
