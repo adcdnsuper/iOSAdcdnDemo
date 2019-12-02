@@ -1,0 +1,15 @@
+//
+//  ADCDN_PrefixHeader.pch
+//  ADCDN_APP
+//
+//  Created by 彭双塔 on 2019/11/22.
+//  Copyright © 2019 pst. All rights reserved.
+//
+
+#ifndef ADCDN_PrefixHeader_pch
+#define ADCDN_PrefixHeader_pch
+
+
+#import "ADCDN_SDKKey.h"
+
+#endif /* ADCDN_PrefixHeader_pch */
