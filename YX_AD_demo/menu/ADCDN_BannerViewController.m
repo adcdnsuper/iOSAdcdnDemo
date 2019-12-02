@@ -12,6 +12,8 @@
 @interface ADCDN_BannerViewController ()<ADCDN_BannerAdManagerDelegate>
 /* 横幅广告 */
 @property (nonatomic,strong) ADCDN_BannerAdManager *banner;
+/** 广告view */
+@property (nonatomic,strong) UIView *adView;
 @end
 
 @implementation ADCDN_BannerViewController
@@ -29,11 +31,19 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 }
+-(UIView *)adView{
+    if (!_adView) {
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100,ScreenW , ScreenW/600*90)];
+        [self.view addSubview:_adView];
+    }
+    return _adView;
+}
+/**
+ *  广告视频图懒加载
+ */
 - (void)loadAd {
     self.banner = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
-    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100,ScreenW , ScreenW/600*90)];
-    [self.view addSubview:adView];
-    self.banner.customView = adView;// banner加载的位置
+    self.banner.customView = self.adView;// banner加载的位置
     self.banner.interval = 29;// 大于30循环
     self.banner.rootViewController = self;
     self.banner.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费

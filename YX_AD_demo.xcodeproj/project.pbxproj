@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		132904062394E20D00A9EB9F /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132904052394E20D00A9EB9F /* ADCDN.framework */; };
 		132904172394E2A000A9EB9F /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904072394E29E00A9EB9F /* ADCDN_NavigationController.m */; };
 		132904182394E2A000A9EB9F /* ADCDN_NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904082394E29E00A9EB9F /* ADCDN_NativeViewController.m */; };
 		132904192394E2A000A9EB9F /* ADCDN_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1329040A2394E29E00A9EB9F /* ADCDN_ViewController.m */; };
@@ -25,6 +24,7 @@
 		1329043B2394E2C900A9EB9F /* ADCDN_RewardVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1329042B2394E2C900A9EB9F /* ADCDN_RewardVideoViewController.m */; };
 		1329043C2394E2C900A9EB9F /* ADCDN_NativeCustomRenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1329042D2394E2C900A9EB9F /* ADCDN_NativeCustomRenderTableViewCell.m */; };
 		1329043D2394E2C900A9EB9F /* ADCDN_StringStyleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904302394E2C900A9EB9F /* ADCDN_StringStyleTool.m */; };
+		132904412394F72C00A9EB9F /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132904402394F72C00A9EB9F /* ADCDN.framework */; };
 		13B0CE6F233C5FCD008AD2F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */; };
 		13B0CE75233C5FCD008AD2F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B0CE73233C5FCD008AD2F9 /* Main.storyboard */; };
 		13B0CE78233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE76233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld */; };
@@ -48,7 +48,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		132904052394E20D00A9EB9F /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		132904072394E29E00A9EB9F /* ADCDN_NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NavigationController.m; sourceTree = "<group>"; };
 		132904082394E29E00A9EB9F /* ADCDN_NativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NativeViewController.m; sourceTree = "<group>"; };
 		132904092394E29E00A9EB9F /* ADCDN_NativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeViewController.h; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		132904312394E2C900A9EB9F /* ADCDN_StringStyleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_StringStyleTool.h; sourceTree = "<group>"; };
 		132904322394E2C900A9EB9F /* ADCDN_SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SplashViewController.h; sourceTree = "<group>"; };
 		132904332394E2C900A9EB9F /* ADCDN_NativeCustomRenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeCustomRenderViewController.h; sourceTree = "<group>"; };
+		132904402394F72C00A9EB9F /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B0CE6A233C5FCD008AD2F9 /* YX_AD_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YX_AD_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B0CE6D233C5FCD008AD2F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				132904062394E20D00A9EB9F /* ADCDN.framework in Frameworks */,
+				132904412394F72C00A9EB9F /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +150,7 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				132904052394E20D00A9EB9F /* ADCDN.framework */,
+				132904402394F72C00A9EB9F /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
