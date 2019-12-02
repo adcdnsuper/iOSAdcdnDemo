@@ -10,10 +10,10 @@
 #import <ADCDN/ADCDN.h>
 
 @interface ADCDN_BannerViewController ()<ADCDN_BannerAdManagerDelegate>
-/* 横幅广告 */
-@property (nonatomic,strong) ADCDN_BannerAdManager *banner;
 /** 广告view */
 @property (nonatomic,strong) UIView *adView;
+/* 横幅广告 */
+@property (nonatomic,strong) ADCDN_BannerAdManager *banner;
 @end
 
 @implementation ADCDN_BannerViewController
