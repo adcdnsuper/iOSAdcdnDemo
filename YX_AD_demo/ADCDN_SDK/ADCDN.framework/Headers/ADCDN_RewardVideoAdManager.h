@@ -65,11 +65,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 如果需要：服务器到服务器回调，则需要传递此数据模型
 @property (nonatomic,strong) ADCDN_RewardVideoAdModel *rewardVideoAdModel;
 /**
- *  提供单例类方法
- *  详解：appId - 媒体 ID
- *       plcId - 广告位 ID
- */
-+(instancetype _Nullable)shareManagerWithAppId:(NSString *_Nullable)appId plcId:(NSString *_Nullable)plcId;
+*  plcId - 广告位 ID
+*/
+-(instancetype _Nullable)initWithPlcId:(NSString *_Nullable)plcId;
 /**
  *  加载广告
  */

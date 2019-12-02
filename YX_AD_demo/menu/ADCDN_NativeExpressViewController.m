@@ -14,7 +14,7 @@
 @property (nonatomic,strong) UITableView *adTableView;
 /** 拉取的广告数组 */
 @property (nonatomic, strong) NSMutableArray *expressAdViews;
-/* ADCDN_NativeExpressAdManager */
+/* 原生模板广告 */
 @property (nonatomic,strong) ADCDN_NativeExpressAdManager *manager;
 @end
 
@@ -32,6 +32,9 @@
     self.navigationItem.rightBarButtonItem = button;
     
     [self adTableView];
+}
+-(void)dealloc{
+    NSLog(@"释放了");
 }
 #pragma mark - 广告数组
 -(NSMutableArray *)expressAdViews{
@@ -56,14 +59,14 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    _manager = [ADCDN_NativeExpressAdManager shareManagerWithAppId:KappId plcId:self.plcId];
-    _manager.rootViewController = self;
-    _manager.delegate = self;
+    self.manager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
+    self.manager.rootViewController = self;
+    self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
     // 最多运行一次性拉去3张
-    _manager.adCount = 3;
+    self.manager.adCount = 3;
     // 广告视图View的尺寸
-    _manager.adSize = self.adSize;
-    [_manager loadAd];
+    self.manager.adSize = self.adSize;
+    [self.manager loadAd];
 }
 #pragma mark - ADCDN_NativeExpressAdManagerDelegate
 /**
@@ -80,44 +83,45 @@
             [weakSelf.manager render:expressView];
         }];
     }
+    NSLog(@"原生模板广告加载失败");
     [self.adTableView reloadData];
 }
 /**
  *  加载失败
  */
 - (void)ADCDN_NativeExpressAd:(ADCDN_NativeExpressAdManager *)nativeExpressAd didFailWithError:(NSError *_Nullable)error{
-    NSLog(@"原生纯图加载失败");
+    NSLog(@"原生模板广告加载失败");
 }
 /**
  *  渲染广告成功
  */
 - (void)ADCDN_NativeExpressAdRenderSuccess:(UIView *)nativeExpressAdView{
-    NSLog(@"原生纯图渲染成功");
+    NSLog(@"原生模板广告渲染成功");
     [self.adTableView reloadData];
 }
 /**
  *  渲染广告失败
  */
 - (void)ADCDN_NativeExpressAdRenderFail:(UIView *)nativeExpressAdView error:(NSError *_Nullable)error{
-    NSLog(@"原生纯图渲染失败");
+    NSLog(@"原生模板广告渲染失败");
 }
 /**
  *  点击广告
  */
 - (void)ADCDN_NativeExpressAdDidClick:(UIView *)nativeExpressAdView{
-    NSLog(@"原生纯图点击");
+    NSLog(@"原生模板广告点击");
 }
 /**
  *  曝光回调
  */
 - (void)ADCDN_NativeExpressAdDidBecomeVisible:(UIView *)nativeExpressAdView{
-    NSLog(@"原生纯图曝光");
+    NSLog(@"原生模板广告曝光");
 }
 /**
  *  关闭广告回调
  */
 - (void)ADCDN_NativeExpressAdDidClose:(UIView *)nativeExpressAdView{
-    NSLog(@"原生广告关闭回调");
+    NSLog(@"原生模板广告关闭回调");
     
     if (nativeExpressAdView) {
         [self.expressAdViews removeObject:nativeExpressAdView];

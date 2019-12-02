@@ -9,12 +9,11 @@
 #import "ADCDN_BannerViewController.h"
 #import <ADCDN/ADCDN.h>
 
-#define ScreenW self.view.frame.size.width
-#define ScreenH self.view.frame.size.height
-
 @interface ADCDN_BannerViewController ()<ADCDN_BannerAdManagerDelegate>
 /** 广告view */
 @property (nonatomic,strong) UIView *adView;
+/* 横幅广告 */
+@property (nonatomic,strong) ADCDN_BannerAdManager *banner;
 @end
 
 @implementation ADCDN_BannerViewController
@@ -29,6 +28,9 @@
     self.navigationItem.rightBarButtonItem = button;
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
 /**
  *  广告视频图懒加载
  */
@@ -40,12 +42,17 @@
     return _adView;
 }
 - (void)loadAd {
-    ADCDN_BannerAdManager *banner = [ADCDN_BannerAdManager shareManagerWithAppId:KappId plcId:KplcId_Banner];
-    banner.customView = self.adView;// banner加载的位置
-    banner.interval = 29;// 大于30循环
-    banner.rootViewController = self;
-    banner.delegate = self;
-    [banner loadNativeAd];
+    self.banner = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
+    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100 + 100,ScreenW , ScreenW/600*90)];
+    [self.view addSubview:adView];
+    self.banner.customView = adView;// banner加载的位置
+    self.banner.interval = 29;// 大于30循环
+    self.banner.rootViewController = self;
+    self.banner.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费
+    [self.banner loadNativeAd];
+}
+-(void)dealloc{
+    NSLog(@"释放了");
 }
 /**
  *  获取状态栏高度

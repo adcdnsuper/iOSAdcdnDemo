@@ -10,7 +10,8 @@
 #import <ADCDN/ADCDN.h>
 
 @interface ADCDN_InterstitialViewController ()<ADCDN_InterstitialAdManagerDelegate>
-
+/* 插屏广告 */
+@property (nonatomic,strong) ADCDN_InterstitialAdManager *manager;
 @end
 
 @implementation ADCDN_InterstitialViewController
@@ -24,12 +25,15 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 }
+-(void)dealloc{
+    NSLog(@"释放了");
+}
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_InterstitialAdManager *manager = [ADCDN_InterstitialAdManager shareManagerWithAppId:KappId plcId:KplcId_Interstitial];
-    manager.rootViewController = self;
-    manager.delegate = self;
-    [manager loadAd];
+    self.manager = [[ADCDN_InterstitialAdManager alloc] initWithPlcId:KplcId_Interstitial];
+    self.manager.rootViewController = self;
+    self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+    [self.manager loadAd];
 }
 #pragma mark - ADCDN_InterstitialAdManagerDelegate
 /**

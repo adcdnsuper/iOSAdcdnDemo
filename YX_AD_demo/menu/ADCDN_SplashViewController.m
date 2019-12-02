@@ -10,7 +10,8 @@
 #import <ADCDN/ADCDN.h>
 
 @interface ADCDN_SplashViewController ()<ADCDN_SplashAdManagerDelegate>
-
+/* 开屏广告 */
+@property (nonatomic,strong) ADCDN_SplashAdManager *manage;
 @end
 
 @implementation ADCDN_SplashViewController
@@ -25,14 +26,17 @@
     self.navigationItem.rightBarButtonItem = button;
     
 }
+-(void)dealloc{
+    NSLog(@"释放了");
+}
 #pragma mark - loadAd
 -(void)loadAd{
     CGRect frame = [UIScreen mainScreen].bounds;
-    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId_Splash];
-    manage.wFrame = frame;
-    manage.window = [UIApplication sharedApplication].keyWindow;
-    manage.delegate = self;
-    [manage loadSplashAd];
+    self.manage = [[ADCDN_SplashAdManager alloc] initWithPlcId:KplcId_Splash];
+    self.manage.wFrame = frame;
+    self.manage.window = [UIApplication sharedApplication].keyWindow;
+    self.manage.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+    [self.manage loadSplashAd];
 }
 /**
  *  ADCDN_SplashAdManagerDelegate 代理协议方法

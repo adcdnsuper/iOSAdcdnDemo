@@ -11,7 +11,8 @@
 
 
 @interface ADCDN_RewardVideoViewController ()<ADCDN_RewardVideoAdManagerDelegate>
-
+/* 激励视频广告 */
+@property (nonatomic,strong) ADCDN_RewardVideoAdManager *manager;
 @end
 
 @implementation ADCDN_RewardVideoViewController
@@ -24,19 +25,22 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 }
+-(void)dealloc{
+    NSLog(@"释放了");
+}
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_RewardVideoAdManager *manager = [ADCDN_RewardVideoAdManager shareManagerWithAppId:KappId plcId:self.plcId];
+    self.manager = [[ADCDN_RewardVideoAdManager alloc] initWithPlcId:self.plcId];
     //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
-    ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
-    rewardVideoAdModel.userId = @"123";
-    rewardVideoAdModel.rewardName = @"rewardName";
-    rewardVideoAdModel.rewardAmount = 1;
-    rewardVideoAdModel.extra = @"extra";
-    manager.rewardVideoAdModel = rewardVideoAdModel;
-    manager.rootViewController = self;
-    manager.delegate = self;
-    [manager loadAd];
+//    ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
+//    rewardVideoAdModel.userId = @"123";
+//    rewardVideoAdModel.rewardName = @"rewardName";
+//    rewardVideoAdModel.rewardAmount = 1;
+//    rewardVideoAdModel.extra = @"extra";
+//    self.manager.rewardVideoAdModel = rewardVideoAdModel;
+    self.manager.rootViewController = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+    self.manager.delegate = self;
+    [self.manager loadAd];
 }
 /**
  *  加载成功

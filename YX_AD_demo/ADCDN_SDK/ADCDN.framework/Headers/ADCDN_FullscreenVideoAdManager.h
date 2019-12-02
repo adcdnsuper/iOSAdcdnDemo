@@ -61,11 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 控制器(必传) */
 @property (nonatomic, weak) UIViewController * rootViewController;
 /**
- *  提供单例类方法
- *  详解：appId - 媒体 ID
- *       plcId - 广告位 ID
- */
-+(instancetype _Nullable)shareManagerWithAppId:(NSString *_Nullable)appId plcId:(NSString *_Nullable)plcId;
+*  plcId - 广告位 ID
+*/
+-(instancetype _Nullable)initWithPlcId:(NSString *_Nullable)plcId;
 
 /**
  *  加载广告

@@ -56,11 +56,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 请求广告的数量，一次性请求的最大值为max = 3
 @property (nonatomic,assign) NSInteger adCount;
 /**
- *  提供单例类方法
- *  详解：appId - 媒体 ID
- *       plcId - 广告位 ID
- */
-+(instancetype _Nullable)shareManagerWithAppId:(NSString *_Nullable)appId plcId:(NSString *_Nullable)plcId;
+*  plcId - 广告位 ID
+*/
+-(instancetype _Nullable)initWithPlcId:(NSString *_Nullable)plcId;
 /**
  *  加载广告
  */

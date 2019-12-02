@@ -14,6 +14,8 @@
 @interface ADCDN_NativeCustomViewController ()<ADCDN_NativeCustomAdManagerDelegate>
 /** 广告view */
 @property (nonatomic,strong) UIView *adView;
+/* 原生大图广告 */
+@property (nonatomic,strong) ADCDN_NativeCustomAdManager *nativeCustomAd;
 @end
 
 @implementation ADCDN_NativeCustomViewController
@@ -30,6 +32,9 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 }
+-(void)dealloc{
+    NSLog(@"释放了");
+}
 /**
  *  广告视频图懒加载
  */
@@ -42,11 +47,11 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_NativeCustomAdManager *nativeCustomAd = [ADCDN_NativeCustomAdManager shareManagerWithAppId:KappId plcId:KplcId_Img];
-    nativeCustomAd.adView = self.adView;
-    nativeCustomAd.rootViewController = self;
-    nativeCustomAd.delegate = self;
-    [nativeCustomAd loadAd];
+    self.nativeCustomAd = [[ADCDN_NativeCustomAdManager alloc] initWithPlcId:KplcId_Img];
+    self.nativeCustomAd.adView = self.adView;
+    self.nativeCustomAd.rootViewController = self;
+    self.nativeCustomAd.delegate = self;// nativeCustomAd需要strong持有，否则delegate回调无法执行，影响计费
+    [self.nativeCustomAd loadAd];
 }
 /**
  *  拉取广告成功

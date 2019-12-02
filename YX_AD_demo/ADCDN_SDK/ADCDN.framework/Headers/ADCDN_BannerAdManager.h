@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ADCDN_BannerAdManager : NSObject
 /// 加载广告位视图 （必传）
-@property (nonatomic, weak) UIView *customView;
+@property (nonatomic, strong) UIView *customView;
 /// 控制器
 @property (nonatomic, weak)UIViewController *rootViewController;
 /// 是否轮循 大于 30 为轮循  默认为不轮循
@@ -49,11 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_BannerAdManagerDelegate> delegate;
 /**
- *  提供单例类方法
- *  详解：appId - 媒体 ID
- *       plcId - 广告位 ID
+ *  plcId - 广告位 ID
  */
-+(instancetype _Nullable)shareManagerWithAppId:(NSString *_Nullable)appId plcId:(NSString *_Nullable)plcId;
+-(instancetype _Nullable)initWithPlcId:(NSString *_Nullable)plcId;
 /**
  *  加载banner广告
  */

@@ -53,11 +53,9 @@
 /** 代理对象 */
 @property (nonatomic, weak) id <ADCDN_SplashAdManagerDelegate> _Nullable delegate;
 /**
- *  提供单例类方法
- *  详解：appId - 媒体 ID
- *       plcId - 广告位 ID
+ *  plcId - 广告位 ID
  */
-+(instancetype _Nullable)shareManagerWithAppId:(NSString *_Nullable)appId plcId:(NSString *_Nullable)plcId;
+-(instancetype _Nullable)initWithPlcId:(NSString *_Nullable)plcId;
 /**
  *  加载开屏广告
  */

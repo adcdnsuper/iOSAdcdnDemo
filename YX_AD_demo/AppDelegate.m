@@ -12,6 +12,8 @@
 #import "ADCDN_NavigationController.h"
 
 @interface AppDelegate ()<ADCDN_SplashAdManagerDelegate>
+/* 开屏广告对象 */
+@property (nonatomic,strong) ADCDN_SplashAdManager *manage;
 @end
 
 @implementation AppDelegate
@@ -22,18 +24,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     ADCDN_ViewController *vc = [[ADCDN_ViewController alloc] init];
     ADCDN_NavigationController * nav = [[ADCDN_NavigationController alloc] initWithRootViewController:vc];
+    vc.modalPresentationStyle = 0;
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
-    // 初始化配置(必须)
+    // 初始化配置
     [ADCDN_ConfigManager shareManagerWithAppId:KappId];
     
-    // 初始化ADCDN_SDK的appid
-    ADCDN_SplashAdManager *manage = [ADCDN_SplashAdManager shareManagerWithAppId:KappId plcId:KplcId_Splash];
-    manage.window = self.window;
+    // 初始化开屏广告
+    self.manage = [[ADCDN_SplashAdManager alloc] initWithPlcId:KplcId_Splash];
+    self.manage.window = self.window;
     CGRect frame = [UIScreen mainScreen].bounds;
-    manage.wFrame = frame;
-    manage.delegate = self;
+    self.manage.wFrame = frame;
+    self.manage.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
     
     //设置开屏底部自定义LogoView，展示半屏开屏广告
     /*
@@ -47,10 +50,9 @@
     [bottomView addSubview:logo];
     logo.center = bottomView.center;
     bottomView.backgroundColor = [UIColor whiteColor];
-    manage.bottomView = bottomView;
+    self.manage.bottomView = bottomView;
     */
-    
-    [manage loadSplashAd];
+    [self.manage loadSplashAd];
 
     return YES;
 }

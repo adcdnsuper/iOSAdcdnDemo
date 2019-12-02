@@ -12,7 +12,8 @@
 
 @interface ADCDN_UnRewardFullscreenVideoViewController ()<ADCDN_FullscreenVideoAdManagerDelegate>
 /** 每一次请求数据需用新的BUFullscreenVideoAd对象 */
-
+/* 非激励视频广告 */
+@property (nonatomic,strong) ADCDN_FullscreenVideoAdManager *manager;
 @end
 
 @implementation ADCDN_UnRewardFullscreenVideoViewController
@@ -29,12 +30,15 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 }
+-(void)dealloc{
+    NSLog(@"释放了");
+}
 #pragma mark - loadAd
 -(void)loadAd{
-    ADCDN_FullscreenVideoAdManager *manager = [ADCDN_FullscreenVideoAdManager shareManagerWithAppId:KappId plcId:self.plcId];
-    manager.rootViewController = self;
-    manager.delegate = self;
-    [manager loadAd];
+    self.manager = [[ADCDN_FullscreenVideoAdManager alloc] initWithPlcId:self.plcId];
+    self.manager.rootViewController = self;
+    self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+    [self.manager loadAd];
 }
 
 #pragma mark ADCDN_FullscreenVideoAdManagerDelegate

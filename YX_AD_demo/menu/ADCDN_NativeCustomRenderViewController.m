@@ -14,7 +14,7 @@
 
 @interface ADCDN_NativeCustomRenderViewController ()<ADCDN_NativeCustomRenderAdManagerDelegate,UITableViewDelegate,UITableViewDataSource>
 
-/* ADCDN_NativeCustomRenderAdManager *nativeCustomAd */
+/* 原生自渲染广告 */
 @property (nonatomic,strong) ADCDN_NativeCustomRenderAdManager *nativeCustomAd;
 /* arr */
 @property (nonatomic,copy) NSMutableArray *modelArr;
@@ -35,6 +35,12 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 
+}
+-(void)dealloc{
+    NSLog(@"释放了");
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 -(UITableView *)adTableView{
     if (!_adTableView) {
@@ -58,9 +64,9 @@
 
 #pragma mark - loadAd
 -(void)loadAd{
-   self.nativeCustomAd = [ADCDN_NativeCustomRenderAdManager shareManagerWithAppId:KappId plcId:self.plcId];
+   self.nativeCustomAd = [[ADCDN_NativeCustomRenderAdManager alloc] initWithPlcId:self.plcId];
    self.nativeCustomAd.rootViewController = self;
-   self.nativeCustomAd.delegate = self;
+   self.nativeCustomAd.delegate = self;// nativeCustomAd需要strong持有，否则delegate回调无法执行，影响计费
     // max = 3
    self.nativeCustomAd.adCount = 3;
    [self.nativeCustomAd loadAd];
@@ -77,7 +83,7 @@
     }
     [self.modelArr addObjectsFromArray:nativeAdDataArray];
     [self.adTableView reloadData];
-    
+    NSLog(@"拉取广告成功");
 }
 
 /**
