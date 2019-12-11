@@ -9,8 +9,10 @@ ADCDN广告sdk支持如下广告功能:
 | 原生广告        | （三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）  ~~(纯图片)~~       |
 | 横幅广告        | 横幅广告         |
 | 插屏广告        | 插屏广告         |
-| 视频广告        | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
+| ~~视频广告~~        | ~~激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）~~         |
 | ~~原生自渲染~~       | ~~原生自渲染广告（大图、组图、单图、视频）~~         |
+| 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
+
 
 # 2.兼容和版本号
 iOS9.0及以上，版本号：1.5.0。
@@ -301,72 +303,68 @@ self.manager.delegate = self;// manager需要strong持有，否则delegate回调
     NSLog(@"插屏广告关闭回调");
 }
 ```
-## 4.5 视频广告（激励视频、非激励视频），在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.5.1 设置激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码
+## 4.5 视频广告2.0（激励视频、非激励视频），在需要使用到ADCDN广告功能的地方导入#import<ADCDN/ADCDN.h>
+### 4.5.1 设置激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码~~
 ```
-self.manager = [[ADCDN_RewardVideoAdManager alloc] initWithPlcId:self.plcId];
-    //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
-//    ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
-//    rewardVideoAdModel.userId = @"123";
-//    rewardVideoAdModel.rewardName = @"rewardName";
-//    rewardVideoAdModel.rewardAmount = 1;
-//    rewardVideoAdModel.extra = @"extra";
-//    self.manager.rewardVideoAdModel = rewardVideoAdModel;
+self.manager = [[ADCDN_ExpressRewardVideoAdManager alloc] initWithPlcId:self.plcId];
+        //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
+    //    ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
+    //    rewardVideoAdModel.userId = @"123";
+    //    rewardVideoAdModel.rewardName = @"rewardName";
+    //    rewardVideoAdModel.rewardAmount = 1;
+    //    rewardVideoAdModel.extra = @"extra";
+    //    self.manager.rewardVideoAdModel = rewardVideoAdModel;
 self.manager.rootViewController = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
 self.manager.delegate = self;
 [self.manager loadAd];
 ```
 
-### 4.5.2 设置激励视频广告代理方法示例代码，设置代理<ADCDN_RewardVideoAdManagerDelegate>
+### 4.5.2 设置激励视频广告代理方法示例代码，设置代理<ADCDN_ExpressRewardVideoAdManagerDelegate>
 ```
-#pragma mark - ADCDN_RewardVideoAdManagerDelegate
+#pragma mark - ADCDN_ExpressRewardVideoAdManagerDelegate
 /**
  *  加载成功
  */
-- (void)ADCDN_RewardVideoAdDidLoad:(ADCDN_RewardVideoAdManager *)rewardVideoAd{
-    NSLog(@"激励视频加载成功");
+- (void)ADCDN_RewardVideoAdDidLoad:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd{
+    NSLog(@"加载成功");
 }
 /**
  *  加载失败
  */
-- (void)ADCDN_RewardVideoAd:(ADCDN_RewardVideoAdManager *)rewardVideoAd didFailWithError:(NSError *_Nullable)error{
-    NSLog(@"激励视频加载失败");
+- (void)ADCDN_RewardVideoAd:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd didFailWithError:(NSError *_Nullable)error{
+    NSLog(@"加载失败");
 }
 /**
  *  点击广告
  */
-- (void)ADCDN_RewardVideoAdDidClick:(ADCDN_RewardVideoAdManager *)rewardVideoAd{
-    NSLog(@"激励视频点击");
+- (void)ADCDN_RewardVideoAdDidClick:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd{
+    NSLog(@"点击广告");
 }
 /**
  *  曝光回调
  */
-- (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_RewardVideoAdManager *)rewardVideoAd{
-    NSLog(@"激励视频曝光");
+- (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd{
+    NSLog(@"曝光回调");
 }
 /**
  *  视频播放完成
  */
-- (void)ADCDN_RewardVideoAdDidPlayFinish:(ADCDN_RewardVideoAdManager *)rewardedVideoAd didFailWithError:(NSError *_Nullable)error{
+- (void)ADCDN_RewardVideoAdDidPlayFinish:(ADCDN_ExpressRewardVideoAdManager *)rewardedVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"视频播放完成");
 }
 /**
  * 播放完成点击关闭
  */
-- (void)ADCDN_RewardVideoAdDidClose:(ADCDN_RewardVideoAdManager *)rewardedVideoAd{
-    NSLog(@"视频播放完成，点击关闭");
+- (void)ADCDN_RewardVideoAdDidClose:(ADCDN_ExpressRewardVideoAdManager *)rewardedVideoAd{
+    NSLog(@"播放完成点击关闭");
 }
 /**
  服务器核实回调成功
  Server verification which is requested asynchronously is succeeded.
  @param verify :return YES when return value is 2000.
  */
-- (void)ADCDN_RewardVideoAdServerRewardDidSucceed:(ADCDN_RewardVideoAdManager *)rewardedVideoAd verify:(BOOL)verify{
+- (void)ADCDN_RewardVideoAdServerRewardDidSucceed:(ADCDN_ExpressRewardVideoAdManager *)rewardedVideoAd verify:(BOOL)verify{
     NSLog(@"服务器核实回调成功");
-    // 如果用户需要获取userId等信息
-    NSString *userId = rewardedVideoAd.rewardVideoAdModel.userId;
-    NSString *rewardName = rewardedVideoAd.rewardVideoAdModel.rewardName;
-    NSLog(@"用户id:%@,奖品名:%@",userId,rewardName);
 }
 
 /**
@@ -374,7 +372,7 @@ self.manager.delegate = self;
  Server verification which is requested asynchronously is failed.
  Return value is not 2000.
  */
-- (void)ADCDN_RewardVideoAdServerRewardDidFail:(ADCDN_RewardVideoAdManager *)rewardedVideoAd{
+- (void)ADCDN_RewardVideoAdServerRewardDidFail:(ADCDN_ExpressRewardVideoAdManager *)rewardedVideoAd{
     NSLog(@"服务器核实回调失败");
 }
 ```
@@ -416,61 +414,55 @@ appSecurityKey: 您在ADCDN媒体平台新建奖励视频代码位获取到的�
 
 ### 4.5.4 设置非激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码
 ```
-self.manager = [[ADCDN_FullscreenVideoAdManager alloc] initWithPlcId:self.plcId];
+self.manager = [[ADCDN_FullscreenExpressVideoAdManager alloc] initWithPlcId:self.plcId];
 self.manager.rootViewController = self;
 self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
 [self.manager loadAd];
 ```
-### 4.5.5 设置非激励视频广告代理方法示例代码，设置代理<ADCDN_FullscreenVideoAdManagerDelegate>
+### 4.5.5 设置非激励视频广告代理方法示例代码，设置代理<ADCDN_FullscreenExpressVideoAdManagerDelegate>
 ```
-#pragma mark ADCDN_FullscreenVideoAdManagerDelegate
+#pragma mark - ADCDN_FullscreenExpressVideoAdManagerDelegate
 /**
  *  加载成功
  */
-- (void)ADCDN_FullscreenVideoAdDidLoad:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+- (void)ADCDN_FullscreenVideoAdDidLoad:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd{
     NSLog(@"加载成功");
 }
 /**
  *  加载失败
  */
-- (void)ADCDN_FullscreenVideoAd:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
+- (void)ADCDN_FullscreenVideoAd:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"加载失败");
-}
-/**
- * 视频广告缓存成功
- */
-- (void)ADCDN_FullscreenVideoAdVideoDataDidLoad:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
-    NSLog(@"视频广告缓存成功");
 }
 /**
  *  点击广告
  */
-- (void)ADCDN_FullscreenVideoAdDidClick:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+- (void)ADCDN_FullscreenVideoAdDidClick:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd{
     NSLog(@"点击广告");
 }
 /**
  *  曝光回调
  */
-- (void)ADCDN_FullscreenVideoAdDidBecomeVisible:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+- (void)ADCDN_FullscreenVideoAdDidBecomeVisible:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd{
     NSLog(@"曝光回调");
 }
 /**
  *  视频播放完成
  */
-- (void)ADCDN_FullscreenVideoAdDidPlayFinish:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
+- (void)ADCDN_FullscreenVideoAdDidPlayFinish:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
+    
     NSLog(@"视频播放完成");
 }
 /**
  * 播放完成点击关闭
  */
-- (void)ADCDN_FullscreenVideoAdDidClose:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+- (void)ADCDN_FullscreenVideoAdDidClose:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd{
     NSLog(@"播放完成点击关闭");
 }
 /**
  * 视频广告点击跳过
- This method is called when the user clicked skip button.
  */
-- (void)ADCDN_FullscreenVideoAdDidClickSkip:(ADCDN_FullscreenVideoAdManager *)fullscreenVideoAd{
+- (void)ADCDN_FullscreenVideoAdDidClickSkip:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd{
     NSLog(@"视频广告点击跳过");
 }
 ```

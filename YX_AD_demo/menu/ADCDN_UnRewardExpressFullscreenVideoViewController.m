@@ -35,6 +35,7 @@
     self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
     [self.manager loadAd];
 }
+#pragma mark - ADCDN_FullscreenExpressVideoAdManagerDelegate
 /**
  *  加载成功
  */
