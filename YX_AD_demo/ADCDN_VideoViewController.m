@@ -24,7 +24,14 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"视频广告";
+    if (self.type == 1) {
+        self.navigationItem.title = @"视频广告";
+        self.menuTitleArr = @[@"非激励",@"激励视频",];
+    }
+    if (self.type == 2) {
+        self.navigationItem.title = @"模版视频广告";
+        self.menuTitleArr = @[@"模版非激励",@"模版激励视频",];
+    }
     
     [self menuTB];
 }
@@ -40,10 +47,7 @@
 }
 -(NSArray *)menuTitleArr{
     if (!_menuTitleArr) {
-        /**
-         *  插屏广告放最后
-         */
-        _menuTitleArr = @[@"非激励",@"激励视频",];
+        _menuTitleArr = [NSArray array];
     }
     return _menuTitleArr;
 }
@@ -77,16 +81,19 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
+    
     // 非激励
     if (indexPath.row == 0) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_UnRewardViewController *vc = [ADCDN_UnRewardViewController new];
+        vc.type = self.type;
         [self.navigationController pushViewController:vc animated:YES];
     }
     // 激励视频
     if (indexPath.row == 1) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_RewardViewController *vc = [ADCDN_RewardViewController new];
+        vc.type = self.type;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

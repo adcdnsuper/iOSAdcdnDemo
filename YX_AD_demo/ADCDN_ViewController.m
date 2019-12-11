@@ -47,7 +47,7 @@
         /**
          *  插屏广告放最后
          */
-        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"视频广告",];
+        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"视频广告",@"模版视频广告",];
     }
     return _menuTitleArr;
 }
@@ -110,6 +110,14 @@
     if (indexPath.row == 4) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_VideoViewController *vc = [ADCDN_VideoViewController new];
+        vc.type = 1;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    // 模版视频广告
+    if (indexPath.row == 5) {
+        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+        ADCDN_VideoViewController *vc = [ADCDN_VideoViewController new];
+        vc.type = 2;
         [self.navigationController pushViewController:vc animated:YES];
     }
 //    // 原生自渲染

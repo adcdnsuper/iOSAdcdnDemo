@@ -9,6 +9,8 @@
 #import "ADCDN_RewardViewController.h"
 #import "ADCDN_RewardVideoViewController.h"
 
+#import "ADCDN_ExpressRewardVideoViewController.h"
+
 @interface ADCDN_RewardViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
 @property (nonatomic,strong) UITableView *menuTB;
@@ -23,7 +25,13 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"激励视频";
+    
+    if (self.type == 1) {
+        self.navigationItem.title = @"激励视频";
+    }
+    if (self.type == 2) {
+        self.navigationItem.title = @"模版激励视频";
+    }
     
     [self menuTB];
 }
@@ -76,21 +84,41 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    // 横屏
-    if (indexPath.row == 0) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
-        vc.plcId = KplcId_RewardVideoHorizon;
-        vc.navigationItem.title = @"激励视频-横屏";
-        [self.navigationController pushViewController:vc animated:YES];
+    if (self.type == 1) {
+        // 横屏
+        if (indexPath.row == 0) {
+            NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+            ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
+            vc.plcId = KplcId_RewardVideoHorizon;
+            vc.navigationItem.title = @"激励视频-横屏";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        // 竖屏
+        if (indexPath.row == 1) {
+            NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+            ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
+            vc.plcId = KplcId_RewardVideoVertical;
+            vc.navigationItem.title = @"激励视频-竖屏";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
-    // 竖屏
-    if (indexPath.row == 1) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        ADCDN_RewardVideoViewController *vc = [ADCDN_RewardVideoViewController new];
-        vc.plcId = KplcId_RewardVideoVertical;
-        vc.navigationItem.title = @"激励视频-竖屏";
-        [self.navigationController pushViewController:vc animated:YES];
+    if (self.type == 2) {
+        // 横屏
+        if (indexPath.row == 0) {
+            NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+            ADCDN_ExpressRewardVideoViewController *vc = [ADCDN_ExpressRewardVideoViewController new];
+            vc.plcId = KplcId_ExpressRewardVideoHorizon;
+            vc.navigationItem.title = @"模版激励视频-横屏";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        // 竖屏
+        if (indexPath.row == 1) {
+            NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+            ADCDN_ExpressRewardVideoViewController *vc = [ADCDN_ExpressRewardVideoViewController new];
+            vc.plcId = KplcId_ExpressRewardVideoVertical;
+            vc.navigationItem.title = @"模版激励视频-竖屏";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 @end

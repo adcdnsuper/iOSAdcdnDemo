@@ -59,6 +59,17 @@
 /** 原生自渲染广告 - 视频 */
 #define KplcId_RenderVideo @"1010211"
 
+/** 模版非激励视频 - 横屏 */
+#define KplcId_ExpressVideoHorizon @"1010461"
+/** 模版非激励视频 - 竖屏 */
+#define KplcId_ExpressVideoVertical @"1010462"
+
+/** 模版激励视频 - 横屏 */
+#define KplcId_ExpressRewardVideoHorizon @"1010458"
+/** 模版激励视频 - 竖屏 */
+#define KplcId_ExpressRewardVideoVertical @"1010457"
+
+
 
 /** 屏幕宽高 */
 #define ScreenW [UIScreen mainScreen].bounds.size.width
