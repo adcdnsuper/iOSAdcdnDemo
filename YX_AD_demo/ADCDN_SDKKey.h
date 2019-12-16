@@ -69,7 +69,11 @@
 /** 模版激励视频 - 竖屏 */
 #define KplcId_ExpressRewardVideoVertical @"1010457"
 
-
+/**
+ *  游戏sdk模块
+ */
+/** 游戏id */
+#define KGame_GameId @"10001"
 
 /** 屏幕宽高 */
 #define ScreenW [UIScreen mainScreen].bounds.size.width

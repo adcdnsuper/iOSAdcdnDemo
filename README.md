@@ -533,3 +533,41 @@ nativeCustomAd.customView = self.customView;
     NSLog(@"曝光回调");
 }
 ```
+## 4.7 变现场景广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.7.1  变现场景广告示例代码
+```
+#pragma mark - 游戏视图
+-(ADCDN_GameView *)gameView{
+    if (!_gameView) {
+        ADCDN_GameModel *model = [ADCDN_GameModel new];
+        model.appId = @"10001";// 应用id（注：与广告的appid相同）
+        model.gameId = KGame_GameId;// 游戏id
+        model.textPlcId = KplcId_Text;// 原生广告-文字浮层
+        model.topTextPlcId = KplcId_TopText;// 原生广告-上文下图
+        model.rewardVideoPlcId = KplcId_RewardVideoVertical;// 原生广告-激励视频
+        model.rootViewController = self;
+        model.uuid = @"123123123";// 用户id，不传入为游客模式
+        model.nickName = @"";// 用户昵称
+        model.avatarUrl = @"";// 用户头像地址urlString
+        _gameView = [[ADCDN_GameView alloc] initWithGameViewFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
+        [_gameView loadGameViewModel:model withIsTest:YES];
+        _gameView.delegate = self;
+        [self.view addSubview:_gameView];
+    }
+    return _gameView;
+}
+```
+### 4.7.1  变现场景广告示例代码设置代理<ADCDN_GameViewDelegate>
+```
+/**
+ * ADCDN_GameViewDelegate
+ */
+#pragma mark - 分享第三方app/邀请好友
+-(void)ADCDN_GameViewShareModel:(ADCDN_ShareModel *)model{
+    NSLog(@"分享第三方app/邀请好友");
+}
+#pragma mark - 去登录，跳转app登录页面
+-(void)ADCDN_GameViewGotoLogin{
+    NSLog(@"跳装到app登录页");
+}
+```

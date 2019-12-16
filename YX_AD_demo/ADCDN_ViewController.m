@@ -13,6 +13,7 @@
 #import "ADCDN_VideoViewController.h"
 #import "ADCDN_NativeViewController.h"
 #import "ADCDN_NativeRenderViewController.h"
+#import "ADCDN_GameViewController.h"
 
 @interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
@@ -47,7 +48,7 @@
         /**
          *  插屏广告放最后
          */
-        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"视频广告2.0",];
+        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"视频广告2.0",@"变现场景",];
     }
     return _menuTitleArr;
 }
@@ -126,5 +127,10 @@
 //        ADCDN_NativeRenderViewController *vc = [ADCDN_NativeRenderViewController new];
 //        [self.navigationController pushViewController:vc animated:YES];
 //    }
+    if (indexPath.row == 5) {
+        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
+        ADCDN_GameViewController *vc = [ADCDN_GameViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 @end
