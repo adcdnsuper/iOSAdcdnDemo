@@ -31,7 +31,7 @@
         model.gameId = KGame_GameId;// 游戏id
         model.textPlcId = KplcId_Text;// 原生广告-文字浮层
         model.topTextPlcId = KplcId_TopText;// 原生广告-上文下图
-        model.rewardVideoPlcId = KplcId_RewardVideoVertical;// 原生广告-激励视频
+        model.rewardVideoPlcId = KplcId_ExpressRewardVideoVertical;// 模版激励视频
         model.rootViewController = self;
         model.uuid = @"";// 用户id，不传入为游客模式
         model.nickName = @"";// 用户昵称
