@@ -33,7 +33,7 @@
 }
 -(UIView *)adView{
     if (!_adView) {
-        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100,ScreenW , ScreenW/600*90)];
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100,ScreenW , ScreenW / 6.25)];
         [self.view addSubview:_adView];
     }
     return _adView;
@@ -47,6 +47,7 @@
     self.banner.interval = 29;// 大于30循环
     self.banner.rootViewController = self;
     self.banner.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费
+    self.banner.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
     [self.banner loadNativeAd];
 }
 -(void)dealloc{

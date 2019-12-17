@@ -48,6 +48,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger interval;
 /// 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_BannerAdManagerDelegate> delegate;
+/* banner尺寸比例 640：100,默认撑满屏幕的宽度 */
+@property (nonatomic,assign) CGSize adSize;
+
 /**
  *  plcId - 广告位 ID
  */
