@@ -33,7 +33,7 @@
         model.topTextPlcId = KplcId_TopText;// 原生广告-上文下图
         model.rewardVideoPlcId = KplcId_RewardVideoVertical;// 原生广告-激励视频
         model.rootViewController = self;
-        model.uuid = @"";// 用户id，不传入为游客模式
+        model.uuid = @"21312312321312";// 用户id，不传入为游客模式
         model.nickName = @"";// 用户昵称
         model.avatarUrl = @"";// 用户头像地址urlString
         _gameView = [[ADCDN_GameView alloc] initWithGameViewFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
