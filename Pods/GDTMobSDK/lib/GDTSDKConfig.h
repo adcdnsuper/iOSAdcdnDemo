@@ -53,13 +53,6 @@
 */
 + (void)setChannel:(NSInteger)channel;
 
-#pragma mark - DEPRECATED
-
-/**
- *  打开HTTPS开关
- *  详解：默认提供 HTTPS 资源，此方法废弃，请尽早删除。
- *
- */
-+ (void)setHttpsOn GDT_DEPRECATED_MSG_ATTRIBUTE("");
++ (void)setSDKType:(NSInteger)type;
 
 @end

@@ -21,8 +21,8 @@
 #define GDT_DEPRECATED_ATTRIBUTE
 #endif
 
-#define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
-#define ScreenWidth  ([UIScreen mainScreen].bounds.size.width)
+#define GDTScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define GDTScreenWidth  ([UIScreen mainScreen].bounds.size.width)
 
 /**
  *  视频播放器状态

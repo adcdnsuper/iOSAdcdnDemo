@@ -21,12 +21,12 @@
 		132904E62395032100A9EB9F /* ADCDN_RewardVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904D62395032100A9EB9F /* ADCDN_RewardVideoViewController.m */; };
 		132904E72395032100A9EB9F /* ADCDN_NativeCustomRenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904D82395032100A9EB9F /* ADCDN_NativeCustomRenderTableViewCell.m */; };
 		132904E82395032100A9EB9F /* ADCDN_StringStyleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904DB2395032100A9EB9F /* ADCDN_StringStyleTool.m */; };
-		133E22A023A8FF4F009B5081 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 133E229F23A8FF4F009B5081 /* ADCDN.framework */; };
 		137009DF23A0E84C001FFDCF /* ADCDN_UnRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DA23A0E84B001FFDCF /* ADCDN_UnRewardViewController.m */; };
 		137009E023A0E84C001FFDCF /* ADCDN_VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DC23A0E84C001FFDCF /* ADCDN_VideoViewController.m */; };
 		137009E123A0E84C001FFDCF /* ADCDN_RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DD23A0E84C001FFDCF /* ADCDN_RewardViewController.m */; };
 		137009E623A0E87F001FFDCF /* ADCDN_UnRewardExpressFullscreenVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009E223A0E87E001FFDCF /* ADCDN_UnRewardExpressFullscreenVideoViewController.m */; };
 		137009E723A0E87F001FFDCF /* ADCDN_ExpressRewardVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009E323A0E87E001FFDCF /* ADCDN_ExpressRewardVideoViewController.m */; };
+		139300D423A9CD9F00492A63 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139300D323A9CD9E00492A63 /* ADCDN.framework */; };
 		13B0CE6F233C5FCD008AD2F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */; };
 		13B0CE75233C5FCD008AD2F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B0CE73233C5FCD008AD2F9 /* Main.storyboard */; };
 		13B0CE78233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE76233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld */; };
@@ -82,7 +82,6 @@
 		132904DC2395032100A9EB9F /* ADCDN_StringStyleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_StringStyleTool.h; sourceTree = "<group>"; };
 		132904DD2395032100A9EB9F /* ADCDN_SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SplashViewController.h; sourceTree = "<group>"; };
 		132904DE2395032100A9EB9F /* ADCDN_NativeCustomRenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeCustomRenderViewController.h; sourceTree = "<group>"; };
-		133E229F23A8FF4F009B5081 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		137009D923A0E84B001FFDCF /* ADCDN_RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_RewardViewController.h; sourceTree = "<group>"; };
 		137009DA23A0E84B001FFDCF /* ADCDN_UnRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_UnRewardViewController.m; sourceTree = "<group>"; };
 		137009DB23A0E84B001FFDCF /* ADCDN_VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_VideoViewController.h; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		137009E323A0E87E001FFDCF /* ADCDN_ExpressRewardVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_ExpressRewardVideoViewController.m; sourceTree = "<group>"; };
 		137009E423A0E87F001FFDCF /* ADCDN_ExpressRewardVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_ExpressRewardVideoViewController.h; sourceTree = "<group>"; };
 		137009E523A0E87F001FFDCF /* ADCDN_UnRewardExpressFullscreenVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_UnRewardExpressFullscreenVideoViewController.h; sourceTree = "<group>"; };
+		139300D323A9CD9E00492A63 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B0CE6A233C5FCD008AD2F9 /* YX_AD_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YX_AD_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B0CE6D233C5FCD008AD2F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				133E22A023A8FF4F009B5081 /* ADCDN.framework in Frameworks */,
+				139300D423A9CD9F00492A63 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +167,7 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				133E229F23A8FF4F009B5081 /* ADCDN.framework */,
+				139300D323A9CD9E00492A63 /* ADCDN.framework */,
 				13C7A90723A7785900CBB73B /* ADCDN.bundle */,
 			);
 			path = ADCDN_SDK;

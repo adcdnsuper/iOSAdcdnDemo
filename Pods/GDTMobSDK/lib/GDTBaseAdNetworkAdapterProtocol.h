@@ -22,6 +22,7 @@
 - (NSString *)eCPMLevel;
 - (void)cancelLoad;
 - (NSInteger)mediationPrice;
+- (BOOL)isContractAd;
 
 @end
 

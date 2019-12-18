@@ -123,7 +123,18 @@
 @property (nonatomic, assign) BOOL videoMuted;
 
 /**
- 请求视频的时长上限，有效值范围为[5,60]。
+ *  视频详情页播放时是否静音。默认NO。loadAd 前设置。
+ */
+@property (nonatomic, assign) BOOL detailPageVideoMuted;
+
+/**
+ 请求视频的时长下限，视频时长有效值范围为[5,60]。
+ 以下两种情况会使用系统默认的最小值设置，1:不设置  2:minVideoDuration大于maxVideoDuration
+ */
+@property (nonatomic) NSInteger minVideoDuration;
+
+/**
+ 请求视频的时长上限，视频时长有效值范围为[5,60]。
  */
 @property (nonatomic) NSInteger maxVideoDuration;
 

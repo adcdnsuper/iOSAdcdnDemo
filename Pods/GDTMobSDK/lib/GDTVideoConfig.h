@@ -32,6 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL videoMuted;
 
 /**
+ 视频详情页播放时是否静音，默认NO，
+ */
+@property (nonatomic, assign) BOOL detailPageVideoMuted;
+
+/**
  是否启动自动续播功能，当在 tableView 等场景播放器被销毁时，广告展示时继续从上次播放位置续播，默认 NO
  */
 @property (nonatomic, assign) BOOL autoResumeEnable;

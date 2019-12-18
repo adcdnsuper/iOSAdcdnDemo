@@ -107,6 +107,11 @@
 @property (nonatomic, strong) GDTVideoConfig *videoConfig;
 
 /**
+ * 视频广告时长，单位 ms
+ */
+@property (nonatomic, readonly) CGFloat duration;
+
+/**
  判断两个自渲染2.0广告数据是否相等
 
  @param dataObject 需要对比的自渲染2.0广告数据对象

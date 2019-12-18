@@ -45,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
  * app分享成功主动调用
  */
 -(void)successShare;
+/**
+ * 展示刮奖列表页原生广告(注：列表无数据会自动展示，5s后消失)
+ */
+-(void)showNativeAdView;
 @end
 
 NS_ASSUME_NONNULL_END
