@@ -16,7 +16,7 @@ ADCDN广告sdk支持如下广告功能:
 
 
 # 2.兼容和版本号
-iOS9.0及以上，版本号：1.5.0。
+iOS9.0及以上，版本号：1.5.8。
 注：ADCDN.framework是真机包，请在真机下做测试。
 # 3.ADCDN_SDK的接入流程
 ## 3.1 添加sdk到工程
@@ -42,7 +42,7 @@ Privacy - Location Usage Description
 ```
 platform :ios, '9.0'
 target '你的项目名' do
-pod 'GDTMobSDK', '~> 4.10.19'
+pod 'GDTMobSDK', '~> 4.11.1'
 pod 'Bytedance-UnionAD', '~> 2.5.1.5'
 end
 ```
