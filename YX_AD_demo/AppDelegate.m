@@ -30,6 +30,8 @@
     
     // 初始化配置
     [ADCDN_ConfigManager shareManagerWithAppId:KappId];
+    // 查看sdk版本
+    NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
     
     // 初始化开屏广告
     self.manage = [[ADCDN_SplashAdManager alloc] initWithPlcId:KplcId_Splash];
