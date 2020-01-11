@@ -53,7 +53,7 @@
 *       请注意1.bottomView需设置好宽高，所占的空间不能过大，并保证高度不超过屏幕高度的 25%。2.Splash广告只支持竖屏
 * bottomView 自定义底部View，可以在此View中设置应用Logo
 */
-@property (nonatomic, weak)UIView * _Nullable bottomView;
+@property (nonatomic, strong)UIView * _Nullable bottomView;
 /** 代理对象 */
 @property (nonatomic, weak) id <ADCDN_SplashAdManagerDelegate> _Nullable delegate;
 /**

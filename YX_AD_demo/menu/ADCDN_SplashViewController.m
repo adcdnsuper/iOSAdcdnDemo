@@ -36,6 +36,19 @@
     self.manage.wFrame = frame;
     self.manage.window = [UIApplication sharedApplication].keyWindow;
     self.manage.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+    
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
+    UIImageView *logo = [[UIImageView alloc]initWithFrame:bottomView.frame];
+    CGRect logoFrame = logo.frame;
+    logoFrame.size.width = bottomView.frame.size.width * 0.5;
+    logoFrame.size.height = bottomView.frame.size.height * 0.5;
+    logo.frame = logoFrame;
+    logo.image = [UIImage imageNamed:@"LOGO"];
+    [bottomView addSubview:logo];
+    logo.center = bottomView.center;
+    bottomView.backgroundColor = [UIColor whiteColor];
+    self.manage.bottomView = bottomView;
+    
     [self.manage loadSplashAd];
 }
 /**
