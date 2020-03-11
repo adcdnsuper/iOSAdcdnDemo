@@ -21,7 +21,8 @@
 		132904E62395032100A9EB9F /* ADCDN_RewardVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904D62395032100A9EB9F /* ADCDN_RewardVideoViewController.m */; };
 		132904E72395032100A9EB9F /* ADCDN_NativeCustomRenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904D82395032100A9EB9F /* ADCDN_NativeCustomRenderTableViewCell.m */; };
 		132904E82395032100A9EB9F /* ADCDN_StringStyleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904DB2395032100A9EB9F /* ADCDN_StringStyleTool.m */; };
-		1364E08123C9705100617E9A /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1364E08023C9705100617E9A /* ADCDN.framework */; };
+		1333728F2418C5A000522B5D /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1333728D2418C59F00522B5D /* ADCDN.framework */; };
+		133372902418C5A000522B5D /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1333728E2418C5A000522B5D /* ADCDN.bundle */; };
 		137009DF23A0E84C001FFDCF /* ADCDN_UnRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DA23A0E84B001FFDCF /* ADCDN_UnRewardViewController.m */; };
 		137009E023A0E84C001FFDCF /* ADCDN_VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DC23A0E84C001FFDCF /* ADCDN_VideoViewController.m */; };
 		137009E123A0E84C001FFDCF /* ADCDN_RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DD23A0E84C001FFDCF /* ADCDN_RewardViewController.m */; };
@@ -34,7 +35,6 @@
 		13B0CE7D233C5FD0008AD2F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B0CE7B233C5FD0008AD2F9 /* LaunchScreen.storyboard */; };
 		13B0CE80233C5FD0008AD2F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE7F233C5FD0008AD2F9 /* main.m */; };
 		13C7A90423A7781700CBB73B /* ADCDN_GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C7A90323A7781600CBB73B /* ADCDN_GameViewController.m */; };
-		13EB2CE523BDEB5F002005DB /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13EB2CE323BDEB5E002005DB /* ADCDN.bundle */; };
 		43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9678C25C1DF00551B4A83E50 /* libPods-YX_AD_demo.a */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +82,8 @@
 		132904DC2395032100A9EB9F /* ADCDN_StringStyleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_StringStyleTool.h; sourceTree = "<group>"; };
 		132904DD2395032100A9EB9F /* ADCDN_SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SplashViewController.h; sourceTree = "<group>"; };
 		132904DE2395032100A9EB9F /* ADCDN_NativeCustomRenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeCustomRenderViewController.h; sourceTree = "<group>"; };
-		1364E08023C9705100617E9A /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		1333728D2418C59F00522B5D /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		1333728E2418C5A000522B5D /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
 		137009D923A0E84B001FFDCF /* ADCDN_RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_RewardViewController.h; sourceTree = "<group>"; };
 		137009DA23A0E84B001FFDCF /* ADCDN_UnRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_UnRewardViewController.m; sourceTree = "<group>"; };
 		137009DB23A0E84B001FFDCF /* ADCDN_VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_VideoViewController.h; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		13B0CE7F233C5FD0008AD2F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13C7A90223A7781600CBB73B /* ADCDN_GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameViewController.h; sourceTree = "<group>"; };
 		13C7A90323A7781600CBB73B /* ADCDN_GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameViewController.m; sourceTree = "<group>"; };
-		13EB2CE323BDEB5E002005DB /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
 		374D43F27F7BAE77ACEFCF9D /* Pods-YX_AD_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YX_AD_demo.debug.xcconfig"; path = "Target Support Files/Pods-YX_AD_demo/Pods-YX_AD_demo.debug.xcconfig"; sourceTree = "<group>"; };
 		8FE9989B9AFF9513B27360ED /* Pods-YX_AD_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YX_AD_demo.release.xcconfig"; path = "Target Support Files/Pods-YX_AD_demo/Pods-YX_AD_demo.release.xcconfig"; sourceTree = "<group>"; };
 		9678C25C1DF00551B4A83E50 /* libPods-YX_AD_demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YX_AD_demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				1364E08123C9705100617E9A /* ADCDN.framework in Frameworks */,
+				1333728F2418C5A000522B5D /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,8 +167,8 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				1364E08023C9705100617E9A /* ADCDN.framework */,
-				13EB2CE323BDEB5E002005DB /* ADCDN.bundle */,
+				1333728E2418C5A000522B5D /* ADCDN.bundle */,
+				1333728D2418C59F00522B5D /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			files = (
 				13B0CE7D233C5FD0008AD2F9 /* LaunchScreen.storyboard in Resources */,
 				13B0CE7A233C5FD0008AD2F9 /* Assets.xcassets in Resources */,
-				13EB2CE523BDEB5F002005DB /* ADCDN.bundle in Resources */,
+				133372902418C5A000522B5D /* ADCDN.bundle in Resources */,
 				13B0CE75233C5FCD008AD2F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
