@@ -36,6 +36,10 @@
  */
 - (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
 /**
+ *  开屏广告将要关闭回调
+ */
+- (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
+/**
  *  开屏详情页关闭回调
  */
 - (void)ADCDN_SplashAdDetailClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
