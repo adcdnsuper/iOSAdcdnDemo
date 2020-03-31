@@ -8,8 +8,9 @@ pod 'GDTMobSDK', '~> 4.11.6'
 pod 'Bytedance-UnionAD', '~> 2.9.0.1'
 end
 ```
+
 ADCDN广告sdk支持如下广告功能:
-```
+
 | 广告功能        | 详情 | 
 | --------       | -----   |
 | 开屏广告        | 开屏广告         |
@@ -24,10 +25,10 @@ ADCDN广告sdk支持如下广告功能:
 
 # 2.兼容和版本号
 iOS9.0及以上，版本号：1.6.0.0。
-注：ADCDN.framework是真机包，请在真机下做测试。
+注：ADCDN.framework是真机包，请在真机下做测试。ADCDN是动态的framework请不用担心，审核不会被拒。之所以做成动态的framework，是因为我们针对不同的广告平台的sdk有做了动态导包，不需要的广告平台，可以不依赖相应平台的sdk，编译不会报错。
 # 3.ADCDN_SDK的接入流程
 ## 3.1 添加sdk到工程
-接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。
+接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的变现场景，请把ADCDN.bundle资源文件一并拖入。注：ADCDN.framework拖入到项目中请在工程的 General - Frameworks，Libraries，and Embedded Content - Embed & Sign；否则程序运行会报错image not found
 ## 3.2 权限申请
 ### 3.2.1 SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 App Store 审核被拒：
 ```
@@ -45,11 +46,13 @@ Privacy - Location Usage Description
          <true/>
     </dict>
 ```
-## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.6版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods。
+## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.6版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods，如果你的app只使用了穿山甲平台的广告来源，就只需要导入穿山甲对应的依赖库就可以了。
 ```
 platform :ios, '9.0'
 target '你的项目名' do
+# 优量汇广告来源
 pod 'GDTMobSDK', '~> 4.11.6'
+# 穿山甲广告来源
 pod 'Bytedance-UnionAD', '~> 2.9.0.1'
 end
 ```
