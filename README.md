@@ -30,7 +30,7 @@ iOS9.0及以上，版本号：1.6.0.0。
 ## 3.1 添加sdk到工程
 接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的变现场景，请把ADCDN.bundle资源文件一并拖入。注：ADCDN.framework拖入到项目中请在工程的 General - Frameworks，Libraries，and Embedded Content - Embed & Sign；否则程序运行会报错image not found
 ![步骤](https://github.com/pengshuangta/images/blob/master/ADCDN07.png)
-![报错](https://github.com/pengshuangta/images/blob/master/ADCDN07.png)
+![报错](https://github.com/pengshuangta/images/blob/master/ADCDN06.png)
 ## 3.2 权限申请
 ### 3.2.1 SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 App Store 审核被拒：
 ```
