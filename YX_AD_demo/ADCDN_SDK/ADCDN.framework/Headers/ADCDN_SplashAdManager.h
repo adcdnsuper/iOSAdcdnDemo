@@ -32,13 +32,13 @@
  */
 - (void)ADCDN_SplashAdClicked:(ADCDN_SplashAdManager *_Nullable)splashAd;
 /**
- *  开屏广告关闭回调
- */
-- (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
-/**
  *  开屏广告将要关闭回调
  */
 - (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
+/**
+ *  开屏广告关闭回调
+ */
+- (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
 /**
  *  开屏详情页关闭回调
  */
@@ -60,6 +60,10 @@
 @property (nonatomic, strong)UIView * _Nullable bottomView;
 /** 代理对象 */
 @property (nonatomic, weak) id <ADCDN_SplashAdManagerDelegate> _Nullable delegate;
+/// 控制器
+@property (nonatomic, weak)UIViewController * _Nullable rootViewController;
+// 拉去开屏广告的超市时间，默认 3s
+@property (nonatomic, assign) NSTimeInterval tolerateTimeout;
 /**
  *  plcId - 广告位 ID
  */

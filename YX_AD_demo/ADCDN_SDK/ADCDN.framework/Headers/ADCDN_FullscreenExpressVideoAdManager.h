@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @protocol ADCDN_FullscreenExpressVideoAdManagerDelegate <NSObject>
 
-@optional
 /**
  *  加载成功
  */

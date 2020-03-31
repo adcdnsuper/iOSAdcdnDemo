@@ -4,8 +4,8 @@
 ```
 platform :ios,'9.0'
 target 'YX_AD_demo' do
-pod 'GDTMobSDK', '~> 4.11.5'
-pod 'Bytedance-UnionAD', '~> 2.8.0.1'
+pod 'GDTMobSDK', '~> 4.11.6'
+pod 'Bytedance-UnionAD', '~> 2.9.0.1'
 end
 ```
 ADCDN广告sdk支持如下广告功能:
@@ -45,12 +45,12 @@ Privacy - Location Usage Description
          <true/>
     </dict>
 ```
-## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.1版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods。
+## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.6版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods。
 ```
 platform :ios, '9.0'
 target '你的项目名' do
-pod 'GDTMobSDK', '~> 4.11.5'
-pod 'Bytedance-UnionAD', '~> 2.8.0.1'
+pod 'GDTMobSDK', '~> 4.11.6'
+pod 'Bytedance-UnionAD', '~> 2.9.0.1'
 end
 ```
 [不使用pod方式，使用手动方式拖入其他广告平台依赖库，请点击](https://github.com/pengshuangta/ADCDN_manual/blob/master/README.md)

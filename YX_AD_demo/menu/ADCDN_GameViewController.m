@@ -37,7 +37,7 @@
         model.nickName = @"";// 用户昵称
         model.avatarUrl = @"";// 用户头像地址urlString
         _gameView = [[ADCDN_GameView alloc] initWithGameViewFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
-        [_gameView loadGameViewModel:model withIsTest:YES];
+        [_gameView loadGameViewModel:model withIsTest:NO];
         _gameView.delegate = self;//需要strong持有，否则delegate回调无法执行，影响计费
         [self.view addSubview:_gameView];
     }
