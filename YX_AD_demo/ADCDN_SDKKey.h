@@ -10,13 +10,26 @@
 #define ADCDN_SDKKey_h
 
 /** appid */
-#define KappId @"1030013"
+#define KappId @"600001"
 
 /**
  * 广告位置id
  */
 /** 开屏广告 */
-#define KplcId_Splash @"1010021"
+#define KplcId_Splash @"2000006"
+/** 横幅广告 */
+#define KplcId_Banner @"2000017"
+/** 插屏广告 */
+#define KplcId_Interstitial @"2000014"
+/** 模版激励视频 - 竖屏 */
+#define KplcId_ExpressRewardVideoVertical @"2000010"
+/** 模版非激励视频 - 竖屏 */
+#define KplcId_ExpressVideoVertical @"2000010"
+/** 原生广告 - 上文下浮层 */
+#define KplcId_TopText @"2000012"
+
+
+
 
 
 /** 原生广告 - 三小图 */
@@ -31,14 +44,7 @@
 #define KplcId_Text @"1010140"
 /** 原生广告 - 上图下文 */
 #define KplcId_TopImg @"1010145"
-/** 原生广告 - 上文下浮层 */
-#define KplcId_TopText @"1010141"
 
-/** 横幅广告 */
-#define KplcId_Banner @"1010179"
-
-/** 插屏广告 */
-#define KplcId_Interstitial @"1010094"
 
 /** 非激励视频 - 横屏 */
 #define KplcId_VideoHorizon @"1010167"
@@ -79,5 +85,17 @@
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
 
+/**
+ *  比例宽高
+ */
+#define K_Width(f) (f / 750.0 * ScreenW)
+#define K_Height(f) (f / 1334.0 * (ScreenW / 750.0 * 1334.0))
+
+/** 颜色设置 - 十六进制*/
+#define K_HexColor(hexValue)                                                   \
+[UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0         \
+green:((float)((hexValue & 0xFF00) >> 8)) / 255.0            \
+blue:((float)((hexValue & 0xFF))) / 255.0                   \
+alpha:1.0f]
 
 #endif /* ADCDN_SDKKey_h */

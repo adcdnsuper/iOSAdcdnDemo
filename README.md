@@ -5,7 +5,7 @@
 platform :ios,'9.0'
 target 'YX_AD_demo' do
 pod 'GDTMobSDK', '~> 4.11.6'
-pod 'Bytedance-UnionAD', '~> 2.9.0.1'
+pod 'Bytedance-UnionAD', '~> 2.9.0.3'
 end
 ```
 
@@ -20,17 +20,15 @@ ADCDN广告sdk支持如下广告功能:
 | ~~视频广告~~        | ~~激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）~~         |
 | ~~原生自渲染~~       | ~~原生自渲染广告（大图、组图、单图、视频）~~         |
 | 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
-| 变现场景广告       | 新增         |
+| 变现场景广告       |  刮刮卡         |
+| 游戏盒子广告       | 消星星等游戏         |
 
 
 # 2.兼容和版本号
-iOS9.0及以上，版本号：1.6.0.0。
-注：ADCDN.framework是真机包，请在真机下做测试。ADCDN是动态的framework请不用担心，审核不会被拒。之所以做成动态的framework，是因为我们针对不同的广告平台的sdk有做了动态导包，不需要的广告平台，可以不依赖相应平台的sdk，编译不会报错。
+iOS9.0及以上，版本号：V 6.0.0。
 # 3.ADCDN_SDK的接入流程
 ## 3.1 添加sdk到工程
-接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的变现场景，请把ADCDN.bundle资源文件一并拖入。注：ADCDN.framework拖入到项目中请在工程的 General - Frameworks，Libraries，and Embedded Content - Embed & Sign；否则程序运行会报错image not found
-![步骤](https://github.com/pengshuangta/images/blob/master/ADCDN07.png)
-![报错](https://github.com/pengshuangta/images/blob/master/ADCDN06.png)
+接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的变现场景或者游戏场景，请把ADCDN.bundle资源文件一并拖入。
 ## 3.2 权限申请
 ### 3.2.1 SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 App Store 审核被拒：
 ```
@@ -55,15 +53,18 @@ target '你的项目名' do
 # 优量汇广告来源
 pod 'GDTMobSDK', '~> 4.11.6'
 # 穿山甲广告来源
-pod 'Bytedance-UnionAD', '~> 2.9.0.1'
+pod 'Bytedance-UnionAD', '~> 2.9.0.3'
 end
 ```
-[不使用pod方式，使用手动方式拖入其他广告平台依赖库，请点击](https://github.com/pengshuangta/ADCDN_manual/blob/master/README.md)
 ## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在app程序的启动函数didFinishLaunchingWithOptions中初始化sdk
 提示：appId、plcId请到ADCDN开发者平台获取
 ```
- // 初始化配置(必须)
-    [ADCDN_ConfigManager shareManagerWithAppId:KappId];
+// 初始化配置
+[ADCDN_ConfigManager shareManagerWithAppId:KappId];
+// 日志开关，默认关闭，控制台过滤 ADCDN_Log关键字查看log
+[ADCDN_DebugLogTool setLogEnable:YES];
+// 查看sdk版本
+NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
 ```
 # 4.sdk广告业务功能
 ## 4.1 开屏广告，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
@@ -570,7 +571,7 @@ nativeCustomAd.customView = self.customView;
     return _gameView;
 }
 ```
-### 4.7.1  变现场景广告示例代码设置代理<ADCDN_GameViewDelegate>
+### 4.7.2  变现场景广告示例代码设置代理<ADCDN_GameViewDelegate>
 ```
 /**
  * ADCDN_GameViewDelegate
@@ -583,4 +584,78 @@ nativeCustomAd.customView = self.customView;
 -(void)ADCDN_GameViewGotoLogin{
     NSLog(@"跳装到app登录页");
 }
+```
+## 4.8 游戏盒子场景广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.8.1  游戏盒子广告示例代码
+```
+#pragma mark - 初始化游戏大厅页面
+-(ADCDN_GameBoxView *)gameBoxView{
+    if (!_gameBoxView) {
+        ADCDN_GameBoxModel *model = [ADCDN_GameBoxModel new];
+        model.userSystem = 1;
+        model.userId = @"123456";
+        model.nickname = @"我的昵称";
+        model.avatar = @"https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2131257963,3457119996&fm=58";
+        model.existNav = 1;
+        model.rootViewController = self;
+        
+        _gameBoxView = [[ADCDN_GameBoxView alloc] initWithGameBoxViewFrame:self.view.bounds];
+        _gameBoxView.delegate = self;
+        [self.view addSubview:_gameBoxView];
+        [_gameBoxView loadGameViewModel:model];
+    }
+    return _gameBoxView;
+}
+```
+### 4.8.2  游戏盒子广告示例代码<ADCDN_GameBoxViewDelegate>
+```
+#pragma mark - ADCDN_GameBoxViewDelegate
+
+/**
+ *  当app有用户体系时，还未登录，去登录，跳转app登录页面
+ */
+-(void)ADCDN_GameBoxViewGotoLogin{
+    NSLog(@"去登录");
+}
+/**
+ *  当游戏盒子处在app的二级页面，需要返回上一个页面时，导航栏的返回事件
+ */
+-(void)ADCDN_gameBoxViewNavBack{
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"返回");
+}
+```
+### 4.8.3  游戏盒子广告获取游戏列表数据示例代码
+```
+#pragma mark - 获取游戏列表数据
+-(void)requestGameList{
+    ADCDN_GameBoxModel *model = [ADCDN_GameBoxModel new];
+    model.userSystem = 1;
+    model.userId = @"123456";
+    model.nickname = @"我的昵称";
+    model.avatar = @"https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2131257963,3457119996&fm=58";
+    model.existNav = 1;
+    model.rootViewController = self;
+    __weak typeof(self) weakSelf = self;
+    ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool new];
+    [gameTool getWithModel:model gameBoxBlock:^(NSMutableArray<ADCDN_GameBoxGamesModel *> *modelArr) {
+        NSLog(@"%@",modelArr);
+        weakSelf.modelArr = modelArr;
+        [weakSelf.listCV reloadData];
+    }];
+}
+```
+### 4.8.4  游戏盒子广告点击某个游戏示例代码
+```
+ ADCDN_GameBoxGamesModel *model =self.modelArr[indexPath.row];
+ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool new];
+[gameTool didGameWithModel:model withViewController:self];
+```
+### 4.8.5  游戏盒子广告获取游戏开关状态示例代码
+```
+/**
+ * 获取游戏开关 1 开启 否则关闭
+ */
+-(NSString *)getScenesSwitch;
 ```

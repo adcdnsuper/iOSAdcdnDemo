@@ -20,5 +20,8 @@
  *  获取ADCDN的版本
  */
 -(NSString *_Nullable)getSDKVersion;
+
+
+
 @end
 

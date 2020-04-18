@@ -30,6 +30,8 @@
     
     // 初始化配置
     [ADCDN_ConfigManager shareManagerWithAppId:KappId];
+    // 日志开关，默认关闭，控制台过滤 ADCDN_Log关键字查看log
+    [ADCDN_DebugLogTool setLogEnable:YES];
     // 查看sdk版本
     NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
     
