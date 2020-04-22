@@ -15,6 +15,10 @@ typedef void (^ADCDN_GameBoxBlock)(NSMutableArray<ADCDN_GameBoxGamesModel *> *mo
 
 @interface ADCDN_GameBoxGamesTool : NSObject
 /**
+ *  提供单例类方法
+ */
++(instancetype)shareManager;
+/**
  * 获取热门/最近在玩游戏列表
  */
 -(void)getWithModel:(ADCDN_GameBoxModel *)model gameBoxBlock:(ADCDN_GameBoxBlock)gameBoxBlock;

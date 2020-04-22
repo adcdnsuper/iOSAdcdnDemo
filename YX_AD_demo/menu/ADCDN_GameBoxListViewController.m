@@ -53,7 +53,7 @@
     model.existNav = 1;
     model.rootViewController = self;
     __weak typeof(self) weakSelf = self;
-    ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool new];
+    ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool shareManager];
     [gameTool getWithModel:model gameBoxBlock:^(NSMutableArray<ADCDN_GameBoxGamesModel *> *modelArr) {
         NSLog(@"%@",modelArr);
         weakSelf.modelArr = modelArr;
@@ -97,7 +97,7 @@
         cell.didCellBlock = ^(NSIndexPath *indexPath) {
             if ([self.modelArr[indexPath.row] isKindOfClass:[ADCDN_GameBoxGamesModel class]]) {
                  ADCDN_GameBoxGamesModel *model = self.modelArr[indexPath.row];
-                ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool new];
+                ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool shareManager];
                  [gameTool didGameWithModel:model withViewController:self];
             }
         };
@@ -125,7 +125,7 @@
     
     if (indexPath.section == 2) {
        // 游戏开关
-        ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool new];
+        ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool shareManager];
         if ([[gameTool getScenesSwitch] isEqualToString:@"1"]) {
             CGFloat imgW  = (ScreenW - K_Width(60) * 4)/4.0;
             CGFloat cellH = imgW + K_Height(76) + K_Height(60);

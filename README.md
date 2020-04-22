@@ -638,7 +638,7 @@ nativeCustomAd.customView = self.customView;
     model.existNav = 1;
     model.rootViewController = self;
     __weak typeof(self) weakSelf = self;
-    ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool new];
+    ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool shareManager];
     [gameTool getWithModel:model gameBoxBlock:^(NSMutableArray<ADCDN_GameBoxGamesModel *> *modelArr) {
         NSLog(@"%@",modelArr);
         weakSelf.modelArr = modelArr;
@@ -649,7 +649,7 @@ nativeCustomAd.customView = self.customView;
 ### 4.8.4  游戏盒子广告点击某个游戏示例代码
 ```
  ADCDN_GameBoxGamesModel *model =self.modelArr[indexPath.row];
-ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool new];
+ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool shareManager];
 [gameTool didGameWithModel:model withViewController:self];
 ```
 ### 4.8.5  游戏盒子广告获取游戏开关状态示例代码

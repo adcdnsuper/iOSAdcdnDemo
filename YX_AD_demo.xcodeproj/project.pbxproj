@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		132904E62395032100A9EB9F /* ADCDN_RewardVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904D62395032100A9EB9F /* ADCDN_RewardVideoViewController.m */; };
 		132904E72395032100A9EB9F /* ADCDN_NativeCustomRenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904D82395032100A9EB9F /* ADCDN_NativeCustomRenderTableViewCell.m */; };
 		132904E82395032100A9EB9F /* ADCDN_StringStyleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 132904DB2395032100A9EB9F /* ADCDN_StringStyleTool.m */; };
+		135FB713244FF43000D7B8F6 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135FB712244FF43000D7B8F6 /* ADCDN.framework */; };
 		137009DF23A0E84C001FFDCF /* ADCDN_UnRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DA23A0E84B001FFDCF /* ADCDN_UnRewardViewController.m */; };
 		137009E023A0E84C001FFDCF /* ADCDN_VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DC23A0E84C001FFDCF /* ADCDN_VideoViewController.m */; };
 		137009E123A0E84C001FFDCF /* ADCDN_RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137009DD23A0E84C001FFDCF /* ADCDN_RewardViewController.m */; };
@@ -34,7 +35,6 @@
 		13B0CE80233C5FD0008AD2F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE7F233C5FD0008AD2F9 /* main.m */; };
 		13C7A90423A7781700CBB73B /* ADCDN_GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C7A90323A7781600CBB73B /* ADCDN_GameViewController.m */; };
 		13ED5FC1244B16A900664DAA /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13ED5FBF244B16A800664DAA /* ADCDN.bundle */; };
-		13ED5FC2244B16A900664DAA /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13ED5FC0244B16A800664DAA /* ADCDN.framework */; };
 		13ED5FD1244B16FF00664DAA /* ADCDN_GameBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ED5FC3244B16FD00664DAA /* ADCDN_GameBoxViewController.m */; };
 		13ED5FD2244B16FF00664DAA /* ADCDN_GameBoxListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ED5FC4244B16FE00664DAA /* ADCDN_GameBoxListViewController.m */; };
 		13ED5FD3244B16FF00664DAA /* ADCDN_GameBoxListFirstCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ED5FC9244B16FE00664DAA /* ADCDN_GameBoxListFirstCollectionViewCell.m */; };
@@ -89,6 +89,7 @@
 		132904DC2395032100A9EB9F /* ADCDN_StringStyleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_StringStyleTool.h; sourceTree = "<group>"; };
 		132904DD2395032100A9EB9F /* ADCDN_SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SplashViewController.h; sourceTree = "<group>"; };
 		132904DE2395032100A9EB9F /* ADCDN_NativeCustomRenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeCustomRenderViewController.h; sourceTree = "<group>"; };
+		135FB712244FF43000D7B8F6 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		137009D923A0E84B001FFDCF /* ADCDN_RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_RewardViewController.h; sourceTree = "<group>"; };
 		137009DA23A0E84B001FFDCF /* ADCDN_UnRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_UnRewardViewController.m; sourceTree = "<group>"; };
 		137009DB23A0E84B001FFDCF /* ADCDN_VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_VideoViewController.h; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		13C7A90223A7781600CBB73B /* ADCDN_GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameViewController.h; sourceTree = "<group>"; };
 		13C7A90323A7781600CBB73B /* ADCDN_GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameViewController.m; sourceTree = "<group>"; };
 		13ED5FBF244B16A800664DAA /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
-		13ED5FC0244B16A800664DAA /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13ED5FC3244B16FD00664DAA /* ADCDN_GameBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxViewController.m; sourceTree = "<group>"; };
 		13ED5FC4244B16FE00664DAA /* ADCDN_GameBoxListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxListViewController.m; sourceTree = "<group>"; };
 		13ED5FC5244B16FE00664DAA /* ADCDN_GameBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameBoxViewController.h; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				13ED5FC2244B16A900664DAA /* ADCDN.framework in Frameworks */,
+				135FB713244FF43000D7B8F6 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,8 +195,8 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
+				135FB712244FF43000D7B8F6 /* ADCDN.framework */,
 				13ED5FBF244B16A800664DAA /* ADCDN.bundle */,
-				13ED5FC0244B16A800664DAA /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
