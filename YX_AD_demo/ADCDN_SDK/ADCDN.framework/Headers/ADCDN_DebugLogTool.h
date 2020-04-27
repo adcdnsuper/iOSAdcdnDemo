@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-
-
 @interface ADCDN_DebugLogTool : NSObject
-// 设置日志输出状态 YES开启，NO不开启
+/**
+ * 设置日志输出状态
+ * YES开启，NO不开启
+ */
 + (void)setLogEnable:(BOOL)enable;
-
-// 获取日志输出状态 默认NO，不开启
+/**
+ * 获取日志输出状态
+ * 默认NO，不开启
+ */
 + (BOOL)getLogEnable;
+
 @end
 

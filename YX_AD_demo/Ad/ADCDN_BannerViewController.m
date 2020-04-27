@@ -13,7 +13,7 @@
 /** 广告view */
 @property (nonatomic,strong) UIView *adView;
 /* 横幅广告 */
-@property (nonatomic,strong) ADCDN_BannerAdManager *banner;
+@property (nonatomic,strong) ADCDN_BannerAdManager *bannerAdManager;
 @end
 
 @implementation ADCDN_BannerViewController
@@ -42,13 +42,13 @@
  *  广告视频图懒加载
  */
 - (void)loadAd {
-    self.banner = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
-    self.banner.customView = self.adView;// banner加载的位置
-    self.banner.interval = 29;// 大于30循环
-    self.banner.rootViewController = self;
-    self.banner.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费
-    self.banner.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
-    [self.banner loadNativeAd];
+    self.bannerAdManager = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
+    self.bannerAdManager.customView = self.adView;// banner加载的位置
+    self.bannerAdManager.interval = 29;// 大于30循环
+    self.bannerAdManager.rootViewController = self;
+    self.bannerAdManager.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费
+    self.bannerAdManager.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
+    [self.bannerAdManager loadNativeAd];
 }
 -(void)dealloc{
     NSLog(@"释放了");

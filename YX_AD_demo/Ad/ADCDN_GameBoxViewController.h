@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @interface ADCDN_GameBoxViewController : UIViewController
 
 

@@ -9,7 +9,7 @@
 #ifndef ADCDN_PrefixHeader_pch
 #define ADCDN_PrefixHeader_pch
 
-
+#import "ADCDN_AppConstTool.h"
 #import "ADCDN_SDKKey.h"
 
 #endif /* ADCDN_PrefixHeader_pch */

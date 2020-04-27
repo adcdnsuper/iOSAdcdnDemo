@@ -36,6 +36,10 @@
  */
 - (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
 /**
+ *  开屏广告将要关闭回调
+ */
+- (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
+/**
  *  开屏详情页关闭回调
  */
 - (void)ADCDN_SplashAdDetailClosed:(ADCDN_SplashAdManager *_Nullable)splashAd;
@@ -43,10 +47,16 @@
 
 
 @interface ADCDN_SplashAdManager : NSObject
-/** keyWindow */
+// keyWindow
 @property (nonatomic, weak)UIWindow * _Nullable window;
-/** 开屏也的大小，全屏 */
+// 开屏页的大小，全屏
 @property (nonatomic, assign)CGRect wFrame;
+// 代理对象
+@property (nonatomic, weak) id <ADCDN_SplashAdManagerDelegate> _Nullable delegate;
+// 控制器
+@property (nonatomic, weak)UIViewController * _Nullable rootViewController;
+// 拉去开屏广告的超时时间，默认 3s
+//@property (nonatomic, assign) NSTimeInterval tolerateTimeout;
 /**
 *  广告发起请求并展示在Window中, 同时在屏幕底部设置应用自身的Logo页面或是自定义View
 *  详解：[可选]发起拉取广告请求,并将获取的广告以半屏形式展示在传入的Window的上半部，剩余部分展示传入的bottomView
@@ -54,12 +64,7 @@
 * bottomView 自定义底部View，可以在此View中设置应用Logo
 */
 @property (nonatomic, strong)UIView * _Nullable bottomView;
-/** 代理对象 */
-@property (nonatomic, weak) id <ADCDN_SplashAdManagerDelegate> _Nullable delegate;
-/// 控制器
-@property (nonatomic, weak)UIViewController * _Nullable rootViewController;
-// 拉去开屏广告的超市时间，默认 3s
-@property (nonatomic, assign) NSTimeInterval tolerateTimeout;
+
 /**
  *  plcId - 广告位 ID
  */

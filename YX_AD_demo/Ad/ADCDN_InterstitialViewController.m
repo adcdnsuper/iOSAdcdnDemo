@@ -11,7 +11,7 @@
 
 @interface ADCDN_InterstitialViewController ()<ADCDN_InterstitialAdManagerDelegate>
 /* 插屏广告 */
-@property (nonatomic,strong) ADCDN_InterstitialAdManager *manager;
+@property (nonatomic,strong) ADCDN_InterstitialAdManager *interstitialAdManager;
 @end
 
 @implementation ADCDN_InterstitialViewController
@@ -30,10 +30,10 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    self.manager = [[ADCDN_InterstitialAdManager alloc] initWithPlcId:KplcId_Interstitial];
-    self.manager.rootViewController = self;
-    self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
-    [self.manager loadAd];
+    self.interstitialAdManager = [[ADCDN_InterstitialAdManager alloc] initWithPlcId:KplcId_Interstitial];
+    self.interstitialAdManager.rootViewController = self;
+    self.interstitialAdManager.delegate = self;// interstitialAdManager需要strong持有，否则delegate回调无法执行，影响计费
+    [self.interstitialAdManager loadAd];
 }
 #pragma mark - ADCDN_InterstitialAdManagerDelegate
 /**

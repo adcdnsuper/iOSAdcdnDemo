@@ -7,8 +7,6 @@
 //
 
 #import "ADCDN_UnRewardViewController.h"
-#import "ADCDN_UnRewardFullscreenVideoViewController.h"
-
 #import "ADCDN_UnRewardExpressFullscreenVideoViewController.h"
 
 @interface ADCDN_UnRewardViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -26,7 +24,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     if (self.type == 1) {
-        self.navigationItem.title = @"非激励视频";
+        self.navigationItem.title = @"模版全屏视频";
     }
     if (self.type == 2) {
         self.navigationItem.title = @"模版非激励视频";
@@ -82,30 +80,12 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.type == 1) {
-        // 横屏
-        if (indexPath.row == 0) {
-            NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-            ADCDN_UnRewardFullscreenVideoViewController *vc = [ADCDN_UnRewardFullscreenVideoViewController new];
-            vc.navigationItem.title = @"非激励视频-横屏";
-            vc.plcId = KplcId_VideoHorizon;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        // 竖屏
-        if (indexPath.row == 1) {
-          NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-          ADCDN_UnRewardFullscreenVideoViewController *vc = [ADCDN_UnRewardFullscreenVideoViewController new];
-            vc.plcId = KplcId_VideoVertical;
-            vc.navigationItem.title = @"非激励视频-竖屏";
-          [self.navigationController pushViewController:vc animated:YES];
-        }
-    }
     if (self.type == 2) {
         // 横屏
         if (indexPath.row == 0) {
             NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
             ADCDN_UnRewardExpressFullscreenVideoViewController *vc = [ADCDN_UnRewardExpressFullscreenVideoViewController new];
-            vc.navigationItem.title = @"模版非激励视频-横屏";
+            vc.navigationItem.title = @"模版全屏视频-横屏";
             vc.plcId = KplcId_ExpressVideoHorizon;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -114,7 +94,7 @@
           NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
           ADCDN_UnRewardExpressFullscreenVideoViewController *vc = [ADCDN_UnRewardExpressFullscreenVideoViewController new];
             vc.plcId = KplcId_ExpressVideoVertical;
-            vc.navigationItem.title = @"模版非激励视频-竖屏";
+            vc.navigationItem.title = @"模版全屏视频-竖屏";
           [self.navigationController pushViewController:vc animated:YES];
         }
     }

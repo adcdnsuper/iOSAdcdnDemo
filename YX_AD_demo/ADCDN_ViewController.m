@@ -12,9 +12,6 @@
 #import "ADCDN_InterstitialViewController.h"
 #import "ADCDN_VideoViewController.h"
 #import "ADCDN_NativeViewController.h"
-#import "ADCDN_NativeRenderViewController.h"
-#import "ADCDN_GameViewController.h"
-
 #import "ADCDN_GameBoxListViewController.h"
 
 @interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -22,6 +19,8 @@
 @property (nonatomic,strong) UITableView *menuTB;
 /** titleArr */
 @property(copy,nonatomic)NSArray *menuTitleArr;
+
+
 @end
 
 @implementation ADCDN_ViewController
@@ -47,10 +46,7 @@
 }
 -(NSArray *)menuTitleArr{
     if (!_menuTitleArr) {
-        /**
-         *  插屏广告放最后
-         */
-        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"视频广告2.0",@"变现场景",@"游戏盒子",];
+        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"模版视频广告2.0",@"游戏盒子"];
     }
     return _menuTitleArr;
 }
@@ -109,36 +105,16 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }
-//    // 视频广告
-//    if (indexPath.row == 4) {
-//        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-//        ADCDN_VideoViewController *vc = [ADCDN_VideoViewController new];
-//        vc.type = 1;
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
     // 模版视频广告
     if (indexPath.row == 4) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_VideoViewController *vc = [ADCDN_VideoViewController new];
         vc.type = 2;
         [self.navigationController pushViewController:vc animated:YES];
     }
-//    // 原生自渲染
-//    if (indexPath.row == 5) {
-//        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-//        ADCDN_NativeRenderViewController *vc = [ADCDN_NativeRenderViewController new];
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
+    // 游戏盒子
     if (indexPath.row == 5) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
-        ADCDN_GameViewController *vc = [ADCDN_GameViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    if (indexPath.row == 6) {
-        NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_GameBoxListViewController *vc = [ADCDN_GameBoxListViewController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
 }
 @end

@@ -9,8 +9,6 @@
 #import "ADCDN_NativeViewController.h"
 #import "ADCDN_NativeExpressViewController.h"
 
-#import "ADCDN_NativeCustomViewController.h"
-
 
 @interface ADCDN_NativeViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
@@ -78,7 +76,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // @"三小图",@"纯图片",@"左图右文",@"左文右图",@"文字浮层",@"上图下文",@"上文下浮层"
-    // 三小图
+    // 三小图 110/256
     if (indexPath.row == 0) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
@@ -87,6 +85,7 @@
         vc.adSize = CGSizeMake(ScreenW, 0);
         [self.navigationController pushViewController:vc animated:YES];
     }
+    // 左图右文 85/256
     if (indexPath.row == 1) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
@@ -95,6 +94,7 @@
         vc.adSize = CGSizeMake(ScreenW, 0);
         [self.navigationController pushViewController:vc animated:YES];
     }
+    // 左文右图 85/256
     if (indexPath.row == 2) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
@@ -103,6 +103,7 @@
         vc.adSize = CGSizeMake(ScreenW, 0);
         [self.navigationController pushViewController:vc animated:YES];
     }
+    // 文字浮层 150/256
     if (indexPath.row == 3) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
@@ -111,6 +112,7 @@
         vc.adSize = CGSizeMake(ScreenW, 0);
         [self.navigationController pushViewController:vc animated:YES];
     }
+    // 上下图文 205/256
     if (indexPath.row == 4) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];
@@ -119,7 +121,7 @@
         vc.adSize = CGSizeMake(ScreenW, 0);
         [self.navigationController pushViewController:vc animated:YES];
     }
-    // 上文下浮层
+    // 上文下浮层 175/256
     if (indexPath.row == 5) {
         NSLog(@"点击%@",self.menuTitleArr[indexPath.row]);
         ADCDN_NativeExpressViewController *vc = [ADCDN_NativeExpressViewController new];

@@ -9,7 +9,6 @@
 #import "ADCDN_GameBoxListViewController.h"
 #import "ADCDN_SDKKey.h"
 #import "ADCDN_GameBoxViewController.h"
-
 #import "ADCDN_GameBoxListFirstCollectionViewCell.h"
 #import "ADCDN_GameBoxListSecondCollectionViewCell.h"
 
@@ -43,7 +42,7 @@
     }
     return _modelArr;
 }
-#pragma mark - 获取游戏列表数据
+#pragma mark - 获取游戏数据
 -(void)requestGameList{
     ADCDN_GameBoxModel *model = [ADCDN_GameBoxModel new];
     model.userSystem = 1;

@@ -40,15 +40,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface ADCDN_BannerAdManager : NSObject
-/// 加载广告位视图 （必传）
+// 加载广告位视图
 @property (nonatomic, strong) UIView *customView;
-/// 控制器
+// 控制器
 @property (nonatomic, weak)UIViewController *rootViewController;
-/// 是否轮循 大于 30 为轮循  默认为不轮循
+// 是否轮循 大于 30 为轮循  默认为不轮循
 @property (nonatomic, assign) NSInteger interval;
-/// 代理对象
+// 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_BannerAdManagerDelegate> delegate;
-/* banner尺寸比例 640：100,默认撑满屏幕的宽度 */
+// banner尺寸比例 640：100,默认撑满屏幕的宽度
 @property (nonatomic,assign) CGSize adSize;
 
 /**

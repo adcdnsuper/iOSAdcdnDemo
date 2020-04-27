@@ -15,13 +15,10 @@
  *  详解：appId - 媒体 ID
  */
 +(instancetype _Nullable)shareManagerWithAppId:(NSString *_Nullable)appId;
-
 /**
  *  获取ADCDN的版本
  */
 -(NSString *_Nullable)getSDKVersion;
-
-
 
 @end
 

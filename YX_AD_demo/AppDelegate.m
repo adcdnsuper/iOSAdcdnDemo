@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  YX_AD_demo
+//  ADCDN_APP
 //
-//  Created by 彭双塔 on 2019/9/26.
+//  Created by 彭双塔 on 2019/9/27.
 //  Copyright © 2019 pst. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 #import <ADCDN/ADCDN.h>
 #import "ADCDN_ViewController.h"
 #import "ADCDN_NavigationController.h"
+
 
 @interface AppDelegate ()<ADCDN_SplashAdManagerDelegate>
 /* 开屏广告对象 */
@@ -20,26 +21,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window makeKeyAndVisible];
     ADCDN_ViewController *vc = [[ADCDN_ViewController alloc] init];
     ADCDN_NavigationController * nav = [[ADCDN_NavigationController alloc] initWithRootViewController:vc];
-    vc.modalPresentationStyle = 0;
     self.window.rootViewController = nav;
-    [self.window makeKeyAndVisible];
     
     // 初始化配置
     [ADCDN_ConfigManager shareManagerWithAppId:KappId];
-    // 日志开关，默认关闭，控制台过滤 ADCDN_Log关键字查看log
+    // 开发ADCDN错误日志,默认不开启
     [ADCDN_DebugLogTool setLogEnable:YES];
-    // 查看sdk版本
-    NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
     
     // 初始化开屏广告
     self.manage = [[ADCDN_SplashAdManager alloc] initWithPlcId:KplcId_Splash];
     self.manage.window = self.window;
     CGRect frame = [UIScreen mainScreen].bounds;
     self.manage.wFrame = frame;
+    self.manage.rootViewController = self.window.rootViewController;
     self.manage.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
     
     //设置开屏底部自定义LogoView，展示半屏开屏广告
@@ -55,9 +55,9 @@
     bottomView.backgroundColor = [UIColor whiteColor];
     self.manage.bottomView = bottomView;
     
-    
+    // 加载开屏广告
     [self.manage loadSplashAd];
-
+    
     return YES;
 }
 /**
@@ -90,7 +90,6 @@
 - (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告关闭回调");
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -129,7 +128,7 @@
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
         if (_persistentContainer == nil) {
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"YX_AD_demo"];
+            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"ADCDN_APP"];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
                     // Replace this implementation with code to handle the error appropriately.

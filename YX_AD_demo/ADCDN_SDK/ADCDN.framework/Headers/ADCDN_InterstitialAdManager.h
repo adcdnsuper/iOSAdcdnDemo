@@ -39,9 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface ADCDN_InterstitialAdManager : NSObject
-/// 控制器
+// 控制器
 @property (nonatomic, weak)UIViewController *rootViewController;
-/// 代理对象
+// 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_InterstitialAdManagerDelegate> delegate;
 /**
  *  plcId - 广告位 ID

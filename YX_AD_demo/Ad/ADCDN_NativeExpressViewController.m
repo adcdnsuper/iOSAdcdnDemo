@@ -15,7 +15,7 @@
 /** 拉取的广告数组 */
 @property (nonatomic, strong) NSMutableArray *expressAdViews;
 /* 原生模板广告 */
-@property (nonatomic,strong) ADCDN_NativeExpressAdManager *manager;
+@property (nonatomic,strong) ADCDN_NativeExpressAdManager *nativeExpressAdManager;
 @end
 
 @implementation ADCDN_NativeExpressViewController
@@ -59,14 +59,14 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    self.manager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
-    self.manager.rootViewController = self;
-    self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+    self.nativeExpressAdManager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
+    self.nativeExpressAdManager.rootViewController = self;
+    self.nativeExpressAdManager.delegate = self;// nativeExpressAdManager需要strong持有，否则delegate回调无法执行，影响计费
     // 最多运行一次性拉去3张
-    self.manager.adCount = 3;
+    self.nativeExpressAdManager.adCount = 3;
     // 广告视图View的尺寸
-    self.manager.adSize = self.adSize;
-    [self.manager loadAd];
+    self.nativeExpressAdManager.adSize = self.adSize;
+    [self.nativeExpressAdManager loadAd];
 }
 #pragma mark - ADCDN_NativeExpressAdManagerDelegate
 /**
@@ -80,10 +80,9 @@
         [self.expressAdViews addObjectsFromArray:views];
         [views enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIView *expressView = (UIView *)obj;
-            [weakSelf.manager render:expressView];
+            [weakSelf.nativeExpressAdManager render:expressView];
         }];
     }
-    NSLog(@"原生模板广告加载失败");
     [self.adTableView reloadData];
 }
 /**
