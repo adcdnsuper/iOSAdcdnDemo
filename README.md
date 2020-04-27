@@ -14,13 +14,10 @@ ADCDN广告sdk支持如下广告功能:
 | 广告功能        | 详情 | 
 | --------       | -----   |
 | 开屏广告        | 开屏广告         |
-| 原生广告        | （三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）  ~~(纯图片)~~       |
+| 原生广告        | （三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）        |
 | 横幅广告        | 横幅广告         |
 | 插屏广告        | 插屏广告         |
-| ~~视频广告~~        | ~~激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）~~         |
-| ~~原生自渲染~~       | ~~原生自渲染广告（大图、组图、单图、视频）~~         |
 | 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
-| 变现场景广告       |  刮刮卡         |
 | 游戏盒子广告       | 消星星等游戏         |
 
 
@@ -70,17 +67,21 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
 ## 4.1 开屏广告，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
 ### 4.1.1 设置开屏广告示例代码
 ```
-  // 初始化配置
-    [ADCDN_ConfigManager shareManagerWithAppId:KappId];
     // 初始化开屏广告
-    self.manage = [[ADCDN_SplashAdManager alloc] initWithPlcId:KplcId_Splash];
-    self.manage.window = self.window;
     CGRect frame = [UIScreen mainScreen].bounds;
-    self.manage.wFrame = frame;
-    self.manage.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+    self.splashAdManager = [[ADCDN_SplashAdManager alloc] initWithPlcId:KplcId_Splash];
+    self.splashAdManager.wFrame = frame;
+    self.splashAdManager.window = [UIApplication sharedApplication].keyWindow;
+    self.splashAdManager.rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    self.splashAdManager.delegate = self;// splashAdManagerr需要strong持有，否则delegate回调无法执行，影响计费
+    // 加载广告
+    [self.splashAdManager loadSplashAd];
 ```
 ### 4.1.2 设置开屏广告代理方法
 ```
+/**
+ *  ADCDN_SplashAdManagerDelegate 代理协议方法
+ */
 /**
  *  开屏广告成功展示
  */
@@ -106,10 +107,22 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告点击回调");
 }
 /**
+ *  开屏广告将要关闭回调
+ */
+- (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManager *_Nullable)splashAd{
+    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭");
+}
+/**
  *  开屏广告关闭回调
  */
 - (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告关闭回调");
+}
+/**
+*  开屏详情关闭回调
+*/
+-(void)ADCDN_SplashAdDetailClosed:(ADCDN_SplashAdManager *)splashAd{
+    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告详情关闭回调");
 }
 ```
 ### 4.1.3 支持开屏广告底部自定义logo
@@ -125,19 +138,19 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
     [bottomView addSubview:logo];
     logo.center = bottomView.center;
     bottomView.backgroundColor = [UIColor whiteColor];
-    self.manage.bottomView = bottomView;
+    self.splashAdManager.bottomView = bottomView;
 ```
 ## 4.2 原生广告（三小图、纯图片、左图右文、左文右图、文字浮层、上下图文、上文下浮层，注：不同类型的广告样式在与不同的广告位id），在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
 ### 4.2.1 原生广告（三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）示例代码
 ```
-self.manager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
-self.manager.rootViewController = self;
-self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
-// 最多运行一次性拉去3张
-self.manager.adCount = 3;
-// 广告视图View的尺寸
-self.manager.adSize = self.adSize;
-[self.manager loadAd];
+self.nativeExpressAdManager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
+    self.nativeExpressAdManager.rootViewController = self;
+    self.nativeExpressAdManager.delegate = self;// nativeExpressAdManager需要strong持有，否则delegate回调无法执行，影响计费
+    // 最多运行一次性拉去3张
+    self.nativeExpressAdManager.adCount = 3;
+    // 广告视图View的尺寸
+    self.nativeExpressAdManager.adSize = self.adSize;
+    [self.nativeExpressAdManager loadAd];
 ```
 ### 4.2.2 设置原生广告（三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）代理方法示例代码，设置代理<ADCDN_NativeExpressAdManagerDelegate>
 ```
@@ -153,10 +166,9 @@ self.manager.adSize = self.adSize;
         [self.expressAdViews addObjectsFromArray:views];
         [views enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIView *expressView = (UIView *)obj;
-            [weakSelf.manager render:expressView];
+            [weakSelf.nativeExpressAdManager render:expressView];
         }];
     }
-    NSLog(@"原生模板广告加载失败");
     [self.adTableView reloadData];
 }
 /**
@@ -202,52 +214,16 @@ self.manager.adSize = self.adSize;
     }
 }
 ```
-~~### 4.2.3 原生广告（纯图片）示例代码~~
-```
-ADCDN_NativeCustomAdManager *nativeCustomAd = [ADCDN_NativeCustomAdManager shareManagerWithAppId:kAppId plcId:kPlcId];
-nativeCustomAd.adView = self.adView;
-nativeCustomAd.rootViewController = self;
-nativeCustomAd.delegate = self;
-[nativeCustomAd loadAd];
-```
-~~### 4.2.4 设置原生广告（纯图片）广告代理方法示例代码，设置代理<ADCDN_NativeCustomAdManagerDelegate>~~
-```
-/**
- *  拉取广告成功
- */
-- (void)ADCDN_NativeCustomAdSuccessToLoad:(ADCDN_NativeCustomAdManager *)nativeExpressAd views:(UIView *)view{
-    NSLog(@"拉取广告成功");
-}
-/**
- *  拉取广告失败
- */
-- (void)ADCDN_NativeCustomAd:(ADCDN_NativeCustomAdManager *)nativeExpressAd didFailWithError:(NSError *_Nullable)error{
-    NSLog(@"拉取广告失败");
-}
-/**
- *  点击广告
- */
-- (void)ADCDN_NativeCustomAdDidClick:(UIView *)nativeExpressAdView{
-     NSLog(@"点击广告");
-}
-/**
- *  曝光回调
- */
-- (void)ADCDN_NativeCustomAdDidBecomeVisible:(UIView *)nativeExpressAdView{
-     NSLog(@"曝光回调");
-}
-```
 ## 4.3 横幅广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
 ### 4.3.1 设置横幅广告示例代码
 ```
-self.banner = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
-UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100 + 100,ScreenW , ScreenW/600*90)];
-[self.view addSubview:adView];
-self.banner.customView = adView;// banner加载的位置
-self.banner.interval = 29;// 大于30循环
-self.banner.rootViewController = self;
-self.banner.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费
-[self.banner loadNativeAd];
+self.bannerAdManager = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
+self.bannerAdManager.customView = self.adView;// banner加载的位置
+self.bannerAdManager.interval = 29;// 大于30循环
+self.bannerAdManager.rootViewController = self;
+self.bannerAdManager.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费
+self.bannerAdManager.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
+[self.bannerAdManager loadNativeAd];
 ```
 ### 4.3.2 设置横幅广告代理方法示例代码，设置代理<ADCDN_BannerAdManagerDelegate>
 ```
@@ -278,10 +254,10 @@ self.banner.delegate = self;// banner需要strong持有，否则delegate回调�
 ## 4.4 插屏广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
 ### 4.4.1 设置插屏广告示例代码
 ```
-self.manager = [[ADCDN_InterstitialAdManager alloc] initWithPlcId:KplcId_Interstitial];
-self.manager.rootViewController = self;
-self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
-[self.manager loadAd];
+self.interstitialAdManager = [[ADCDN_InterstitialAdManager alloc] initWithPlcId:KplcId_Interstitial];
+self.interstitialAdManager.rootViewController = self;
+self.interstitialAdManager.delegate = self;// interstitialAdManager需要strong持有，否则delegate回调无法执行，影响计费
+[self.interstitialAdManager loadAd];
 ```
 ### 4.4.2 设置插屏广告代理方法示例代码，设置代理<ADCDN_InterstitialAdManagerDelegate>
 ```
@@ -320,17 +296,17 @@ self.manager.delegate = self;// manager需要strong持有，否则delegate回调
 ## 4.5 视频广告2.0（激励视频、非激励视频），在需要使用到ADCDN广告功能的地方导入#import<ADCDN/ADCDN.h>
 ### 4.5.1 设置激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码~~
 ```
-self.manager = [[ADCDN_ExpressRewardVideoAdManager alloc] initWithPlcId:self.plcId];
-        //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
-    //    ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
-    //    rewardVideoAdModel.userId = @"123";
-    //    rewardVideoAdModel.rewardName = @"rewardName";
-    //    rewardVideoAdModel.rewardAmount = 1;
-    //    rewardVideoAdModel.extra = @"extra";
-    //    self.manager.rewardVideoAdModel = rewardVideoAdModel;
-self.manager.rootViewController = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
-self.manager.delegate = self;
-[self.manager loadAd];
+self.rewardVideoAdManager = [[ADCDN_ExpressRewardVideoAdManager alloc] initWithPlcId:self.plcId];
+    //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
+//    ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
+//    rewardVideoAdModel.userId = @"123456789";
+//    rewardVideoAdModel.rewardName = @"rewardName";
+//    rewardVideoAdModel.rewardAmount = 1;
+//    rewardVideoAdModel.extra = @"extra";
+//    self.rewardVideoAdManager.rewardVideoAdModel = rewardVideoAdModel;
+self.rewardVideoAdManager.rootViewController = self;// rewardVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
+self.rewardVideoAdManager.delegate = self;
+[self.rewardVideoAdManager loadAd];
 ```
 
 ### 4.5.2 设置激励视频广告代理方法示例代码，设置代理<ADCDN_ExpressRewardVideoAdManagerDelegate>
@@ -428,14 +404,13 @@ appSecurityKey: 您在ADCDN媒体平台新建奖励视频代码位获取到的�
 
 ### 4.5.4 设置非激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码
 ```
-self.manager = [[ADCDN_FullscreenExpressVideoAdManager alloc] initWithPlcId:self.plcId];
-self.manager.rootViewController = self;
-self.manager.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
-[self.manager loadAd];
+self.fullscreenVideoAdManager = [[ADCDN_FullscreenExpressVideoAdManager alloc] initWithPlcId:self.plcId];
+self.fullscreenVideoAdManager.rootViewController = self;
+self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
+[self.fullscreenVideoAdManager loadAd];
 ```
 ### 4.5.5 设置非激励视频广告代理方法示例代码，设置代理<ADCDN_FullscreenExpressVideoAdManagerDelegate>
 ```
-#pragma mark - ADCDN_FullscreenExpressVideoAdManagerDelegate
 /**
  *  加载成功
  */
@@ -480,113 +455,8 @@ self.manager.delegate = self;// manager需要strong持有，否则delegate回调
     NSLog(@"视频广告点击跳过");
 }
 ```
-~~## 4.6 原生自渲染广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>~~
-~~### 4.6.1 设置原生自渲染示例代码~~
-```
-// 原生自渲染
-ADCDN_NativeCustomRenderAdManager *nativeCustomAd = [ADCDN_NativeCustomRenderAdManager shareManagerWithAppId:kAppId plcId:self.plcId];
-nativeCustomAd.rootViewController = self;
-nativeCustomAd.delegate = self;
-nativeCustomAd.customView = self.customView;
-[nativeCustomAd loadAd];
-```
-~~### 4.6.2 设置原生自渲染广告代理方法示例代码，设置代理<ADCDN_NativeCustomRenderAdManagerDelegate>~~
-```
-#pragma mark - ADCDN_NativeCustomRenderAdManagerDelegate
-
-/**
- *  拉取广告成功
- */
-- (void)ADCDN_NativeCustomRenderAdSuccessToLoad:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd withAdDataModel:(ADCDN_NativeCustomRenderModel *)adDataModel{
-    NSLog(@"拉取广告成功");
-    // 渲染视图
-//    [self buildupCustomView:adDataModel];
-    
-    // 大图
-    if (adDataModel.imageMode == ADCDNFeedADModeLargeImage) {
-        [self setUILargeModel:adDataModel];
-    }
-    // 组图
-    if (adDataModel.imageMode == ADCDNFeedADModeGroupImage) {
-        [self setUIGroupModel:adDataModel];
-    }
-    // 单图
-    if (adDataModel.imageMode == ADCDNFeedADModeSmallImage) {
-        [self setUISmallModel:adDataModel];
-    }
-    // 视频
-    if (adDataModel.imageMode == ADCDNFeedVideoAdModeImage) {
-        [self setUIVideoModel:adDataModel];
-        
-    }
-    /**
-     *   测试自渲染信息
-     */
-    NSLog(@"广告标题：%@",adDataModel.adTitle);
-    NSLog(@"广告副标题：%@",adDataModel.adDesc);
-    NSLog(@"广告来源：%@",adDataModel.source);
-    NSLog(@"广告icon：%@",adDataModel.adIcon);
-    NSLog(@"广告图：%@",[adDataModel.adImageAry firstObject].imageURL);
-}
-/**
- *  拉取广告失败
- */
-- (void)ADCDN_NativeCustomRenderAd:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd didFailWithError:(NSError *_Nullable)error{
-    NSLog(@"拉取广告失败");
-}
-/**
- *  点击广告
- */
-- (void)ADCDN_NativeCustomRenderAdDidClick:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd{
-    NSLog(@"点击广告");
-}
-/**
- *  曝光回调
- */
-- (void)ADCDN_NativeCustomRenderAdDidBecomeVisible:(ADCDN_NativeCustomRenderAdManager *)nativeExpressAd{
-    NSLog(@"曝光回调");
-}
-```
-## 4.7 变现场景广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.7.1  变现场景广告示例代码
-```
-#pragma mark - 游戏视图
--(ADCDN_GameView *)gameView{
-    if (!_gameView) {
-        ADCDN_GameModel *model = [ADCDN_GameModel new];
-        model.appId = @"10001";// 应用id（注：与广告的appid相同）
-        model.gameId = KGame_GameId;// 游戏id
-        model.textPlcId = KplcId_Text;// 原生广告-文字浮层
-        model.topTextPlcId = KplcId_TopText;// 原生广告-上文下图
-        model.rewardVideoPlcId = KplcId_RewardVideoVertical;// 原生广告-激励视频
-        model.rootViewController = self;
-        model.uuid = @"123123123";// 用户id，不传入为游客模式
-        model.nickName = @"";// 用户昵称
-        model.avatarUrl = @"";// 用户头像地址urlString
-        _gameView = [[ADCDN_GameView alloc] initWithGameViewFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
-        [_gameView loadGameViewModel:model withIsTest:YES];
-        _gameView.delegate = self;
-        [self.view addSubview:_gameView];
-    }
-    return _gameView;
-}
-```
-### 4.7.2  变现场景广告示例代码设置代理<ADCDN_GameViewDelegate>
-```
-/**
- * ADCDN_GameViewDelegate
- */
-#pragma mark - 分享第三方app/邀请好友
--(void)ADCDN_GameViewShareModel:(ADCDN_ShareModel *)model{
-    NSLog(@"分享第三方app/邀请好友");
-}
-#pragma mark - 去登录，跳转app登录页面
--(void)ADCDN_GameViewGotoLogin{
-    NSLog(@"跳装到app登录页");
-}
-```
-## 4.8 游戏盒子场景广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.8.1  游戏盒子广告示例代码
+## 4.6 游戏盒子场景广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
+### 4.6.1  游戏盒子广告示例代码
 ```
 #pragma mark - 初始化游戏大厅页面
 -(ADCDN_GameBoxView *)gameBoxView{
@@ -599,7 +469,7 @@ nativeCustomAd.customView = self.customView;
         model.existNav = 1;
         model.rootViewController = self;
         
-        _gameBoxView = [[ADCDN_GameBoxView alloc] initWithGameBoxViewFrame:self.view.bounds];
+        _gameBoxView = [[ADCDN_GameBoxView alloc] initWithGameBoxViewFrame:self.view.bounds];// 注：如果gameBoxView添加的一级页面底部有tabbar，view的height要扣除掉tabbar的高度
         _gameBoxView.delegate = self;
         [self.view addSubview:_gameBoxView];
         [_gameBoxView loadGameViewModel:model];
@@ -607,7 +477,7 @@ nativeCustomAd.customView = self.customView;
     return _gameBoxView;
 }
 ```
-### 4.8.2  游戏盒子广告示例代码<ADCDN_GameBoxViewDelegate>
+### 4.6.2  游戏盒子广告示例代码<ADCDN_GameBoxViewDelegate>
 ```
 #pragma mark - ADCDN_GameBoxViewDelegate
 
@@ -626,7 +496,7 @@ nativeCustomAd.customView = self.customView;
     NSLog(@"返回");
 }
 ```
-### 4.8.3  游戏盒子广告获取游戏列表数据示例代码
+### 4.6.3  游戏盒子广告获取游戏列表数据示例代码
 ```
 #pragma mark - 获取游戏列表数据
 -(void)requestGameList{
@@ -646,13 +516,13 @@ nativeCustomAd.customView = self.customView;
     }];
 }
 ```
-### 4.8.4  游戏盒子广告点击某个游戏示例代码
+### 4.6.4  游戏盒子广告点击某个游戏示例代码
 ```
  ADCDN_GameBoxGamesModel *model =self.modelArr[indexPath.row];
 ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool shareManager];
 [gameTool didGameWithModel:model withViewController:self];
 ```
-### 4.8.5  游戏盒子广告获取游戏开关状态示例代码
+### 4.6.5  游戏盒子广告获取游戏开关状态示例代码
 ```
 /**
  * 获取游戏开关 1 开启 否则关闭
