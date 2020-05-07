@@ -43,6 +43,15 @@ Privacy - Location Usage Description
          <true/>
     </dict>
 ```
+### 3.2.3 相册相关权限(如果有接入游戏盒子场景的话，需要提供以下相册相机权限，游戏盒子内容更改用户头像需要访问该权限)
+```
+<key>NSCameraUsageDescription</key>
+<string>请允APP访问您的相机功能，以便使用拍照功能上传用户头像</string>
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>请允许APP访问您的相册功能，以便保存图片到系统相册功能</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>请允许APP访问您的相册功能，以便使用拍照存储功能</string>
+```
 ## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.6版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods，如果你的app只使用了穿山甲平台的广告来源，就只需要导入穿山甲对应的依赖库就可以了。
 ```
 platform :ios, '9.0'
