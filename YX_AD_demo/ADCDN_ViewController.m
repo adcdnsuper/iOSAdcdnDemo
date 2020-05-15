@@ -12,7 +12,7 @@
 #import "ADCDN_InterstitialViewController.h"
 #import "ADCDN_VideoViewController.h"
 #import "ADCDN_NativeViewController.h"
-#import "ADCDN_GameBoxListViewController.h"
+#import "ADCDN_GameBoxViewController.h"
 
 @interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
@@ -113,8 +113,10 @@
     }
     // 游戏盒子
     if (indexPath.row == 5) {
-        ADCDN_GameBoxListViewController *vc = [ADCDN_GameBoxListViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
+        ADCDN_GameBoxViewController *vc = [ADCDN_GameBoxViewController new];
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:vc animated:YES completion:^{
+        }];
     }
 }
 @end

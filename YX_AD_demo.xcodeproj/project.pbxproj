@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1390B8A9246E901D00B6EE6F /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1390B8A7246E901C00B6EE6F /* ADCDN.bundle */; };
+		1390B8AA246E901D00B6EE6F /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1390B8A8246E901D00B6EE6F /* ADCDN.framework */; };
 		13B0CE75233C5FCD008AD2F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B0CE73233C5FCD008AD2F9 /* Main.storyboard */; };
 		13B0CE78233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE76233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld */; };
 		13B0CE7A233C5FD0008AD2F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B0CE79233C5FD0008AD2F9 /* Assets.xcassets */; };
 		13B0CE7D233C5FD0008AD2F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B0CE7B233C5FD0008AD2F9 /* LaunchScreen.storyboard */; };
 		13B0CE80233C5FD0008AD2F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B0CE7F233C5FD0008AD2F9 /* main.m */; };
-		13D2DA04245681E700301504 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D2DA03245681E700301504 /* ADCDN.framework */; };
 		13D2DA14245682C200301504 /* ADCDN_UnRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA0A245682C000301504 /* ADCDN_UnRewardViewController.m */; };
 		13D2DA16245682C200301504 /* ADCDN_NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA0E245682C100301504 /* ADCDN_NativeViewController.m */; };
 		13D2DA17245682C200301504 /* ADCDN_VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA0F245682C100301504 /* ADCDN_VideoViewController.m */; };
@@ -25,16 +26,10 @@
 		13D2DA3B2456833E00301504 /* ADCDN_ExpressRewardVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA242456833E00301504 /* ADCDN_ExpressRewardVideoViewController.m */; };
 		13D2DA3C2456833E00301504 /* ADCDN_SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA252456833E00301504 /* ADCDN_SplashViewController.m */; };
 		13D2DA3D2456833E00301504 /* ADCDN_BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA272456833E00301504 /* ADCDN_BannerViewController.m */; };
-		13D2DA3E2456833E00301504 /* ADCDN_GameBoxListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA292456833E00301504 /* ADCDN_GameBoxListViewController.m */; };
 		13D2DA3F2456833E00301504 /* ADCDN_InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA2A2456833E00301504 /* ADCDN_InterstitialViewController.m */; };
-		13D2DA402456833E00301504 /* ADCDN_GameBoxListFirstCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA302456833E00301504 /* ADCDN_GameBoxListFirstCollectionViewCell.m */; };
-		13D2DA412456833E00301504 /* ADCDN_GameBoxListCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA322456833E00301504 /* ADCDN_GameBoxListCollectionReusableView.m */; };
-		13D2DA422456833E00301504 /* ADCDN_GameBoxListItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA352456833E00301504 /* ADCDN_GameBoxListItemCollectionViewCell.m */; };
-		13D2DA432456833E00301504 /* ADCDN_GameBoxListSecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA362456833E00301504 /* ADCDN_GameBoxListSecondCollectionViewCell.m */; };
 		13D2DA472456834A00301504 /* UIFont+ADCDN_APPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA452456834900301504 /* UIFont+ADCDN_APPFont.m */; };
 		13D2DA4B2456835500301504 /* ADCDN_AppConstTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA4A2456835500301504 /* ADCDN_AppConstTool.m */; };
 		13D2DA53245685D500301504 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2DA52245685D500301504 /* AppDelegate.m */; };
-		13ED5FC1244B16A900664DAA /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13ED5FBF244B16A800664DAA /* ADCDN.bundle */; };
 		43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9678C25C1DF00551B4A83E50 /* libPods-YX_AD_demo.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +47,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1390B8A7246E901C00B6EE6F /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
+		1390B8A8246E901D00B6EE6F /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B0CE6A233C5FCD008AD2F9 /* YX_AD_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YX_AD_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B0CE6D233C5FCD008AD2F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B0CE6E233C5FCD008AD2F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,7 +58,6 @@
 		13B0CE7C233C5FD0008AD2F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13B0CE7E233C5FD0008AD2F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B0CE7F233C5FD0008AD2F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		13D2DA03245681E700301504 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13D2DA05245682C000301504 /* ADCDN_SDKKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SDKKey.h; sourceTree = "<group>"; };
 		13D2DA06245682C000301504 /* ADCDN_PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_PrefixHeader.pch; sourceTree = "<group>"; };
 		13D2DA07245682C000301504 /* ADCDN_RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_RewardViewController.h; sourceTree = "<group>"; };
@@ -80,32 +76,21 @@
 		13D2DA1F2456833E00301504 /* ADCDN_UnRewardExpressFullscreenVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_UnRewardExpressFullscreenVideoViewController.m; sourceTree = "<group>"; };
 		13D2DA202456833E00301504 /* ADCDN_InterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_InterstitialViewController.h; sourceTree = "<group>"; };
 		13D2DA212456833E00301504 /* ADCDN_NativeExpressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NativeExpressViewController.m; sourceTree = "<group>"; };
-		13D2DA222456833E00301504 /* ADCDN_GameBoxListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameBoxListViewController.h; sourceTree = "<group>"; };
 		13D2DA232456833E00301504 /* ADCDN_GameBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxViewController.m; sourceTree = "<group>"; };
 		13D2DA242456833E00301504 /* ADCDN_ExpressRewardVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_ExpressRewardVideoViewController.m; sourceTree = "<group>"; };
 		13D2DA252456833E00301504 /* ADCDN_SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_SplashViewController.m; sourceTree = "<group>"; };
 		13D2DA262456833E00301504 /* ADCDN_UnRewardExpressFullscreenVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_UnRewardExpressFullscreenVideoViewController.h; sourceTree = "<group>"; };
 		13D2DA272456833E00301504 /* ADCDN_BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_BannerViewController.m; sourceTree = "<group>"; };
 		13D2DA282456833E00301504 /* ADCDN_NativeExpressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeExpressViewController.h; sourceTree = "<group>"; };
-		13D2DA292456833E00301504 /* ADCDN_GameBoxListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxListViewController.m; sourceTree = "<group>"; };
 		13D2DA2A2456833E00301504 /* ADCDN_InterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_InterstitialViewController.m; sourceTree = "<group>"; };
 		13D2DA2B2456833E00301504 /* ADCDN_GameBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameBoxViewController.h; sourceTree = "<group>"; };
 		13D2DA2C2456833E00301504 /* ADCDN_ExpressRewardVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_ExpressRewardVideoViewController.h; sourceTree = "<group>"; };
-		13D2DA2E2456833E00301504 /* ADCDN_GameBoxListFirstCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameBoxListFirstCollectionViewCell.h; sourceTree = "<group>"; };
-		13D2DA2F2456833E00301504 /* ADCDN_GameBoxListSecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameBoxListSecondCollectionViewCell.h; sourceTree = "<group>"; };
-		13D2DA302456833E00301504 /* ADCDN_GameBoxListFirstCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxListFirstCollectionViewCell.m; sourceTree = "<group>"; };
-		13D2DA322456833E00301504 /* ADCDN_GameBoxListCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxListCollectionReusableView.m; sourceTree = "<group>"; };
-		13D2DA332456833E00301504 /* ADCDN_GameBoxListItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameBoxListItemCollectionViewCell.h; sourceTree = "<group>"; };
-		13D2DA342456833E00301504 /* ADCDN_GameBoxListCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameBoxListCollectionReusableView.h; sourceTree = "<group>"; };
-		13D2DA352456833E00301504 /* ADCDN_GameBoxListItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxListItemCollectionViewCell.m; sourceTree = "<group>"; };
-		13D2DA362456833E00301504 /* ADCDN_GameBoxListSecondCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxListSecondCollectionViewCell.m; sourceTree = "<group>"; };
 		13D2DA372456833E00301504 /* ADCDN_SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SplashViewController.h; sourceTree = "<group>"; };
 		13D2DA452456834900301504 /* UIFont+ADCDN_APPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+ADCDN_APPFont.m"; sourceTree = "<group>"; };
 		13D2DA462456834900301504 /* UIFont+ADCDN_APPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+ADCDN_APPFont.h"; sourceTree = "<group>"; };
 		13D2DA492456835500301504 /* ADCDN_AppConstTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_AppConstTool.h; sourceTree = "<group>"; };
 		13D2DA4A2456835500301504 /* ADCDN_AppConstTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_AppConstTool.m; sourceTree = "<group>"; };
 		13D2DA52245685D500301504 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		13ED5FBF244B16A800664DAA /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
 		374D43F27F7BAE77ACEFCF9D /* Pods-YX_AD_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YX_AD_demo.debug.xcconfig"; path = "Target Support Files/Pods-YX_AD_demo/Pods-YX_AD_demo.debug.xcconfig"; sourceTree = "<group>"; };
 		8FE9989B9AFF9513B27360ED /* Pods-YX_AD_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YX_AD_demo.release.xcconfig"; path = "Target Support Files/Pods-YX_AD_demo/Pods-YX_AD_demo.release.xcconfig"; sourceTree = "<group>"; };
 		9678C25C1DF00551B4A83E50 /* libPods-YX_AD_demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YX_AD_demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43517B224BC5C899483C3BB3 /* libPods-YX_AD_demo.a in Frameworks */,
-				13D2DA04245681E700301504 /* ADCDN.framework in Frameworks */,
+				1390B8AA246E901D00B6EE6F /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,8 +112,8 @@
 		134CA4BD234047BE0070BB9A /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				13D2DA03245681E700301504 /* ADCDN.framework */,
-				13ED5FBF244B16A800664DAA /* ADCDN.bundle */,
+				1390B8A7246E901C00B6EE6F /* ADCDN.bundle */,
+				1390B8A8246E901D00B6EE6F /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
@@ -200,36 +185,10 @@
 				13D2DA1F2456833E00301504 /* ADCDN_UnRewardExpressFullscreenVideoViewController.m */,
 				13D2DA2C2456833E00301504 /* ADCDN_ExpressRewardVideoViewController.h */,
 				13D2DA242456833E00301504 /* ADCDN_ExpressRewardVideoViewController.m */,
-				13D2DA222456833E00301504 /* ADCDN_GameBoxListViewController.h */,
-				13D2DA292456833E00301504 /* ADCDN_GameBoxListViewController.m */,
 				13D2DA2B2456833E00301504 /* ADCDN_GameBoxViewController.h */,
 				13D2DA232456833E00301504 /* ADCDN_GameBoxViewController.m */,
-				13D2DA2D2456833E00301504 /* GameBoxView */,
 			);
 			path = Ad;
-			sourceTree = "<group>";
-		};
-		13D2DA2D2456833E00301504 /* GameBoxView */ = {
-			isa = PBXGroup;
-			children = (
-				13D2DA2E2456833E00301504 /* ADCDN_GameBoxListFirstCollectionViewCell.h */,
-				13D2DA302456833E00301504 /* ADCDN_GameBoxListFirstCollectionViewCell.m */,
-				13D2DA2F2456833E00301504 /* ADCDN_GameBoxListSecondCollectionViewCell.h */,
-				13D2DA362456833E00301504 /* ADCDN_GameBoxListSecondCollectionViewCell.m */,
-				13D2DA312456833E00301504 /* GameBoxItem */,
-			);
-			path = GameBoxView;
-			sourceTree = "<group>";
-		};
-		13D2DA312456833E00301504 /* GameBoxItem */ = {
-			isa = PBXGroup;
-			children = (
-				13D2DA342456833E00301504 /* ADCDN_GameBoxListCollectionReusableView.h */,
-				13D2DA322456833E00301504 /* ADCDN_GameBoxListCollectionReusableView.m */,
-				13D2DA332456833E00301504 /* ADCDN_GameBoxListItemCollectionViewCell.h */,
-				13D2DA352456833E00301504 /* ADCDN_GameBoxListItemCollectionViewCell.m */,
-			);
-			path = GameBoxItem;
 			sourceTree = "<group>";
 		};
 		13D2DA442456834900301504 /* Category */ = {
@@ -337,7 +296,7 @@
 			files = (
 				13B0CE7D233C5FD0008AD2F9 /* LaunchScreen.storyboard in Resources */,
 				13B0CE7A233C5FD0008AD2F9 /* Assets.xcassets in Resources */,
-				13ED5FC1244B16A900664DAA /* ADCDN.bundle in Resources */,
+				1390B8A9246E901D00B6EE6F /* ADCDN.bundle in Resources */,
 				13B0CE75233C5FCD008AD2F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,24 +336,19 @@
 				13D2DA53245685D500301504 /* AppDelegate.m in Sources */,
 				13D2DA17245682C200301504 /* ADCDN_VideoViewController.m in Sources */,
 				13D2DA3B2456833E00301504 /* ADCDN_ExpressRewardVideoViewController.m in Sources */,
-				13D2DA412456833E00301504 /* ADCDN_GameBoxListCollectionReusableView.m in Sources */,
 				13B0CE78233C5FCD008AD2F9 /* YX_AD_demo.xcdatamodeld in Sources */,
-				13D2DA422456833E00301504 /* ADCDN_GameBoxListItemCollectionViewCell.m in Sources */,
 				13D2DA1A245682C200301504 /* ADCDN_NavigationController.m in Sources */,
 				13D2DA19245682C200301504 /* ADCDN_ViewController.m in Sources */,
 				13D2DA3D2456833E00301504 /* ADCDN_BannerViewController.m in Sources */,
 				13D2DA382456833E00301504 /* ADCDN_UnRewardExpressFullscreenVideoViewController.m in Sources */,
 				13D2DA14245682C200301504 /* ADCDN_UnRewardViewController.m in Sources */,
 				13D2DA3F2456833E00301504 /* ADCDN_InterstitialViewController.m in Sources */,
-				13D2DA402456833E00301504 /* ADCDN_GameBoxListFirstCollectionViewCell.m in Sources */,
 				13D2DA3A2456833E00301504 /* ADCDN_GameBoxViewController.m in Sources */,
 				13D2DA4B2456835500301504 /* ADCDN_AppConstTool.m in Sources */,
 				13B0CE80233C5FD0008AD2F9 /* main.m in Sources */,
-				13D2DA3E2456833E00301504 /* ADCDN_GameBoxListViewController.m in Sources */,
 				13D2DA18245682C200301504 /* ADCDN_RewardViewController.m in Sources */,
 				13D2DA16245682C200301504 /* ADCDN_NativeViewController.m in Sources */,
 				13D2DA472456834A00301504 /* UIFont+ADCDN_APPFont.m in Sources */,
-				13D2DA432456833E00301504 /* ADCDN_GameBoxListSecondCollectionViewCell.m in Sources */,
 				13D2DA392456833E00301504 /* ADCDN_NativeExpressViewController.m in Sources */,
 				13D2DA3C2456833E00301504 /* ADCDN_SplashViewController.m in Sources */,
 			);

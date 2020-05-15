@@ -13,15 +13,10 @@
 @class ADCDN_GameBoxView;
 
 @protocol ADCDN_GameBoxViewDelegate <NSObject>
-
-/**
- *  当app有用户体系时，还未登录，去登录，跳转app登录页面
- */
--(void)ADCDN_GameBoxViewGotoLogin;
 /**
  *  当游戏盒子处在app的二级页面，需要返回上一个页面时，导航栏的返回事件
  */
--(void)ADCDN_gameBoxViewNavBack;
+-(void)ADCDN_gameBoxViewBack;
 
 @end
 

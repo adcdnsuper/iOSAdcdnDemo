@@ -28,7 +28,6 @@ FOUNDATION_EXPORT const unsigned char ADCDNVersionString[];
 #import <ADCDN/ADCDN_GameBoxModel.h>
 #import <ADCDN/ADCDN_GameBoxView.h>
 #import <ADCDN/ADCDN_GameBoxGamesTool.h>
-#import <ADCDN/ADCDN_GameBoxGamesModel.h>
 #import <ADCDN/ADCDN_DebugLogTool.h>
 
 

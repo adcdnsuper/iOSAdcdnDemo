@@ -31,6 +31,9 @@
     
     // 初始化配置
     [ADCDN_ConfigManager shareManagerWithAppId:KappId];
+    // 获取sdk版本号
+    NSString *verString = [[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion];
+    NSLog(@"ADCDN版本号：%@",verString);
     // 开发ADCDN错误日志,默认不开启
     [ADCDN_DebugLogTool setLogEnable:YES];
     

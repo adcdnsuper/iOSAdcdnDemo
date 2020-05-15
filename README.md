@@ -18,11 +18,11 @@ ADCDN广告sdk支持如下广告功能:
 | 横幅广告        | 横幅广告         |
 | 插屏广告        | 插屏广告         |
 | 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
-| 游戏盒子广告       | 消星星等游戏         |
+| 游戏盒子变现场景       | 消星星、橘子消成语、转盘、抢夺金币等游戏         |
 
 
 # 2.兼容和版本号
-iOS9.0及以上，版本号：V 6.0.0。
+iOS9.0及以上，版本号：V 7.0.0。
 # 3.ADCDN_SDK的接入流程
 ## 3.1 添加sdk到工程
 接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的变现场景或者游戏场景，请把ADCDN.bundle资源文件一并拖入。
@@ -473,83 +473,32 @@ self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要s
         _gameBoxView = [[ADCDN_GameBoxView alloc] initWithGameBoxViewFrame:self.view.bounds];// 注：如果gameBoxView添加的一级页面底部有tabbar，view的height要扣除掉tabbar的高度
         _gameBoxView.delegate = self;
         [self.view addSubview:_gameBoxView];
-        [_gameBoxView loadGameViewModel:self.gameModel];
+        ADCDN_GameBoxModel *gameModel = [ADCDN_GameBoxModel new];
+        gameModel.showBackBtn = YES;
+        gameModel.showImmersive = YES;
+        gameModel.rootViewController = self;
+        [_gameBoxView loadGameViewModel:gameModel];
     }
     return _gameBoxView;
 }
-#pragma mark - 游戏model
--(ADCDN_GameBoxModel *)gameModel{
-    if (!_gameModel) {
-        _gameModel = [ADCDN_GameBoxModel new];
-        _gameModel.userSystem = 1;// app是否有用户体系 1是
-        _gameModel.existNav = 1;// 是否存在导航栏(或是否1级页面还是二级页面)，1：存在导航栏(2级页面)，0：不存在导航栏(1级页面)，app需自行隐藏和显示导航栏
-        _gameModel.userId = @"";
-        _gameModel.nickname = @"";
-        _gameModel.avatar = @"";
-        _gameModel.rootViewController = self;
-    }
-    return _gameModel;
-}
+
 ```
 ### 4.6.2  游戏盒子广告示例代码<ADCDN_GameBoxViewDelegate>
 ```
 #pragma mark - ADCDN_GameBoxViewDelegate
-
 /**
- *  当app有用户体系时，还未登录，去登录，跳转app登录页面
+ *  退出游戏盒子
  */
--(void)ADCDN_GameBoxViewGotoLogin{
-    NSLog(@"去登录");
-    /**
-     * 登录之后app需要通知更新model
-     */
-    _gameModel.userSystem = 1;// app是否有用户体系 1是
-    _gameModel.existNav = 1;// 是否存在导航栏，1存在，需app自行隐藏和显示
-    _gameModel.userId = @"123456";
-    _gameModel.nickname = @"我的昵称";
-    _gameModel.avatar = @"https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2131257963,3457119996&fm=58";
-    _gameModel.rootViewController = self;
-    [self.gameBoxView loadGameViewModel:self.gameModel];
-}
-/**
- *  当游戏盒子处在app的二级页面，需要返回上一个页面时，导航栏的返回事件
- */
--(void)ADCDN_gameBoxViewNavBack{
-    self.navigationController.navigationBarHidden = NO;
-    [self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"返回");
-}
-```
-### 4.6.3  游戏盒子广告获取游戏列表数据示例代码
-```
-#pragma mark - 获取游戏列表数据
--(void)requestGameList{
-    ADCDN_GameBoxModel *model = [ADCDN_GameBoxModel new];
-    model.userSystem = 1;
-    model.userId = @"123456";
-    model.nickname = @"我的昵称";
-    model.avatar = @"https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2131257963,3457119996&fm=58";
-    model.existNav = 1;
-    model.rootViewController = self;
-    __weak typeof(self) weakSelf = self;
-    ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool shareManager];
-    [gameTool getWithModel:model gameBoxBlock:^(NSMutableArray<ADCDN_GameBoxGamesModel *> *modelArr) {
-        NSLog(@"%@",modelArr);
-        weakSelf.modelArr = modelArr;
-        [weakSelf.listCV reloadData];
+-(void)ADCDN_gameBoxViewBack{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
     }];
 }
 ```
-### 4.6.4  游戏盒子广告点击某个游戏示例代码
-```
- ADCDN_GameBoxGamesModel *model =self.modelArr[indexPath.row];
-ADCDN_GameBoxGamesTool *gameTool = [ADCDN_GameBoxGamesTool shareManager];
-[gameTool didGameWithModel:model withViewController:self];
-```
-### 4.6.5  游戏盒子广告获取游戏开关状态示例代码
+### 4.6.3  游戏盒子获取游戏开关状态示例代码
 ```
 /**
- * 获取游戏开关 1 开启 否则关闭
+ * 获取游戏开关状态 1 开启 否则关闭
  */
 -(NSString *)getScenesSwitch;
 ```

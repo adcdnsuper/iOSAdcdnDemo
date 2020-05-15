@@ -22,7 +22,7 @@ NSString * const KplcId_Interstitial = @"2000014";
 /** 模版非激励视频 - 竖屏 */
 NSString * const KplcId_ExpressVideoVertical = @"2000010";
 /** 模版激励视频 - 横屏 */
-NSString * const KplcId_ExpressRewardVideoHorizon = @"0";
+NSString * const KplcId_ExpressRewardVideoHorizon = @"2000010";
 /** 模版激励视频 - 竖屏 */
 NSString * const KplcId_ExpressRewardVideoVertical = @"2000019";
 /** 模版非激励视频 - 横屏 */
