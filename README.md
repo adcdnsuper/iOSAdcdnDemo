@@ -1,8 +1,8 @@
 # <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
 
-[TOC]
 ## 1. 概述
 尊敬的开发者朋友，欢迎您使用ADCDN广告sdk平台。通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
+
 *注意：运行demo前，请先在终端cd到工程目录执行pod install，添加依赖库，demo才能加载出广告。*
 ```
 platform :ios,'9.0'
@@ -86,7 +86,7 @@ pod install时CDN: trunk URL couldn't be downloaded: https://raw.githubuserconte
 步骤：1.在podfile里面添加source 'https://github.com/CocoaPods/Specs.git'
 　　　2.终端下执行 pod repo remove trunk来移除trunk，重新pod install
 ```
-##5 接入代码
+## 5 接入代码
 ### 5.1 程序启动初始化ADCDN
 ADCDN初始化配置，在AppDelegate.m中导入ADCDN的头文件：*#import ADCDN/ADCDN.h>*，在app程序的启动函数didFinishLaunchingWithOptions中初始化ADCDN
 提示：appId、plcId请到ADCDN开发者平台获取
@@ -174,7 +174,7 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
     bottomView.backgroundColor = [UIColor whiteColor];
     self.splashAdManager.bottomView = bottomView;
 ```
-###5.3 原生广告
+### 5.3 原生广告
 初始化原生广告
 ```
 self.nativeExpressAdManager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
@@ -434,7 +434,7 @@ appSecurityKey: 您在ADCDN媒体平台新建奖励视频代码位获取到的�
     "isValid": true
 }
 
-###5.7 全屏视频广告（非激励视频）
+### 5.7 全屏视频广告（非激励视频）
 初始化全屏视频广告
 ```
 self.fullscreenVideoAdManager = [[ADCDN_FullscreenExpressVideoAdManager alloc] initWithPlcId:self.plcId];
