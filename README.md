@@ -4,8 +4,8 @@
 ```
 platform :ios,'9.0'
 target 'YX_AD_demo' do
-pod 'GDTMobSDK', '~> 4.11.6'
-pod 'Bytedance-UnionAD', '~> 2.9.0.3'
+pod 'GDTMobSDK', '~> 4.11.8'
+pod 'Bytedance-UnionAD', '~> 2.9.5.6'
 end
 ```
 
@@ -22,12 +22,13 @@ ADCDN广告sdk支持如下广告功能:
 
 
 # 2.1 兼容和版本号
-iOS9.0及以上，最新版本号：V 7.0.1。
+iOS9.0及以上，最新版本号：V 7.0.2。
 # 2.2 历史版本
 | 版本号        | 更新内容 | 更新时间 | 
 | --------       | -----   |----- | 
 | V7.0.0        |   新增游戏盒子变现场景      |2020-05-15|
 | V7.0.1        | 优化游戏盒子的加载速度         |2020-05-18|
+| V7.0.2        | 适配了V4.11.8的优量汇版本横幅广告加载crash问题，原因：横幅广告初始化方法V4.11.8之后废弃了之前的初始化方法         |2020-05-19|
 # 3.ADCDN_SDK的接入流程
 ## 3.1 添加sdk到工程
 接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的变现场景或者游戏场景，请把ADCDN.bundle资源文件一并拖入。
@@ -57,15 +58,31 @@ Privacy - Location Usage Description
 <key>NSPhotoLibraryUsageDescription</key>
 <string>请允许APP访问您的相册功能，以便使用拍照存储功能</string>
 ```
-## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突，故添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.6版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods，如果你的app只使用了穿山甲平台的广告来源，就只需要导入穿山甲对应的依赖库就可以了。
+## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突或不同版本可能存在函数被弃用，故建议添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.8版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods，如果你的app只使用了穿山甲平台的广告来源，就只需要导入穿山甲对应的依赖库就可以了。
 ```
 platform :ios, '9.0'
 target '你的项目名' do
 # 优量汇广告来源
-pod 'GDTMobSDK', '~> 4.11.6'
+pod 'GDTMobSDK', '~> 4.11.8'
 # 穿山甲广告来源
-pod 'Bytedance-UnionAD', '~> 2.9.0.3'
+pod 'Bytedance-UnionAD', '~> 2.9.5.6'
 end
+```
+```
+pod install时CDN: trunk URL couldn't be downloaded: https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/
+解决方法：
+
+1.不替换cdn源：
+
+步骤：1.终端执行sudo vim /private/etc/hosts
+
+　　　2.在hosts文件中添加199.232.4.133  raw.githubusercontent.com的映射，重新执行pod install
+
+2.用source 'https://github.com/CocoaPods/Specs.git'替换到cdn源
+
+步骤：1.在podfile里面添加source 'https://github.com/CocoaPods/Specs.git'
+
+　　　2.终端下执行 pod repo remove trunk来移除trunk，重新pod install
 ```
 ## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在app程序的启动函数didFinishLaunchingWithOptions中初始化sdk
 提示：appId、plcId请到ADCDN开发者平台获取
