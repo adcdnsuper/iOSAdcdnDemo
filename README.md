@@ -1,6 +1,9 @@
-# 1.概述
+# <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
+
+[TOC]
+## 1. 概述
 尊敬的开发者朋友，欢迎您使用ADCDN广告sdk平台。通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
-###注意：运行demo前，请先执行一下pod，添加依赖库，demo才能加载出广告。
+*注意：运行demo前，请先在终端cd到工程目录执行pod install，添加依赖库，demo才能加载出广告。*
 ```
 platform :ios,'9.0'
 target 'YX_AD_demo' do
@@ -20,28 +23,23 @@ ADCDN广告sdk支持如下广告功能:
 | 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
 | 游戏盒子变现场景       | 消星星、橘子消成语、转盘、抢夺金币等游戏         |
 
+## 2. 接入Android请跳转以下链接
+[接入Android版ADCDN链接](https://github.com/adcdnsuper/AndroidAdcdnDemo)
 
-# 2.1 兼容和版本号
+
+## 3. 兼容和历史版本
 iOS9.0及以上，最新版本号：V 7.0.2。
-# 2.2 历史版本
+
 | 版本号        | 更新内容 | 更新时间 | 
 | --------       | -----   |----- | 
 | V7.0.0        |   新增游戏盒子变现场景      |2020-05-15|
 | V7.0.1        | 优化游戏盒子的加载速度         |2020-05-18|
 | V7.0.2        | 适配了V4.11.8的优量汇版本横幅广告加载crash问题，原因：横幅广告初始化方法V4.11.8之后废弃了之前的初始化方法         |2020-05-19|
-# 3.ADCDN_SDK的接入流程
-## 3.1 添加sdk到工程
-接入环境：Xcode 可以复制YD_AD_demo中ADCDN_Framework文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的变现场景或者游戏场景，请把ADCDN.bundle资源文件一并拖入。
-## 3.2 权限申请
-### 3.2.1 SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 App Store 审核被拒：
-```
-//应用根据实际情况配置
-Privacy - Location When In Use Usage Description
-Privacy - Location Always and When In Use Usage Description
-Privacy - Location Always Usage Description
-Privacy - Location Usage Description
-```
-### 3.2.2 苹果公司在iOS9中升级了应用网络通信安全策略，默认推荐开发者使用HTTPS协议来进行网络通信，并限制HTTP协议的请求。为了避免出现无法拉取到广告的情况，我们推荐开发者在info.plist文件中增加如下配置来实现广告的网络访问：（信任HTTP请求）
+## 4. ADCDN接入流程
+### 4.1 添加ADCDN到工程
+接入环境：Xcode 可以复制YD_AD_demo中ADCDN_SDK文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的游戏盒子，请把ADCDN.bundle资源文件一并拖入。
+### 4.2 权限申请
+苹果公司在iOS9中升级了应用网络通信安全策略，默认推荐开发者使用HTTPS协议来进行网络通信，并限制HTTP协议的请求。为了避免出现无法拉取到广告的情况，我们推荐开发者在info.plist文件中增加如下配置来实现广告的网络访问：（信任HTTP请求）
 ```
 <key>NSAppTransportSecurity</key>
     <dict>
@@ -49,7 +47,16 @@ Privacy - Location Usage Description
          <true/>
     </dict>
 ```
-### 3.2.3 相册相关权限(如果有接入游戏盒子场景的话，需要提供以下相册相机权限，游戏盒子内容更改用户头像需要访问该权限)
+SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 AppStore审核被拒：
+```
+//应用根据实际情况配置
+Privacy - Location When In Use Usage Description
+Privacy - Location Always and When In Use Usage Description
+Privacy - Location Always Usage Description
+Privacy - Location Usage Description
+```
+
+相册相关权限(如果有接入游戏盒子场景的话，需要提供以下相册相机权限，游戏盒子内更改用户头像需要访问该权限)
 ```
 <key>NSCameraUsageDescription</key>
 <string>请允APP访问您的相机功能，以便使用拍照功能上传用户头像</string>
@@ -58,7 +65,8 @@ Privacy - Location Usage Description
 <key>NSPhotoLibraryUsageDescription</key>
 <string>请允许APP访问您的相册功能，以便使用拍照存储功能</string>
 ```
-## 3.3 配置其他广告平台依赖库，注：为了避免不同平台的依赖库版本可能存在冲突或不同版本可能存在函数被弃用，故建议添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.8版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods，如果你的app只使用了穿山甲平台的广告来源，就只需要导入穿山甲对应的依赖库就可以了。
+### 4.3 配置ADCDN广告平台依赖库
+注：为了避免不同平台的依赖库版本可能存在冲突或不同版本可能存在函数被弃用，故建议添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.8版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods。
 ```
 platform :ios, '9.0'
 target '你的项目名' do
@@ -71,32 +79,27 @@ end
 ```
 pod install时CDN: trunk URL couldn't be downloaded: https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/
 解决方法：
-
 1.不替换cdn源：
-
 步骤：1.终端执行sudo vim /private/etc/hosts
-
 　　　2.在hosts文件中添加199.232.4.133  raw.githubusercontent.com的映射，重新执行pod install
-
 2.用source 'https://github.com/CocoaPods/Specs.git'替换到cdn源
-
 步骤：1.在podfile里面添加source 'https://github.com/CocoaPods/Specs.git'
-
 　　　2.终端下执行 pod repo remove trunk来移除trunk，重新pod install
 ```
-## 3.4 sdk初始化配置，在AppDelegate.m中导入ADCDN的头文件：#import <ADCDN/ADCDN.h>，在app程序的启动函数didFinishLaunchingWithOptions中初始化sdk
+##5 接入代码
+### 5.1 程序启动初始化ADCDN
+ADCDN初始化配置，在AppDelegate.m中导入ADCDN的头文件：*#import ADCDN/ADCDN.h>*，在app程序的启动函数didFinishLaunchingWithOptions中初始化ADCDN
 提示：appId、plcId请到ADCDN开发者平台获取
 ```
-// 初始化配置
+// 初始化ADCDN
 [ADCDN_ConfigManager shareManagerWithAppId:KappId];
 // 日志开关，默认关闭，控制台过滤 ADCDN_Log关键字查看log
 [ADCDN_DebugLogTool setLogEnable:YES];
 // 查看sdk版本
 NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
 ```
-# 4.sdk广告业务功能
-## 4.1 开屏广告，在需要实现ADCDN开屏广告的地方导入代理：ADCDN_SplashAdManagerDelegate
-### 4.1.1 设置开屏广告示例代码
+### 5.2 开屏广告
+初始化开屏广告
 ```
     // 初始化开屏广告
     CGRect frame = [UIScreen mainScreen].bounds;
@@ -108,7 +111,7 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
     // 加载广告
     [self.splashAdManager loadSplashAd];
 ```
-### 4.1.2 设置开屏广告代理方法
+实现开屏广告代理方法
 ```
 /**
  *  ADCDN_SplashAdManagerDelegate 代理协议方法
@@ -156,7 +159,7 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告详情关闭回调");
 }
 ```
-### 4.1.3 支持开屏广告底部自定义logo
+开屏广告底部自定义logo
 ```
 //设置开屏底部自定义LogoView，展示半屏开屏广告
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
@@ -171,8 +174,8 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
     bottomView.backgroundColor = [UIColor whiteColor];
     self.splashAdManager.bottomView = bottomView;
 ```
-## 4.2 原生广告（三小图、纯图片、左图右文、左文右图、文字浮层、上下图文、上文下浮层，注：不同类型的广告样式在与不同的广告位id），在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.2.1 原生广告（三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）示例代码
+###5.3 原生广告
+初始化原生广告
 ```
 self.nativeExpressAdManager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
     self.nativeExpressAdManager.rootViewController = self;
@@ -183,7 +186,7 @@ self.nativeExpressAdManager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcI
     self.nativeExpressAdManager.adSize = self.adSize;
     [self.nativeExpressAdManager loadAd];
 ```
-### 4.2.2 设置原生广告（三小图、左图右文、左文右图、文字浮层、上下图文、上文下浮层）代理方法示例代码，设置代理<ADCDN_NativeExpressAdManagerDelegate>
+实现原生广告代理方法
 ```
 #pragma mark - ADCDN_NativeExpressAdManagerDelegate
 /**
@@ -245,8 +248,8 @@ self.nativeExpressAdManager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcI
     }
 }
 ```
-## 4.3 横幅广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.3.1 设置横幅广告示例代码
+### 5.4 横幅广告
+初始化横幅广告
 ```
 self.bannerAdManager = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
 self.bannerAdManager.customView = self.adView;// banner加载的位置
@@ -256,7 +259,7 @@ self.bannerAdManager.delegate = self;// banner需要strong持有，否则delegat
 self.bannerAdManager.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
 [self.bannerAdManager loadNativeAd];
 ```
-### 4.3.2 设置横幅广告代理方法示例代码，设置代理<ADCDN_BannerAdManagerDelegate>
+实现横幅广告代理方法
 ```
 /**
  *  ADCDN_BannerAdManagerDelegate 代理协议方法
@@ -282,15 +285,15 @@ self.bannerAdManager.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
     NSLog(@"关闭回调-----%s",__FUNCTION__);
 }
 ```
-## 4.4 插屏广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.4.1 设置插屏广告示例代码
+### 5.5 插屏广告
+初始化插屏广告
 ```
 self.interstitialAdManager = [[ADCDN_InterstitialAdManager alloc] initWithPlcId:KplcId_Interstitial];
 self.interstitialAdManager.rootViewController = self;
 self.interstitialAdManager.delegate = self;// interstitialAdManager需要strong持有，否则delegate回调无法执行，影响计费
 [self.interstitialAdManager loadAd];
 ```
-### 4.4.2 设置插屏广告代理方法示例代码，设置代理<ADCDN_InterstitialAdManagerDelegate>
+实现插屏广告代理方法
 ```
 #pragma mark - ADCDN_InterstitialAdManagerDelegate
 /**
@@ -324,8 +327,8 @@ self.interstitialAdManager.delegate = self;// interstitialAdManager需要strong�
     NSLog(@"插屏广告关闭回调");
 }
 ```
-## 4.5 视频广告2.0（激励视频、非激励视频），在需要使用到ADCDN广告功能的地方导入#import<ADCDN/ADCDN.h>
-### 4.5.1 设置激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码~~
+### 5.6 激励视频广告
+初始化激励视频广告
 ```
 self.rewardVideoAdManager = [[ADCDN_ExpressRewardVideoAdManager alloc] initWithPlcId:self.plcId];
     //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
@@ -340,7 +343,7 @@ self.rewardVideoAdManager.delegate = self;
 [self.rewardVideoAdManager loadAd];
 ```
 
-### 4.5.2 设置激励视频广告代理方法示例代码，设置代理<ADCDN_ExpressRewardVideoAdManagerDelegate>
+实现激励视频广告代理方法
 ```
 #pragma mark - ADCDN_ExpressRewardVideoAdManagerDelegate
 /**
@@ -397,11 +400,9 @@ self.rewardVideoAdManager.delegate = self;
     NSLog(@"服务器核实回调失败");
 }
 ```
-### 4.5.3 注：服务器到服务器的回调(可选)
+*服务器到服务器的回调(可选)*
 服务器到服务器回调让您判定是否提供奖励给观看广告的用户。当用户成功看完广告时，您可以在ADCDN平台配置从ADCDN服务器到您自己的服务器的回调链接，以通知您用户完成了操作。
-
 回调方式说明
-
 ADCDN服务器会以 GET 方式请求第三方服务的回调链接，并拼接以下参数回传：
 ```
 user_id=%s&trans_id=%s&reward_name=%s&reward_amount=%d&extra=%s&sign=%s
@@ -433,14 +434,15 @@ appSecurityKey: 您在ADCDN媒体平台新建奖励视频代码位获取到的�
     "isValid": true
 }
 
-### 4.5.4 设置非激励视频广告（横屏、竖屏区分在与不同的广告位id）示例代码
+###5.7 全屏视频广告（非激励视频）
+初始化全屏视频广告
 ```
 self.fullscreenVideoAdManager = [[ADCDN_FullscreenExpressVideoAdManager alloc] initWithPlcId:self.plcId];
 self.fullscreenVideoAdManager.rootViewController = self;
 self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
 [self.fullscreenVideoAdManager loadAd];
 ```
-### 4.5.5 设置非激励视频广告代理方法示例代码，设置代理<ADCDN_FullscreenExpressVideoAdManagerDelegate>
+实现全屏视频广告代理
 ```
 /**
  *  加载成功
@@ -486,8 +488,8 @@ self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要s
     NSLog(@"视频广告点击跳过");
 }
 ```
-## 4.6 游戏盒子场景广告，在需要使用到ADCDN广告功能的地方导入#import <ADCDN/ADCDN.h>
-### 4.6.1  游戏盒子广告示例代码
+### 5.8 游戏盒子场景广告
+初始化游戏盒子场景广告
 ```
 #pragma mark - 游戏盒子view
 -(ADCDN_GameBoxView *)gameBoxView{
@@ -505,7 +507,7 @@ self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要s
 }
 
 ```
-### 4.6.2  游戏盒子广告示例代码<ADCDN_GameBoxViewDelegate>
+实现游戏场景广告代理方法
 ```
 #pragma mark - ADCDN_GameBoxViewDelegate
 /**
@@ -517,7 +519,7 @@ self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要s
     }];
 }
 ```
-### 4.6.3  游戏盒子获取游戏开关状态示例代码
+游戏盒子获取游戏开关状态示例代码
 ```
 /**
  * 获取游戏开关状态 1 开启 否则关闭
