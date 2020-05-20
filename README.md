@@ -1,5 +1,4 @@
 # <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
-
 ## 1. 概述
 尊敬的开发者朋友，欢迎您使用ADCDN广告平台SDK。通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
 
@@ -383,7 +382,7 @@ self.rewardVideoAdManager.delegate = self;
     NSLog(@"播放完成点击关闭");
 }
 /**
- 服务器核实回调成功
+ 服务器核实回调成功(V7.0.0开始不支持)
  Server verification which is requested asynchronously is succeeded.
  @param verify :return YES when return value is 2000.
  */
@@ -392,7 +391,7 @@ self.rewardVideoAdManager.delegate = self;
 }
 
 /**
- 服务器核实回调失败
+ 服务器核实回调失败(V7.0.0开始不支持)
  Server verification which is requested asynchronously is failed.
  Return value is not 2000.
  */
@@ -400,40 +399,6 @@ self.rewardVideoAdManager.delegate = self;
     NSLog(@"服务器核实回调失败");
 }
 ```
-*服务器到服务器的回调(可选)*
-服务器到服务器回调让您判定是否提供奖励给观看广告的用户。当用户成功看完广告时，您可以在ADCDN平台配置从ADCDN服务器到您自己的服务器的回调链接，以通知您用户完成了操作。
-回调方式说明
-ADCDN服务器会以 GET 方式请求第三方服务的回调链接，并拼接以下参数回传：
-```
-user_id=%s&trans_id=%s&reward_name=%s&reward_amount=%d&extra=%s&sign=%s
-```
-| 字段定义        | 字段名称 |  字段类型  | 备注 |
-| --------       | -----   | ----     |---- |
-| sign           | 签名         |string    |签名 |
-| user_id        | 用户id       |string    |调用SDK透传，应用对用户的唯一标识 |
-| trans_id       | 交易id       |string    |完成观看的唯一交易ID |
-| reward_amount  | 奖励数量      |int       |媒体平台配置或调用SDK传入|
-| reward_name    | 奖励名称      |string    |媒体平台配置或调用SDK传入|
-| extra          | Extra        |string    |调用SDK传入并透传，如无需要则为空|
-
-签名生成方式
-
-appSecurityKey: 您在ADCDN媒体平台新建奖励视频代码位获取到的密钥 transId：交易id sign = sha256(appSecurityKey:transId)
-
-返回约定
-
-返回 json 数据，字段如下：
-
-|字段定义	|字段名称|	字段类型|	备注|
-| --------       | -----   | ----     |---- |
-|isValid|	校验结果|	bool|	判定结果，是否发放奖励|
-
-示例：
-
-{
-    "isValid": true
-}
-
 ### 5.7 全屏视频广告（非激励视频）
 初始化全屏视频广告
 ```
