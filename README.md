@@ -49,23 +49,23 @@ iOS9.0及以上，最新版本号：V 7.0.2。
 SDK不会主动获取应用位置权限，当应用本身有获取位置权限逻辑时，需要在应用的 info.plist 添加相应配置信息，避免 AppStore审核被拒：
 ``` xml
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>请允许APP获取您的位置信息</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>请允许APP获取您的位置信息</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>请允许APP获取您的位置信息</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
+<string>请允许APP获取您的位置信息</string>
+<key>NSLocationAlwaysUsageDescription</key>
+<string>请允许APP获取您的位置信息</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>请允许APP获取您的位置信息</string>
+<key>NSPhotoLibraryAddUsageDescription</key>
 ```
 
 相册相关权限(如果有接入游戏盒子场景的话，需要提供以下相册相机权限，游戏盒子内更改用户头像需要访问该权限)
 ``` xml
 <key>NSCameraUsageDescription</key>
-	<string>请允许APP访问您的相机功能，以便使用拍照功能上传用户头像</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>请允许APP访问您的相册功能，以便保存图片到系统相册功能</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>请允许APP访问您的相册功能，以便使用拍照存储功能</string>
+<string>请允许APP访问您的相机功能，以便使用拍照功能上传用户头像</string>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>请允许APP访问您的相册功能，以便保存图片到系统相册功能</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>请允许APP访问您的相册功能，以便使用拍照存储功能</string>
 ```
 ### 4.3 配置ADCDN广告平台依赖库
 注：为了避免不同平台的依赖库版本可能存在冲突或不同版本可能存在函数被弃用，故建议添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.8版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods。
@@ -116,7 +116,7 @@ self.splashAdManager.delegate = self;
 ```
 实现开屏广告代理方法
 ``` Objective-C
-#pragma mark -   ADCDN_SplashAdManagerDelegate 代理协议方法
+#pragma mark - ADCDN_SplashAdManagerDelegate 代理协议方法
 /**
  *  开屏广告成功展示
  */
@@ -162,7 +162,7 @@ self.splashAdManager.delegate = self;
 ```
 开屏广告底部自定义logo
 ``` Objective-C
-//设置开屏底部自定义LogoView，展示半屏开屏广告
+// 设置开屏底部自定义LogoView，展示半屏开屏广告
 UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
 UIImageView *logo = [[UIImageView alloc]initWithFrame:bottomView.frame];
 CGRect logoFrame = logo.frame;
@@ -338,13 +338,13 @@ self.interstitialAdManager.delegate = self;// interstitialAdManager需要strong�
 初始化激励视频广告
 ``` Objective-C
 self.rewardVideoAdManager = [[ADCDN_ExpressRewardVideoAdManager alloc] initWithPlcId:self.plcId];
-//需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
-//ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
-//rewardVideoAdModel.userId = @"123456789";
-//rewardVideoAdModel.rewardName = @"rewardName";
-//rewardVideoAdModel.rewardAmount = 1;
-//rewardVideoAdModel.extra = @"extra";
-//self.rewardVideoAdManager.rewardVideoAdModel = rewardVideoAdModel;
+// 需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
+// ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
+// rewardVideoAdModel.userId = @"123456789";
+// rewardVideoAdModel.rewardName = @"rewardName";
+// rewardVideoAdModel.rewardAmount = 1;
+// rewardVideoAdModel.extra = @"extra";
+// self.rewardVideoAdManager.rewardVideoAdModel = rewardVideoAdModel;
 self.rewardVideoAdManager.rootViewController = self;// rewardVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
 self.rewardVideoAdManager.delegate = self;
 [self.rewardVideoAdManager loadAd];
