@@ -1,7 +1,7 @@
 # <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
 
 ## 1. 概述
-尊敬的开发者朋友，欢迎您使用ADCDN广告sdk平台。通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
+尊敬的开发者朋友，欢迎您使用ADCDN广告平台SDK。通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
 
 *注意：运行demo前，请先在终端cd到工程目录执行pod install，添加依赖库，demo才能加载出广告。*
 ```
@@ -12,7 +12,7 @@ pod 'Bytedance-UnionAD', '~> 2.9.5.6'
 end
 ```
 
-ADCDN广告sdk支持如下广告功能:
+ADCDN广告SDK支持如下广告功能:
 
 | 广告功能        | 详情 | 
 | --------       | -----   |
@@ -95,7 +95,7 @@ ADCDN初始化配置，在AppDelegate.m中导入ADCDN的头文件：*#import ADC
 [ADCDN_ConfigManager shareManagerWithAppId:KappId];
 // 日志开关，默认关闭，控制台过滤 ADCDN_Log关键字查看log
 [ADCDN_DebugLogTool setLogEnable:YES];
-// 查看sdk版本
+// 查看SDK版本
 NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
 ```
 ### 5.2 开屏广告
