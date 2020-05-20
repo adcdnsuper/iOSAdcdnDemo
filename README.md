@@ -57,7 +57,7 @@ SDK不会主动获取应用位置权限，当应用本身有获取位置权限�
 <key>NSPhotoLibraryAddUsageDescription</key>
 ```
 
-相册相关权限(如果有接入游戏盒子场景的话，需要提供以下相册相机权限，游戏盒子内更改用户头像需要访问该权限)
+相册相关权限(如果有接入游戏盒子场景的话，需要提供以下相册相机权限，游戏盒子内更改用户头像需要访问该权限)。
 ``` xml
 <key>NSCameraUsageDescription</key>
 <string>请允许APP访问您的相机功能，以便使用拍照功能上传用户头像</string>
