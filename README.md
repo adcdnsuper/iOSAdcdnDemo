@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/pengshuangta/images/blob/master/adcdn_icon.png">
+<img src="https://github.com/pengshuangta/images/blob/master/adcdn_logo.png">
 </p>
 
 # <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
