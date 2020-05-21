@@ -1,7 +1,5 @@
 <p align="center">
-<a href = "javascript:void(0)">
 <img src="https://github.com/pengshuangta/images/blob/master/adcdn_logo.png">
-</a>
 </p>
 # <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
 ## 1. 概述
