@@ -1,6 +1,6 @@
 # <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
 ## 1. 概述
-尊敬的开发者朋友，欢迎您使用ADCDN广告平台SDK。通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
+通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
 
 *注意：运行demo前，请先在终端cd到工程目录执行pod install，添加依赖库，demo才能加载出广告。*
 ``` java
