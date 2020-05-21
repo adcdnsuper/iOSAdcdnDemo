@@ -1,14 +1,25 @@
+![](https://github.com/pengshuangta/images/blob/master/adcdn_logo.png)
 # <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
 ## 1. 概述
 通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
 
-*注意：运行demo前，请先在终端cd到工程目录执行pod install，添加依赖库，demo才能加载出广告。*
+*注：运行demo前，请先在终端cd到工程目录执行pod install，添加依赖库，demo才能加载出广告，为了避免不同平台的依赖库版本可能存在冲突或不同版本可能存在函数被弃用，故建议添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.8版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods*
 ``` java
 platform :ios,'9.0'
 target 'YX_AD_demo' do
-pod 'GDTMobSDK', '~> 4.11.8'
-pod 'Bytedance-UnionAD', '~> 2.9.5.6'
+pod 'GDTMobSDK', '4.11.8'
+pod 'Bytedance-UnionAD', '2.9.5.6'
 end
+```
+``` java
+pod install时CDN: trunk URL couldn't be downloaded: https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/
+解决方法：
+1.不替换cdn源：
+步骤：1.终端执行sudo vim /private/etc/hosts
+　　　2.在hosts文件中添加199.232.4.133  raw.githubusercontent.com的映射，重新执行pod install
+2.用source 'https://github.com/CocoaPods/Specs.git'替换到cdn源
+步骤：1.在podfile里面添加source 'https://github.com/CocoaPods/Specs.git'
+　　　2.终端下执行 pod repo remove trunk来移除trunk，重新pod install
 ```
 
 ADCDN广告SDK支持如下广告功能:
@@ -66,27 +77,6 @@ SDK不会主动获取应用位置权限，当应用本身有获取位置权限�
 <string>请允许APP访问您的相册功能，以便保存图片到系统相册功能</string>
 <key>NSPhotoLibraryUsageDescription</key>
 <string>请允许APP访问您的相册功能，以便使用拍照存储功能</string>
-```
-### 4.3 配置ADCDN广告平台依赖库
-注：为了避免不同平台的依赖库版本可能存在冲突或不同版本可能存在函数被弃用，故建议添加依赖库时请保持跟SDK中添加的版本一致，如：GDTMobSDK添加的是4.11.8版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods。
-``` java
-platform :ios, '9.0'
-target '你的项目名' do
-# 优量汇广告来源
-pod 'GDTMobSDK', '~> 4.11.8'
-# 穿山甲广告来源
-pod 'Bytedance-UnionAD', '~> 2.9.5.6'
-end
-```
-``` java
-pod install时CDN: trunk URL couldn't be downloaded: https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/
-解决方法：
-1.不替换cdn源：
-步骤：1.终端执行sudo vim /private/etc/hosts
-　　　2.在hosts文件中添加199.232.4.133  raw.githubusercontent.com的映射，重新执行pod install
-2.用source 'https://github.com/CocoaPods/Specs.git'替换到cdn源
-步骤：1.在podfile里面添加source 'https://github.com/CocoaPods/Specs.git'
-　　　2.终端下执行 pod repo remove trunk来移除trunk，重新pod install
 ```
 ## 5 接入代码
 ### 5.1 程序启动初始化ADCDN
