@@ -1,9 +1,10 @@
 <p align="center">
-<a href = "javascript:void(0)">
+<a target="_blank">
 <img src="https://github.com/pengshuangta/images/blob/master/adcdn_logo.png">
 </a>
 </p>
-# <div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
+
+<div align='center' ><font size='70'>ADCDN SDK for iOS</font></div>
 ## 1. 概述
 通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
 
