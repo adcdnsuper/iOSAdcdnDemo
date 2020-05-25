@@ -16,6 +16,7 @@
 +(instancetype)shareManager;
 /**
  * 获取游戏开关 1 开启 否则关闭
+ * （接口即将废弃，请使用 [[ADCDN_ConfigManager shareManagerWithAppId:KappId] getGameBoxSwitchStatus]）
  */
 -(NSString *)getScenesSwitch;
 @end

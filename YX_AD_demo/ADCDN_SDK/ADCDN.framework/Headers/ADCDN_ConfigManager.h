@@ -20,5 +20,12 @@
  */
 -(NSString *_Nullable)getSDKVersion;
 
+/**
+ * 当前APP的版本是否关闭了游戏场景
+ * 注：此方法根据接口返回的版本判断，为异步，请在合适时机调用
+ * YES 关闭
+ * NO 打开
+ */
+-(BOOL)getGameBoxSwitchStatus;
 @end
 
