@@ -485,7 +485,10 @@ self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要s
 游戏盒子获取游戏开关状态示例代码
 ``` Objective-C
 /**
- * 获取游戏开关状态 1 开启 否则关闭
+ * 当前APP的版本是否关闭了游戏场景
+ * 注：此方法根据初始化接口返回的版本判断，为异步，请在合适时机调用
+ * YES 关闭
+ * NO 打开
  */
--(NSString *)getScenesSwitch;
+-(BOOL)getGameBoxSwitchStatus;
 ```
