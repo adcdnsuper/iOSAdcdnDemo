@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *customView;
 // 控制器
 @property (nonatomic, weak)UIViewController *rootViewController;
-// 是否轮循 大于 30 为轮循  默认为不轮循
+// 是否轮循 大于 30 为轮循 范围[30,120]  默认为不轮循
 @property (nonatomic, assign) NSInteger interval;
 // 代理对象
 @property (nonatomic, weak, nullable) id<ADCDN_BannerAdManagerDelegate> delegate;

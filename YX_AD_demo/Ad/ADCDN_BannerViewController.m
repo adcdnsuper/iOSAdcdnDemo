@@ -44,7 +44,7 @@
 - (void)loadAd {
     self.bannerAdManager = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
     self.bannerAdManager.customView = self.adView;// banner加载的位置
-    self.bannerAdManager.interval = 29;// 大于30循环
+    self.bannerAdManager.interval = 29;// 在[30,120]之间会轮播
     self.bannerAdManager.rootViewController = self;
     self.bannerAdManager.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费
     self.bannerAdManager.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
