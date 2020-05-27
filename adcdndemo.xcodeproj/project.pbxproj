@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		13B7A6AB247D3CBC007756DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A9247D3CBC007756DD /* LaunchScreen.storyboard */; };
 		13B7A6AE247D3CBC007756DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6AD247D3CBC007756DD /* main.m */; };
 		13B7A6B7247D3E1B007756DD /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6B5247D3E1B007756DD /* ADCDN.bundle */; };
-		13B7A6B8247D3E1B007756DD /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B7A6B6247D3E1B007756DD /* ADCDN.framework */; };
 		13B7A6C7247D3E3C007756DD /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6BB247D3E3B007756DD /* ADCDN_NavigationController.m */; };
 		13B7A6C8247D3E3C007756DD /* ADCDN_UnRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6BD247D3E3B007756DD /* ADCDN_UnRewardViewController.m */; };
 		13B7A6C9247D3E3C007756DD /* ADCDN_VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6BF247D3E3B007756DD /* ADCDN_VideoViewController.m */; };
@@ -30,6 +29,7 @@
 		13B7A6E2247D3E46007756DD /* ADCDN_InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6D8247D3E46007756DD /* ADCDN_InterstitialViewController.m */; };
 		13B7A6E6247D3E59007756DD /* UIFont+ADCDN_APPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6E4247D3E59007756DD /* UIFont+ADCDN_APPFont.m */; };
 		13B7A6EA247D3E63007756DD /* ADCDN_AppConstTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6E9247D3E63007756DD /* ADCDN_AppConstTool.m */; };
+		13B7A6EC247E366A007756DD /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B7A6EB247E366A007756DD /* ADCDN.framework */; };
 		A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 059382864258578FA67AB41E /* libPods-adcdndemo.a */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,6 @@
 		13B7A6AC247D3CBC007756DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B7A6AD247D3CBC007756DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13B7A6B5247D3E1B007756DD /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
-		13B7A6B6247D3E1B007756DD /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B7A6B9247D3E3A007756DD /* ADCDN_NativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeViewController.h; sourceTree = "<group>"; };
 		13B7A6BA247D3E3A007756DD /* ADCDN_RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_RewardViewController.h; sourceTree = "<group>"; };
 		13B7A6BB247D3E3B007756DD /* ADCDN_NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NavigationController.m; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		13B7A6E5247D3E59007756DD /* UIFont+ADCDN_APPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+ADCDN_APPFont.h"; sourceTree = "<group>"; };
 		13B7A6E8247D3E63007756DD /* ADCDN_AppConstTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_AppConstTool.h; sourceTree = "<group>"; };
 		13B7A6E9247D3E63007756DD /* ADCDN_AppConstTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_AppConstTool.m; sourceTree = "<group>"; };
+		13B7A6EB247E366A007756DD /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		71823D274EAF1D532704BE1A /* Pods-adcdndemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adcdndemo.debug.xcconfig"; path = "Target Support Files/Pods-adcdndemo/Pods-adcdndemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */,
-				13B7A6B8247D3E1B007756DD /* ADCDN.framework in Frameworks */,
+				13B7A6EC247E366A007756DD /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,8 +149,8 @@
 		13B7A6B4247D3E1B007756DD /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
+				13B7A6EB247E366A007756DD /* ADCDN.framework */,
 				13B7A6B5247D3E1B007756DD /* ADCDN.bundle */,
-				13B7A6B6247D3E1B007756DD /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
