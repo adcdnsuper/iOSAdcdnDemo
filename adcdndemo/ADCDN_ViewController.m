@@ -12,7 +12,7 @@
 #import "ADCDN_InterstitialViewController.h"
 #import "ADCDN_VideoViewController.h"
 #import "ADCDN_NativeViewController.h"
-#import "ADCDN_GameBoxViewController.h"
+#import <ADCDN/ADCDN.h>
 
 @interface ADCDN_ViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
@@ -113,10 +113,10 @@
     }
     // 游戏盒子
     if (indexPath.row == 5) {
-        ADCDN_GameBoxViewController *vc = [ADCDN_GameBoxViewController new];
-        vc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:vc animated:YES completion:^{
-        }];
+        ADCDN_GameBoxVCModel *model = [ADCDN_GameBoxVCModel new];
+        model.urlScheme = @"bookkeepingDesktop";
+        model.rootViewController = self;
+        [[ADCDN_GameBoxManager defaultManager] openGameBoxWithModel:model];
     }
 }
 @end

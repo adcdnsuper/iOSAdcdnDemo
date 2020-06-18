@@ -34,7 +34,7 @@ ADCDN广告SDK支持如下广告功能:
 | 横幅广告        | 横幅广告         |
 | 插屏广告        | 插屏广告         |
 | 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
-| 游戏盒子变现场景       | 消星星、橘子消成语、转盘、抢夺金币等游戏         |
+| 游戏盒子变现场景       | 消星星、橘子消成语、幸运转盘、金币抢夺、刮刮乐等游戏         |
 
 ## 2. 接入Android请跳转以下链接
 [接入Android版ADCDN链接](https://github.com/adcdnsuper/AndroidAdcdnDemo)
@@ -50,6 +50,7 @@ iOS9.0及以上，最新版本号：V 7.0.2。
 | V7.0.2        | 适配了V4.11.8的优量汇版本横幅广告加载crash问题，原因：横幅广告初始化方法V4.11.8之后废弃了之前的初始化方法         |2020-05-19|
 | V7.0.3        | 1、提供根据版本号关闭游戏场景入口的方法；2、优化初始化失败重试方案；3、修复优量汇横幅广告轮播问题        |2020-05-25
 | V7.0.4        |  优化游戏盒子初始化失败重新加载逻辑       |2020-05-27
+| V7.2.0        |  新增游戏盒子功能增强APP广告变现能力：快捷桌面启动、幸运刮刮乐等       |2020-06-17
 ## 4. ADCDN接入流程
 ### 4.1 添加ADCDN到工程
 接入环境：Xcode 可以复制YD_AD_demo中ADCDN_SDK文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的游戏盒子，请把ADCDN.bundle资源文件一并拖入。
@@ -72,7 +73,6 @@ SDK不会主动获取应用位置权限，当应用本身有获取位置权限�
 <string>请允许APP获取您的位置信息</string>
 <key>NSPhotoLibraryAddUsageDescription</key>
 ```
-
 相册相关权限(如果有接入游戏盒子场景的话，需要提供以下相册相机权限，游戏盒子内更改用户头像需要访问该权限)。
 ``` xml
 <key>NSCameraUsageDescription</key>
@@ -83,6 +83,11 @@ SDK不会主动获取应用位置权限，当应用本身有获取位置权限�
 <key>NSPhotoLibraryUsageDescription</key>
 <string>请允许APP访问您的相册功能，以便使用拍照存储功能</string>
 ```
+游戏盒子添加快捷桌面启动需要设置：工程 - info - URL Types - URL Schemes如图所示：
+<p align="center">
+<img src="https://github.com/pengshuangta/images/blob/master/adcdn_urlscheme.png">
+</p>
+
 ## 5 接入代码
 ### 5.1 程序启动初始化ADCDN
 ADCDN初始化配置，在AppDelegate.m中导入ADCDN的头文件：*#import ADCDN/ADCDN.h>*，在app程序的启动函数didFinishLaunchingWithOptions中初始化ADCDN
@@ -98,16 +103,65 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
 ### 5.2 开屏广告
 初始化开屏广告
 ``` Objective-C
-// 初始化开屏广告
-CGRect frame = [UIScreen mainScreen].bounds;
-self.splashAdManager = [[ADCDN_SplashAdManager alloc] initWithPlcId:KplcId_Splash];
-self.splashAdManager.wFrame = frame;
-self.splashAdManager.window = [UIApplication sharedApplication].keyWindow;
-self.splashAdManager.rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-// splashAdManagerr需要strong持有，否则delegate回调无法执行，影响计费
-self.splashAdManager.delegate = self;
-// 加载广告
-[self.splashAdManager loadSplashAd];
+#pragma mark - 加载开屏广告
+-(void)loadSplashAd{
+   CGRect frame = [UIScreen mainScreen].bounds;
+   // 防止白屏，给一个兜底图，开发者可以设置一个跟启动图一样的
+   UIView *bottomView = [[UIView alloc] initWithFrame:frame];
+   // icon
+   UIImageView *launchImg = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 62)/2.0, 180, 62, 62)];
+   launchImg.image = [UIImage imageNamed:@"launch_icon"];
+   launchImg.contentMode = UIViewContentModeScaleAspectFit;
+   [bottomView addSubview:launchImg];
+   UIImageView *launchNameImg = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 76)/2.0, launchImg.frame.size.height + launchImg.frame.origin.y + 30, 76, 18)];
+   launchNameImg.image = [UIImage imageNamed:@"launch_name"];
+   launchNameImg.contentMode = UIViewContentModeScaleAspectFit;
+   [bottomView addSubview:launchNameImg];
+   self.splashAdView.bottomView = bottomView;
+   // 设置开屏底部自定义LogoView，展示半屏开屏广告
+   UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
+   UIImageView *logoImageView = [[UIImageView alloc]initWithFrame:logoView.frame];
+   CGRect logoFrame = logoImageView.frame;
+   logoFrame.size.width = 123;
+   logoFrame.size.height = 30;
+   logoImageView.frame = logoFrame;
+   logoImageView.image = [UIImage imageNamed:@"splash_logo"];
+   [logoView addSubview:logoImageView];
+   logoImageView.center = logoView.center;
+   logoView.backgroundColor = [UIColor whiteColor];
+   self.splashAdView.logoView = logoView;
+   // 加载开屏广告
+   [self.splashAdView loadSplashAd];
+}
+#pragma mark - 开屏页懒加载
+-(ADCDN_SplashAdManagerView *)splashAdView{
+    if (!_splashAdView) {
+        CGRect frame = [UIScreen mainScreen].bounds;
+        _splashAdView = [[ADCDN_SplashAdManagerView alloc] initWithFrame:frame plcId:KplcId_Splash];
+        _splashAdView.backgroundColor = [UIColor whiteColor];
+        _splashAdView.window = self.window;
+        _splashAdView.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+        [self.window.rootViewController.view addSubview:_splashAdView];
+        _splashAdView.rootViewController = self.window.rootViewController;
+    }
+    return _splashAdView;
+}
+// 【可选】设置开屏底部自定义LogoView，展示半屏开屏广告
+/*
+UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
+UIImageView *logoImageView = [[UIImageView alloc]initWithFrame:logoView.frame];
+CGRect logoFrame = logoImageView.frame;
+logoFrame.size.width = 123;
+logoFrame.size.height = 30;
+logoImageView.frame = logoFrame;
+logoImageView.image = [UIImage imageNamed:@"splash_logo"];
+[logoView addSubview:logoImageView];
+logoImageView.center = logoView.center;
+logoView.backgroundColor = [UIColor whiteColor];
+self.splashAdView.logoView = logoView;
+*/
+// 加载开屏广告
+[self.splashAdView loadSplashAd];
 ```
 实现开屏广告代理方法
 ``` Objective-C
@@ -115,60 +169,68 @@ self.splashAdManager.delegate = self;
 /**
  *  开屏广告成功展示
  */
-- (void)ADCDN_SplashAdSuccessPresentScreen:(ADCDN_SplashAdManager *_Nullable)splashAd {
+- (void)ADCDN_SplashAdSuccessPresentScreen:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告成功展示");
 }
 /**
  *  开屏广告展示失败
  */
-- (void)ADCDN_SplashAdFailToPresent:(ADCDN_SplashAdManager *_Nullable)splashAd withError:(NSError *_Nullable)error {
+- (void)ADCDN_SplashAdFailToPresent:(ADCDN_SplashAdManagerView *_Nullable)splashAd withError:(NSError *_Nullable)error {
     NSLog(@"%s---%@ error:%@",__FUNCTION__,@"开屏广告展示失败",error);
+    // 移除开屏视图
+    if (self.splashAdView) {
+        [self.splashAdView removeFromSuperview];
+    }
 }
 /**
  *  开屏广告曝光回调
  */
-- (void)ADCDN_SplashAdExposured:(ADCDN_SplashAdManager *_Nullable)splashAd {
+- (void)ADCDN_SplashAdExposured:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告曝光回调");
 }
 /**
  *  开屏广告点击回调
  */
-- (void)ADCDN_SplashAdClicked:(ADCDN_SplashAdManager *_Nullable)splashAd {
+- (void)ADCDN_SplashAdClicked:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告点击回调");
-}
-/**
- *  开屏广告将要关闭回调
- */
-- (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManager *_Nullable)splashAd{
-    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭");
 }
 /**
  *  开屏广告关闭回调
  */
-- (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd {
+- (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告关闭回调");
 }
 /**
-*  开屏详情关闭回调
-*/
--(void)ADCDN_SplashAdDetailClosed:(ADCDN_SplashAdManager *)splashAd{
-    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告详情关闭回调");
+ *  开屏广告将要关闭回调
+ */
+- (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd{
+    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭回调");
+    // 移除开屏视图
+    if (self.splashAdView) {
+        [self.splashAdView removeFromSuperview];
+    }
+}
+/**
+ *  开屏详情页关闭回调
+ */
+- (void)ADCDN_SplashAdDetailClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd{
+    NSLog(@"%s---%@",__FUNCTION__,@"开屏详情页关闭回调");
 }
 ```
 开屏广告底部自定义logo
 ``` Objective-C
-// 设置开屏底部自定义LogoView，展示半屏开屏广告
-UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
-UIImageView *logo = [[UIImageView alloc]initWithFrame:bottomView.frame];
-CGRect logoFrame = logo.frame;
-logoFrame.size.width = bottomView.frame.size.width * 0.5;
-logoFrame.size.height = bottomView.frame.size.height * 0.5;
-logo.frame = logoFrame;
-logo.image = [UIImage imageNamed:@"LOGO"];
-[bottomView addSubview:logo];
-logo.center = bottomView.center;
-bottomView.backgroundColor = [UIColor whiteColor];
-self.splashAdManager.bottomView = bottomView;
+// 【可选】设置开屏底部自定义LogoView，展示半屏开屏广告
+UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
+UIImageView *logoImageView = [[UIImageView alloc]initWithFrame:logoView.frame];
+CGRect logoFrame = logoImageView.frame;
+logoFrame.size.width = 123;
+logoFrame.size.height = 30;
+logoImageView.frame = logoFrame;
+logoImageView.image = [UIImage imageNamed:@"splash_logo"];
+[logoView addSubview:logoImageView];
+logoImageView.center = logoView.center;
+logoView.backgroundColor = [UIColor whiteColor];
+self.splashAdView.logoView = logoView;
 ```
 ### 5.3 原生广告
 初始化原生广告
@@ -457,40 +519,41 @@ self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要s
 ### 5.8 游戏盒子场景广告
 初始化游戏盒子场景广告
 ``` Objective-C
-#pragma mark - 游戏盒子view
--(ADCDN_GameBoxView *)gameBoxView{
-    if (!_gameBoxView) {
-        _gameBoxView = [[ADCDN_GameBoxView alloc] initWithGameBoxViewFrame:self.view.bounds];// 注：如果gameBoxView添加的一级页面底部有tabbar，view的height要扣除掉tabbar的高度
-        _gameBoxView.delegate = self;
-        [self.view addSubview:_gameBoxView];
-        ADCDN_GameBoxModel *gameModel = [ADCDN_GameBoxModel new];
-        gameModel.showBackBtn = YES;
-        gameModel.showImmersive = YES;
-        gameModel.rootViewController = self;
-        [_gameBoxView loadGameViewModel:gameModel];
-    }
-    return _gameBoxView;
-}
-
+#pragma mark - 启动游戏盒子
+ADCDN_GameBoxVCModel *model = [ADCDN_GameBoxVCModel new];
+// 必传 app的标识urlScheme，添加快捷桌面图标使用（在工程 - info - URL Types中填写）
+model.urlScheme = @"bookkeepingDesktop";
+// 必传 presentViewController游戏盒子的控制器
+model.rootViewController = self;
+[[ADCDN_GameBoxManager defaultManager] openGameBoxWithModel:model];
 ```
-实现游戏场景广告代理方法
 ``` Objective-C
-#pragma mark - ADCDN_GameBoxViewDelegate
-/**
- *  退出游戏盒子
- */
--(void)ADCDN_gameBoxViewBack{
-    [self dismissViewControllerAnimated:YES completion:^{ 
-    }];
+#pragma mark - 快捷桌面启动执行的appdelegate方法
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+BOOL resault = NO;
+// adcdnGameBox为游戏盒子的唯一标识
+if ([url.absoluteString containsString:@"adcdnGameBox"]) {
+    // 快捷桌面启动游戏盒子
+    resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options];
+}
+return resault;
 }
 ```
 游戏盒子获取游戏开关状态示例代码
 ``` Objective-C
 /**
  * 当前APP的版本是否关闭了游戏场景
- * 注：此方法根据初始化接口返回的版本判断，为异步，请在合适时机调用
  * YES 关闭
  * NO 打开
  */
--(BOOL)getGameBoxSwitchStatus;
+-(void)getGameBoxSwitchStatus:(ADCDN_GameBoxSwitchStatusBlock _Nullable )gameBoxSwitchStatusBlock;
+// 代码调用
+[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getGameBoxSwitchStatus:^(BOOL isClose) {
+    if (isClose) {
+        NSLog(@"关闭游戏盒子入口");
+    }
+    else{
+        NSLog(@"开启游戏盒子入口");
+    }
+}];
 ```

@@ -12,9 +12,9 @@
 #import "ADCDN_NavigationController.h"
 
 
-@interface AppDelegate ()<ADCDN_SplashAdManagerDelegate>
+@interface AppDelegate ()<ADCDN_SplashAdManagerViewDelegate>
 /* 开屏广告对象 */
-@property (nonatomic,strong) ADCDN_SplashAdManager *manage;
+@property (nonatomic,strong) ADCDN_SplashAdManagerView *splashAdView;
 @end
 
 @implementation AppDelegate
@@ -23,12 +23,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // 初始化根视图
+    [self loadRootVC];
+    // 初始化ADCDN
+    [self registerADCDN];
+    // 初始化开屏广告
+    [self loadSplashAd];
+    return YES;
+}
+#pragma mark - 初始化根视图
+-(void)loadRootVC{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     ADCDN_ViewController *vc = [[ADCDN_ViewController alloc] init];
     ADCDN_NavigationController * nav = [[ADCDN_NavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
-    
+}
+#pragma mark - 初始化ADCDN
+-(void)registerADCDN{
     // 初始化配置
     [ADCDN_ConfigManager shareManagerWithAppId:KappId];
     // 获取sdk版本号
@@ -36,62 +48,110 @@
     NSLog(@"ADCDN版本号：%@",verString);
     // 开发ADCDN错误日志,默认不开启
     [ADCDN_DebugLogTool setLogEnable:YES];
-    
-    // 初始化开屏广告
-    self.manage = [[ADCDN_SplashAdManager alloc] initWithPlcId:KplcId_Splash];
-    self.manage.window = self.window;
-    CGRect frame = [UIScreen mainScreen].bounds;
-    self.manage.wFrame = frame;
-    self.manage.rootViewController = self.window.rootViewController;
-    self.manage.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
-    
-    //设置开屏底部自定义LogoView，展示半屏开屏广告
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
-    UIImageView *logo = [[UIImageView alloc]initWithFrame:bottomView.frame];
-    CGRect logoFrame = logo.frame;
-    logoFrame.size.width = bottomView.frame.size.width * 0.5;
-    logoFrame.size.height = bottomView.frame.size.height * 0.5;
-    logo.frame = logoFrame;
-    logo.image = [UIImage imageNamed:@"LOGO"];
-    [bottomView addSubview:logo];
-    logo.center = bottomView.center;
-    bottomView.backgroundColor = [UIColor whiteColor];
-    self.manage.bottomView = bottomView;
-    
-    // 加载开屏广告
-    [self.manage loadSplashAd];
-    
-    return YES;
+}
+#pragma mark - 加载开屏广告
+-(void)loadSplashAd{
+   CGRect frame = [UIScreen mainScreen].bounds;
+   // 防止白屏，给一个兜底图，开发者可以设置一个跟启动图一样的
+   UIView *bottomView = [[UIView alloc] initWithFrame:frame];
+   // icon
+   UIImageView *launchImg = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 62)/2.0, 180, 62, 62)];
+   launchImg.image = [UIImage imageNamed:@"launch_icon"];
+   launchImg.contentMode = UIViewContentModeScaleAspectFit;
+   [bottomView addSubview:launchImg];
+   UIImageView *launchNameImg = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 76)/2.0, launchImg.frame.size.height + launchImg.frame.origin.y + 30, 76, 18)];
+   launchNameImg.image = [UIImage imageNamed:@"launch_name"];
+   launchNameImg.contentMode = UIViewContentModeScaleAspectFit;
+   [bottomView addSubview:launchNameImg];
+   self.splashAdView.bottomView = bottomView;
+   
+   // 设置开屏底部自定义LogoView，展示半屏开屏广告
+   UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
+   UIImageView *logoImageView = [[UIImageView alloc]initWithFrame:logoView.frame];
+   CGRect logoFrame = logoImageView.frame;
+   logoFrame.size.width = 123;
+   logoFrame.size.height = 30;
+   logoImageView.frame = logoFrame;
+   logoImageView.image = [UIImage imageNamed:@"splash_logo"];
+   [logoView addSubview:logoImageView];
+   logoImageView.center = logoView.center;
+   logoView.backgroundColor = [UIColor whiteColor];
+   self.splashAdView.logoView = logoView;
+   // 加载开屏广告
+   [self.splashAdView loadSplashAd];
+}
+#pragma mark - 开屏页懒加载
+-(ADCDN_SplashAdManagerView *)splashAdView{
+    if (!_splashAdView) {
+        CGRect frame = [UIScreen mainScreen].bounds;
+        _splashAdView = [[ADCDN_SplashAdManagerView alloc] initWithFrame:frame plcId:KplcId_Splash];
+        _splashAdView.backgroundColor = [UIColor whiteColor];
+        _splashAdView.window = self.window;
+        _splashAdView.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
+        [self.window.rootViewController.view addSubview:_splashAdView];
+        _splashAdView.rootViewController = self.window.rootViewController;
+    }
+    return _splashAdView;
 }
 /**
  *  开屏广告成功展示
  */
-- (void)ADCDN_SplashAdSuccessPresentScreen:(ADCDN_SplashAdManager *_Nullable)splashAd {
+- (void)ADCDN_SplashAdSuccessPresentScreen:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告成功展示");
 }
 /**
  *  开屏广告展示失败
  */
-- (void)ADCDN_SplashAdFailToPresent:(ADCDN_SplashAdManager *_Nullable)splashAd withError:(NSError *_Nullable)error {
+- (void)ADCDN_SplashAdFailToPresent:(ADCDN_SplashAdManagerView *_Nullable)splashAd withError:(NSError *_Nullable)error {
     NSLog(@"%s---%@ error:%@",__FUNCTION__,@"开屏广告展示失败",error);
+    // 移除开屏视图
+    if (self.splashAdView) {
+        [self.splashAdView removeFromSuperview];
+    }
 }
 /**
  *  开屏广告曝光回调
  */
-- (void)ADCDN_SplashAdExposured:(ADCDN_SplashAdManager *_Nullable)splashAd {
+- (void)ADCDN_SplashAdExposured:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告曝光回调");
 }
 /**
  *  开屏广告点击回调
  */
-- (void)ADCDN_SplashAdClicked:(ADCDN_SplashAdManager *_Nullable)splashAd {
+- (void)ADCDN_SplashAdClicked:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告点击回调");
 }
 /**
  *  开屏广告关闭回调
  */
-- (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManager *_Nullable)splashAd {
+- (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告关闭回调");
+}
+/**
+ *  开屏广告将要关闭回调
+ */
+- (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd{
+    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭回调");
+    // 移除开屏视图
+    if (self.splashAdView) {
+        [self.splashAdView removeFromSuperview];
+    }
+}
+/**
+ *  开屏详情页关闭回调
+ */
+- (void)ADCDN_SplashAdDetailClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd{
+    NSLog(@"%s---%@",__FUNCTION__,@"开屏详情页关闭回调");
+}
+#pragma mark - 快捷桌面启动执行的delegate方法
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+    BOOL resault = NO;
+    // adcdnGameBox为游戏盒子的唯一标识
+    if ([url.absoluteString containsString:@"adcdnGameBox"]) {
+        // 跳转到游戏盒子首页
+       resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options];
+    }
+    return resault;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

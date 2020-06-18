@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+/** 是否关闭Block */
+typedef void (^ADCDN_GameBoxSwitchStatusBlock)(BOOL isClose);
 
 @interface ADCDN_ConfigManager : NSObject
 
@@ -22,10 +24,9 @@
 
 /**
  * 当前APP的版本是否关闭了游戏场景
- * 注：此方法根据初始化接口返回的版本判断，为异步，请在合适时机调用
  * YES 关闭
  * NO 打开
  */
--(BOOL)getGameBoxSwitchStatus;
+-(void)getGameBoxSwitchStatus:(ADCDN_GameBoxSwitchStatusBlock _Nullable )gameBoxSwitchStatusBlock;
 @end
 

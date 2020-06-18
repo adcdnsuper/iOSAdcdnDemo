@@ -3,17 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1385BFA8249B8C4D004B1C0A /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1385BFA7249B8C4D004B1C0A /* ADCDN.framework */; };
+		1385BFAA249B8C6F004B1C0A /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1385BFA9249B8C6F004B1C0A /* ADCDN.bundle */; };
 		13B7A69A247D3CB9007756DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A699247D3CB9007756DD /* AppDelegate.m */; };
 		13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A1247D3CB9007756DD /* Main.storyboard */; };
 		13B7A6A6247D3CB9007756DD /* adcdndemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6A4247D3CB9007756DD /* adcdndemo.xcdatamodeld */; };
 		13B7A6A8247D3CBC007756DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A7247D3CBC007756DD /* Assets.xcassets */; };
 		13B7A6AB247D3CBC007756DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A9247D3CBC007756DD /* LaunchScreen.storyboard */; };
 		13B7A6AE247D3CBC007756DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6AD247D3CBC007756DD /* main.m */; };
-		13B7A6B7247D3E1B007756DD /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6B5247D3E1B007756DD /* ADCDN.bundle */; };
 		13B7A6C7247D3E3C007756DD /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6BB247D3E3B007756DD /* ADCDN_NavigationController.m */; };
 		13B7A6C8247D3E3C007756DD /* ADCDN_UnRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6BD247D3E3B007756DD /* ADCDN_UnRewardViewController.m */; };
 		13B7A6C9247D3E3C007756DD /* ADCDN_VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6BF247D3E3B007756DD /* ADCDN_VideoViewController.m */; };
@@ -22,20 +23,20 @@
 		13B7A6CC247D3E3C007756DD /* ADCDN_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6C5247D3E3C007756DD /* ADCDN_ViewController.m */; };
 		13B7A6DC247D3E46007756DD /* ADCDN_UnRewardExpressFullscreenVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6CF247D3E46007756DD /* ADCDN_UnRewardExpressFullscreenVideoViewController.m */; };
 		13B7A6DD247D3E46007756DD /* ADCDN_NativeExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6D1247D3E46007756DD /* ADCDN_NativeExpressViewController.m */; };
-		13B7A6DE247D3E46007756DD /* ADCDN_GameBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6D2247D3E46007756DD /* ADCDN_GameBoxViewController.m */; };
 		13B7A6DF247D3E46007756DD /* ADCDN_ExpressRewardVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6D3247D3E46007756DD /* ADCDN_ExpressRewardVideoViewController.m */; };
 		13B7A6E0247D3E46007756DD /* ADCDN_SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6D4247D3E46007756DD /* ADCDN_SplashViewController.m */; };
 		13B7A6E1247D3E46007756DD /* ADCDN_BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6D6247D3E46007756DD /* ADCDN_BannerViewController.m */; };
 		13B7A6E2247D3E46007756DD /* ADCDN_InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6D8247D3E46007756DD /* ADCDN_InterstitialViewController.m */; };
 		13B7A6E6247D3E59007756DD /* UIFont+ADCDN_APPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6E4247D3E59007756DD /* UIFont+ADCDN_APPFont.m */; };
 		13B7A6EA247D3E63007756DD /* ADCDN_AppConstTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6E9247D3E63007756DD /* ADCDN_AppConstTool.m */; };
-		13B7A6EC247E366A007756DD /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B7A6EB247E366A007756DD /* ADCDN.framework */; };
 		A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 059382864258578FA67AB41E /* libPods-adcdndemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00B2826B192462E81998C6B2 /* Pods-adcdndemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adcdndemo.release.xcconfig"; path = "Target Support Files/Pods-adcdndemo/Pods-adcdndemo.release.xcconfig"; sourceTree = "<group>"; };
 		059382864258578FA67AB41E /* libPods-adcdndemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-adcdndemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1385BFA7249B8C4D004B1C0A /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		1385BFA9249B8C6F004B1C0A /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
 		13B7A695247D3CB9007756DD /* adcdndemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adcdndemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B7A698247D3CB9007756DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B7A699247D3CB9007756DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		13B7A6AA247D3CBC007756DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13B7A6AC247D3CBC007756DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B7A6AD247D3CBC007756DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		13B7A6B5247D3E1B007756DD /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
 		13B7A6B9247D3E3A007756DD /* ADCDN_NativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeViewController.h; sourceTree = "<group>"; };
 		13B7A6BA247D3E3A007756DD /* ADCDN_RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_RewardViewController.h; sourceTree = "<group>"; };
 		13B7A6BB247D3E3B007756DD /* ADCDN_NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NavigationController.m; sourceTree = "<group>"; };
@@ -64,21 +64,18 @@
 		13B7A6CF247D3E46007756DD /* ADCDN_UnRewardExpressFullscreenVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_UnRewardExpressFullscreenVideoViewController.m; sourceTree = "<group>"; };
 		13B7A6D0247D3E46007756DD /* ADCDN_InterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_InterstitialViewController.h; sourceTree = "<group>"; };
 		13B7A6D1247D3E46007756DD /* ADCDN_NativeExpressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NativeExpressViewController.m; sourceTree = "<group>"; };
-		13B7A6D2247D3E46007756DD /* ADCDN_GameBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_GameBoxViewController.m; sourceTree = "<group>"; };
 		13B7A6D3247D3E46007756DD /* ADCDN_ExpressRewardVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_ExpressRewardVideoViewController.m; sourceTree = "<group>"; };
 		13B7A6D4247D3E46007756DD /* ADCDN_SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_SplashViewController.m; sourceTree = "<group>"; };
 		13B7A6D5247D3E46007756DD /* ADCDN_UnRewardExpressFullscreenVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_UnRewardExpressFullscreenVideoViewController.h; sourceTree = "<group>"; };
 		13B7A6D6247D3E46007756DD /* ADCDN_BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_BannerViewController.m; sourceTree = "<group>"; };
 		13B7A6D7247D3E46007756DD /* ADCDN_NativeExpressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_NativeExpressViewController.h; sourceTree = "<group>"; };
 		13B7A6D8247D3E46007756DD /* ADCDN_InterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_InterstitialViewController.m; sourceTree = "<group>"; };
-		13B7A6D9247D3E46007756DD /* ADCDN_GameBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_GameBoxViewController.h; sourceTree = "<group>"; };
 		13B7A6DA247D3E46007756DD /* ADCDN_ExpressRewardVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_ExpressRewardVideoViewController.h; sourceTree = "<group>"; };
 		13B7A6DB247D3E46007756DD /* ADCDN_SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_SplashViewController.h; sourceTree = "<group>"; };
 		13B7A6E4247D3E59007756DD /* UIFont+ADCDN_APPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+ADCDN_APPFont.m"; sourceTree = "<group>"; };
 		13B7A6E5247D3E59007756DD /* UIFont+ADCDN_APPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+ADCDN_APPFont.h"; sourceTree = "<group>"; };
 		13B7A6E8247D3E63007756DD /* ADCDN_AppConstTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_AppConstTool.h; sourceTree = "<group>"; };
 		13B7A6E9247D3E63007756DD /* ADCDN_AppConstTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_AppConstTool.m; sourceTree = "<group>"; };
-		13B7A6EB247E366A007756DD /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		71823D274EAF1D532704BE1A /* Pods-adcdndemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adcdndemo.debug.xcconfig"; path = "Target Support Files/Pods-adcdndemo/Pods-adcdndemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */,
-				13B7A6EC247E366A007756DD /* ADCDN.framework in Frameworks */,
+				1385BFA8249B8C4D004B1C0A /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,8 +146,8 @@
 		13B7A6B4247D3E1B007756DD /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				13B7A6EB247E366A007756DD /* ADCDN.framework */,
-				13B7A6B5247D3E1B007756DD /* ADCDN.bundle */,
+				1385BFA9249B8C6F004B1C0A /* ADCDN.bundle */,
+				1385BFA7249B8C4D004B1C0A /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
@@ -158,20 +155,18 @@
 		13B7A6CD247D3E46007756DD /* Ad */ = {
 			isa = PBXGroup;
 			children = (
-				13B7A6CE247D3E46007756DD /* ADCDN_BannerViewController.h */,
-				13B7A6CF247D3E46007756DD /* ADCDN_UnRewardExpressFullscreenVideoViewController.m */,
-				13B7A6D0247D3E46007756DD /* ADCDN_InterstitialViewController.h */,
-				13B7A6D1247D3E46007756DD /* ADCDN_NativeExpressViewController.m */,
-				13B7A6D2247D3E46007756DD /* ADCDN_GameBoxViewController.m */,
-				13B7A6D3247D3E46007756DD /* ADCDN_ExpressRewardVideoViewController.m */,
-				13B7A6D4247D3E46007756DD /* ADCDN_SplashViewController.m */,
-				13B7A6D5247D3E46007756DD /* ADCDN_UnRewardExpressFullscreenVideoViewController.h */,
-				13B7A6D6247D3E46007756DD /* ADCDN_BannerViewController.m */,
-				13B7A6D7247D3E46007756DD /* ADCDN_NativeExpressViewController.h */,
-				13B7A6D8247D3E46007756DD /* ADCDN_InterstitialViewController.m */,
-				13B7A6D9247D3E46007756DD /* ADCDN_GameBoxViewController.h */,
-				13B7A6DA247D3E46007756DD /* ADCDN_ExpressRewardVideoViewController.h */,
 				13B7A6DB247D3E46007756DD /* ADCDN_SplashViewController.h */,
+				13B7A6D4247D3E46007756DD /* ADCDN_SplashViewController.m */,
+				13B7A6CE247D3E46007756DD /* ADCDN_BannerViewController.h */,
+				13B7A6D6247D3E46007756DD /* ADCDN_BannerViewController.m */,
+				13B7A6D0247D3E46007756DD /* ADCDN_InterstitialViewController.h */,
+				13B7A6D8247D3E46007756DD /* ADCDN_InterstitialViewController.m */,
+				13B7A6D7247D3E46007756DD /* ADCDN_NativeExpressViewController.h */,
+				13B7A6D1247D3E46007756DD /* ADCDN_NativeExpressViewController.m */,
+				13B7A6D5247D3E46007756DD /* ADCDN_UnRewardExpressFullscreenVideoViewController.h */,
+				13B7A6CF247D3E46007756DD /* ADCDN_UnRewardExpressFullscreenVideoViewController.m */,
+				13B7A6DA247D3E46007756DD /* ADCDN_ExpressRewardVideoViewController.h */,
+				13B7A6D3247D3E46007756DD /* ADCDN_ExpressRewardVideoViewController.m */,
 			);
 			path = Ad;
 			sourceTree = "<group>";
@@ -271,7 +266,7 @@
 			files = (
 				13B7A6AB247D3CBC007756DD /* LaunchScreen.storyboard in Resources */,
 				13B7A6A8247D3CBC007756DD /* Assets.xcassets in Resources */,
-				13B7A6B7247D3E1B007756DD /* ADCDN.bundle in Resources */,
+				1385BFAA249B8C6F004B1C0A /* ADCDN.bundle in Resources */,
 				13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +319,6 @@
 				13B7A6E0247D3E46007756DD /* ADCDN_SplashViewController.m in Sources */,
 				13B7A6CA247D3E3C007756DD /* ADCDN_NativeViewController.m in Sources */,
 				13B7A6C9247D3E3C007756DD /* ADCDN_VideoViewController.m in Sources */,
-				13B7A6DE247D3E46007756DD /* ADCDN_GameBoxViewController.m in Sources */,
 				13B7A6E1247D3E46007756DD /* ADCDN_BannerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
