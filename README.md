@@ -176,6 +176,7 @@ self.splashAdView.logoView = logoView;
 }
 /**
  *  开屏广告展示失败
+ *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_SplashAdFailToPresent:(ADCDN_SplashAdManagerView *_Nullable)splashAd withError:(NSError *_Nullable)error {
     NSLog(@"%s---%@ error:%@",__FUNCTION__,@"开屏广告展示失败",error);
@@ -266,6 +267,7 @@ self.nativeExpressAdManager.adSize = self.adSize;
 }
 /**
  *  加载失败
+ *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_NativeExpressAd:(ADCDN_NativeExpressAdManager *)nativeExpressAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"原生模板广告加载失败");
@@ -328,6 +330,7 @@ self.bannerAdManager.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
 }
 /**
  *  加载失败
+ *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_BannerAd:(ADCDN_BannerAdManager *)bannerAd didFailWithError:(NSError *_Nullable)error {
     NSLog(@"加载失败-----%s",__FUNCTION__);
@@ -370,6 +373,7 @@ self.interstitialAdManager.delegate = self;// interstitialAdManager需要strong�
 }
 /**
  *  加载失败
+ *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_InterstitialAd:(ADCDN_InterstitialAdManager *)InterstitialAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"插屏加载失败");
@@ -420,6 +424,7 @@ self.rewardVideoAdManager.delegate = self;
 }
 /**
  *  加载失败
+ *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_RewardVideoAd:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"加载失败");
@@ -483,6 +488,7 @@ self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要s
 }
 /**
  *  加载失败
+ *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_FullscreenVideoAd:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"加载失败");

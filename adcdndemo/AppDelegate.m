@@ -101,6 +101,7 @@
 }
 /**
  *  开屏广告展示失败
+ *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_SplashAdFailToPresent:(ADCDN_SplashAdManagerView *_Nullable)splashAd withError:(NSError *_Nullable)error {
     NSLog(@"%s---%@ error:%@",__FUNCTION__,@"开屏广告展示失败",error);
