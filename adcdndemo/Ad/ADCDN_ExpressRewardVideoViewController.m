@@ -20,22 +20,28 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 }
+#pragma mark - rewardVideoAdManager
+-(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAdManager{
+    if (!_rewardVideoAdManager) {
+        _rewardVideoAdManager = [[ADCDN_ExpressRewardVideoAdManager alloc] initWithPlcId:self.plcId];
+        //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
+//        ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
+//        rewardVideoAdModel.userId = @"123456789";
+//        rewardVideoAdModel.rewardName = @"rewardName";
+//        rewardVideoAdModel.rewardAmount = 1;
+//        rewardVideoAdModel.extra = @"extra";
+//        self.rewardVideoAdManager.rewardVideoAdModel = rewardVideoAdModel;
+        
+        _rewardVideoAdManager.rootViewController = self;// rewardVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
+        _rewardVideoAdManager.delegate = self;
+    }
+    return _rewardVideoAdManager;
+}
 #pragma mark - loadAd
 -(void)loadAd{
-    self.rewardVideoAdManager = [[ADCDN_ExpressRewardVideoAdManager alloc] initWithPlcId:self.plcId];
-    //需要 服务器到服务器回调的，请传入rewardVideoAdModel数据模型
-//    ADCDN_RewardVideoAdModel *rewardVideoAdModel = [ADCDN_RewardVideoAdModel new];
-//    rewardVideoAdModel.userId = @"123456789";
-//    rewardVideoAdModel.rewardName = @"rewardName";
-//    rewardVideoAdModel.rewardAmount = 1;
-//    rewardVideoAdModel.extra = @"extra";
-//    self.rewardVideoAdManager.rewardVideoAdModel = rewardVideoAdModel;
-    self.rewardVideoAdManager.rootViewController = self;// rewardVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
-    self.rewardVideoAdManager.delegate = self;
     [self.rewardVideoAdManager loadAd];
 }
 #pragma mark - ADCDN_ExpressRewardVideoAdManagerDelegate

@@ -21,18 +21,23 @@
     
     self.navigationItem.title = @"插屏广告";
     self.view.backgroundColor = [UIColor whiteColor];
-    
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 }
 -(void)dealloc{
     NSLog(@"释放了");
 }
+#pragma mark - interstitialAdManager
+-(ADCDN_InterstitialAdManager *)interstitialAdManager{
+    if (!_interstitialAdManager) {
+        _interstitialAdManager = [[ADCDN_InterstitialAdManager alloc] initWithPlcId:KplcId_Interstitial];
+        _interstitialAdManager.rootViewController = self;
+        _interstitialAdManager.delegate = self;// interstitialAdManager需要strong持有，否则delegate回调无法执行，影响计费
+    }
+    return _interstitialAdManager;
+}
 #pragma mark - loadAd
 -(void)loadAd{
-    self.interstitialAdManager = [[ADCDN_InterstitialAdManager alloc] initWithPlcId:KplcId_Interstitial];
-    self.interstitialAdManager.rootViewController = self;
-    self.interstitialAdManager.delegate = self;// interstitialAdManager需要strong持有，否则delegate回调无法执行，影响计费
     [self.interstitialAdManager loadAd];
 }
 #pragma mark - ADCDN_InterstitialAdManagerDelegate

@@ -57,15 +57,21 @@
     }
     return _adTableView;
 }
+#pragma mark - nativeExpressAdManager
+-(ADCDN_NativeExpressAdManager *)nativeExpressAdManager{
+    if (!_nativeExpressAdManager) {
+        _nativeExpressAdManager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
+        _nativeExpressAdManager.rootViewController = self;
+        _nativeExpressAdManager.delegate = self;// nativeExpressAdManager需要strong持有，否则delegate回调无法执行，影响计费
+        // 最多运行一次性拉去3张
+        _nativeExpressAdManager.adCount = 3;
+        // 广告视图View的尺寸
+        _nativeExpressAdManager.adSize = self.adSize;
+    }
+    return _nativeExpressAdManager;
+}
 #pragma mark - loadAd
 -(void)loadAd{
-    self.nativeExpressAdManager = [[ADCDN_NativeExpressAdManager alloc] initWithPlcId:self.plcId];
-    self.nativeExpressAdManager.rootViewController = self;
-    self.nativeExpressAdManager.delegate = self;// nativeExpressAdManager需要strong持有，否则delegate回调无法执行，影响计费
-    // 最多运行一次性拉去3张
-    self.nativeExpressAdManager.adCount = 3;
-    // 广告视图View的尺寸
-    self.nativeExpressAdManager.adSize = self.adSize;
     [self.nativeExpressAdManager loadAd];
 }
 #pragma mark - ADCDN_NativeExpressAdManagerDelegate

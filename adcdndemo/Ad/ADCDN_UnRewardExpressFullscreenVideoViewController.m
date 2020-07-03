@@ -22,15 +22,20 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 }
+#pragma mark - fullscreenVideoAdManager
+-(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAdManager{
+    if (!_fullscreenVideoAdManager) {
+        _fullscreenVideoAdManager = [[ADCDN_FullscreenExpressVideoAdManager alloc] initWithPlcId:self.plcId];
+        _fullscreenVideoAdManager.rootViewController = self;
+        _fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
+    }
+    return _fullscreenVideoAdManager;
+}
 #pragma mark - loadAd
 -(void)loadAd{
-    self.fullscreenVideoAdManager = [[ADCDN_FullscreenExpressVideoAdManager alloc] initWithPlcId:self.plcId];
-    self.fullscreenVideoAdManager.rootViewController = self;
-    self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
     [self.fullscreenVideoAdManager loadAd];
 }
 /**
