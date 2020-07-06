@@ -20,3 +20,6 @@ Pods/Headers/Private/GDTMobSDK/GDTUnifiedNativeAd.h
 Pods/Headers/Private/GDTMobSDK/GDTUnifiedNativeAdDataObject.h
 Pods/Headers/Private/GDTMobSDK/GDTUnifiedNativeAdView.h
 Pods/Headers/Private/GDTMobSDK/GDTVideoConfig.h
+Pods/Headers/Private/GDTMobSDK/GDTAdParams.h
+Pods/Headers/Private/GDTMobSDK/GDTNativeExpressProAdManager.h
+Pods/Headers/Private/GDTMobSDK/GDTNativeExpressProAdView.h
