@@ -8,6 +8,7 @@
 
 #import "ADCDN_UnRewardExpressFullscreenVideoViewController.h"
 #import <ADCDN/ADCDN.h>
+#import "UIView+ADCDN_APPView.h"
 @interface ADCDN_UnRewardExpressFullscreenVideoViewController ()<ADCDN_FullscreenExpressVideoAdManagerDelegate>
 
 /* 非激励视频广告 */
@@ -25,6 +26,17 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
 }
+#pragma mark - 展示loading
+-(void)showLoading{
+    [self.view adcdn_showLoading];
+    self.view.userInteractionEnabled = NO;
+}
+#pragma mark - 移除loading
+-(void)removeLoading{
+    [self.view adcdn_removeLoading];
+    self.view.userInteractionEnabled = YES;
+}
+
 #pragma mark - fullscreenVideoAdManager
 -(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAdManager{
     if (!_fullscreenVideoAdManager) {
@@ -37,6 +49,9 @@
 #pragma mark - loadAd
 -(void)loadAd{
     [self.fullscreenVideoAdManager loadAd];
+    
+    // 展示loading
+    [self showLoading];
 }
 /**
  *  加载成功
@@ -50,6 +65,9 @@
  */
 - (void)ADCDN_FullscreenVideoAd:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"加载失败");
+    
+    // 移除loading
+    [self removeLoading];
 }
 /**
  *  点击广告
@@ -62,6 +80,8 @@
  */
 - (void)ADCDN_FullscreenVideoAdDidBecomeVisible:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd{
     NSLog(@"曝光回调");
+    // 移除loading
+    [self removeLoading];
 }
 /**
  *  视频播放完成

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130A39D524DBD13B00123F1F /* UIView+ADCDN_APPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 130A39D424DBD13B00123F1F /* UIView+ADCDN_APPView.m */; };
 		1385BFA8249B8C4D004B1C0A /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1385BFA7249B8C4D004B1C0A /* ADCDN.framework */; };
 		1385BFAA249B8C6F004B1C0A /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1385BFA9249B8C6F004B1C0A /* ADCDN.bundle */; };
 		13B7A69A247D3CB9007756DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A699247D3CB9007756DD /* AppDelegate.m */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		00B2826B192462E81998C6B2 /* Pods-adcdndemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adcdndemo.release.xcconfig"; path = "Target Support Files/Pods-adcdndemo/Pods-adcdndemo.release.xcconfig"; sourceTree = "<group>"; };
 		059382864258578FA67AB41E /* libPods-adcdndemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-adcdndemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		130A39D324DBD13B00123F1F /* UIView+ADCDN_APPView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ADCDN_APPView.h"; sourceTree = "<group>"; };
+		130A39D424DBD13B00123F1F /* UIView+ADCDN_APPView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ADCDN_APPView.m"; sourceTree = "<group>"; };
 		1385BFA7249B8C4D004B1C0A /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		1385BFA9249B8C6F004B1C0A /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
 		13B7A695247D3CB9007756DD /* adcdndemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adcdndemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +179,8 @@
 			children = (
 				13B7A6E4247D3E59007756DD /* UIFont+ADCDN_APPFont.m */,
 				13B7A6E5247D3E59007756DD /* UIFont+ADCDN_APPFont.h */,
+				130A39D324DBD13B00123F1F /* UIView+ADCDN_APPView.h */,
+				130A39D424DBD13B00123F1F /* UIView+ADCDN_APPView.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				13B7A6CC247D3E3C007756DD /* ADCDN_ViewController.m in Sources */,
 				13B7A6A6247D3CB9007756DD /* adcdndemo.xcdatamodeld in Sources */,
 				13B7A6E6247D3E59007756DD /* UIFont+ADCDN_APPFont.m in Sources */,
+				130A39D524DBD13B00123F1F /* UIView+ADCDN_APPView.m in Sources */,
 				13B7A6E2247D3E46007756DD /* ADCDN_InterstitialViewController.m in Sources */,
 				13B7A69A247D3CB9007756DD /* AppDelegate.m in Sources */,
 				13B7A6EA247D3E63007756DD /* ADCDN_AppConstTool.m in Sources */,
@@ -462,6 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7R2TNFXPGH;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/adcdndemo/ADCDN_SDK",
@@ -474,7 +481,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pst.adcdndemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanmao.adcdn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -487,6 +494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7R2TNFXPGH;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/adcdndemo/ADCDN_SDK",
@@ -499,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pst.adcdndemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanmao.adcdn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -8,6 +8,7 @@
 
 #import "ADCDN_ExpressRewardVideoViewController.h"
 #import <ADCDN/ADCDN.h>
+#import "UIView+ADCDN_APPView.h"
 @interface ADCDN_ExpressRewardVideoViewController ()<ADCDN_ExpressRewardVideoAdManagerDelegate>
 /* 模版激励视频广告 */
 @property (nonatomic,strong)ADCDN_ExpressRewardVideoAdManager  *rewardVideoAdManager;
@@ -22,6 +23,16 @@
     self.view.backgroundColor = [UIColor whiteColor];
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
     self.navigationItem.rightBarButtonItem = button;
+}
+#pragma mark - 展示loading
+-(void)showLoading{
+    [self.view adcdn_showLoading];
+    self.view.userInteractionEnabled = NO;
+}
+#pragma mark - 移除loading
+-(void)removeLoading{
+    [self.view adcdn_removeLoading];
+    self.view.userInteractionEnabled = YES;
 }
 #pragma mark - rewardVideoAdManager
 -(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAdManager{
@@ -43,6 +54,8 @@
 #pragma mark - loadAd
 -(void)loadAd{
     [self.rewardVideoAdManager loadAd];
+    // 展示loading
+    [self showLoading];
 }
 #pragma mark - ADCDN_ExpressRewardVideoAdManagerDelegate
 /**
@@ -57,6 +70,8 @@
  */
 - (void)ADCDN_RewardVideoAd:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"加载失败");
+    // 移除loading
+    [self removeLoading];
 }
 /**
  *  点击广告
@@ -69,6 +84,8 @@
  */
 - (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd{
     NSLog(@"曝光回调");
+    // 移除loading
+    [self removeLoading];
 }
 /**
  *  视频播放完成
