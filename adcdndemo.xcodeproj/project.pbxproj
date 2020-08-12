@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		130A39D524DBD13B00123F1F /* UIView+ADCDN_APPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 130A39D424DBD13B00123F1F /* UIView+ADCDN_APPView.m */; };
-		1385BFA8249B8C4D004B1C0A /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1385BFA7249B8C4D004B1C0A /* ADCDN.framework */; };
-		1385BFAA249B8C6F004B1C0A /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1385BFA9249B8C6F004B1C0A /* ADCDN.bundle */; };
+		13331E4324E3DD3900F4B215 /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13331E4124E3DD3900F4B215 /* ADCDN.bundle */; };
+		13331E4524E3DF5600F4B215 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13331E4424E3DF5600F4B215 /* ADCDN.framework */; };
 		13B7A69A247D3CB9007756DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A699247D3CB9007756DD /* AppDelegate.m */; };
 		13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A1247D3CB9007756DD /* Main.storyboard */; };
 		13B7A6A6247D3CB9007756DD /* adcdndemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6A4247D3CB9007756DD /* adcdndemo.xcdatamodeld */; };
@@ -38,8 +38,8 @@
 		059382864258578FA67AB41E /* libPods-adcdndemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-adcdndemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		130A39D324DBD13B00123F1F /* UIView+ADCDN_APPView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ADCDN_APPView.h"; sourceTree = "<group>"; };
 		130A39D424DBD13B00123F1F /* UIView+ADCDN_APPView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ADCDN_APPView.m"; sourceTree = "<group>"; };
-		1385BFA7249B8C4D004B1C0A /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
-		1385BFA9249B8C6F004B1C0A /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
+		13331E4124E3DD3900F4B215 /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
+		13331E4424E3DF5600F4B215 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B7A695247D3CB9007756DD /* adcdndemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adcdndemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B7A698247D3CB9007756DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B7A699247D3CB9007756DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */,
-				1385BFA8249B8C4D004B1C0A /* ADCDN.framework in Frameworks */,
+				13331E4524E3DF5600F4B215 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,8 +149,8 @@
 		13B7A6B4247D3E1B007756DD /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				1385BFA9249B8C6F004B1C0A /* ADCDN.bundle */,
-				1385BFA7249B8C4D004B1C0A /* ADCDN.framework */,
+				13331E4424E3DF5600F4B215 /* ADCDN.framework */,
+				13331E4124E3DD3900F4B215 /* ADCDN.bundle */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 			files = (
 				13B7A6AB247D3CBC007756DD /* LaunchScreen.storyboard in Resources */,
 				13B7A6A8247D3CBC007756DD /* Assets.xcassets in Resources */,
-				1385BFAA249B8C6F004B1C0A /* ADCDN.bundle in Resources */,
+				13331E4324E3DD3900F4B215 /* ADCDN.bundle in Resources */,
 				13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

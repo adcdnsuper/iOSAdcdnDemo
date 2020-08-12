@@ -12,8 +12,8 @@
 ``` java
 platform :ios,'9.0'
 target 'YX_AD_demo' do
-pod 'GDTMobSDK', '4.11.8'
-pod 'Bytedance-UnionAD', '2.9.5.6'
+pod 'GDTMobSDK', '4.11.10'
+pod 'Bytedance-UnionAD', '3.1.0.5'
 end
 ```
 ``` java
@@ -53,6 +53,7 @@ iOS9.0及以上，最新版本号：V 7.0.2。
 | V7.0.3        | 1、提供根据版本号关闭游戏场景入口的方法；2、优化初始化失败重试方案；3、修复优量汇横幅广告轮播问题        |2020-05-25
 | V7.0.4        |  优化游戏盒子初始化失败重新加载逻辑       |2020-05-27
 | V7.2.0        |  新增游戏盒子功能增强APP广告变现能力：快捷桌面启动、幸运刮刮乐等       |2020-06-17
+| V8.1.2        |  优化SDK，提高游戏盒子广告变现能力       ，适配依赖最新包版本GDTMobSDK V4.11.10和Bytedance-UnionAD V3.1.0.5|2020-08-12
 ## 4. ADCDN接入流程
 ### 4.1 添加ADCDN到工程
 接入环境：Xcode 可以复制YD_AD_demo中ADCDN_SDK文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的游戏盒子，请把ADCDN.bundle资源文件一并拖入。
