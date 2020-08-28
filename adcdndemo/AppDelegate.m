@@ -24,7 +24,9 @@
     
     // 初始化配置
     [ADCDN_ConfigManager shareManagerWithAppId:KappId];
-    // 开发ADCDN错误日志,默认不开启
+    // ADCDN版本号
+    NSLog(@"ADCDN版本号：%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
+    // 开发ADCDN错误日志,默认不开启,控制台搜索ADCDN_log可查看错误日志
     [ADCDN_DebugLogTool setLogEnable:YES];
     
     // 设置window
