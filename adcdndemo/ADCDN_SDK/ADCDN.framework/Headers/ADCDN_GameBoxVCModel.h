@@ -14,6 +14,7 @@
 @property (nonatomic,copy) NSString *urlScheme;
 /* 必传 presentViewController游戏盒子的控制器 */
 @property (nonatomic, weak)UIViewController *rootViewController;
-
+/* 可选 用户user_id */
+@property (nonatomic, copy)NSString *userId;
 @end
 

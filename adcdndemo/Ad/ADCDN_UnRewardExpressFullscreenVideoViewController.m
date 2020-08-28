@@ -8,35 +8,79 @@
 
 #import "ADCDN_UnRewardExpressFullscreenVideoViewController.h"
 #import <ADCDN/ADCDN.h>
-#import "UIView+ADCDN_APPView.h"
 @interface ADCDN_UnRewardExpressFullscreenVideoViewController ()<ADCDN_FullscreenExpressVideoAdManagerDelegate>
 
 /* 非激励视频广告 */
 @property (nonatomic,strong) ADCDN_FullscreenExpressVideoAdManager *fullscreenVideoAdManager;
-
+/* 加载广告 */
+@property (nonatomic,strong) UIButton *loadBtn;
+/* 展示广告 */
+@property (nonatomic,strong) UIButton *showBtn;
 @end
 
 @implementation ADCDN_UnRewardExpressFullscreenVideoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     self.view.backgroundColor = [UIColor whiteColor];
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
-    self.navigationItem.rightBarButtonItem = button;
+    // Do any additional setup after loading the view.
+    [self baseSetupUI];
 }
-#pragma mark - 展示loading
--(void)showLoading{
-    [self.view adcdn_showLoading];
-    self.view.userInteractionEnabled = NO;
+#pragma mark - 加载UI
+-(void)baseSetupUI{
+    [self loadBtn];
+    [self showBtn];
+    
 }
-#pragma mark - 移除loading
--(void)removeLoading{
-    [self.view adcdn_removeLoading];
-    self.view.userInteractionEnabled = YES;
+#pragma mark - loadBtn
+-(UIButton *)loadBtn{
+    if (!_loadBtn) {
+        _loadBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 120, ScreenW - 100, 40)];
+        _loadBtn.tag = 1;
+        [_loadBtn addTarget:self action:@selector(loadClicked:) forControlEvents:UIControlEventTouchUpInside];
+        _loadBtn.layer.cornerRadius = 8;
+        _loadBtn.layer.masksToBounds = YES;
+        _loadBtn.backgroundColor = [UIColor redColor];
+        [_loadBtn setTitle:@"加载广告" forState:0];
+        [_loadBtn setTitleColor:[UIColor whiteColor] forState:0];
+        [self.view addSubview:_loadBtn];
+    }
+    return _loadBtn;
 }
-
+#pragma mark - showBtn
+-(UIButton *)showBtn{
+    if (!_showBtn) {
+        _showBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 180, ScreenW - 100, 40)];
+        _showBtn.tag = 2;
+        [_showBtn addTarget:self action:@selector(loadClicked:) forControlEvents:UIControlEventTouchUpInside];
+        _showBtn.layer.cornerRadius = 8;
+        _showBtn.layer.masksToBounds = YES;
+        _showBtn.userInteractionEnabled = NO;
+        _showBtn.backgroundColor = [UIColor grayColor];
+        [_showBtn setTitle:@"展示广告" forState:0];
+        [_showBtn setTitleColor:[UIColor whiteColor] forState:0];
+        [self.view addSubview:_showBtn];
+    }
+    return _showBtn;
+}
+#pragma mark - 加载 tag = 1/ 展示 tag = 2
+-(void)loadClicked:(UIButton *)button{
+    if (button.tag == 1) {
+        // 加载广告
+        [self.fullscreenVideoAdManager loadAd];
+        // 展示loading
+        [self showLoading];
+    }
+    if (button.tag == 2) {
+        if (self.fullscreenVideoAdManager) {
+            // 展示广告
+            [self.fullscreenVideoAdManager showAdFromRootViewController:self];
+            
+            self.showBtn.userInteractionEnabled = NO;
+            [self.showBtn setBackgroundColor:[UIColor grayColor]];
+        }
+    }
+}
 #pragma mark - fullscreenVideoAdManager
 -(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAdManager{
     if (!_fullscreenVideoAdManager) {
@@ -48,11 +92,10 @@
 }
 #pragma mark - loadAd
 -(void)loadAd{
-    [self.fullscreenVideoAdManager loadAd];
     
-    // 展示loading
-    [self showLoading];
+    [self.fullscreenVideoAdManager showAdFromRootViewController:self];
 }
+#pragma mark - ADCDN_FullscreenExpressVideoAdManagerDelegate
 /**
  *  加载成功
  */
@@ -61,11 +104,19 @@
 }
 /**
  *  加载失败
- *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_FullscreenVideoAd:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"加载失败");
-    
+    // 移除loading
+    [self removeLoading];
+}
+/**
+*   下载成功
+*/
+-(void)ADCDN_FullscreenVideoAdDidDownLoadVideo:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd{
+    NSLog(@"下载成功");
+    self.showBtn.userInteractionEnabled = YES;
+    [self.showBtn setBackgroundColor:[UIColor redColor]];
     // 移除loading
     [self removeLoading];
 }
@@ -80,8 +131,6 @@
  */
 - (void)ADCDN_FullscreenVideoAdDidBecomeVisible:(ADCDN_FullscreenExpressVideoAdManager *)fullscreenVideoAd{
     NSLog(@"曝光回调");
-    // 移除loading
-    [self removeLoading];
 }
 /**
  *  视频播放完成

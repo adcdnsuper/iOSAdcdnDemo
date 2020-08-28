@@ -21,9 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+        
     if (self.type == 1) {
         self.navigationItem.title = @"激励视频";
     }

@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
     if (self.type == 1) {
         self.navigationItem.title = @"视频广告";
         self.menuTitleArr = @[@"非激励",@"激励视频",];

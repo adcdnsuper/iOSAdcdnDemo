@@ -28,12 +28,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"ADCDN_demo";
     
     [self menuTB];
+    
 }
+
 -(UITableView *)menuTB{
     if (!_menuTB) {
         _menuTB = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - [self getStatusBarHeight] - [self getNavigationBarHeight]) style:UITableViewStylePlain];
@@ -46,7 +46,7 @@
 }
 -(NSArray *)menuTitleArr{
     if (!_menuTitleArr) {
-        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"模版视频广告2.0",@"游戏盒子"];
+        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"模版视频广告2.0",@"游戏盒子",];
     }
     return _menuTitleArr;
 }
@@ -113,9 +113,12 @@
     }
     // 游戏盒子
     if (indexPath.row == 5) {
+        
         ADCDN_GameBoxVCModel *model = [ADCDN_GameBoxVCModel new];
         model.urlScheme = @"bookkeepingDesktop";
         model.rootViewController = self;
+        // userId可选，绑定第三方app的userId，打通金币体系
+        // model.userId = @"app自身账户体系的userId";
         [[ADCDN_GameBoxManager defaultManager] openGameBoxWithModel:model];
     }
 }

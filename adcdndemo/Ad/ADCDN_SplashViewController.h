@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ADCDN_BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ADCDN_SplashViewController : UIViewController
+@interface ADCDN_SplashViewController : ADCDN_BaseViewController
 
 @end
 

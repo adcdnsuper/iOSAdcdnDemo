@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ADCDN_BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ADCDN_NativeExpressViewController : UIViewController
+@interface ADCDN_NativeExpressViewController : ADCDN_BaseViewController
 /** plcId 广告位Id */
 @property (nonatomic,copy) NSString *plcId;
 /** adView建议的尺寸*/

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ADCDN_BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ADCDN_BannerViewController : UIViewController
+@interface ADCDN_BannerViewController : ADCDN_BaseViewController
 
 @end
 NS_ASSUME_NONNULL_END

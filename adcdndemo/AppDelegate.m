@@ -11,7 +11,6 @@
 #import "ADCDN_ViewController.h"
 #import "ADCDN_NavigationController.h"
 
-
 @interface AppDelegate ()<ADCDN_SplashAdManagerViewDelegate>
 /* 开屏广告对象 */
 @property (nonatomic,strong) ADCDN_SplashAdManagerView *splashAdView;
@@ -23,32 +22,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    // 初始化根视图
-    [self loadRootVC];
-    // 初始化ADCDN
-    [self registerADCDN];
-    // 初始化开屏广告
-    [self loadSplashAd];
-    return YES;
-}
-#pragma mark - 初始化根视图
--(void)loadRootVC{
+    // 初始化配置
+    [ADCDN_ConfigManager shareManagerWithAppId:KappId];
+    // 开发ADCDN错误日志,默认不开启
+    [ADCDN_DebugLogTool setLogEnable:YES];
+    
+    // 设置window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     ADCDN_ViewController *vc = [[ADCDN_ViewController alloc] init];
     ADCDN_NavigationController * nav = [[ADCDN_NavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
+    
+    // 加载开屏广告
+    [self loadSplashAd];
+ 
+    return YES;
 }
-#pragma mark - 初始化ADCDN
--(void)registerADCDN{
-    // 初始化配置
-    [ADCDN_ConfigManager shareManagerWithAppId:KappId];
-    // 获取sdk版本号
-    NSString *verString = [[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion];
-    NSLog(@"ADCDN版本号：%@",verString);
-    // 开发ADCDN错误日志,默认不开启
-    [ADCDN_DebugLogTool setLogEnable:YES];
-}
+
 #pragma mark - 加载开屏广告
 -(void)loadSplashAd{
    // 加载开屏广告
@@ -64,7 +55,6 @@
         _splashAdView.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
         [self.window.rootViewController.view addSubview:_splashAdView];
         _splashAdView.rootViewController = self.window.rootViewController;
-        
         // 防止白屏，给一个兜底图，开发者可以设置一个跟启动图一样的
         UIView *bottomView = [[UIView alloc] initWithFrame:frame];
         // icon
@@ -76,8 +66,8 @@
         launchNameImg.image = [UIImage imageNamed:@"launch_name"];
         launchNameImg.contentMode = UIViewContentModeScaleAspectFit;
         [bottomView addSubview:launchNameImg];
-        _splashAdView.bottomView = bottomView;
-        
+       _splashAdView.bottomView = bottomView;
+      
         // 设置开屏底部自定义LogoView，展示半屏开屏广告
         UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
         UIImageView *logoImageView = [[UIImageView alloc]initWithFrame:logoView.frame];
@@ -93,7 +83,6 @@
     }
     return _splashAdView;
 }
-#pragma mark - ADCDN_SplashAdManagerViewDelegate
 /**
  *  开屏广告成功展示
  */
@@ -102,7 +91,6 @@
 }
 /**
  *  开屏广告展示失败
- *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_SplashAdFailToPresent:(ADCDN_SplashAdManagerView *_Nullable)splashAd withError:(NSError *_Nullable)error {
     NSLog(@"%s---%@ error:%@",__FUNCTION__,@"开屏广告展示失败",error);
@@ -128,16 +116,17 @@
  */
 - (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告关闭回调");
+    // 移除开屏视图
+    if (self.splashAdView) {
+        [self.splashAdView removeFromSuperview];
+    }
 }
 /**
  *  开屏广告将要关闭回调
  */
 - (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd{
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭回调");
-    // 移除开屏视图
-    if (self.splashAdView) {
-        [self.splashAdView removeFromSuperview];
-    }
+    
 }
 /**
  *  开屏详情页关闭回调
@@ -146,16 +135,17 @@
     NSLog(@"%s---%@",__FUNCTION__,@"开屏详情页关闭回调");
 }
 #pragma mark - 快捷桌面启动执行的delegate方法
--(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options{
     BOOL resault = NO;
     // adcdnGameBox为游戏盒子的唯一标识
     if ([url.absoluteString containsString:@"adcdnGameBox"]) {
-        // 跳转到游戏盒子首页
+       // 方式一：跳转到游戏盒子首页
        resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options];
+    // 方式二：跳转到游戏盒子首页，绑定第三方用户id，如果游客模式userId可为空
+//       resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options userId:@"第三方userId"];
     }
     return resault;
 }
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

@@ -24,13 +24,7 @@
     [super viewDidLoad];
     // 设置view的y值从导航栏以下开始计算为y = 0
     self.navigationController.navigationBar.translucent = NO;
-    
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
-    self.navigationItem.rightBarButtonItem = button;
-    
+    [self loadAdBtnItem];
     [self adTableView];
 }
 -(void)dealloc{
@@ -93,7 +87,6 @@
 }
 /**
  *  加载失败
- *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_NativeExpressAd:(ADCDN_NativeExpressAdManager *)nativeExpressAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"原生模板广告加载失败");
@@ -102,7 +95,6 @@
  *  渲染广告成功
  */
 - (void)ADCDN_NativeExpressAdRenderSuccess:(UIView *)nativeExpressAdView{
-    NSLog(@"原生模板广告渲染成功");
     [self.adTableView reloadData];
 }
 /**

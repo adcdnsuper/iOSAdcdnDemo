@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ADCDN_BaseViewController.h"
 
 
-
-@interface ADCDN_ViewController : UIViewController
+@interface ADCDN_ViewController : ADCDN_BaseViewController
 
 @end
 

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ADCDN_BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ADCDN_ExpressRewardVideoViewController : UIViewController
+@interface ADCDN_ExpressRewardVideoViewController : ADCDN_BaseViewController
 /** plcId 广告位id */
 @property (nonatomic,copy) NSString *plcId;
 @end

@@ -534,6 +534,8 @@ ADCDN_GameBoxVCModel *model = [ADCDN_GameBoxVCModel new];
 model.urlScheme = @"bookkeepingDesktop";
 // 必传 presentViewController游戏盒子的控制器
 model.rootViewController = self;
+// userId可选，绑定第三方app的userId，打通金币体系
+// model.userId = @"app自身账户体系的userId";
 [[ADCDN_GameBoxManager defaultManager] openGameBoxWithModel:model];
 ```
 ``` Objective-C
@@ -542,8 +544,10 @@ model.rootViewController = self;
 BOOL resault = NO;
 // adcdnGameBox为游戏盒子的唯一标识
 if ([url.absoluteString containsString:@"adcdnGameBox"]) {
-    // 快捷桌面启动游戏盒子
-    resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options];
+    // 方式一：跳转到游戏盒子首页
+       resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options];
+    // 方式二：跳转到游戏盒子首页，绑定第三方用户id，如果游客模式userId可为空
+//  resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options userId:@"第三方userId"];
 }
 return resault;
 }

@@ -16,6 +16,8 @@
 UIKIT_EXTERN NSString * const KappId;
 /** 开屏广告 */
 UIKIT_EXTERN NSString * const KplcId_Splash;
+/** 自定义跳过按钮开屏广告 */
+UIKIT_EXTERN NSString * const KplcId_Skip_Splash;
 /** 横幅广告 */
 UIKIT_EXTERN NSString * const KplcId_Banner;
 /** 插屏广告 */

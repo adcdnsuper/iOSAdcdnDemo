@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ADCDN_BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ADCDN_VideoViewController : UIViewController
+@interface ADCDN_VideoViewController : ADCDN_BaseViewController
 /* type = 1 视频广告；type = 2 模版视频广告 */
 @property (nonatomic,assign) NSInteger type;
 

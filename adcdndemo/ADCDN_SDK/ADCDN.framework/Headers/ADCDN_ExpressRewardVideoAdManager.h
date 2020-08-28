@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)ADCDN_RewardVideoAd:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd didFailWithError:(NSError *_Nullable)error;
 /**
+ *  下载成功
+ */
+- (void)ADCDN_RewardVideoAdDidDownLoadVideo:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd;
+/**
  *  点击广告
  */
 - (void)ADCDN_RewardVideoAdDidClick:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd;
@@ -70,6 +74,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  加载广告
  */
 -(void)loadAd;
+/**
+ 展示广告方法
+ @param rootViewController 用于 present 激励视频 VC
+ @return 是否展示成功
+ 注：请在视频下载成功的回调之后执行此方法，才有效
+ */
+- (BOOL)showAdFromRootViewController:(UIViewController *)rootViewController;
 @end
 
 NS_ASSUME_NONNULL_END

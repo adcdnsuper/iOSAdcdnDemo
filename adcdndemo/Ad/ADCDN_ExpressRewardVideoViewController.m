@@ -8,10 +8,13 @@
 
 #import "ADCDN_ExpressRewardVideoViewController.h"
 #import <ADCDN/ADCDN.h>
-#import "UIView+ADCDN_APPView.h"
 @interface ADCDN_ExpressRewardVideoViewController ()<ADCDN_ExpressRewardVideoAdManagerDelegate>
 /* 模版激励视频广告 */
 @property (nonatomic,strong)ADCDN_ExpressRewardVideoAdManager  *rewardVideoAdManager;
+/* 加载广告 */
+@property (nonatomic,strong) UIButton *loadBtn;
+/* 展示广告 */
+@property (nonatomic,strong) UIButton *showBtn;
 @end
 
 @implementation ADCDN_ExpressRewardVideoViewController
@@ -20,19 +23,61 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
-    self.navigationItem.rightBarButtonItem = button;
+    [self baseSetupUI];
 }
-#pragma mark - 展示loading
--(void)showLoading{
-    [self.view adcdn_showLoading];
-    self.view.userInteractionEnabled = NO;
+#pragma mark - 加载UI
+-(void)baseSetupUI{
+    [self loadBtn];
+    [self showBtn];
 }
-#pragma mark - 移除loading
--(void)removeLoading{
-    [self.view adcdn_removeLoading];
-    self.view.userInteractionEnabled = YES;
+#pragma mark - loadBtn
+-(UIButton *)loadBtn{
+    if (!_loadBtn) {
+        _loadBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 120, ScreenW - 100, 40)];
+        _loadBtn.tag = 1;
+        [_loadBtn addTarget:self action:@selector(loadClicked:) forControlEvents:UIControlEventTouchUpInside];
+        _loadBtn.layer.cornerRadius = 8;
+        _loadBtn.layer.masksToBounds = YES;
+        _loadBtn.backgroundColor = [UIColor redColor];
+        [_loadBtn setTitle:@"加载广告" forState:0];
+        [_loadBtn setTitleColor:[UIColor whiteColor] forState:0];
+        [self.view addSubview:_loadBtn];
+    }
+    return _loadBtn;
+}
+#pragma mark - showBtn
+-(UIButton *)showBtn{
+    if (!_showBtn) {
+        _showBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 180, ScreenW - 100, 40)];
+        _showBtn.tag = 2;
+        [_showBtn addTarget:self action:@selector(loadClicked:) forControlEvents:UIControlEventTouchUpInside];
+        _showBtn.layer.cornerRadius = 8;
+        _showBtn.layer.masksToBounds = YES;
+        _showBtn.userInteractionEnabled = NO;
+        _showBtn.backgroundColor = [UIColor grayColor];
+        [_showBtn setTitle:@"展示广告" forState:0];
+        [_showBtn setTitleColor:[UIColor whiteColor] forState:0];
+        [self.view addSubview:_showBtn];
+    }
+    return _showBtn;
+}
+#pragma mark - 加载 tag = 1/ 展示 tag = 2
+-(void)loadClicked:(UIButton *)button{
+    if (button.tag == 1) {
+        // 加载广告
+        [self.rewardVideoAdManager loadAd];
+        // 展示loading
+        [self showLoading];
+    }
+    if (button.tag == 2) {
+        if (self.rewardVideoAdManager) {
+            // 展示广告
+            [self.rewardVideoAdManager showAdFromRootViewController:self];
+            
+            self.showBtn.userInteractionEnabled = NO;
+            [self.showBtn setBackgroundColor:[UIColor grayColor]];
+        }
+    }
 }
 #pragma mark - rewardVideoAdManager
 -(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAdManager{
@@ -45,7 +90,6 @@
 //        rewardVideoAdModel.rewardAmount = 1;
 //        rewardVideoAdModel.extra = @"extra";
 //        self.rewardVideoAdManager.rewardVideoAdModel = rewardVideoAdModel;
-        
         _rewardVideoAdManager.rootViewController = self;// rewardVideoAdManager需要strong持有，否则delegate回调无法执行，影响计费
         _rewardVideoAdManager.delegate = self;
     }
@@ -54,8 +98,6 @@
 #pragma mark - loadAd
 -(void)loadAd{
     [self.rewardVideoAdManager loadAd];
-    // 展示loading
-    [self showLoading];
 }
 #pragma mark - ADCDN_ExpressRewardVideoAdManagerDelegate
 /**
@@ -66,10 +108,16 @@
 }
 /**
  *  加载失败
- *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_RewardVideoAd:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"加载失败");
+    // 移除loading
+    [self removeLoading];
+}
+-(void)ADCDN_RewardVideoAdDidDownLoadVideo:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd{
+    NSLog(@"下载成功");
+    self.showBtn.userInteractionEnabled = YES;
+    [self.showBtn setBackgroundColor:[UIColor redColor]];
     // 移除loading
     [self removeLoading];
 }
@@ -84,8 +132,6 @@
  */
 - (void)ADCDN_RewardVideoAdDidBecomeVisible:(ADCDN_ExpressRewardVideoAdManager *)rewardVideoAd{
     NSLog(@"曝光回调");
-    // 移除loading
-    [self removeLoading];
 }
 /**
  *  视频播放完成

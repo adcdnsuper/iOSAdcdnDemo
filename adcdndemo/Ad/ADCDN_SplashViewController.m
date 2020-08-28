@@ -7,10 +7,11 @@
 //
 
 #import "ADCDN_SplashViewController.h"
+#import "UIFont+ADCDN_APPFont.h"
 #import <ADCDN/ADCDN.h>
 
 @interface ADCDN_SplashViewController ()<ADCDN_SplashAdManagerViewDelegate>
-/* 开屏广告对象 */
+/* 开屏广告 */
 @property (nonatomic,strong) ADCDN_SplashAdManagerView *splashAdView;
 @end
 
@@ -20,19 +21,13 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"开屏广告";
-    self.view.backgroundColor = [UIColor whiteColor];
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadSplashAd)];
-    self.navigationItem.rightBarButtonItem = button;
+    [self loadAdBtnItem];
     
 }
 -(void)dealloc{
     NSLog(@"释放了");
 }
-#pragma mark - 加载开屏广告
--(void)loadSplashAd{
-   // 加载开屏广告
-   [self.splashAdView loadSplashAd];
-}
+#pragma mark - splashAdView
 -(ADCDN_SplashAdManagerView *)splashAdView{
     if (!_splashAdView) {
         // 初始化开屏广告
@@ -60,20 +55,26 @@
         
         //设置开屏底部自定义LogoView，展示半屏开屏广告
         UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.width * 0.25)];
-        UIImageView *logoImageView = [[UIImageView alloc]initWithFrame:logoView.frame];
-        CGRect logoFrame = logoImageView.frame;
+        UIImageView *logo = [[UIImageView alloc]initWithFrame:logoView.frame];
+        CGRect logoFrame = logo.frame;
         logoFrame.size.width = 123;
         logoFrame.size.height = 30;
-        logoImageView.frame = logoFrame;
-        logoImageView.image = [UIImage imageNamed:@"splash_logo"];
-        [logoView addSubview:logoImageView];
-        logoImageView.center = logoView.center;
+        logo.frame = logoFrame;
+        logo.image = [UIImage imageNamed:@"splash_logo"];
+        [logoView addSubview:logo];
+        logo.center = logoView.center;
         logoView.backgroundColor = [UIColor whiteColor];
         _splashAdView.logoView = logoView;
     }
     return _splashAdView;
 }
-#pragma mark - ADCDN_SplashAdManagerViewDelegate
+#pragma mark - 加载开屏
+-(void)loadAd{
+    [self.splashAdView loadSplashAd];
+    // 展示loading
+    [self showLoading];
+}
+#pragma mark - ADCDN_SplashAdManagerViewDelegate代理
 /**
  *  开屏广告成功展示
  */
@@ -82,11 +83,11 @@
 }
 /**
  *  开屏广告展示失败
- *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_SplashAdFailToPresent:(ADCDN_SplashAdManagerView *_Nullable)splashAd withError:(NSError *_Nullable)error {
+    // 移除loading
+    [self removeLoading];
     NSLog(@"%s---%@ error:%@",__FUNCTION__,@"开屏广告展示失败",error);
-    // 移除开屏视图
     if (self.splashAdView) {
         [self.splashAdView removeFromSuperview];
     }
@@ -95,6 +96,8 @@
  *  开屏广告曝光回调
  */
 - (void)ADCDN_SplashAdExposured:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
+    // 移除loading
+    [self removeLoading];
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告曝光回调");
 }
 /**
@@ -113,11 +116,10 @@
  *  开屏广告将要关闭回调
  */
 - (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd{
-    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭回调");
-    // 移除开屏视图
     if (self.splashAdView) {
         [self.splashAdView removeFromSuperview];
     }
+    NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭回调");
 }
 /**
  *  开屏详情页关闭回调

@@ -20,9 +20,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"插屏广告";
-    self.view.backgroundColor = [UIColor whiteColor];
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
-    self.navigationItem.rightBarButtonItem = button;
+    [self loadAdBtnItem];
 }
 -(void)dealloc{
     NSLog(@"释放了");
@@ -39,6 +37,8 @@
 #pragma mark - loadAd
 -(void)loadAd{
     [self.interstitialAdManager loadAd];
+    // 展示loading
+    [self showLoading];
 }
 #pragma mark - ADCDN_InterstitialAdManagerDelegate
 /**
@@ -49,10 +49,11 @@
 }
 /**
  *  加载失败
- *  广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_InterstitialAd:(ADCDN_InterstitialAdManager *)InterstitialAd didFailWithError:(NSError *_Nullable)error{
     NSLog(@"插屏加载失败");
+    // 移除loading
+    [self removeLoading];
 }
 /**
  *  点击广告
@@ -65,6 +66,8 @@
  */
 - (void)ADCDN_InterstitialAdDidBecomeVisible:(ADCDN_InterstitialAdManager *)InterstitialAd{
     NSLog(@"插屏曝光回调");
+    // 移除loading
+    [self removeLoading];
 }
 /**
  *  关闭广告回调

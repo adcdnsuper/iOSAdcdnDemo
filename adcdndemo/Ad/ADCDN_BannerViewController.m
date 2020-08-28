@@ -22,14 +22,15 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"横幅广告";
-    self.view.backgroundColor = [UIColor whiteColor];
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"加载" style:UIBarButtonItemStylePlain target:self action:@selector(loadAd)];
-    self.navigationItem.rightBarButtonItem = button;
+    [self loadAdBtnItem];
+}
+-(void)dealloc{
+    NSLog(@"释放了");
 }
 #pragma mark - adView
 -(UIView *)adView{
     if (!_adView) {
-        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100,ScreenW , ScreenW / 6.25)];
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 100,ScreenW , 130)];
         [self.view addSubview:_adView];
     }
     return _adView;
@@ -39,21 +40,20 @@
     if (!_bannerAdManager) {
         _bannerAdManager = [[ADCDN_BannerAdManager alloc] initWithPlcId:KplcId_Banner];
         _bannerAdManager.customView = self.adView;// banner加载的位置
-        _bannerAdManager.interval = 30;// 大于等于30s循环展示
+        _bannerAdManager.interval = 31;// 大于等于30s循环展示
         _bannerAdManager.rootViewController = self;
         _bannerAdManager.delegate = self;// banner需要strong持有，否则delegate回调无法执行，影响计费
-        _bannerAdManager.adSize = CGSizeMake(ScreenW, ScreenW / 6.25);
+        _bannerAdManager.adSize = CGSizeMake(ScreenW, (ScreenW) / 6.25);
     }
     return _bannerAdManager;
 }
-#pragma mark - loadAd
--(void)loadAd{
+#pragma mark - 加载广告
+- (void)loadAd {
     [self.bannerAdManager loadNativeAd];
+    // 展示loading
+    [self showLoading];
 }
--(void)dealloc{
-    NSLog(@"释放了");
-}
-#pragma mark - ADCDN_BannerAdManagerDelegate 代理协议方法
+ #pragma mark - ADCDN_BannerAdManagerDelegate代理
 /**
  * 加载成功
  */
@@ -62,10 +62,11 @@
 }
 /**
  * 加载失败
- * 广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
  */
 - (void)ADCDN_BannerAd:(ADCDN_BannerAdManager *)bannerAd didFailWithError:(NSError *_Nullable)error {
     NSLog(@"加载失败-----%s",__FUNCTION__);
+    // 移除loading
+    [self removeLoading];
 }
 /**
  * 点击广告
@@ -78,6 +79,8 @@
  */
 - (void)ADCDN_BannerAdDidBecomeVisible:(ADCDN_BannerAdManager *)bannerAd {
     NSLog(@"曝光回调-----%s",__FUNCTION__);
+    // 移除loading
+    [self removeLoading];
 }
 /**
  * 关闭广告
