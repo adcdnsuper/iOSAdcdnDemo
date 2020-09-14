@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13331E4324E3DD3900F4B215 /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13331E4124E3DD3900F4B215 /* ADCDN.bundle */; };
 		135B10EF24F8D99500E0D5F4 /* ADCDN_UnRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10C424F8D99200E0D5F4 /* ADCDN_UnRewardViewController.m */; };
 		135B10F024F8D99500E0D5F4 /* ADCDN_APPNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10CA24F8D99300E0D5F4 /* ADCDN_APPNetWorkTool.m */; };
 		135B10F124F8D99500E0D5F4 /* ADCDN_AppConstTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10CB24F8D99300E0D5F4 /* ADCDN_AppConstTool.m */; };
@@ -25,20 +24,20 @@
 		135B10FF24F8D99500E0D5F4 /* UIView+ADCDN_APPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10EA24F8D99500E0D5F4 /* UIView+ADCDN_APPView.m */; };
 		135B110024F8D99500E0D5F4 /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10ED24F8D99500E0D5F4 /* ADCDN_NavigationController.m */; };
 		135B110124F8D99500E0D5F4 /* ADCDN_RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10EE24F8D99500E0D5F4 /* ADCDN_RewardViewController.m */; };
+		135D04EB250F61B400D5F95E /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 135D04E9250F61B400D5F95E /* ADCDN.bundle */; };
+		135D04EC250F61B400D5F95E /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135D04EA250F61B400D5F95E /* ADCDN.framework */; };
 		13B7A69A247D3CB9007756DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A699247D3CB9007756DD /* AppDelegate.m */; };
 		13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A1247D3CB9007756DD /* Main.storyboard */; };
 		13B7A6A6247D3CB9007756DD /* adcdndemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6A4247D3CB9007756DD /* adcdndemo.xcdatamodeld */; };
 		13B7A6A8247D3CBC007756DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A7247D3CBC007756DD /* Assets.xcassets */; };
 		13B7A6AB247D3CBC007756DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A9247D3CBC007756DD /* LaunchScreen.storyboard */; };
 		13B7A6AE247D3CBC007756DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6AD247D3CBC007756DD /* main.m */; };
-		13C67185250211B800F22DD6 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C67184250211B800F22DD6 /* ADCDN.framework */; };
 		A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 059382864258578FA67AB41E /* libPods-adcdndemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00B2826B192462E81998C6B2 /* Pods-adcdndemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adcdndemo.release.xcconfig"; path = "Target Support Files/Pods-adcdndemo/Pods-adcdndemo.release.xcconfig"; sourceTree = "<group>"; };
 		059382864258578FA67AB41E /* libPods-adcdndemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-adcdndemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13331E4124E3DD3900F4B215 /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
 		135B10C424F8D99200E0D5F4 /* ADCDN_UnRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_UnRewardViewController.m; sourceTree = "<group>"; };
 		135B10C524F8D99300E0D5F4 /* ADCDN_VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_VideoViewController.h; sourceTree = "<group>"; };
 		135B10C624F8D99300E0D5F4 /* ADCDN_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_ViewController.h; sourceTree = "<group>"; };
@@ -75,6 +74,8 @@
 		135B10EC24F8D99500E0D5F4 /* ADCDN_PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_PrefixHeader.pch; sourceTree = "<group>"; };
 		135B10ED24F8D99500E0D5F4 /* ADCDN_NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NavigationController.m; sourceTree = "<group>"; };
 		135B10EE24F8D99500E0D5F4 /* ADCDN_RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_RewardViewController.m; sourceTree = "<group>"; };
+		135D04E9250F61B400D5F95E /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
+		135D04EA250F61B400D5F95E /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B7A695247D3CB9007756DD /* adcdndemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adcdndemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B7A698247D3CB9007756DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B7A699247D3CB9007756DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		13B7A6AA247D3CBC007756DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13B7A6AC247D3CBC007756DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B7A6AD247D3CBC007756DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		13C67184250211B800F22DD6 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		71823D274EAF1D532704BE1A /* Pods-adcdndemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adcdndemo.debug.xcconfig"; path = "Target Support Files/Pods-adcdndemo/Pods-adcdndemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */,
-				13C67185250211B800F22DD6 /* ADCDN.framework in Frameworks */,
+				135D04EC250F61B400D5F95E /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,8 +198,8 @@
 		13B7A6B4247D3E1B007756DD /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				13C67184250211B800F22DD6 /* ADCDN.framework */,
-				13331E4124E3DD3900F4B215 /* ADCDN.bundle */,
+				135D04E9250F61B400D5F95E /* ADCDN.bundle */,
+				135D04EA250F61B400D5F95E /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 			files = (
 				13B7A6AB247D3CBC007756DD /* LaunchScreen.storyboard in Resources */,
 				13B7A6A8247D3CBC007756DD /* Assets.xcassets in Resources */,
-				13331E4324E3DD3900F4B215 /* ADCDN.bundle in Resources */,
+				135D04EB250F61B400D5F95E /* ADCDN.bundle in Resources */,
 				13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,7 +493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fanmao.adcdn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanmao.bookkeeping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -519,7 +519,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fanmao.adcdn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanmao.bookkeeping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
