@@ -139,11 +139,11 @@
 #pragma mark - 快捷桌面启动执行的delegate方法
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options{
     BOOL resault = NO;
-    // adcdnGameBox为游戏盒子的唯一标识
+    // adcdnGameBox为营销场景的唯一标识
     if ([url.absoluteString containsString:@"adcdnGameBox"]) {
-       // 方式一：跳转到游戏盒子首页
+       // 方式一：跳转到营销场景首页
        resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options];
-    // 方式二：跳转到游戏盒子首页，绑定第三方用户id，如果游客模式userId可为空
+    // 方式二：跳转到营销场景首页，绑定第三方用户id，如果游客模式userId可为空
 //       resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options userId:@"第三方userId"];
     }
     return resault;

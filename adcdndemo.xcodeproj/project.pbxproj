@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,8 +24,8 @@
 		135B10FF24F8D99500E0D5F4 /* UIView+ADCDN_APPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10EA24F8D99500E0D5F4 /* UIView+ADCDN_APPView.m */; };
 		135B110024F8D99500E0D5F4 /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10ED24F8D99500E0D5F4 /* ADCDN_NavigationController.m */; };
 		135B110124F8D99500E0D5F4 /* ADCDN_RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10EE24F8D99500E0D5F4 /* ADCDN_RewardViewController.m */; };
-		135D04EB250F61B400D5F95E /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 135D04E9250F61B400D5F95E /* ADCDN.bundle */; };
-		135D04EC250F61B400D5F95E /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135D04EA250F61B400D5F95E /* ADCDN.framework */; };
+		1368855B2514D74300AEAE2C /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 136885592514D74200AEAE2C /* ADCDN.bundle */; };
+		1368855C2514D74300AEAE2C /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1368855A2514D74300AEAE2C /* ADCDN.framework */; };
 		13B7A69A247D3CB9007756DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A699247D3CB9007756DD /* AppDelegate.m */; };
 		13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A1247D3CB9007756DD /* Main.storyboard */; };
 		13B7A6A6247D3CB9007756DD /* adcdndemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6A4247D3CB9007756DD /* adcdndemo.xcdatamodeld */; };
@@ -74,8 +74,8 @@
 		135B10EC24F8D99500E0D5F4 /* ADCDN_PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCDN_PrefixHeader.pch; sourceTree = "<group>"; };
 		135B10ED24F8D99500E0D5F4 /* ADCDN_NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NavigationController.m; sourceTree = "<group>"; };
 		135B10EE24F8D99500E0D5F4 /* ADCDN_RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_RewardViewController.m; sourceTree = "<group>"; };
-		135D04E9250F61B400D5F95E /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
-		135D04EA250F61B400D5F95E /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		136885592514D74200AEAE2C /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
+		1368855A2514D74300AEAE2C /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B7A695247D3CB9007756DD /* adcdndemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adcdndemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B7A698247D3CB9007756DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B7A699247D3CB9007756DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */,
-				135D04EC250F61B400D5F95E /* ADCDN.framework in Frameworks */,
+				1368855C2514D74300AEAE2C /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,8 +198,8 @@
 		13B7A6B4247D3E1B007756DD /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				135D04E9250F61B400D5F95E /* ADCDN.bundle */,
-				135D04EA250F61B400D5F95E /* ADCDN.framework */,
+				136885592514D74200AEAE2C /* ADCDN.bundle */,
+				1368855A2514D74300AEAE2C /* ADCDN.framework */,
 			);
 			path = ADCDN_SDK;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 			files = (
 				13B7A6AB247D3CBC007756DD /* LaunchScreen.storyboard in Resources */,
 				13B7A6A8247D3CBC007756DD /* Assets.xcassets in Resources */,
-				135D04EB250F61B400D5F95E /* ADCDN.bundle in Resources */,
+				1368855B2514D74300AEAE2C /* ADCDN.bundle in Resources */,
 				13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

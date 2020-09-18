@@ -36,7 +36,7 @@ ADCDN广告SDK支持如下广告功能:
 | 横幅广告        | 横幅广告         |
 | 插屏广告        | 插屏广告         |
 | 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
-| 游戏盒子变现场景       | 消星星、橘子消成语、幸运转盘、金币抢夺、刮刮乐等游戏         |
+| 营销场景       | 消星星、橘子消成语、幸运转盘、金币抢夺、刮刮乐等游戏         |
 
 ## 2. 接入Android请跳转以下链接
 [接入Android版ADCDN链接](https://github.com/adcdnsuper/AndroidAdcdnDemo)
@@ -47,19 +47,20 @@ iOS9.0及以上，最新版本号：V 8.3.0，已经对接过ADCDN的，如需�
 
 | 版本号        | 更新内容 | 更新时间 | 
 | --------       | -----   |----- | 
+| V8.4.0       |  优化SDK|2020-09-18
 | V8.3.0       |  优化SDK，提高变现能力|2020-09-14
 | V8.2.1       |  优化SDK|2020-09-04
 | V8.2.0       |  优化SDK，提供视频加载速度，适配依赖最新包版本GDTMobSDK V4.11.10和Bytedance-UnionAD V3.1.0.5|2020-08-28
-| V8.1.2        |  优化SDK，提高游戏盒子广告变现能力       ，适配依赖最新包版本GDTMobSDK V4.11.10和Bytedance-UnionAD V3.1.0.5|2020-08-12
-| V7.2.0        |  新增游戏盒子功能增强APP广告变现能力：快捷桌面启动、幸运刮刮乐等       |2020-06-17
-| V7.0.4        |  优化游戏盒子初始化失败重新加载逻辑       |2020-05-27
+| V8.1.2        |  优化SDK，提高营销场景广告变现能力       ，适配依赖最新包版本GDTMobSDK V4.11.10和Bytedance-UnionAD V3.1.0.5|2020-08-12
+| V7.2.0        |  新增营销场景功能增强APP广告变现能力：快捷桌面启动、幸运刮刮乐等       |2020-06-17
+| V7.0.4        |  优化营销场景初始化失败重新加载逻辑       |2020-05-27
 | V7.0.3        | 1、提供根据版本号关闭游戏场景入口的方法；2、优化初始化失败重试方案；3、修复优量汇横幅广告轮播问题        |2020-05-25
 | V7.0.2        | 适配了V4.11.8的优量汇版本横幅广告加载crash问题，原因：横幅广告初始化方法V4.11.8之后废弃了之前的初始化方法         |2020-05-19|
-| V7.0.1        | 优化游戏盒子的加载速度         |2020-05-18|
-| V7.0.0        |   新增游戏盒子变现场景      |2020-05-15|
+| V7.0.1        | 优化营销场景的加载速度         |2020-05-18|
+| V7.0.0        |   新增营销场景变现场景      |2020-05-15|
 ## 4. ADCDN接入流程
 ### 4.1 添加ADCDN到工程
-接入环境：Xcode 可以复制YD_AD_demo中ADCDN_SDK文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的游戏盒子，请把ADCDN.bundle资源文件一并拖入。
+接入环境：Xcode 可以复制YD_AD_demo中ADCDN_SDK文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的营销场景，请把ADCDN.bundle资源文件一并拖入。
 ### 4.2 权限申请
 苹果公司在iOS9中升级了应用网络通信安全策略，默认推荐开发者使用HTTPS协议来进行网络通信，并限制HTTP协议的请求。为了避免出现无法拉取到广告的情况，我们推荐开发者在info.plist文件中增加如下配置来实现广告的网络访问：（信任HTTP请求）
 ``` xml
@@ -79,7 +80,7 @@ SDK不会主动获取应用位置权限，当应用本身有获取位置权限�
 <string>请允许APP获取您的位置信息</string>
 <key>NSPhotoLibraryAddUsageDescription</key>
 ```
-相册相关权限(如果有接入游戏盒子场景的话，需要提供以下相册相机权限，游戏盒子内更改用户头像需要访问该权限)。
+相册相关权限(如果有接入营销场景的话，需要提供以下相册相机权限，营销场景内更改用户头像需要访问该权限)。
 ``` xml
 <key>NSCameraUsageDescription</key>
 <string>请允许APP访问您的相机功能，以便使用拍照功能上传用户头像</string>
@@ -89,7 +90,7 @@ SDK不会主动获取应用位置权限，当应用本身有获取位置权限�
 <key>NSPhotoLibraryUsageDescription</key>
 <string>请允许APP访问您的相册功能，以便使用拍照存储功能</string>
 ```
-游戏盒子添加快捷桌面启动需要设置：工程 - info - URL Types - URL Schemes如图所示：
+营销场景添加快捷桌面启动需要设置：工程 - info - URL Types - URL Schemes如图所示：
 <p align="center">
 <img src="https://github.com/pengshuangta/images/blob/master/adcdn_urlscheme.png">
 </p>
@@ -528,14 +529,14 @@ self.fullscreenVideoAdManager.delegate = self;// fullscreenVideoAdManager需要s
     NSLog(@"视频广告点击跳过");
 }
 ```
-### 5.8 游戏盒子场景广告
-初始化游戏盒子场景广告
+### 5.8 营销场景广告
+初始化营销场景广告
 ``` Objective-C
-#pragma mark - 启动游戏盒子
+#pragma mark - 启动营销场景
 ADCDN_GameBoxVCModel *model = [ADCDN_GameBoxVCModel new];
 // 必传 app的标识urlScheme，添加快捷桌面图标使用（在工程 - info - URL Types中填写）
 model.urlScheme = @"bookkeepingDesktop";
-// 必传 presentViewController游戏盒子的控制器
+// 必传 presentViewController营销场景的控制器
 model.rootViewController = self;
 // userId可选，绑定第三方app的userId，打通金币体系
 // model.userId = @"app自身账户体系的userId";
@@ -545,17 +546,17 @@ model.rootViewController = self;
 #pragma mark - 快捷桌面启动执行的appdelegate方法
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
 BOOL resault = NO;
-// adcdnGameBox为游戏盒子的唯一标识
+// adcdnGameBox为营销场景的唯一标识
 if ([url.absoluteString containsString:@"adcdnGameBox"]) {
-    // 方式一：跳转到游戏盒子首页
+    // 方式一：跳转到营销场景首页
        resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options];
-    // 方式二：跳转到游戏盒子首页，绑定第三方用户id，如果游客模式userId可为空
+    // 方式二：跳转到营销场景首页，绑定第三方用户id，如果游客模式userId可为空
 //  resault = [[ADCDN_GameBoxManager defaultManager] handleOpenURL:url options:options userId:@"第三方userId"];
 }
 return resault;
 }
 ```
-游戏盒子获取游戏开关状态示例代码
+营销场景获取游戏开关状态示例代码
 ``` Objective-C
 /**
  * 当前APP的版本是否关闭了游戏场景
@@ -566,10 +567,10 @@ return resault;
 // 代码调用
 [[ADCDN_ConfigManager shareManagerWithAppId:KappId] getGameBoxSwitchStatus:^(BOOL isClose) {
     if (isClose) {
-        NSLog(@"关闭游戏盒子入口");
+        NSLog(@"关闭营销场景入口");
     }
     else{
-        NSLog(@"开启游戏盒子入口");
+        NSLog(@"开启营销场景入口");
     }
 }];
 ```

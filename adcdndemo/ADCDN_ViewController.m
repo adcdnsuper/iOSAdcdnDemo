@@ -46,7 +46,7 @@
 }
 -(NSArray *)menuTitleArr{
     if (!_menuTitleArr) {
-        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"模版视频广告2.0",@"游戏盒子",];
+        _menuTitleArr = @[@"开屏广告",@"原生广告",@"横幅广告",@"插屏广告",@"模版视频广告2.0",@"营销场景",];
     }
     return _menuTitleArr;
 }
@@ -111,7 +111,7 @@
         vc.type = 2;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    // 游戏盒子
+    // 营销场景
     if (indexPath.row == 5) {
         
         ADCDN_GameBoxVCModel *model = [ADCDN_GameBoxVCModel new];
