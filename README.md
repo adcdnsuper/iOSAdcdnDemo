@@ -43,7 +43,7 @@ ADCDN广告SDK支持如下广告功能:
 
 
 ## 3. 兼容和历史版本
-iOS9.0及以上，最新版本号：V 8.3.0，已经对接过ADCDN的，如需要更新最新版，直接替换demo中的ADCDN.framework和ADCDN.bundle即可。
+iOS9.0及以上，最新版本号：V 8.4.0，已经对接过ADCDN的，如需要更新最新版，直接替换demo中的ADCDN.framework和ADCDN.bundle即可。
 
 | 版本号        | 更新内容 | 更新时间 | 
 | --------       | -----   |----- | 
