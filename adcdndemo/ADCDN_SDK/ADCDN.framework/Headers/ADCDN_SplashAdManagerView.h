@@ -50,6 +50,7 @@
 @property (nonatomic, weak) id <ADCDN_SplashAdManagerViewDelegate> _Nullable delegate;
 // 控制器
 @property (nonatomic, weak)UIViewController * _Nullable rootViewController;
+@property (nonatomic,assign) CGRect viewframe;
 /**
  * [可选]，兜底图，防止开屏广告材料还没拉取到，会有白屏展示，建议：兜底可以设置为启动图。
  */
