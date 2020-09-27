@@ -162,4 +162,7 @@
 - (void)ADCDN_RewardVideoAdServerRewardDidFail:(ADCDN_ExpressRewardVideoAdManager *)rewardedVideoAd{
     NSLog(@"服务器核实回调失败");
 }
+-(void)dealloc{
+    NSLog(@"释放了");
+}
 @end
