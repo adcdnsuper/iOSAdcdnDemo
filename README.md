@@ -38,11 +38,11 @@ ADCDN广告SDK支持如下广告功能:
 | 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
 | 营销场景       | 消星星、橘子消成语、幸运转盘、金币抢夺、刮刮乐等游戏         |
 
-##3、穿山甲开发者升级 iOS 14 checklist
-[穿山甲官网说明地址](https://www.pangle.cn/union/media/union/download/detail?id=16&osType=ios)
-1、应用编译环境升级至 Xcode 12.0 及以上版本
-2、升级穿山甲 iOS SDK 3.2.5.0 及以上版本，提供了 iOS 14 与 SKAdNetwork 支持
-3、将穿山甲的 SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
+## 3、穿山甲开发者升级 iOS 14 checklist  
+[穿山甲官网说明地址](https://www.pangle.cn/union/media/union/download/detail?id=16&osType=ios)  
+1、应用编译环境升级至 Xcode 12.0 及以上版本  
+2、升级穿山甲 iOS SDK 3.2.5.0 及以上版本，提供了 iOS 14 与 SKAdNetwork 支持  
+3、将穿山甲的 SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行  
 ``` xml
 <key>SKAdNetworkItems</key>
   <array>
