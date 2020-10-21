@@ -99,6 +99,7 @@
     // 移除开屏视图
     if (self.splashAdView) {
         [self.splashAdView removeFromSuperview];
+        self.splashAdView = nil;
     }
 }
 /**
@@ -121,6 +122,7 @@
     // 移除开屏视图
     if (self.splashAdView) {
         [self.splashAdView removeFromSuperview];
+        self.splashAdView = nil;
     }
 }
 /**

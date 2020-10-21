@@ -90,6 +90,7 @@
     NSLog(@"%s---%@ error:%@",__FUNCTION__,@"开屏广告展示失败",error);
     if (self.splashAdView) {
         [self.splashAdView removeFromSuperview];
+        self.splashAdView = nil;
     }
 }
 /**
@@ -110,15 +111,16 @@
  *  开屏广告关闭回调
  */
 - (void)ADCDN_SplashAdClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd {
+    if (self.splashAdView) {
+        [self.splashAdView removeFromSuperview];
+        self.splashAdView = nil;
+    }
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告关闭回调");
 }
 /**
  *  开屏广告将要关闭回调
  */
 - (void)ADCDN_SplashAdWillClosed:(ADCDN_SplashAdManagerView *_Nullable)splashAd{
-    if (self.splashAdView) {
-        [self.splashAdView removeFromSuperview];
-    }
     NSLog(@"%s---%@",__FUNCTION__,@"开屏广告将要关闭回调");
 }
 /**
