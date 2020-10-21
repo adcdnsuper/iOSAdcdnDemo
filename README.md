@@ -37,6 +37,7 @@ ADCDN广告SDK支持如下广告功能:
 | 插屏广告        | 插屏广告         |
 | 视频广告2.0       | 激励视频广告（横屏、竖屏） 非激励视频广告（横屏、竖屏）         |
 | 营销场景       | 消星星、橘子消成语、幸运转盘、金币抢夺、刮刮乐等游戏         |
+
 ##3、穿山甲开发者升级 iOS 14 checklist
 [穿山甲官网说明地址](https://www.pangle.cn/union/media/union/download/detail?id=16&osType=ios)
 1、应用编译环境升级至 Xcode 12.0 及以上版本
