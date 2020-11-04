@@ -31,7 +31,7 @@
 		13B7A6A8247D3CBC007756DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A7247D3CBC007756DD /* Assets.xcassets */; };
 		13B7A6AB247D3CBC007756DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A9247D3CBC007756DD /* LaunchScreen.storyboard */; };
 		13B7A6AE247D3CBC007756DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6AD247D3CBC007756DD /* main.m */; };
-		13F73C4A255131E3005C1607 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F73C49255131E3005C1607 /* ADCDN.framework */; };
+		13F73C912552407D005C1607 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F73C902552407D005C1607 /* ADCDN.framework */; };
 		A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 059382864258578FA67AB41E /* libPods-adcdndemo.a */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +84,7 @@
 		13B7A6AA247D3CBC007756DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13B7A6AC247D3CBC007756DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B7A6AD247D3CBC007756DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		13F73C49255131E3005C1607 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		13F73C902552407D005C1607 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		71823D274EAF1D532704BE1A /* Pods-adcdndemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adcdndemo.debug.xcconfig"; path = "Target Support Files/Pods-adcdndemo/Pods-adcdndemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */,
-				13F73C4A255131E3005C1607 /* ADCDN.framework in Frameworks */,
+				13F73C912552407D005C1607 /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +198,7 @@
 		13B7A6B4247D3E1B007756DD /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				13F73C49255131E3005C1607 /* ADCDN.framework */,
+				13F73C902552407D005C1607 /* ADCDN.framework */,
 				136885592514D74200AEAE2C /* ADCDN.bundle */,
 			);
 			path = ADCDN_SDK;
