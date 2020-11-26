@@ -202,7 +202,6 @@ NSLog(@"ADCDN_version:%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] ge
     if (!_splashAdView) {
         CGRect frame = [UIScreen mainScreen].bounds;
         _splashAdView = [[ADCDN_SplashAdManagerView alloc] initWithFrame:frame plcId:KplcId_Splash];
-        _splashAdView.backgroundColor = [UIColor whiteColor];
         _splashAdView.window = self.window;
         _splashAdView.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
         [self.window.rootViewController.view addSubview:_splashAdView];

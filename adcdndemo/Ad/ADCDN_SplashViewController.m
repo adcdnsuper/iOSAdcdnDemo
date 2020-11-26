@@ -33,7 +33,6 @@
         // 初始化开屏广告
         CGRect frame = [UIScreen mainScreen].bounds;
         _splashAdView = [[ADCDN_SplashAdManagerView alloc] initWithFrame:frame plcId:KplcId_Splash];
-        _splashAdView.backgroundColor = [UIColor whiteColor];
         UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
         _splashAdView.window = keyWindow;
         _splashAdView.delegate = self;// manager需要strong持有，否则delegate回调无法执行，影响计费
