@@ -7,12 +7,12 @@
 通过本文档，您可以轻松的在几分钟之内完成广告的集成过程。
 
 ## *注意事项：*
-1、运行demo前，请先在终端cd到工程目录执行pod install，添加依赖库，demo才能加载出广告，``` 为了避免不同平台的依赖库版本可能存在冲突或不同版本可能存在函数被弃用，故建议添加（穿山甲：Bytedance-UnionAD和优量汇：GDTMobSDK）依赖库时请保持跟ADCDN中添加的版本一致```如：GDTMobSDK添加的是4.11.10版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods；  
+1、运行demo前，请先在终端cd到工程目录执行pod install，添加依赖库，demo才能加载出广告，``` 为了避免不同平台的依赖库版本可能存在冲突或不同版本可能存在函数被弃用，故建议添加（穿山甲：Bytedance-UnionAD和优量汇：GDTMobSDK）依赖库时请保持跟ADCDN中添加的版本一致```如：GDTMobSDK添加的是4.11.12版本,如果pod search xxx库，没有找到指定的最新版本，可以执行pod repo update 更新最新的cocoapods；  
 2、广告拉取失败，禁止多次重试请求广告，避免请求量消耗过大，导致填充率过低，影响系统对您流量的评价从而影响变现效果，得不到广告收益。
 ``` java
 platform :ios,'9.0'
 target 'YX_AD_demo' do
-pod 'GDTMobSDK', '4.11.11'
+pod 'GDTMobSDK', '4.11.12'
 pod 'Bytedance-UnionAD', '3.2.6.2'
 end
 ```
@@ -96,10 +96,11 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
 
 
 ## 3. 兼容和历史版本
-iOS9.0及以上，最新版本号：V 8.5.5，已经对接过ADCDN的，如需要更新最新版本，直接替换demo中的ADCDN.framework和ADCDN.bundle即可。
+iOS9.0及以上，最新版本号：V 8.5.9，已经对接过ADCDN的，如需要更新最新版本，直接替换demo中的ADCDN.framework和ADCDN.bundle即可。
 
 | 版本号        | 更新内容 | 更新时间 | 
 | --------       | -----   |----- | 
+| V8.5.9       |  1、优化SDK，GDTMobSDK V4.11.12和Bytedance-UnionAD V3.2.6.2；|2020-10-21
 | V8.5.5       |  1、优化SDK |2020-11-3
 | V8.5.2       |  1、优化SDK；2、适配依赖包版本支持iOS14：GDTMobSDK V4.11.11和Bytedance-UnionAD V3.2.6.2；|2020-10-21
 | V8.4.3       |  1、优化SDK，提高变现能力；2、适配包版本GDTMobSDK V4.11.10和Bytedance-UnionAD V3.2.0.1；3、请对应更新穿山甲Bytedance-UnionAD V3.2.0.1，因为穿山甲V3.1.0.5版本激励视频存在内存泄漏问题。|2020-09-27
