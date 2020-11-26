@@ -1,0 +1,6 @@
+framework module ADCDN {
+  umbrella header "ADCDN.h"
+
+  export *
+  module * { export * }
+}
