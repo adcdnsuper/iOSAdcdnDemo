@@ -25,7 +25,7 @@
 		135B110024F8D99500E0D5F4 /* ADCDN_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10ED24F8D99500E0D5F4 /* ADCDN_NavigationController.m */; };
 		135B110124F8D99500E0D5F4 /* ADCDN_RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135B10EE24F8D99500E0D5F4 /* ADCDN_RewardViewController.m */; };
 		1368855B2514D74300AEAE2C /* ADCDN.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 136885592514D74200AEAE2C /* ADCDN.bundle */; };
-		138424D72570A36F0078C404 /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138424D62570A36F0078C404 /* ADCDN.framework */; };
+		138519E42581EF6200967C2C /* ADCDN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138519E32581EF6200967C2C /* ADCDN.framework */; };
 		13B7A69A247D3CB9007756DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A699247D3CB9007756DD /* AppDelegate.m */; };
 		13B7A6A3247D3CB9007756DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B7A6A1247D3CB9007756DD /* Main.storyboard */; };
 		13B7A6A6247D3CB9007756DD /* adcdndemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13B7A6A4247D3CB9007756DD /* adcdndemo.xcdatamodeld */; };
@@ -75,7 +75,7 @@
 		135B10ED24F8D99500E0D5F4 /* ADCDN_NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_NavigationController.m; sourceTree = "<group>"; };
 		135B10EE24F8D99500E0D5F4 /* ADCDN_RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCDN_RewardViewController.m; sourceTree = "<group>"; };
 		136885592514D74200AEAE2C /* ADCDN.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ADCDN.bundle; sourceTree = "<group>"; };
-		138424D62570A36F0078C404 /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
+		138519E32581EF6200967C2C /* ADCDN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADCDN.framework; sourceTree = "<group>"; };
 		13B7A695247D3CB9007756DD /* adcdndemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adcdndemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B7A698247D3CB9007756DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B7A699247D3CB9007756DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F759434DFEC6C83A7E3C25 /* libPods-adcdndemo.a in Frameworks */,
-				138424D72570A36F0078C404 /* ADCDN.framework in Frameworks */,
+				138519E42581EF6200967C2C /* ADCDN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +198,7 @@
 		13B7A6B4247D3E1B007756DD /* ADCDN_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				138424D62570A36F0078C404 /* ADCDN.framework */,
+				138519E32581EF6200967C2C /* ADCDN.framework */,
 				136885592514D74200AEAE2C /* ADCDN.bundle */,
 			);
 			path = ADCDN_SDK;
