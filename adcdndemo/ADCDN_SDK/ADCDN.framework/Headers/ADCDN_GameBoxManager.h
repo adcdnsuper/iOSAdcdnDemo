@@ -27,7 +27,7 @@
 *  @param url       桌面图标打开本app的回调的url
 *  @param options   回调的参数
 *  @return 是否处理   YES代表处理成功，NO代表不处理
-*  @userId   第三方用户id
+*  @userId   第三方用户id，没有传空，或者不传
 *  快捷桌面打开方式
 */
 -(BOOL)handleOpenURL:(NSURL *)url options:(NSDictionary*)options userId:(NSString *)userId;

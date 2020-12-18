@@ -96,10 +96,11 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
 
 
 ## 3. 兼容和历史版本
-iOS9.0及以上，最新版本号：V 8.5.11，已经对接过ADCDN的，如需要更新最新版本，直接替换demo中的ADCDN.framework和ADCDN.bundle即可。
+iOS9.0及以上，最新版本号：V 8.6.0，已经对接过ADCDN的，如需要更新最新版本，直接替换demo中的ADCDN.framework和ADCDN.bundle即可。
 
 | 版本号        | 更新内容 | 更新时间 | 
 | --------       | -----   |----- | 
+| V8.6.0       |  1、优化营销场景 |2020-12-18
 | V8.5.11       |  1、更新营销场景 |2020-12-11
 | V8.5.10       |  1、优化SDK |2020-12-10
 | V8.5.9       |  1、优化SDK，GDTMobSDK V4.11.12和Bytedance-UnionAD V3.2.6.2；|2020-11-28

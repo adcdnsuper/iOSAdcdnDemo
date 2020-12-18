@@ -95,6 +95,10 @@
  *  渲染广告成功
  */
 - (void)ADCDN_NativeExpressAdRenderSuccess:(UIView *)nativeExpressAdView{
+    // 在主线程中获取nativeExpressAdView 广告view的size
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"%@",nativeExpressAdView);
+    });
     [self.adTableView reloadData];
 }
 /**
