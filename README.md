@@ -40,6 +40,10 @@ ADCDN广告SDK支持如下广告功能:
 
 ## 3、穿山甲开发者升级 iOS 14 checklist  
 [穿山甲官网说明地址](https://www.pangle.cn/union/media/union/download/detail?id=16&osType=ios)  
+## *注意事项：*
+App Tracking Transparency（ATT）适用于请求用户授权，访问与应用相关的数据以跟踪用户或设备。 访问 https://developer.apple.com/documentation/apptrackingtransparency了解更多信息。
+SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在保持用户隐私的同时衡量广告活动。 使用 Apple 的 SKAdNetwork 后，即使 IDFA 不可用，广告网络也可以正确获得应用安装的归因结果。 访问 https://developer.apple.com/documentation/storekit/skadnetwork 了解更多信息。
+苹果未要求开发者配置之前，开发者请勿配置ATT，当前阶段配置后会影响idfa 的获取，从而影响收益。
 1、应用编译环境升级至 Xcode 12.0 及以上版本  
 2、升级穿山甲 iOS SDK 3.2.5.0 及以上版本，提供了 iOS 14 与 SKAdNetwork 支持  
 3、将穿山甲的 SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行  
