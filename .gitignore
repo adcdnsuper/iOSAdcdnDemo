@@ -26,3 +26,4 @@ Pods/Headers/Private/GDTMobSDK/GDTNativeExpressProAdView.h
 GDTLoadAdParams.h
 GDTAdTestSetting.h
 GDTNativeExpressRewardVideoAd.h
+GDTSplashZoomOutView.h
