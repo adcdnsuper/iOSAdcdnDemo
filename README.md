@@ -101,6 +101,20 @@ iOS9.0及以上，最新版本号：V 8.6.2，已经对接过ADCDN的，如需�
 ## 4. ADCDN接入流程
 ### 4.1 添加ADCDN到工程
 接入环境：Xcode 可以复制YD_AD_demo中ADCDN_SDK文件目录下的ADCDN.framework到项目中。如果也需要集成demo中的营销场景，请把ADCDN.bundle资源文件一并拖入。
+
+（1）自动引入广告依赖库：
+
+     # 优良汇包
+     pod 'GDTMobSDK', '4.11.12'
+     # 穿山甲包，注：穿山甲最新的包改名成Ads-CN,后续版本都在这个包下迭代
+     pod 'Ads-CN','3.4.1.1'
+     
+（2）手动引入广告依赖库，请到官网查看引入方式，添加对应的系统依赖库：
+
+ [穿山甲文档](https://www.pangle.cn/union/media/union/download/detail?id=16&docId=5de8d570b1afac00129330c5&osType=ios) 
+ 
+ [优良汇文档](https://developers.adnet.qq.com/doc/ios/union/union_embed#手动部署)  
+
 ### 4.2 权限申请
 苹果公司在iOS9中升级了应用网络通信安全策略，默认推荐开发者使用HTTPS协议来进行网络通信，并限制HTTP协议的请求。为了避免出现无法拉取到广告的情况，我们推荐开发者在info.plist文件中增加如下配置来实现广告的网络访问：（信任HTTP请求）
 ``` xml
