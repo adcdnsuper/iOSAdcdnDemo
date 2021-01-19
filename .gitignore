@@ -27,3 +27,4 @@ GDTLoadAdParams.h
 GDTAdTestSetting.h
 GDTNativeExpressRewardVideoAd.h
 GDTSplashZoomOutView.h
+GDTServerSideVerificationOptions.h
