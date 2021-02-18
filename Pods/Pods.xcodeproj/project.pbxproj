@@ -6,22 +6,96 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6F2BDBDBBAD8487EF4614E1D729C5DD0 /* GDTMobSDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1B6AEFC3189ED1E6EBD94C30A4CFB889 /* Build configuration list for PBXAggregateTarget "GDTMobSDK" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = GDTMobSDK;
+		};
+		726ABAA3B995C2690CAF752FB08ABF6D /* Ads-CN */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8C4954B664CC2E22F89C7DBBEC7D08F8 /* Build configuration list for PBXAggregateTarget "Ads-CN" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = "Ads-CN";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		467A7B6FD61E4049E9296F27B8594783 /* Pods-adcdndemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6154B6CFCF8956EB438111E06B7BABDA /* Pods-adcdndemo-dummy.m */; };
+		3F3363257A6EE7D891886ADF11F2672E /* Pods-adcdndemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E155CD7AF17B70264983D75A92738A38 /* Pods-adcdndemo-dummy.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		76C45AF1DC7AA55F5DEB9959D69A5305 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 726ABAA3B995C2690CAF752FB08ABF6D;
+			remoteInfo = "Ads-CN";
+		};
+		FEFBAC97B54AEA986E39A682BBFC8632 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F2BDBDBBAD8487EF4614E1D729C5DD0;
+			remoteInfo = GDTMobSDK;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		023317004BD35D073EB19D23C71DD03D /* Pods-adcdndemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-adcdndemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		28A7C4100B487F6E686D9CA0D4C84E5A /* Pods-adcdndemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-adcdndemo.debug.xcconfig"; sourceTree = "<group>"; };
-		397A6C957D4246FF39F2B1C432878272 /* Pods-adcdndemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-adcdndemo.release.xcconfig"; sourceTree = "<group>"; };
-		5E03337F1A82D8AE01A6B877BF71A8AB /* Pods-adcdndemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-adcdndemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6154B6CFCF8956EB438111E06B7BABDA /* Pods-adcdndemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-adcdndemo-dummy.m"; sourceTree = "<group>"; };
+		00821E433A4685C7CC4A146839C6E91D /* GDTRewardVideoAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTRewardVideoAd.h; path = lib/GDTRewardVideoAd.h; sourceTree = "<group>"; };
+		03FAE586FFCDBA6375570AA3ADAD0891 /* Ads-CN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Ads-CN.release.xcconfig"; sourceTree = "<group>"; };
+		0D0002583CA1778E8724574A6FFFA2CC /* GDTMobSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GDTMobSDK.release.xcconfig; sourceTree = "<group>"; };
+		1ED41EEF359141D3049784F6D1203E84 /* GDTMediaView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTMediaView.h; path = lib/GDTMediaView.h; sourceTree = "<group>"; };
+		213FF0184FCB7DF7DB96C41BE13FBAA5 /* GDTUnifiedNativeAdView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTUnifiedNativeAdView.h; path = lib/GDTUnifiedNativeAdView.h; sourceTree = "<group>"; };
+		277ED5C6A3B6DBFCA2E460CB746ABDA4 /* BUAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUAdSDK.framework; path = PangleSDK/BUAdSDK.framework; sourceTree = "<group>"; };
+		2FBA5D8BF479B9CC165C481F11078FFE /* GDTNativeExpressAdView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTNativeExpressAdView.h; path = lib/GDTNativeExpressAdView.h; sourceTree = "<group>"; };
+		339194ABC43E7B81101AB5A8CEBCE218 /* GDTNativeExpressProAdManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTNativeExpressProAdManager.h; path = lib/GDTNativeExpressProAdManager.h; sourceTree = "<group>"; };
+		3C7DC480F78F6FEC791DB08C4DCD935D /* BUCNAuxiliary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUCNAuxiliary.framework; path = PangleSDK/BUCNAuxiliary.framework; sourceTree = "<group>"; };
+		41383B378F95FDBBE315AFD3B3F5037B /* Pods-adcdndemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-adcdndemo.release.xcconfig"; sourceTree = "<group>"; };
+		44FA5C2923C9E08F1FB5B81B3B136DCE /* Ads-CN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Ads-CN.debug.xcconfig"; sourceTree = "<group>"; };
+		471F1381E225EE167F407F42BF0ECA59 /* GDTServerSideVerificationOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTServerSideVerificationOptions.h; path = lib/GDTServerSideVerificationOptions.h; sourceTree = "<group>"; };
+		4BF50EBF12817BE1DA6140871E568ADB /* GDTLoadAdParams.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTLoadAdParams.h; path = lib/GDTLoadAdParams.h; sourceTree = "<group>"; };
+		5D6ECACE1354B39BA386F915AABFC643 /* GDTUnifiedBannerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTUnifiedBannerView.h; path = lib/GDTUnifiedBannerView.h; sourceTree = "<group>"; };
+		617152C6D2B0DA80FA19D440A8D5D74D /* GDTSplashZoomOutView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTSplashZoomOutView.h; path = lib/GDTSplashZoomOutView.h; sourceTree = "<group>"; };
+		66987370FBDA3E3D743475425C99FE8D /* GDTSDKDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTSDKDefines.h; path = lib/GDTSDKDefines.h; sourceTree = "<group>"; };
+		71604CEE53F131EB10C857C28FC1E2D0 /* GDTAdTestSetting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTAdTestSetting.h; path = lib/GDTAdTestSetting.h; sourceTree = "<group>"; };
+		80BA43331154F88860715BB01EBD470C /* GDTAdParams.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTAdParams.h; path = lib/GDTAdParams.h; sourceTree = "<group>"; };
+		8F414C3F14C00A6714E04094CCA04CF5 /* GDTSDKConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTSDKConfig.h; path = lib/GDTSDKConfig.h; sourceTree = "<group>"; };
+		933B556AA110681DECE1099CA7145331 /* GDTUnifiedInterstitialAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTUnifiedInterstitialAd.h; path = lib/GDTUnifiedInterstitialAd.h; sourceTree = "<group>"; };
+		9B64103FA9CEDFAA35EB2F195B8BC519 /* GDTNativeExpressAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTNativeExpressAd.h; path = lib/GDTNativeExpressAd.h; sourceTree = "<group>"; };
+		9D33BFB88E928754EC6D3D56D97C4031 /* Pods-adcdndemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-adcdndemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		9D34DF200C32205BEF69E23EDDBB47ED /* GDTUnifiedNativeAdDataObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTUnifiedNativeAdDataObject.h; path = lib/GDTUnifiedNativeAdDataObject.h; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E58750B839D5E057723880AEE9970A8 /* GDTLogoView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTLogoView.h; path = lib/GDTLogoView.h; sourceTree = "<group>"; };
+		A29918C8B72BCCAD19D02BEF5BF2A9BF /* GDTNativeExpressProAdView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTNativeExpressProAdView.h; path = lib/GDTNativeExpressProAdView.h; sourceTree = "<group>"; };
+		A3F032F9F659D88F9B5EE265CABAC14F /* GDTHybridAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTHybridAd.h; path = lib/GDTHybridAd.h; sourceTree = "<group>"; };
+		AFE77EB1983F136DBA0FCA9FDBCB14C4 /* GDTVideoConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTVideoConfig.h; path = lib/GDTVideoConfig.h; sourceTree = "<group>"; };
+		B24653A513140AF3AE260DF12D89A3D1 /* GDTBaseAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTBaseAdNetworkAdapterProtocol.h; path = lib/GDTBaseAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		B4DE0E4419213F0F2BE4885D41AC3F24 /* GDTUnifiedNativeAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTUnifiedNativeAd.h; path = lib/GDTUnifiedNativeAd.h; sourceTree = "<group>"; };
+		BE06372DCFACDC53D750CBCFD55BE895 /* Pods-adcdndemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-adcdndemo-resources.sh"; sourceTree = "<group>"; };
+		C6C582994188AD1B36417292518191C6 /* BUFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUFoundation.framework; path = PangleSDK/BUFoundation.framework; sourceTree = "<group>"; };
+		C8A33904D754BAFD11249F4AA8FE8596 /* BUAdSDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = BUAdSDK.bundle; path = PangleSDK/BUAdSDK.bundle; sourceTree = "<group>"; };
 		CA5F3C8BB9335270C3B4D7801E8CC38B /* libPods-adcdndemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-adcdndemo.a"; path = "libPods-adcdndemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBB7B453F263F5C7376E7D1D8BD6CA71 /* Pods-adcdndemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-adcdndemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CCC3CD61B979970DE82B5262974959C4 /* Pods-adcdndemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-adcdndemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CFF6EFA4EFEC35F891EA42D3538E5535 /* GDTSplashAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTSplashAd.h; path = lib/GDTSplashAd.h; sourceTree = "<group>"; };
+		D5BF52D4624E12A7BF26616A3207EEBC /* GDTRewardVideoAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTRewardVideoAdNetworkConnectorProtocol.h; path = lib/GDTRewardVideoAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		D9486A07237138E89959FFAC4E0B7FA5 /* GDTRewardVideoAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTRewardVideoAdNetworkAdapterProtocol.h; path = lib/GDTRewardVideoAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		E155CD7AF17B70264983D75A92738A38 /* Pods-adcdndemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-adcdndemo-dummy.m"; sourceTree = "<group>"; };
+		EBAD4521351B8832BE54D366319317AE /* GDTNativeExpressRewardVideoAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTNativeExpressRewardVideoAd.h; path = lib/GDTNativeExpressRewardVideoAd.h; sourceTree = "<group>"; };
+		F04F4BD6634E7ECAD34CE2AA71721993 /* libGDTMobSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGDTMobSDK.a; path = lib/libGDTMobSDK.a; sourceTree = "<group>"; };
+		FD4AAC060944B2B042A0600C1182C51F /* GDTMobSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GDTMobSDK.debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F0F0615A6F107AC6FB3FE16FDB5ABA94 /* Frameworks */ = {
+		D1B603C46944232A901BC111F3C3157F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -31,25 +105,120 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		499C21659C3D1FAEBDB6804423417072 /* Pods-adcdndemo */ = {
+		0AA7C00105FF9E428F3EAC91FC27C444 /* Pods-adcdndemo */ = {
 			isa = PBXGroup;
 			children = (
-				5E03337F1A82D8AE01A6B877BF71A8AB /* Pods-adcdndemo-acknowledgements.markdown */,
-				023317004BD35D073EB19D23C71DD03D /* Pods-adcdndemo-acknowledgements.plist */,
-				6154B6CFCF8956EB438111E06B7BABDA /* Pods-adcdndemo-dummy.m */,
-				28A7C4100B487F6E686D9CA0D4C84E5A /* Pods-adcdndemo.debug.xcconfig */,
-				397A6C957D4246FF39F2B1C432878272 /* Pods-adcdndemo.release.xcconfig */,
+				CBB7B453F263F5C7376E7D1D8BD6CA71 /* Pods-adcdndemo-acknowledgements.markdown */,
+				9D33BFB88E928754EC6D3D56D97C4031 /* Pods-adcdndemo-acknowledgements.plist */,
+				E155CD7AF17B70264983D75A92738A38 /* Pods-adcdndemo-dummy.m */,
+				BE06372DCFACDC53D750CBCFD55BE895 /* Pods-adcdndemo-resources.sh */,
+				CCC3CD61B979970DE82B5262974959C4 /* Pods-adcdndemo.debug.xcconfig */,
+				41383B378F95FDBBE315AFD3B3F5037B /* Pods-adcdndemo.release.xcconfig */,
 			);
 			name = "Pods-adcdndemo";
 			path = "Target Support Files/Pods-adcdndemo";
 			sourceTree = "<group>";
 		};
-		8235F8B6441DBD3F9C149C3623333003 /* Targets Support Files */ = {
+		2BA373F820583F9544EB05BA487A7791 /* GDTMobSDK */ = {
 			isa = PBXGroup;
 			children = (
-				499C21659C3D1FAEBDB6804423417072 /* Pods-adcdndemo */,
+				80BA43331154F88860715BB01EBD470C /* GDTAdParams.h */,
+				71604CEE53F131EB10C857C28FC1E2D0 /* GDTAdTestSetting.h */,
+				B24653A513140AF3AE260DF12D89A3D1 /* GDTBaseAdNetworkAdapterProtocol.h */,
+				A3F032F9F659D88F9B5EE265CABAC14F /* GDTHybridAd.h */,
+				4BF50EBF12817BE1DA6140871E568ADB /* GDTLoadAdParams.h */,
+				9E58750B839D5E057723880AEE9970A8 /* GDTLogoView.h */,
+				1ED41EEF359141D3049784F6D1203E84 /* GDTMediaView.h */,
+				9B64103FA9CEDFAA35EB2F195B8BC519 /* GDTNativeExpressAd.h */,
+				2FBA5D8BF479B9CC165C481F11078FFE /* GDTNativeExpressAdView.h */,
+				339194ABC43E7B81101AB5A8CEBCE218 /* GDTNativeExpressProAdManager.h */,
+				A29918C8B72BCCAD19D02BEF5BF2A9BF /* GDTNativeExpressProAdView.h */,
+				EBAD4521351B8832BE54D366319317AE /* GDTNativeExpressRewardVideoAd.h */,
+				00821E433A4685C7CC4A146839C6E91D /* GDTRewardVideoAd.h */,
+				D9486A07237138E89959FFAC4E0B7FA5 /* GDTRewardVideoAdNetworkAdapterProtocol.h */,
+				D5BF52D4624E12A7BF26616A3207EEBC /* GDTRewardVideoAdNetworkConnectorProtocol.h */,
+				8F414C3F14C00A6714E04094CCA04CF5 /* GDTSDKConfig.h */,
+				66987370FBDA3E3D743475425C99FE8D /* GDTSDKDefines.h */,
+				471F1381E225EE167F407F42BF0ECA59 /* GDTServerSideVerificationOptions.h */,
+				CFF6EFA4EFEC35F891EA42D3538E5535 /* GDTSplashAd.h */,
+				617152C6D2B0DA80FA19D440A8D5D74D /* GDTSplashZoomOutView.h */,
+				5D6ECACE1354B39BA386F915AABFC643 /* GDTUnifiedBannerView.h */,
+				933B556AA110681DECE1099CA7145331 /* GDTUnifiedInterstitialAd.h */,
+				B4DE0E4419213F0F2BE4885D41AC3F24 /* GDTUnifiedNativeAd.h */,
+				9D34DF200C32205BEF69E23EDDBB47ED /* GDTUnifiedNativeAdDataObject.h */,
+				213FF0184FCB7DF7DB96C41BE13FBAA5 /* GDTUnifiedNativeAdView.h */,
+				AFE77EB1983F136DBA0FCA9FDBCB14C4 /* GDTVideoConfig.h */,
+				84F0B25457803FA768D8315987CED981 /* Frameworks */,
 			);
-			name = "Targets Support Files";
+			name = GDTMobSDK;
+			sourceTree = "<group>";
+		};
+		5B564F9FC287B0E71B83F05E1F9CAE2A /* BUAdSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7A640C715F07A3D21BDF097A7196FCC5 /* Frameworks */,
+				F6B161B7E595DD4E2AB93AE87596E702 /* Resources */,
+			);
+			name = BUAdSDK;
+			sourceTree = "<group>";
+		};
+		68592C1162749D7A99231FA0FCC8FA3C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD4AAC060944B2B042A0600C1182C51F /* GDTMobSDK.debug.xcconfig */,
+				0D0002583CA1778E8724574A6FFFA2CC /* GDTMobSDK.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GDTMobSDK";
+			sourceTree = "<group>";
+		};
+		7055ABFC3C9B245357115F355D6F2DE1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF50E2560DCDC1B6BE0344E26AD69C62 /* Ads-CN */,
+				E3FA607B03A9510C77D25ED84AB43981 /* GDTMobSDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		70C24F2AE4E25B159C12119F063481C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C7DC480F78F6FEC791DB08C4DCD935D /* BUCNAuxiliary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79FE8B8A2B4208F400989E1E49707181 /* BUFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA6993C37E62BC2871DA6D142CF87A /* Frameworks */,
+			);
+			name = BUFoundation;
+			sourceTree = "<group>";
+		};
+		7A640C715F07A3D21BDF097A7196FCC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				277ED5C6A3B6DBFCA2E460CB746ABDA4 /* BUAdSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DEC9B9B7EAAF92F0EFEE2AC0F5E4076 /* Domestic */ = {
+			isa = PBXGroup;
+			children = (
+				70C24F2AE4E25B159C12119F063481C2 /* Frameworks */,
+			);
+			name = Domestic;
+			sourceTree = "<group>";
+		};
+		84F0B25457803FA768D8315987CED981 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F04F4BD6634E7ECAD34CE2AA71721993 /* libGDTMobSDK.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A6A4EF432035F9DEA85919F556645BDF /* Products */ = {
@@ -60,14 +229,43 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BF50E2560DCDC1B6BE0344E26AD69C62 /* Ads-CN */ = {
+			isa = PBXGroup;
+			children = (
+				5B564F9FC287B0E71B83F05E1F9CAE2A /* BUAdSDK */,
+				79FE8B8A2B4208F400989E1E49707181 /* BUFoundation */,
+				7DEC9B9B7EAAF92F0EFEE2AC0F5E4076 /* Domestic */,
+				E42689FEEA1BB17AA15E55377552F8A9 /* Support Files */,
+			);
+			name = "Ads-CN";
+			path = "Ads-CN";
+			sourceTree = "<group>";
+		};
+		CEFA6993C37E62BC2871DA6D142CF87A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6C582994188AD1B36417292518191C6 /* BUFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				7055ABFC3C9B245357115F355D6F2DE1 /* Pods */,
 				A6A4EF432035F9DEA85919F556645BDF /* Products */,
-				8235F8B6441DBD3F9C149C3623333003 /* Targets Support Files */,
+				CF3C31A98F3E942F80CEE556F00C85F9 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		CF3C31A98F3E942F80CEE556F00C85F9 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0AA7C00105FF9E428F3EAC91FC27C444 /* Pods-adcdndemo */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
@@ -77,10 +275,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E3FA607B03A9510C77D25ED84AB43981 /* GDTMobSDK */ = {
+			isa = PBXGroup;
+			children = (
+				2BA373F820583F9544EB05BA487A7791 /* GDTMobSDK */,
+				68592C1162749D7A99231FA0FCC8FA3C /* Support Files */,
+			);
+			name = GDTMobSDK;
+			path = GDTMobSDK;
+			sourceTree = "<group>";
+		};
+		E42689FEEA1BB17AA15E55377552F8A9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				44FA5C2923C9E08F1FB5B81B3B136DCE /* Ads-CN.debug.xcconfig */,
+				03FAE586FFCDBA6375570AA3ADAD0891 /* Ads-CN.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Ads-CN";
+			sourceTree = "<group>";
+		};
+		F6B161B7E595DD4E2AB93AE87596E702 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C8A33904D754BAFD11249F4AA8FE8596 /* BUAdSDK.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		84EEBA5B2F5358B51E056288694513C8 /* Headers */ = {
+		06DEAD398128E82DEF85D1DAAB30AC86 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -92,15 +318,17 @@
 /* Begin PBXNativeTarget section */
 		3C7BA66E770B12FA6AA58E449FC75173 /* Pods-adcdndemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D6ADD395B9BBE145FE51BE11B485B4AA /* Build configuration list for PBXNativeTarget "Pods-adcdndemo" */;
+			buildConfigurationList = D8BBA8818156340EC37FBEEEC9265CD6 /* Build configuration list for PBXNativeTarget "Pods-adcdndemo" */;
 			buildPhases = (
-				84EEBA5B2F5358B51E056288694513C8 /* Headers */,
-				E9A4F526230553E3B875B7B4728C6A7F /* Sources */,
-				F0F0615A6F107AC6FB3FE16FDB5ABA94 /* Frameworks */,
+				06DEAD398128E82DEF85D1DAAB30AC86 /* Headers */,
+				19168E29E0851681223A5897B90E43E4 /* Sources */,
+				D1B603C46944232A901BC111F3C3157F /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B8297EF695005D0485DB996F43B78E7 /* PBXTargetDependency */,
+				6197E0E5DD99182CDA53D8B38DDFD211 /* PBXTargetDependency */,
 			);
 			name = "Pods-adcdndemo";
 			productName = "Pods-adcdndemo";
@@ -129,26 +357,43 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				726ABAA3B995C2690CAF752FB08ABF6D /* Ads-CN */,
+				6F2BDBDBBAD8487EF4614E1D729C5DD0 /* GDTMobSDK */,
 				3C7BA66E770B12FA6AA58E449FC75173 /* Pods-adcdndemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E9A4F526230553E3B875B7B4728C6A7F /* Sources */ = {
+		19168E29E0851681223A5897B90E43E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				467A7B6FD61E4049E9296F27B8594783 /* Pods-adcdndemo-dummy.m in Sources */,
+				3F3363257A6EE7D891886ADF11F2672E /* Pods-adcdndemo-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4B8297EF695005D0485DB996F43B78E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Ads-CN";
+			target = 726ABAA3B995C2690CAF752FB08ABF6D /* Ads-CN */;
+			targetProxy = 76C45AF1DC7AA55F5DEB9959D69A5305 /* PBXContainerItemProxy */;
+		};
+		6197E0E5DD99182CDA53D8B38DDFD211 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GDTMobSDK;
+			target = 6F2BDBDBBAD8487EF4614E1D729C5DD0 /* GDTMobSDK */;
+			targetProxy = FEFBAC97B54AEA986E39A682BBFC8632 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		57294AC4C18F7FEE80819E63F6629133 /* Debug */ = {
+		0058C9899CE3D7793148E8F11BD51E87 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A7C4100B487F6E686D9CA0D4C84E5A /* Pods-adcdndemo.debug.xcconfig */;
+			baseConfigurationReference = CCC3CD61B979970DE82B5262974959C4 /* Pods-adcdndemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -163,6 +408,61 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04B589884E7E947DAC5B703A1D20F44B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D0002583CA1778E8724574A6FFFA2CC /* GDTMobSDK.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		350DF48389B15849D25292827C2F3983 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41383B378F95FDBBE315AFD3B3F5037B /* Pods-adcdndemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7D31F8AFDD0EC98EECAB37F073AA6004 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44FA5C2923C9E08F1FB5B81B3B136DCE /* Ads-CN.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -291,31 +591,51 @@
 			};
 			name = Debug;
 		};
-		E4CCDD7612EC6D81339F152746CBB159 /* Release */ = {
+		A1D9302DCFD5D3ADBC7F7977243EFF0D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 397A6C957D4246FF39F2B1C432878272 /* Pods-adcdndemo.release.xcconfig */;
+			baseConfigurationReference = 03FAE586FFCDBA6375570AA3ADAD0891 /* Ads-CN.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
+		C128832C4F3211D27E02F4E45E407683 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4AAC060944B2B042A0600C1182C51F /* GDTMobSDK.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1B6AEFC3189ED1E6EBD94C30A4CFB889 /* Build configuration list for PBXAggregateTarget "GDTMobSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C128832C4F3211D27E02F4E45E407683 /* Debug */,
+				04B589884E7E947DAC5B703A1D20F44B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -325,11 +645,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D6ADD395B9BBE145FE51BE11B485B4AA /* Build configuration list for PBXNativeTarget "Pods-adcdndemo" */ = {
+		8C4954B664CC2E22F89C7DBBEC7D08F8 /* Build configuration list for PBXAggregateTarget "Ads-CN" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				57294AC4C18F7FEE80819E63F6629133 /* Debug */,
-				E4CCDD7612EC6D81339F152746CBB159 /* Release */,
+				7D31F8AFDD0EC98EECAB37F073AA6004 /* Debug */,
+				A1D9302DCFD5D3ADBC7F7977243EFF0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8BBA8818156340EC37FBEEEC9265CD6 /* Build configuration list for PBXNativeTarget "Pods-adcdndemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0058C9899CE3D7793148E8F11BD51E87 /* Debug */,
+				350DF48389B15849D25292827C2F3983 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

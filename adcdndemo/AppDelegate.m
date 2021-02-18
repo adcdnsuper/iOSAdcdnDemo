@@ -22,10 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    // 初始化配置
+    // 初始化配置 
     [ADCDN_ConfigManager shareManagerWithAppId:KappId];
     // ADCDN版本号
-    NSLog(@"ADCDN版本号：%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
+    NSLog(@"ADCDN版本号 ：%@",[[ADCDN_ConfigManager shareManagerWithAppId:KappId] getSDKVersion]);
     // 开发ADCDN错误日志,默认不开启,控制台搜索ADCDN_log可查看错误日志
     [ADCDN_DebugLogTool setLogEnable:YES];
     

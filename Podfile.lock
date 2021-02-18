@@ -1,3 +1,28 @@
-PODFILE CHECKSUM: d4cd2e406922a232feeaa28a00a1c7bc9ad009c0
+PODS:
+  - Ads-CN (3.4.2.3):
+    - Ads-CN/BUAdSDK (= 3.4.2.3)
+  - Ads-CN/BUAdSDK (3.4.2.3):
+    - Ads-CN/BUFoundation
+    - Ads-CN/Domestic
+  - Ads-CN/BUFoundation (3.4.2.3)
+  - Ads-CN/Domestic (3.4.2.3)
+  - GDTMobSDK (4.12.3):
+    - GDTMobSDK/GDTMobSDK (= 4.12.3)
+  - GDTMobSDK/GDTMobSDK (4.12.3)
 
-COCOAPODS: 1.9.1
+DEPENDENCIES:
+  - Ads-CN (= 3.4.2.3)
+  - GDTMobSDK (= 4.12.3)
+
+SPEC REPOS:
+  trunk:
+    - Ads-CN
+    - GDTMobSDK
+
+SPEC CHECKSUMS:
+  Ads-CN: e73f0137d12d841eb2cfcfecbe75c0d3f74d5889
+  GDTMobSDK: 1e245a7a1f3960516fa8f5fb1038a349931dbd90
+
+PODFILE CHECKSUM: 5ba221c1027d0c762b6503e9ebbb652045c6d210
+
+COCOAPODS: 1.9.3
